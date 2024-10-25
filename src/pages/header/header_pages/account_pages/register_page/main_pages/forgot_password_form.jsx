@@ -1,5 +1,4 @@
 import { useState, useContext } from "react";
-import { ToggleRegister } from "../../../../../contextpage";
 import { useFocus } from "../usefocus";
 import RegisterInput from "../register_input";
 import RegisterPassword from "../register_password";
@@ -29,7 +28,7 @@ const ForgotpasswordForm = ({ setText }) => {
       setText("Password not matching");
     } else {
       // setText("Unable to send email to user");
-      setConfirm({ confirmPage: "New password", confirmHead: "New password confirmation OTP", confirmText: `Kindly input the confirmation code sent to ${forgotPasswordValue.email}.` });
+      setConfirm({ confirmPage: "New password", confirmHead: "New password confirmation OTP", confirmText: "change your password" });
     };
   };
 

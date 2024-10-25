@@ -1,4 +1,5 @@
 import { useEffect, useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { ToggleRegister } from "../../../contextpage";
 import PageLinkTemplate from "../pagelinks";
 
@@ -144,7 +145,9 @@ const CheckoutPage = () => {
               <input type="checkbox" id="termsCheckbox" />
               <p id="termsText">I have read and agree to the website terms and conditions *</p>
             </div>
-            <button id="placeOrderBtn">PLACE ORDER</button>
+            <Link to="/pages/payment_page">
+              <button id="placeOrderBtn">PLACE ORDER</button>
+            </Link>
           </div>
         </section>
       </main>

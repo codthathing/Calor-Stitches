@@ -8,6 +8,7 @@ import WishListPage from "./otherpages/innerpages/wishlistpage";
 import CartPage from "./otherpages/innerpages/cartpage";
 import CheckoutPage from "./otherpages/innerpages/checkoutpage";
 import ConfirmPage from "./otherpages/innerpages/confirm_page";
+import PaymentPage from "./otherpages/innerpages/payment_page";
 
 const PageLayout = () => {
 
@@ -22,6 +23,7 @@ const PageLayout = () => {
       <Route path="/shop/cart" element={<CartPage />}></Route>
       <Route path="/shop/checkout" element={<CheckoutPage />}></Route>
       <Route path="/pages/confirmation_page" element={<ConfirmPage />}/>
+      <Route path="/pages/payment_page" element={<PaymentPage />} />
     </Routes>
   );
 }

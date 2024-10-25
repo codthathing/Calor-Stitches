@@ -31,6 +31,8 @@ const ConfirmPage = () => {
   const [code, setCode] = useState(Array(6).fill("")); // Assuming a 6-digit code
   const inputRefs = useRef([]);
 
+  const [ confirmInput, setConfirmInput ] = useState(Array(6).fill(""));
+
   const handleChange = (e, index) => {
     const value = e.target.value.replace(/[^0-9]/g, ''); // Allow only numbers
     const newCode = [...code];
@@ -53,7 +55,7 @@ const ConfirmPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const confirmationCode = code.join("");
-    console.log("Confirmation Code:", confirmationCode); // Do something with the code
+    console.log("Confirmation Code:", typeof(confirmationCode)); // Do something with the code
   };
 
   useEffect(() => {
@@ -75,8 +77,8 @@ const ConfirmPage = () => {
       <PageLinkTemplate pageLinks={pageLinkDetails} />
       <main id="confirm-main">
         <p id="confirm-head">{pageHead}</p>
-        <p id="confitm-text">{pageText}</p>
-        <form onSubmit={handleSubmit} id="confirmation-code-form">
+        <p id="confirm-text">Hey {"John"},<br /> Thank you for choosing <span className="confirm-span">Calor Stiches</span>. Use the following OTP to complete the procedure to {pageText}. OTP is valid for only <span className="confirm-span">5 minutes</span>. Do not share this code with anyone.</p>
+        <form onSubmit={handleSubmit} id="confirm-code-form">
           <div id="confirm-inner-div">
             {code.map((value, index) => (
               <input
@@ -86,11 +88,25 @@ const ConfirmPage = () => {
                 onChange={(e) => handleChange(e, index)}
                 onKeyDown={(e) => handleKeyDown(e, index)}
                 ref={(el) => (inputRefs.current[index] = el)}
-                className="confirmation-code-input"
+                className="confirm-code-input"
                 maxLength={1} // Limit input to one character
               />
             ))}
           </div>
+          {/* <div id="confirm-inner-div">
+            {confirmInput.map((value, index) => (
+              <input
+                key={index}
+                type="text"
+                value={value}
+                onChange={(e) => handleChange(e, index)}
+                onKeyDown={(e) => handleKeyDown(e, index)}
+                ref={(el) => (inputRefs.current[index] = el)}
+                className="confirm-code-input"
+                maxLength={1} // Limit input to one character
+              />
+            ))}
+          </div> */}
           <button type="submit" id="confirm-button">Confirm</button>
         </form>
       </main>

@@ -188,6 +188,11 @@
   border: none;
 }
 
+.confirm-code-input::-webkit-inner-spin-button, .confirm-code-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 #confirm-button {
   background-color: var(--222222);
   color: #FFFFFF;

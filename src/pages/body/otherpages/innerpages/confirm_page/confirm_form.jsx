@@ -1,0 +1,54 @@
+import { useState, useRef, useEffect } from "react";
+
+const ConfirmForm = () => {
+  const [confirmInput, setConfirmInput] = useState(Array(6).fill("")); 
+  const confirmRefs = useRef([]);
+
+  const HandleConfirmInput = (e, index) => {
+    const value = e.target.value;
+    const newConfirmInput = [...confirmInput];
+    newConfirmInput[index] = value;
+    setConfirmInput(newConfirmInput);
+
+    if (value && index < confirmInput.length - 1) {
+      confirmRefs.current[index + 1].focus();
+    }
+  };
+
+  const HandleKeyDown = (e, index) => {
+    if (e.key === 'Backspace' && !confirmInput[index] && index > 0) {
+      confirmRefs.current[index - 1].focus();
+    }
+  };
+
+  const HandleConfirmInputSubmit = (e) => {
+    e.preventDefault();
+    const confirmCode = Number(confirmInput.join(""));
+  };
+
+  useEffect(() => {
+    confirmRefs.current[0].focus();
+  }, []);
+
+  return (
+    <form onSubmit={HandleConfirmInputSubmit} id="confirm-code-form">
+      <div id="confirm-inner-div">
+        {confirmInput.map((value, index) => (
+          <input
+            key={index}
+            type="number"
+            value={value}
+            onChange={(e) => HandleConfirmInput(e, index)}
+            onKeyDown={(e) => HandleKeyDown(e, index)}
+            ref={(el) => (confirmRefs.current[index] = el)}
+            className="confirm-code-input"
+            maxLength={1}
+          />
+        ))}
+      </div>
+      <button type="submit" id="confirm-button">Confirm</button>
+    </form>
+  );
+};
+
+export default ConfirmForm;

@@ -3,9 +3,11 @@ import { useFocus } from "../usefocus";
 import RegisterInput from "../register_input";
 import RegisterPassword from "../register_password";
 import RegisterButton from "../register_button";
+import { useConfirm } from "../register_confirm";
 
 const CreateAccountForm = ({ setText }) => {
   const { inputFocus } = useFocus();
+  const { setConfirm } = useConfirm();
 
   const [createAccountValue, setCreateAccountValue] = useState({ username: "", email: "", password: "" });
   const ChangeCreateAccountValue = (e) => {
@@ -24,6 +26,7 @@ const CreateAccountForm = ({ setText }) => {
       setText("Enter password");
     } else {
       setText("Unable to send email to user");
+      // setConfirm({ confirmPage: "Create account", confirmHead: "Create account confirmation OTP", confirmText: "create an account" });
     };
   };
 

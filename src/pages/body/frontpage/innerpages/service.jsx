@@ -13,7 +13,7 @@ const ServiceTemplate = () => {
   ]
 
   return (
-    <>
+    <section id="serviceSection">
       {services.map(({ id, serviceIcon, serviceHead, serviceParagraph }) => {
         return (
           <div key={id} className="serviceDiv">
@@ -23,7 +23,7 @@ const ServiceTemplate = () => {
           </div>
         );
       })}
-    </>
+    </section>
   );
 }
 

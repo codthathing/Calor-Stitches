@@ -27,20 +27,14 @@ const Search = () => {
             type="text"
             id="searchInput"
             placeholder="What are you looking for?" />
-          <div id="searchIconDiv">
-            <i className="fa-solid fa-magnifying-glass" id="searchIcon" type="submit"></i>
-          </div>
+          <i className="fa-solid fa-magnifying-glass" id="searchIcon" type="submit"></i>
         </form>
         <div id="searchProductDiv">
           {searchItems.length > 0 ?
-            <>
+            <section id="searchProductSection">
               <h1 className="navHeadText" id="searchHead">Popular Product</h1>
-              <section id="searchProductSection">
-                {searchItems.map((details) => {
-                  return <ProductTemplate key={details.id} {...details}></ProductTemplate>
-                })}
-              </section>
-            </> :
+              <ProductTemplate productArray={searchItems} />
+            </section> :
             <p id="absentText">`{searchInput}` is not available.</p>
           }
         </div>

@@ -6,8 +6,8 @@ import PageLinkTemplate from "../pagelinks";
 
 const ProductDisplay = () => {
   const { latestItems, setToggleSideMenu, products } = useContext(ToggleRegister);
-  const {presentScroll: addScroll} = useScroll("auto", "hidden");
-  const {presentScroll: removeScroll} = useScroll("hidden", "auto");
+  const { presentScroll: addScroll } = useScroll("auto", "hidden");
+  const { presentScroll: removeScroll } = useScroll("hidden", "auto");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -74,11 +74,7 @@ const ProductDisplay = () => {
             </div>}
           </div>
         </div>
-        <section className="productFilterSection">
-          {products.slice(mapProducts, mapProducts + shownProducts).map((products) => {
-            return <ProductTemplate key={products.id} {...products}></ProductTemplate>
-          })}
-        </section>
+        <ProductTemplate productArray={products.slice(mapProducts, mapProducts + shownProducts)} />
         <div className="productNavigationDiv">
           {pageNumbers.map((pages) => {
             return <p key={pages} className="productNavigationText" onClick={() => setMapProducts(shownProducts * pages)}>{pages + 1}</p>

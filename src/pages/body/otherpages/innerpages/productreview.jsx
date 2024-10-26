@@ -152,11 +152,11 @@ const ProductReview = () => {
 
       <div id="productRelatedDiv">
         <p id="productRelatedText">Related products</p>
-        <main id="productRelatedMain">
-          {products.map((products) => {
-            return <ProductTemplate key={products.id} {...products}></ProductTemplate>
-          })}
-        </main>
+        {/* <main id="productRelatedMain"> */}
+          {/* {products.map((products) => { */}
+            <ProductTemplate productArray={products} />
+          {/* })} */}
+        {/* </main> */}
       </div>
     </div >
   );

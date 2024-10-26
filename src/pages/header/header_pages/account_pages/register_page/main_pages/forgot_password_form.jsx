@@ -27,8 +27,8 @@ const ForgotpasswordForm = ({ setText }) => {
     } else if (forgotPasswordValue.new_password !== forgotPasswordValue.confirm_password) {
       setText("Password not matching");
     } else {
-      // setText("Unable to send email to user");
-      setConfirm({ confirmPage: "New password", confirmHead: "New password confirmation OTP", confirmText: "change your password" });
+      setText("Unable to send email to user");
+      // setConfirm({ confirmPage: "New password", confirmHead: "New password confirmation OTP", confirmText: "change your password" });
     };
   };
 

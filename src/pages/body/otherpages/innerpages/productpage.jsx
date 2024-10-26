@@ -49,11 +49,7 @@ const ProductPage = () => {
             </div>}
           </div>
         </div>
-        <section className="productFilterSection">
-          {products.slice(mapProducts, mapProducts + shownProducts).map((products) => {
-            return <ProductTemplate key={products.id} {...products}></ProductTemplate>
-          })}
-        </section>
+        <ProductTemplate productArray={products.slice(mapProducts, mapProducts + shownProducts)} />
         <div className="productNavigationDiv">
           {pageNumbers.map((pages) => {
             return <p key={pages} className="productNavigationText" onClick={() => setMapProducts(shownProducts * pages)}>{pages + 1}</p>

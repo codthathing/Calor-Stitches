@@ -11,7 +11,7 @@ const CollectionTemplate = () => {
   ]
 
   return (
-    <>
+    <section id="collectionSection">
       {collections.map(({ id, collectionImage, collectionName }) => {
         return (
           <div key={id} style={{ backgroundImage: `url(${collectionImage})`, backgroundPosition: 'center', backgroundSize: 'cover' }} className="mainCollection">
@@ -22,7 +22,7 @@ const CollectionTemplate = () => {
           </div>
         );
       })}
-    </>
+    </section>
   );
 }
 

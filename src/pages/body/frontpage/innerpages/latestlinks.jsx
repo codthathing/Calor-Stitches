@@ -18,16 +18,18 @@ const LatestLinks = () => {
       if (link.latestText === latestText) {
         return { ...link, borderBool: true };
       } else {
-        return {...link, borderBool: false};
+        return { ...link, borderBool: false };
       }
     })
     setChangeLatestObject(updatedLatestObject);
   };
 
   return (
-    changeLatestObject.map(({ id, latestText, textColor, latestArray, borderBool, borderStyle }) => {
-      return <li key={id} className="latestItem" style={{ borderBottom: borderBool ? borderStyle : "", color: textColor ? textColor : "#222222" }} onMouseEnter={() => ChangeLatestItem(latestArray, latestText)}>{latestText}</li>
-    })
+    <ul id="navLatest">
+      {changeLatestObject.map(({ id, latestText, textColor, latestArray, borderBool, borderStyle }) => {
+        return <li key={id} className="latestItem" style={{ borderBottom: borderBool ? borderStyle : "", color: textColor ? textColor : "#222222" }} onMouseEnter={() => ChangeLatestItem(latestArray, latestText)}>{latestText}</li>
+      })}
+    </ul>
   );
 }
 

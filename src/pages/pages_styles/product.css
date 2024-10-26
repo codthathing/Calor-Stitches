@@ -719,11 +719,6 @@
     font-size: var(--16px);
   }
 
-  #productRelatedMain {
-    display: grid;
-    grid-gap: 0 3.5rem;
-  }
-
   #productViewBack {
     padding: 1rem;
   }
@@ -1246,10 +1241,6 @@
     font-size: var(--32px);
   }
 
-  #productRelatedMain {
-    grid-template-columns: 1fr 1fr;
-  }
-
   #productViewMain {
     width: 57.5%;
     height: 90vh;
@@ -1390,10 +1381,6 @@
   #productRelatedText {
     font-size: var(--24px);
     margin: 5rem 0 3rem 0;
-  }
-
-  #productRelatedMain {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
   #productViewMain {

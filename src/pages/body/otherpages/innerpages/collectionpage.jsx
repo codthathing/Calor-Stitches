@@ -41,7 +41,7 @@ const CollectionPage = () => {
     <div className="otherPages">
       <PageLinkTemplate pageLinks={pageLinkDetails} />
       <main className="productMains">
-      <div className="productShownDiv">
+        <div className="productShownDiv">
           <p className="productShownText">Showing {mapProducts + 1} - {mapProducts + shownProducts} of {collection.length} products</p>
           <div className="productFilterDiv">
             <div id="productSortTextIconDiv" className="productTexIcontDiv" onClick={() => setShowFilterDiv(!showFilterDiv)}>
@@ -57,11 +57,7 @@ const CollectionPage = () => {
             </div>}
           </div>
         </div>
-        <section className="productFilterSection">
-          {collection.map((products) => {
-            return <ProductTemplate key={products.id} {...products}></ProductTemplate>
-          })}
-        </section>
+        <ProductTemplate productArray={collection} />
         <div className="productNavigationDiv">
           {pageNumbers.map((pages) => {
             return <p key={pages} className="productNavigationText" onClick={() => setMapProducts(shownProducts * pages)}>{pages + 1}</p>

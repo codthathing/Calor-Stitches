@@ -11,7 +11,7 @@ const ConfirmPage = () => {
   const [pageLink, pageHead, pageText] = [searchParams.get("link"), searchParams.get("head"), searchParams.get("text")];
 
   useEffect(() => {
-    if (pageLink === "New password") {
+    if (pageLink === "New password" || pageLink === "Create account") {
       setAccount(false);
       setPresentRegister("LOGIN");
     }

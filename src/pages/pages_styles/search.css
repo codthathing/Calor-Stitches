@@ -38,10 +38,10 @@
 }
 
 #searchForm {
-  display: grid;
-  grid-template-columns: 85% 15%;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  border: 1px solid black;
+  border: 1px solid var(--222222);
 }
 
 #searchInput {
@@ -49,11 +49,8 @@
   font-family: var(--Yantramanav);
   outline: none;
   border: none;
-}
-
-#searchIconDiv {
-  border: none;
-  text-align: center;
+  width: 100%;
+  box-shadow: 0 0 0px 1000px white inset;
 }
 
 #searchIcon {
@@ -90,8 +87,14 @@
     --24px: 1.5rem;
   }
 
+  #searchForm {
+    padding: 0.25rem 1.25rem;
+    gap: 0 1.25rem;
+  }
+
   #searchInput {
     font-size: var(--16px);
+    padding: 1rem 0;
   }
 
   #searchIcon {
@@ -100,8 +103,6 @@
 
   #searchProductSection {
     padding: 0 5rem 5rem 5rem;
-    display: grid;
-    gap: 1rem 3rem;
   }
 
   #absentText {
@@ -138,11 +139,13 @@
 
   #searchForm {
     margin: 0 1.5rem;
-    padding: 1.5rem 0 1.5rem 1.5rem;
+    padding: 0.25rem 1rem;
+    gap: 0 1rem;
   }
 
   #searchInput {
     font-size: var(--12px);
+    padding: 0.75rem 0;
   }
 
   #searchIcon {
@@ -198,7 +201,6 @@
 
   #searchForm {
     margin: 0 6.5rem;
-    padding: 2rem 0 2rem 2rem;
   }
 
   #searchProductDiv {
@@ -211,10 +213,6 @@
 
   #searchHead {
     margin-bottom: 3.5rem;
-  }
-
-  #searchProductSection {
-    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -247,7 +245,6 @@
   #searchForm {
     width: 50%;
     margin: 0 auto;
-    padding: 1.5rem 0 1.5rem 1.5rem;
   }
 
   #searchProductDiv {
@@ -260,9 +257,5 @@
 
   #searchHead {
     margin-bottom: 2.5rem;
-  }
-
-  #searchProductSection {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }

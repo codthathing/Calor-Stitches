@@ -1,7 +1,7 @@
 import Header from "./header/header";
 import PageLayout from "./body/pagelayout";
 import NewsSection from "./news_section/news_section";
-// import Footer from "./footer/footer.jsx";
+import Footer from "./footer/footer";
 
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
       <Header />
       <PageLayout />
       <NewsSection />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

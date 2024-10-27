@@ -313,7 +313,6 @@
 .viewButton {
     background: transparent;
     border: var(--border_size) solid var(--222222);
-    width: fit-content;
     outline: none;
     cursor: pointer;
 }
@@ -490,7 +489,7 @@
 }
 
 #subscribeForm {
-    border: 1px solid black;
+    border: 1px solid var(--222222);
     display: grid;
     justify-content: space-between;
 }
@@ -500,7 +499,6 @@
     color: var(--222222);
     font-family: var(--Yantramanav);
     outline: none;
-    padding: 1.5rem;
 }
 
 #subscribeButton {
@@ -700,6 +698,7 @@
     }
 
     #shopBtn {
+        padding: 1.25rem 2rem;
         font-size: var(--15px);
     }
 
@@ -725,6 +724,10 @@
 
     .productPrice {
         font-size: var(--17px);
+    }
+
+    .viewButton {
+        padding: 1.25em 2rem;
     }
 
     #collectionSection {
@@ -792,10 +795,12 @@
     }
 
     #subscribeInput {
+        padding: 1.25rem;
         font-size: var(--15px);
     }
 
     #subscribeButton {
+        padding: 1.25rem 0;
         font-size: var(--15px);
     }
 
@@ -944,7 +949,7 @@
 
     #shopBtn {
         font-size: var(--12px);
-        padding: 1.25rem 1.5rem;
+        padding: 1rem 1.5rem;
         margin-bottom: 1.75rem;
     }
 
@@ -1025,7 +1030,7 @@
     }
 
     .viewButton {
-        padding: 1.25rem 1.5rem;
+        padding: 1rem 1.5rem;
         margin-top: 1rem;
     }
 
@@ -1148,10 +1153,12 @@
     }
 
     #subscribeInput {
+        padding: 1rem;
         font-size: var(--12px);
     }
 
     #subscribeButton {
+        padding: 1rem 0;
         font-size: var(--12px);
     }
 
@@ -1276,7 +1283,6 @@
     }
 
     #shopBtn {
-        padding: 2rem 3.75rem;
         margin-bottom: 4.5rem;
     }
 
@@ -1351,7 +1357,6 @@
     }
 
     .viewButton {
-        padding: 2rem 3.5rem;
         margin-top: 1.25rem;
     }
 
@@ -1546,7 +1551,6 @@
     }
 
     #shopBtn {
-        padding: 1.75rem 3.75rem;
         margin-bottom: 5rem;
     }
 
@@ -1627,7 +1631,6 @@
     }
 
     .viewButton {
-        padding: 1.75rem 3.5rem;
         margin-top: 1rem;
     }
 

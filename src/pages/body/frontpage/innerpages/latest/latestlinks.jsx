@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { ToggleRegister } from "../../../contextpage";
+import { ToggleRegister } from "../../../../contextpage";
 
 const LatestLinks = () => {
   const { hotItems, newArrivals, onSales, setLatestItems } = useContext(ToggleRegister);

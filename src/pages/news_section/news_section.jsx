@@ -1,5 +1,5 @@
 import ContactTemplate from "./contact";
-import SubscribeForm from "./SubscribeForm";
+import SubscribeForm from "./subscribe_form";
 import Handle from "./handle";
 
 const NewsSection = () => {

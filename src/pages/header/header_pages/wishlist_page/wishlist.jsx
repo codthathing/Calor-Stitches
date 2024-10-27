@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { ToggleRegister } from "../../../contextpage";
-import WishlistTemplate from "./wishlisttemplate";
 import { useScroll } from "../../usescroll";
+import { ToggleRegister } from "../../../contextpage";
+import WishlistInfoText from "./wishlist_info_text";
+import WishlistSection from "./wishlist_section";
 
 const WishList = () => {
-  const { setWishList, wishlistItems, state } = useContext(ToggleRegister);
+  const { setWishList, wishlistItems } = useContext(ToggleRegister);
   const { presentScroll: addScroll } = useScroll("auto", "hidden");
   const { presentScroll: removeScroll } = useScroll("hidden", "auto");
 
@@ -17,17 +18,9 @@ const WishList = () => {
             <p id="wishListText">Wishlist ({wishlistItems.length})</p>
             <span ref={removeScroll} id="wishListCancel" onClick={() => setWishList(false)}><i id="wishListCanIcon" className="fa-solid fa-xmark"></i></span>
           </div>
-          {state.showText &&
-            <p id="wishlistInfoText" style={{ backgroundColor: state.textBackground }}>
-              {state.defaultText}
-            </p>
-          }
+          <WishlistInfoText />
         </header>
-        <section id="wishListItemSection">
-          {wishlistItems.length > 0 ? wishlistItems.map((details) => {
-            return <WishlistTemplate key={details.id} {...details}></WishlistTemplate>
-          }) : <p id="wishListDefaultText" className="defaultText">There are no products on the Wishlist!</p>}
-        </section>
+        <WishlistSection />
         <div className="wishListContainers wishlistInnerContainers" id="wishListLinkDiv">
           <Link to="/shop/wishlist" className="wishListLinks">OPEN WISHLIST PAGE</Link>
           <a href="#productSection" className="wishListLinks" onClick={() => setWishList(false)}>CONTINUE SHOPPING</a>

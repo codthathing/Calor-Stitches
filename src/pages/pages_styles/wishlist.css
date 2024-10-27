@@ -271,12 +271,12 @@
   }
 
   .wishListAvailMain {
-    margin: 0 1rem 2rem 0;
+    margin: 0 1rem 1rem 0;
   }
 
   .wishListAvailBar {
     padding: 0.20rem;
-    margin: 1rem 0 2rem 0;
+    margin: 0.5rem 0 1rem 0;
   }
 
   .defaultText {
@@ -381,8 +381,8 @@
   }
 
   .wishListImage {
-    height: 6rem;
-    width: 4rem;
+    height: 4rem;
+    width: 3rem;
   }
 
   .wishListTexts {
@@ -390,12 +390,12 @@
   }
 
   .wishListAvailMain {
-    margin: 0 1rem 1.5rem 0;
+    margin: 0 1rem 0.5rem 0;
   }
 
   .wishListAvailBar {
     padding: 0.15rem;
-    margin: 0.75rem 0 1.5rem 0;
+    margin: 0.25rem 0 0.5rem 0;
   }
 
   .defaultText {
@@ -505,6 +505,7 @@
   }
 
   .wishListImage {
+    height: 7rem;
     width: 6rem;
   }
 
@@ -562,6 +563,7 @@
   }
 
   .wishListImage {
+    height: 7rem;
     width: 6.5rem;
   }
 

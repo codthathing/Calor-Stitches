@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ToggleRegister } from "../../contextpage";
 import AccountLayout from "../header_pages/account_pages/account_layout";
-import Search from "../header_pages/search";
+import Search from "../header_pages/search/search";
 import WishList from "../header_pages/wishlist_page/wishlist";
 import Cart from "../header_pages/cart_page/cart"
 

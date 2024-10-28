@@ -4,7 +4,7 @@ import america_flag from "../../../../asset/images-icons/currencyFlags/america-f
 import { ToggleRegister } from "../../../contextpage";
 import { ChangeProductDollar, ChangeProductNaira } from "./conversion";
 
-const CurLangTemplate = () => {
+const CurLangTemplate = ({className}) => {
   const [currency, setCurrency] = useState(false);
   const [curDetails, setCurDetails] = useState({ preNation: "Nigeria (Naira ₦)", preCur: "(Naira ₦)", curFlag: america_flag, curName: "USD $" });
   const { products, setProducts, setCurSymbol, hotItems, setHotItems, newArrivals, setNewArrivals, onSales, setOnSales, latestItems, setLatestItems, wishlistItems, setWishlistItems, cartItems, setCartItems } = useContext(ToggleRegister);
@@ -43,7 +43,7 @@ const CurLangTemplate = () => {
           <i className="fa-solid fa-chevron-down curLangIcon"></i>
         </main>
         {currency &&
-          <div onMouseEnter={() => setCurrency(true)} onMouseLeave={() => setCurrency(false)} onClick={ChangeCurrency} id="displayCurrency">
+          <div onMouseEnter={() => setCurrency(true)} onMouseLeave={() => setCurrency(false)} onClick={ChangeCurrency} className={`display-currency ${className}`}>
             <img src={curDetails.curFlag} alt={curDetails.curName} id="curFlag" />
             <p id="curText">{curDetails.curName}</p>
           </div>

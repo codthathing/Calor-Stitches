@@ -153,6 +153,7 @@
 .productToCartInnerDiv:nth-child(2),
 .productToCartInnerDiv:nth-child(3) {
   border-left: 1px solid var(--616161);
+  cursor: pointer;
 }
 
 .productToCartInnerDiv:nth-child(2) {

@@ -17,8 +17,7 @@ const Footer = () => {
       </section>
       <section id="lastPage">
         <div id="curencyLangDiv">
-          <p id="currencyLangInerText">United States (USD $)</p>
-          <CurLangTemplate></CurLangTemplate>
+          <CurLangTemplate className={"display-currency-bottom"} />
         </div>
         <p id="copyText">©2024 Pheezy, All Rights Reserved. With Love by CalorStiches</p>
       </section>

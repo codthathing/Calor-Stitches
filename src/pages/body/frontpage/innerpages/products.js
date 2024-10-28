@@ -26,7 +26,7 @@ export const productDetails = [
     productAvailable: "50% OFF",
     productAvailableColor: "#FF421D",
     cutOff: 50,
-    productDetails: {cartSize: "L" },
+    productDetails: { cartSize: "L" },
     cartAmt: 1,
     wishlistDate: "May 31, 2024",
     wishlistStock: "In stock, ready to be shippped"
@@ -103,7 +103,7 @@ export const productDetails = [
     productPrice: 85,
     productAvailable: "HOT",
     productAvailableColor: "#FF421D",
-    productDetails: {cartColor: "Moon black", cartSize: "L" },
+    productDetails: { cartColor: "Moon black", cartSize: "L" },
     cartAmt: 1,
     wishlistDate: "December 29, 2024",
     wishlistStock: "In stock, ready to be shippped"

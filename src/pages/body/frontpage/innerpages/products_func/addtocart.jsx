@@ -1,8 +1,8 @@
 import { useContext, useReducer } from "react";
 import { ToggleRegister } from "../../../../contextpage";
 
-const AddToCart = ({ id }) => {
-  const { products, cartItems } = useContext(ToggleRegister);
+const AddToCart = ({ id, buttonClass, itemsArray }) => {
+  const { cartItems } = useContext(ToggleRegister);
   const changeText = (state, action) => {
     if (action.display === "ADD") {
       return "ITEM ADDED";
@@ -16,7 +16,7 @@ const AddToCart = ({ id }) => {
   const [state, dispatch] = useReducer(changeText, cartText);
 
   const AddToCartFunc = (id) => {
-    const selectedItem = products.find((item) => item.id === id);
+    const selectedItem = itemsArray.find((item) => item.id === id);
     const { productImage, productName, productPrice, averagePrice, productDetails, cartAmt } = selectedItem;
     if (cartItems.some(item => item.productName === selectedItem.productName)) {
       let increseItem = cartItems.find((items) => items.productName === selectedItem.productName);
@@ -36,7 +36,7 @@ const AddToCart = ({ id }) => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }
 
-  return (<p className="paragraphStyles selectOption" onClick={() => AddToCartFunc(id)}>{state}</p>);
+  return (<p className={buttonClass} onClick={() => AddToCartFunc(id)}>{state}</p>);
 };
 
 export default AddToCart;

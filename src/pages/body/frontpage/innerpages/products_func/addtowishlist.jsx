@@ -9,12 +9,12 @@ const AddToWishList = ({ id, showText, showIcon }) => {
 
   const AddToWishListFunc = (id) => {
     const selectedItem = products.find((item) => item.id === id);
-    const { productImage, productName, productPrice, priceOne, priceTwo, averagePrice, wishlistDate, wishlistStock } = selectedItem;
+    const { productImage, productName, cutOff, productPrice, priceOne, priceTwo, averagePrice, cartAmt, wishlistDate, wishlistStock } = selectedItem;
     if (!wishlistItems.some(item => item.productName === selectedItem.productName)) {
       if (selectedItem.priceOne && selectedItem.priceTwo && selectedItem.averagePrice) {
-        wishlistItems.push({ id: wishlistItems.length, productImage, productName, priceOne, priceTwo, averagePrice, wishlistDate, wishlistStock });
+        wishlistItems.push({ id: wishlistItems.length, productImage, productName, priceOne, priceTwo, averagePrice, cartAmt, wishlistDate, wishlistStock });
       } else {
-        wishlistItems.push({ id: wishlistItems.length, productImage, productName, productPrice, wishlistDate, wishlistStock });
+        wishlistItems.push({ id: wishlistItems.length, cutOff, productImage, productName, productPrice, cartAmt, wishlistDate, wishlistStock });
       };
       localStorage.setItem("wishlistItems", JSON.stringify(wishlistItems));
       dispatch({ display: "ADD" });

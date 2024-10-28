@@ -96,13 +96,14 @@
   background-color: green;
 }
 
-.defaultText {
+.wishListCartButton {
   font-family: var(--Yantramanav);
   color: var(--222222);
 }
 
-#wishListDefaultText {
-  text-align: center;
+.defaultText {
+  font-family: var(--Yantramanav);
+  color: var(--222222);
 }
 
 #wishListLinkDiv {
@@ -279,6 +280,10 @@
     margin: 0.5rem 0 1rem 0;
   }
 
+  .wishListCartButton {
+    font-size: var(--16px);
+  }
+
   .defaultText {
     font-size: var(--16px);
   }
@@ -314,7 +319,7 @@
 
   .wishlistToCartBtn {
     font-size: var(--16px);
-    padding: 1.25rem 2.5rem;
+    padding: 1rem 1.75rem;
   }
 
   #wishlistHandleShare {
@@ -396,6 +401,10 @@
   .wishListAvailBar {
     padding: 0.15rem;
     margin: 0.25rem 0 0.5rem 0;
+  }
+
+  .wishListCartButton {
+    font-size: var(--12px);
   }
 
   .defaultText {

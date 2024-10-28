@@ -55,7 +55,7 @@
     font-family: var(--Yantramanav);
 }
 
-#displayCurrency {
+.display-currency {
     background-color: white;
     position: absolute;
     top: 100%;
@@ -297,7 +297,6 @@
 .priceDiv {
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 .originalPrice {
@@ -395,10 +394,13 @@
 
 #videoDiv {
     position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: black;
 }
 
 #videoMain {
-    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -660,8 +662,17 @@
         font-size: var(--16px);
     }
 
-    #displayCurrency {
+    .display-currency {
+        padding: 1rem 1.75rem;
+        gap: 0 0.75rem;
+    }
+
+    .display-currency-top {
         right: 0;
+    }
+    
+    .display-currency-bottom {
+        left: 0;
     }
 
     #logo {
@@ -877,8 +888,8 @@
         font-size: var(--10px);
     }
 
-    #displayCurrency {
-        padding: 1rem 2.5rem 1rem 1rem;
+    .display-currency {
+        padding: 0.75rem 1.25rem;
         gap: 0 0.5rem;
         left: 0;
     }
@@ -1243,11 +1254,6 @@
         display: none !important;
     }
 
-    #displayCurrency {
-        padding: 1.5rem 3.5rem 1.5rem 1.5rem;
-        gap: 0 0.75rem;
-    }
-
     #curFlag {
         width: 4rem;
         height: 2rem;
@@ -1465,7 +1471,7 @@
     }
 
     #lastPage {
-        padding: 4rem 1.5rem;
+        padding: 3rem 1.5rem 7.5rem 1.5rem;
     }
 
     #curencyLangDiv {
@@ -1504,11 +1510,6 @@
     #curLangInerText {
         font-size: var(--13px);
         cursor: pointer;
-    }
-
-    #displayCurrency {
-        padding: 1.75rem 4rem 1.75rem 1.75rem;
-        gap: 0 1rem;
     }
 
     #curFlag {
@@ -1774,9 +1775,9 @@
     }
 
     #lastPage {
-        padding: 3.5rem 2rem;
+        padding: 3.5rem 2rem 6rem 2rem;
     }
-
+    
     #curencyLangDiv {
         gap: 0 1.5rem;
     }

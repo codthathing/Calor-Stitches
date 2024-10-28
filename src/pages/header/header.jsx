@@ -13,7 +13,7 @@ const Header = () => {
     <header id="header" className={header ? "scrollTop" : ""}>
       <div id="curLangHead">
         <p id="curLangOuterText">Delivery time 2-3 working days</p>
-        <CurLangTemplate />
+        <CurLangTemplate className={"display-currency-top"} />
       </div>
       <nav id="headerNav">
         {toggleSideMenu && <Sidemenu />}

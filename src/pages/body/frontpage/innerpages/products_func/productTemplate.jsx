@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { ToggleRegister } from "../../../../contextpage";
+import ProductPrice from "./product_price";
 import AddToWishList from "./addtowishlist";
 import AddToCart from "./addtocart";
 
 const ProductTemplate = ({ productArray }) => {
-  const { curSymbol } = useContext(ToggleRegister);
+  const { products } = useContext(ToggleRegister);
   const [showViewText, setShowViewText] = useState(false);
 
   return (
@@ -23,30 +24,17 @@ const ProductTemplate = ({ productArray }) => {
                 </section>
               </Link>
               <div className="optionBtnsDiv">
-                <div className="optionDiv optionDivWishlist">
-                  <AddToWishList id={id} showText={false} showIcon={true}></AddToWishList>
-                </div>
-                <AddToCart id={id}></AddToCart>
+                <div className="optionDiv optionDivWishlist"><AddToWishList id={id} showText={false} showIcon={true}></AddToWishList></div>
+                <AddToCart id={id} buttonClass={"paragraphStyles selectOption"} itemsArray={products}></AddToCart>
                 <div className="optionDiv">
-                  <Link to={`/${productName}`}>
-                    <i className="fa-regular fa-eye optionIcon"
-                      onMouseEnter={() => setShowViewText(true)}
-                      onMouseLeave={() => setShowViewText(false)}
-                      onClick={() => setShowViewText(false)}></i>
-                  </Link>
+                  <Link to={`/${productName}`}><i className="fa-regular fa-eye optionIcon" onMouseEnter={() => setShowViewText(true)} onMouseLeave={() => setShowViewText(false)} onClick={() => setShowViewText(false)}></i></Link>
                   {showViewText && <div className="optionText viewOptionText">Quick View</div>}
                 </div>
               </div>
             </div>
-
             <section className="productNamePrice">
               <p className="productName">{productName}</p>
-              <div className="priceDiv">
-                {cutOff && <span className="productPrice originalPrice">{curSymbol}{((100 / cutOff) * productPrice).toFixed(2)}</span>}
-                <span className="productPrice" style={{ color: cutOff ? "#FF0000" : "#222222" }}>
-                  {averagePrice ? `${curSymbol}${priceOne.toFixed(2)} - ${curSymbol}${priceTwo.toFixed(2)}` : `${curSymbol}${productPrice.toFixed(2)}`}
-                </span>
-              </div>
+              <ProductPrice priceDivClass={"center"} productPriceClass={"#FF0000"} priceClass={"productPrice"} cutOff={cutOff} productPrice={productPrice} averagePrice={averagePrice} priceOne={priceOne} priceTwo={priceTwo} />
             </section>
           </div>
         );

@@ -1,26 +1,19 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ToggleRegister } from "../../../contextpage";
+import WishlistDelete from "./wishlist_delete";
+import ProductPrice from "../../../body/frontpage/innerpages/products_func/product_price";
 import AddToCart from "../../../body/frontpage/innerpages/products_func/addtocart";
 
 const WishlistTemplate = ({ wishlistArray }) => {
-  const { curSymbol, wishlistItems, setWishlistItems, dispatch, setWishList } = useContext(ToggleRegister);
-  const RemoveWishlistItem = (id) => {
-    let remainderItems = wishlistItems.filter((items) => items.id !== id);
-    localStorage.setItem("wishlistItems", JSON.stringify(remainderItems));
-    dispatch({ display: "REMOVE" });
-    setWishlistItems(remainderItems);
-    setTimeout(() => {
-      dispatch({ display: "CLOSE" });
-    }, 1250);
-  };
+  const { setWishList, wishlistItems } = useContext(ToggleRegister);
 
   return (
     <>
-      {wishlistArray.map(({ id, productImage, productName, productPrice, priceOne, priceTwo, averagePrice, wishlistDate, wishlistStock }) => {
+      {wishlistArray.map(({ id, productImage, productName, cutOff, productPrice, priceOne, priceTwo, averagePrice, wishlistDate, wishlistStock }) => {
         return (
           <div key={id} className="wishListDiv">
-            <span className="delWishListSpan"><i onClick={() => RemoveWishlistItem(id)} className="fa-solid fa-xmark delWishListIcon"></i></span>
+            <WishlistDelete id={id} cancelClass={"delWishListIcon"}/>
             <img src={productImage} alt={productName} className="wishListImage" />
             <div className="wishListDetails">
               <h1 className="wishListName wishListTexts">
@@ -28,9 +21,7 @@ const WishlistTemplate = ({ wishlistArray }) => {
                   {productName}
                 </Link>
               </h1>
-              <p className="wishListPrice wishListTexts">
-                {averagePrice ? `${curSymbol}${priceOne.toFixed(2)} - ${curSymbol}${priceTwo.toFixed(2)}` : `${curSymbol}${productPrice.toFixed(2)}`}
-              </p>
+              <ProductPrice priceDivClass={""} productPriceClass={"#222222"} priceClass={"wishListPrice wishListTexts"} cutOff={cutOff} productPrice={productPrice} averagePrice={averagePrice} priceOne={priceOne} priceTwo={priceTwo} />
               <p className="wishListDate wishListTexts">{wishlistDate}</p>
             </div>
             <div className="wishListAvailDiv">
@@ -38,7 +29,7 @@ const WishlistTemplate = ({ wishlistArray }) => {
                 <p className="wishListAvail wishListTexts">Stock: {wishlistStock}</p>
                 <div className="wishListAvailBar"></div>
               </main>
-              <AddToCart id={id}></AddToCart>
+              <AddToCart id={id} buttonClass={"wishListCartButton"} itemsArray={wishlistItems}></AddToCart>
             </div>
           </div>
         );

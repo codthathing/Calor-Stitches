@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { ToggleRegister } from "../../../contextpage";
 import CartTemplate from "./cartTemplate";
 import CartTotalPriceMain from "./cart_total_price";
+import DefaultText from "../components/default_text";
 
 const CartProductDiv = () => {
   const { cartItems } = useContext(ToggleRegister);
@@ -13,7 +14,7 @@ const CartProductDiv = () => {
           <CartTemplate cartArray={cartItems} />
           <CartTotalPriceMain></CartTotalPriceMain>
         </>
-        : <p className="defaultText" id="cartDefaultText">No products in the cart</p>}
+        : <DefaultText textStyle={"start"} text={"No products in the cart"} />}
     </div>
   );
 };

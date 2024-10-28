@@ -10,7 +10,7 @@ const CartUpdateBtn = ({ setShowInfo, setInfoText }) => {
       setInfoText(["Cart updated."]);
       setTimeout(() => {
         setShowInfo(true);
-      }, 1000);
+      }, 2500);
     };
   };
 

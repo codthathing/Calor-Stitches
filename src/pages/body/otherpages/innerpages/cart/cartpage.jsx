@@ -49,7 +49,7 @@ const CartPage = () => {
             <p className="cartPriceText">Subtotal</p>
             <p className="wishlistCartPriceValue">{curSymbol}{total.toFixed(2)}</p>
           </div>
-          <CartAddress />
+          <CartAddress setShowInfo={setShowCartInfo} setInfoText={setCartInfoText} />
           <Link to="/shop/checkout"><button id="cartCheckoutButton">PROCEED TO CHECKOUT</button></Link>
         </div>
       </main>

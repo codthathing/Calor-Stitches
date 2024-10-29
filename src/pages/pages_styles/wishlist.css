@@ -132,6 +132,10 @@
   border-bottom: 1px solid var(--F3F2ED);
 }
 
+.wishlistCartDeleteIcon {
+  cursor: pointer;
+}
+
 .wishlistCartDiv:first-child {
   border-top: 1px solid var(--F3F2ED);
 }
@@ -410,7 +414,7 @@
   .defaultText {
     font-size: var(--12px);
   }
-
+  
   .productWishlistCartMain {
     margin-top: 1.5rem;
   }

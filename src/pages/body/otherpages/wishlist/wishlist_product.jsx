@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { ToggleRegister } from "../../../../contextpage";
-import WishlistDelete from "../../../../header/header_pages/wishlist_page/wishlist_delete";
-import ProductPrice from "../../../frontpage/innerpages/products_func/product_price";
-import AddToCart from "../../../frontpage/innerpages/products_func/addtocart";
+import { ToggleRegister } from "../../../contextpage";
+import WishlistDelete from "../../../header/header_pages/wishlist_page/wishlist_delete";
+import ProductPrice from "../../frontpage/innerpages/products_func/product_price";
+import AddToCart from "../../frontpage/innerpages/products_func/addtocart";
 
 const WishlistProduct = ({ wishlistProductArray }) => {
   const { wishlistItems } = useContext(ToggleRegister);

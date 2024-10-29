@@ -1,14 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 import FrontPage from "./frontpage/frontpage";
-import ProductReview from "./otherpages/innerpages/productreview";
-import CollectionPage from "./otherpages/innerpages/collectionpage";
-import ProductPage from "./otherpages/innerpages/productpage";
-import ProductDisplay from "./otherpages/innerpages/productdisplay";
-import WishListPage from "./otherpages/innerpages/wishlist/wishlistpage";
-import CartPage from "./otherpages/innerpages/cart/cartpage";
-import CheckoutPage from "./otherpages/innerpages/checkoutpage";
-import ConfirmPage from "./otherpages/innerpages/confirm_page/confirm_page";
-import PaymentPage from "./otherpages/innerpages/payment_page";
+import ProductReview from "./otherpages/productreview";
+import CollectionPage from "./otherpages/collectionpage";
+import ProductPage from "./otherpages/productpage";
+import ProductDisplay from "./otherpages/productdisplay";
+import WishListPage from "./otherpages/wishlist/wishlistpage";
+import CartPage from "./otherpages/cart/cartpage";
+import CheckoutPage from "./otherpages/checkout/checkoutpage";
+import ConfirmPage from "./otherpages/confirm_page/confirm_page";
+import PaymentPage from "./otherpages/payment_page";
 
 const PageLayout = () => {
 

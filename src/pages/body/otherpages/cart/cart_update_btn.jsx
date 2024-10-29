@@ -1,16 +1,18 @@
 import { useContext } from "react";
-import { ToggleRegister } from "../../../../contextpage";
+import { ToggleRegister } from "../../../contextpage";
+import { CartContext } from "./cartpage";
 
-const CartUpdateBtn = ({ setShowInfo, setInfoText }) => {
+const CartUpdateBtn = () => {
   const { cartItems } = useContext(ToggleRegister);
+  const { setShowCartInfo, setCartInfoArray } = useContext(CartContext);
 
   const UpdateCart = () => {
     if (JSON.stringify(cartItems) !== localStorage.getItem("cartItems")) {
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
-      setInfoText(["Cart updated."]);
+      setCartInfoArray(["Cart updated."]);
       setTimeout(() => {
-        setShowInfo(true);
-      }, 2500);
+        setShowCartInfo(true);
+      }, 1000);
     };
   };
 

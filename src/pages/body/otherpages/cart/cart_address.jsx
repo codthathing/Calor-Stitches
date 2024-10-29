@@ -1,10 +1,12 @@
-import { useState } from "react";
-import RegisterMessage from "../../../../header/header_pages/account_pages/register_page/register_message";
+import { useContext, useState } from "react";
+import { CartContext } from "./cartpage";
+import RegisterMessage from "../../../header/header_pages/account_pages/register_page/register_message";
 
-const CartAddress = ({ setShowInfo, setInfoText }) => {
+const CartAddress = () => {
+  const { city, setCity, setShowCartInfo, setCartInfoArray } = useContext(CartContext)
+
   const [showUpdateAddress, setShowUpdateAddress] = useState(false);
   const [address, setAddress] = useState({ country: "Nigeria", state: "", city: "" });
-  const [cityText, setCityText] = useState("lagos");
 
   const HandleAddress = (e) => {
     const value = e.target.value;
@@ -23,14 +25,14 @@ const CartAddress = ({ setShowInfo, setInfoText }) => {
       setAddressText("Enter shipping city");
     } else {
       setAddressText(false);
-      setInfoText(["Shipping address updated."]);
+      setCartInfoArray(["Shipping address updated."]);
       setTimeout(() => {
         window.scroll(0, 0);
-        setCityText(address.city);
+        setCity(address.city);
         setAddress({ country: "Nigeria", state: "", city: "" });
         setShowUpdateAddress(false);
-        setShowInfo(true);
-      }, 2500);
+        setShowCartInfo(true);
+      }, 1000);
     };
   };
 
@@ -38,7 +40,7 @@ const CartAddress = ({ setShowInfo, setInfoText }) => {
   return (
     <div id="cartShippingAddressDiv">
       <div id="cartShippingDiv">
-        <p id="cartShippingText">Shipping to <span id="cartShippingSpan">{cityText}</span></p>
+        <p id="cartShippingText">Shipping to <span id="cartShippingSpan">{city}</span></p>
         <p id="cartAddressText" onClick={() => setShowUpdateAddress(!showUpdateAddress)}>CHANGE ADDRESS</p>
       </div>
       {showUpdateAddress && <form id="cartAddressDiv" onSubmit={SubmitAddress}>

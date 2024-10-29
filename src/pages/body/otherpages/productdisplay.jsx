@@ -1,8 +1,8 @@
 import { useState, useContext, useEffect } from "react";
-import { ToggleRegister } from "../../../contextpage";
-import ProductTemplate from "../../frontpage/innerpages/products_func/productTemplate";
-import { useScroll } from "../../../header/usescroll";
-import PageLinkTemplate from "../pagelinks";
+import { ToggleRegister } from "../../contextpage";
+import ProductTemplate from "../frontpage/innerpages/products_func/productTemplate";
+import { useScroll } from "../../header/usescroll";
+import PageLinkTemplate from "./components/pagelinks";
 
 const ProductDisplay = () => {
   const { latestItems, setToggleSideMenu, products } = useContext(ToggleRegister);

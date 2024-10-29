@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ToggleRegister } from "../../../contextpage";
 import { useScroll } from "../../../header/usescroll";
-import AddToWishList from "../../../body/frontpage/innerpages/products_func/addtowishlist";
+import AddToWishList from "./products_func/addtowishlist";
 
 const ProductView = () => {
   const { presentScroll: addScroll } = useScroll("auto", "hidden");

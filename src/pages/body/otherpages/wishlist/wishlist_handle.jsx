@@ -1,5 +1,5 @@
-import facebook from "../../../../../asset/images-icons/handleIcons/iconmonstr-facebook-4-240.png";
-import twitter from "../../../../../asset/images-icons/handleIcons/iconmonstr-twitter-4-240.png";
+import facebook from "../../../../asset/images-icons/handleIcons/iconmonstr-facebook-4-240.png";
+import twitter from "../../../../asset/images-icons/handleIcons/iconmonstr-twitter-4-240.png";
 
 const WishlistHandle = () => {
   const wishlistHandles = [

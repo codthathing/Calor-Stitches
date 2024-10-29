@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
-import { ToggleRegister } from "../../../../contextpage";
-import PageLinkTemplate from "../../pagelinks";
+import { ToggleRegister } from "../../../contextpage";
+import PageLinkTemplate from "../components/pagelinks";
 import WishlistProductSection from "./wishlist_product_section";
 import WishlistHandle from "./wishlist_handle";
 

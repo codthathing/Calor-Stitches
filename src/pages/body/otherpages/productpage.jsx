@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import { ToggleRegister } from "../../../contextpage";
-import PageLinkTemplate from "../pagelinks";
-import ProductTemplate from "../../frontpage/innerpages/products_func/productTemplate";
+import { ToggleRegister } from "../../contextpage";
+import PageLinkTemplate from "./components/pagelinks";
+import ProductTemplate from "../frontpage/innerpages/products_func/productTemplate";
 
 const ProductPage = () => {
 

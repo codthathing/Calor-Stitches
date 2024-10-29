@@ -26,6 +26,7 @@
   position: absolute;
   right: 0;
   color: var(--222222);
+  cursor: pointer;
 }
 
 .cartProductMain {
@@ -105,7 +106,6 @@
 .cart-info-div {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--F3F2ED);
 }
 
 .cart-info-text {
@@ -242,10 +242,10 @@
 }
 
 .billInput {
-  padding: 1.5rem;
   border: 1px solid var(--222222);
   color: var(--222222);
   font-family: var(--Roboto);
+  outline: none;
 }
 
 #billOtherMain {
@@ -277,6 +277,7 @@
   border: 1px solid var(--222222);
   font-family: var(--Roboto);
   color: var(--222222);
+  outline: none;
 }
 
 #orderOptionDiv {
@@ -378,6 +379,8 @@
   background-color: var(--222222);
   color: #FFFFFF;
   font-family: var(--Roboto);
+  border: none;
+  cursor: pointer;
   width: 100%;
 }
 
@@ -599,6 +602,7 @@
   }
 
   .billInput {
+    padding: 1.25rem;
     font-size: var(--16px);
   }
 
@@ -615,7 +619,7 @@
   }
 
   #billOptTextArea {
-    padding: 1.5rem;
+    padding: 1.25rem;
     font-size: var(--16px);
   }
 
@@ -679,9 +683,6 @@
 
   #placeOrderBtn {
     font-size: var(--16px);
-  }
-
-  #placeOrderBtn {
     padding: 1.25rem 0;
   }
 
@@ -884,6 +885,7 @@
   }
 
   .billInput {
+    padding: 1rem;
     font-size: var(--12px);
   }
 
@@ -978,7 +980,7 @@
   }
 
   #placeOrderBtn {
-    padding: 0.75rem 0;
+    padding: 1rem 0;
     font-size: var(--12px);
   }
 

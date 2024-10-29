@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { ToggleRegister } from "../../../../contextpage";
+import { ToggleRegister } from "../../../contextpage";
 import ProductTopics from "../components/product_topics";
 import WishlistProduct from "./wishlist_product";
-import DefaultText from "../../../../header/header_pages/components/default_text";
+import DefaultText from "../../../header/header_pages/components/default_text";
 
 const WishlistProductSection = () => {
   const { wishlistItems } = useContext(ToggleRegister);

@@ -1,13 +1,12 @@
 import { useEffect, useState, useContext } from "react";
 import { useParams, useLocation } from "react-router-dom";
-import { ToggleRegister } from "../../../contextpage";
-import PageLinkTemplate from "../pagelinks";
-import Handle from "../../../news_section/handle";
-import productImage from "../../../../asset/images-icons/productImages/design_eight.jpeg";
-import serviceIcon from "../../../../asset/images-icons/serviceIcons/iconmonstr-delivery-2-240.png";
-import Payment from "../../../footer/payment";
-// import Payment from "../../../../asset/images-icons/paymentIcons/American-Express.webp";
-import ProductTemplate from "../../../body/frontpage/innerpages/products_func/productTemplate";
+import { ToggleRegister } from "../../contextpage";
+import PageLinkTemplate from "./components/pagelinks";
+import Handle from "../../news_section/handle";
+import productImage from "../../../asset/images-icons/productImages/design_eight.jpeg";
+import serviceIcon from "../../../asset/images-icons/serviceIcons/iconmonstr-delivery-2-240.png";
+import Payment from "../../footer/payment";
+import ProductTemplate from "../frontpage/innerpages/products_func/productTemplate";
 
 const ProductReview = () => {
 
@@ -152,11 +151,7 @@ const ProductReview = () => {
 
       <div id="productRelatedDiv">
         <p id="productRelatedText">Related products</p>
-        {/* <main id="productRelatedMain"> */}
-          {/* {products.map((products) => { */}
-            <ProductTemplate productArray={products} />
-          {/* })} */}
-        {/* </main> */}
+        <ProductTemplate productArray={products} />
       </div>
     </div >
   );

@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { ToggleRegister } from "../../../../contextpage";
-import CartDelete from "../../../../header/header_pages/cart_page/cart_delete";
+import { ToggleRegister } from "../../../contextpage";
+import CartDelete from "../../../header/header_pages/cart_page/cart_delete";
 import CartAmt from "./cart_amt";
 
 const CartProduct = () => {

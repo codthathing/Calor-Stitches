@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { ToggleRegister } from "../../../contextpage";
-import ProductTemplate from "../../frontpage/innerpages/products_func/productTemplate";
-import PageLinkTemplate from "../pagelinks";
+import { ToggleRegister } from "../../contextpage";
+import ProductTemplate from "../frontpage/innerpages/products_func/productTemplate";
+import PageLinkTemplate from "./components/pagelinks";
 
 const CollectionPage = () => {
   const { collectionName } = useParams();

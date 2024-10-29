@@ -1,7 +1,7 @@
-import { useEffect, useContext, useState, useRef } from "react";
+import { useEffect, useContext } from "react";
 import { useSearchParams } from "react-router-dom";
-import { ToggleRegister } from "../../../../contextpage";
-import PageLinkTemplate from "../../pagelinks";
+import {ToggleRegister} from "../../../contextpage";
+import PageLinkTemplate from "../components/pagelinks";
 import ConfirmForm from "./confirm_form";
 
 const ConfirmPage = () => {

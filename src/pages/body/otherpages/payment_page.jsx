@@ -1,5 +1,5 @@
-import PageLinkTemplate from "../pagelinks";
-import bank_card from "../../../../asset/images-icons/bank_card/bank_card.jpeg";
+import PageLinkTemplate from "./components/pagelinks";
+import bank_card from "../../../asset/images-icons/bank_card/bank_card.jpeg";
 
 const PaymentPage = () => {
   const pageLinkDetails = [

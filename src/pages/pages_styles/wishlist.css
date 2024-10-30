@@ -92,10 +92,6 @@
   border-bottom: 1px solid var(--9B9B9B);
 }
 
-.wishListAvailBar {
-  background-color: green;
-}
-
 .wishListCartButton {
   font-family: var(--Yantramanav);
   color: var(--222222);

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ToggleRegister } from "../../../contextpage";
 import WishlistDelete from "./wishlist_delete";
 import ProductPrice from "../../../body/frontpage/innerpages/products_func/product_price";
+import WishlistStock from "./wishlist_stock";
 import AddToCart from "../../../body/frontpage/innerpages/products_func/addtocart";
 
 const WishlistTemplate = ({ wishlistArray }) => {
@@ -10,7 +11,7 @@ const WishlistTemplate = ({ wishlistArray }) => {
 
   return (
     <>
-      {wishlistArray.map(({ id, productImage, productName, cutOff, productPrice, priceOne, priceTwo, averagePrice, wishlistDate, wishlistStock }) => {
+      {wishlistArray.map(({ id, productImage, productName, cutOff, productPrice, priceOne, priceTwo, averagePrice, wishlistDate, wishlistStock, wishlistStockColor }) => {
         return (
           <div key={id} className="wishListDiv">
             <WishlistDelete id={id} cancelClass={"delWishListIcon"}/>
@@ -25,10 +26,7 @@ const WishlistTemplate = ({ wishlistArray }) => {
               <p className="wishListDate wishListTexts">{wishlistDate}</p>
             </div>
             <div className="wishListAvailDiv">
-              <main className="wishListAvailMain">
-                <p className="wishListAvail wishListTexts">Stock: {wishlistStock}</p>
-                <div className="wishListAvailBar"></div>
-              </main>
+              <WishlistStock mainClass={"wishListAvailMain"} textClass={"wishListAvail wishListTexts"} barClass={"wishListAvailBar"} stockAmt={wishlistStock} showStockBar={true} />
               <AddToCart id={id} buttonClass={"wishListCartButton"} itemsArray={wishlistItems}></AddToCart>
             </div>
           </div>

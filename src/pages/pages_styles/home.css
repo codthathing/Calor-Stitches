@@ -4,7 +4,6 @@
 #frontPage {
     background: url("../../asset/images-icons/productImages/design_six.jpeg");
     background-repeat: no-repeat;
-    background-position: center;
     background-size: cover;
 }
 
@@ -670,7 +669,7 @@
     .display-currency-top {
         right: 0;
     }
-    
+
     .display-currency-bottom {
         left: 0;
     }
@@ -1645,15 +1644,16 @@
         height: 32.5rem;
     }
 
-    .mainCollection:hover .collectionTopic  {
+    .mainCollection:hover .collectionTopic {
         display: block;
     }
-    
+
     .mainCollection:hover .collectionLink {
         display: block;
     }
 
-    .collectionTopic, .collectionLink {
+    .collectionTopic,
+    .collectionLink {
         display: none;
     }
 
@@ -1777,7 +1777,7 @@
     #lastPage {
         padding: 3.5rem 2rem 6rem 2rem;
     }
-    
+
     #curencyLangDiv {
         gap: 0 1.5rem;
     }
@@ -1785,4 +1785,4 @@
     #currencyLangInerText {
         font-size: var(--13px);
     }
-}            
+}

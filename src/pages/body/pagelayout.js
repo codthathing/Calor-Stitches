@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import FrontPage from "./frontpage/frontpage";
-import ProductReview from "./otherpages/productreview";
+import ProductReview from "./otherpages/review/productreview";
 import CollectionPage from "./otherpages/collectionpage";
 import ProductPage from "./otherpages/productpage";
 import ProductDisplay from "./otherpages/productdisplay";

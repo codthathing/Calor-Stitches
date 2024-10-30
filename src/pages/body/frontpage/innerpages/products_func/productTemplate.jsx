@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { ToggleRegister } from "../../../../contextpage";
+import ProductAvail from "./product_avail";
 import ProductPrice from "./product_price";
 import AddToWishList from "./addtowishlist";
 import AddToCart from "./addtocart";
@@ -17,10 +18,7 @@ const ProductTemplate = ({ productArray }) => {
             <div className="productInnerDiv" style={{ backgroundImage: `url(${productImage})` }}>
               <Link to={`/product/${productName}`}>
                 <section className="orderOptions">
-                  <div className="availDiv">
-                    {doubleProductAvail && <span className="productAvail paragraphStyles" style={{ backgroundColor: doubleAvailColor }}>{doubleProductAvail}</span>}
-                    {productAvailable && <span className="productAvail paragraphStyles" style={{ backgroundColor: productAvailableColor }}>{productAvailable}</span>}
-                  </div>
+                  <ProductAvail doubleAvailColor={doubleAvailColor} doubleProductAvail={doubleProductAvail} productAvailable={productAvailable} productAvailableColor={productAvailableColor} />
                 </section>
               </Link>
               <div className="optionBtnsDiv">

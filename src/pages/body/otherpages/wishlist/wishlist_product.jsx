@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { ToggleRegister } from "../../../contextpage";
 import WishlistDelete from "../../../header/header_pages/wishlist_page/wishlist_delete";
 import ProductPrice from "../../frontpage/innerpages/products_func/product_price";
+import WishlistStock from "../../../header/header_pages/wishlist_page/wishlist_stock";
 import AddToCart from "../../frontpage/innerpages/products_func/addtocart";
 
 const WishlistProduct = ({ wishlistProductArray }) => {
@@ -9,7 +10,7 @@ const WishlistProduct = ({ wishlistProductArray }) => {
 
   return (
     <>
-      {wishlistProductArray.map(({ id, productImage, productName, wishlistDate, cutOff, productPrice, averagePrice, priceOne, priceTwo }) => {
+      {wishlistProductArray.map(({ id, productImage, productName, wishlistDate, cutOff, productPrice, averagePrice, priceOne, priceTwo, wishlistStock }) => {
         return (
           <div className="wishlistCartDiv" key={id}>
             <div className="wishlistCartIconImageTextDiv">
@@ -28,7 +29,7 @@ const WishlistProduct = ({ wishlistProductArray }) => {
             </div>
             <div className="wishlistStatusDiv">
               <p className="wishlistStatusText">Stock Status</p>
-              <p className="wishlistStatus">In Stock</p>
+              <WishlistStock mainClass={""} textClass={"wishlistStatus"} showStockBar={false} stockAmt={wishlistStock} stockZero="No unit present" stockNine={`${wishlistStock} units left`} stockMore="In stock" />
             </div>
             <div className="wishlistToCartDiv">
               <button className="wishlistToCartBtn"><AddToCart id={id} buttonClass={""} itemsArray={wishlistItems} /></button>

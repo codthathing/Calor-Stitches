@@ -42,7 +42,7 @@
   overflow: hidden;
 }
 
-.productSizeList:first-child {
+.productSizeListStyle {
   border: 1px solid var(--616161);
 }
 
@@ -86,25 +86,31 @@
   color: var(--222222);
 }
 
-.productPrepDiv {
-  background-color: #00A849;
-}
-
-.productColorText {
+#productColorText {
   color: var(--1B1A1A);
   font-family: var(--Roboto);
 }
 
-.productColorMain {
+#productColorMain {
   display: flex;
   align-items: center;
+} 
+
+.productColorDiv {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
-.productColorMainDiv {
+.color-div {
   border-radius: 50%;
 }
 
-.productColorMainText {
+.productColorInnerDiv {
+  border-radius: 50%;
+}
+
+.productColorInnerText {
   font-family: var(--Roboto);
   color: var(--1B1A1A);
 }
@@ -587,21 +593,29 @@
     font-size: var(--16px);
   }
 
-  .productColorText {
+  #productColorText {
     margin-bottom: 1rem;
     font-size: var(--16px);
   }
 
-  .productColorMain {
+  #productColorMain {
+    gap: 0 1rem;
+  }
+
+  .productColorDiv {
     gap: 0 0.75rem;
   }
 
-  .productColorMainDiv {
+  .color-div { 
+    padding: 0.25rem;
+  }
+
+  .productColorInnerDiv {
     height: 1.5rem;
     width: 1.5rem;
   }
 
-  .productColorMainText {
+  .productColorInnerText {
     font-size: var(--16px);
   }
 
@@ -846,7 +860,7 @@
     gap: 0.20rem 0;
   }
 
-  .productSizeList:first-child {
+  .productSizeListStyle {
     padding: 0.15rem;
   }
 
@@ -885,21 +899,29 @@
     padding: 0.15rem;
   }
 
-  .productColorText {
+  #productColorText {
     margin-bottom: 0.5rem;
     font-size: var(--12px);
   }
 
-  .productColorMain {
+  #productColorMain {
+    gap: 0 0.75rem;
+  }
+
+  .productColorDiv {
     gap: 0 0.5rem;
   }
 
-  .productColorMainDiv {
+  .color-div { 
+    padding: 0.15rem;
+  }
+
+  .productColorInnerDiv {
     height: 1.25rem;
     width: 1.25rem;
   }
 
-  .productColorMainText {
+  .productColorInnerText {
     font-size: var(--12px);
   }
 
@@ -1175,7 +1197,7 @@
     gap: 0.5rem 0;
   }
 
-  .productSizeList:first-child {
+  .productSizeListStyle {
     padding: 0.35rem;
   }
 
@@ -1312,7 +1334,7 @@
     gap: 0.75rem 0;
   }
 
-  .productSizeList:first-child {
+  .productSizeListStyle {
     padding: 0.5rem;
   }
 

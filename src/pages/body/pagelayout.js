@@ -8,7 +8,7 @@ import WishListPage from "./otherpages/wishlist/wishlistpage";
 import CartPage from "./otherpages/cart/cartpage";
 import CheckoutPage from "./otherpages/checkout/checkoutpage";
 import ConfirmPage from "./otherpages/confirm_page/confirm_page";
-import PaymentPage from "./otherpages/payment_page";
+import PaymentPage from "./otherpages/payment/payment_page";
 
 const PageLayout = () => {
 

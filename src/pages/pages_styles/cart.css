@@ -409,6 +409,11 @@
   outline: none;
 }
 
+.card-payment-input::-webkit-inner-spin-button, .card-payment-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .card-payment-input:nth-child(1) {
   grid-column: 1 / 4;
   grid-row: 1 / 2;
@@ -687,11 +692,14 @@
   }
 
   #card-payment-main {
+    margin-top: 5rem;
+  }
+
+  #card-payment-section {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0 1rem;
-    margin-top: 5rem;
   }
 
   #card-payment-input-div {
@@ -704,13 +712,13 @@
     font-size: var(--16px);
   }
 
-  #card-payment-buttons-div {
-    gap: 0 1rem;
-  }
-
   .card-payment-button {
     font-size: var(--16px);
     padding: 1.25rem 0;
+  }
+
+  .card-payment-button:nth-child(2) {
+    margin-left: 1rem;
   }
 }
 
@@ -998,13 +1006,13 @@
     font-size: var(--12px);
   }
 
-  #card-payment-buttons-div {
-    gap: 0 0.75rem;
-  }
-
   .card-payment-button {
     font-size: var(--12px);
     padding: 0.75rem 0;
+  }
+
+  .card-payment-button:nth-child(2) {
+    margin-left: 0.75rem;
   }
 }
 

@@ -9,15 +9,17 @@ const OrderPayment = () => {
       id: 0,
       payHead: "Direct bank transfer",
       payText: "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.",
-      showPayText: false
+      showPayText: true
     },
     {
       id: 1,
-      payHead: "Pay on delivery",
+      payHead: "Cash on delivery",
       payText: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil illum commodi vel nisi, illo perferendis laborum amet? Dolore eum modi doloribus eaque eos, error sequi, molestias aliquid sit quisquam quaerat!",
       showPayText: false
     }
   ]);
+
+  const [selectedPaymentId, setSelectedPaymentId] = useState(0);
 
   const TogglePayment = (id) => {
     const updatedPayment = paymentArray.map((payMethod) => {
@@ -29,6 +31,7 @@ const OrderPayment = () => {
       };
     });
     setPaymentArray(updatedPayment);
+    setSelectedPaymentId(id);
   };
 
   return (
@@ -37,7 +40,7 @@ const OrderPayment = () => {
         return (
           <div key={id} className="paymentMethodDiv">
             <div className="paymentButtonText">
-              <input type="radio" name="payment" className="paymentButton" onClick={() => TogglePayment(id)} />
+              <input type="radio" name="payment" defaultChecked={selectedPaymentId === id} className="paymentButton" onClick={() => TogglePayment(id)} />
               <p className="paymentText">{payHead}</p>
             </div>
             {showPayText && <p className="paymentMethodDetails">{payText}</p>}

@@ -6,11 +6,10 @@ import { CartContext } from "./cartpage";
 const CartCheckout = () => {
   const { cartItems } = useContext(ToggleRegister);
   const { city, setShowCartInfo, setCartInfoArray } = useContext(CartContext);
-  const checkoutInfos = [];
   const checkoutNavigate = useNavigate();
 
-  const HandleCheckout = (e) => {
-    e.preventDefault();
+  const HandleCheckout = () => {
+    const checkoutInfos = [];
     if (cartItems < 1 && city === "address") {
       checkoutInfos.push("Kindly add items to the cart.")
       checkoutInfos.push("Please update the shipping address.")
@@ -18,16 +17,18 @@ const CartCheckout = () => {
       checkoutInfos.push("Kindly add items to the cart.")
     } else if (city === "address") {
       checkoutInfos.push("Please update the shipping address")
-    } else {
-      checkoutNavigate("/shop/checkout");
     };
 
-    if(checkoutInfos) {
+    if(checkoutInfos.length > 0) {
       setCartInfoArray(checkoutInfos);
       setTimeout(() => {
         setShowCartInfo(true);
-      }, 1000)
-    }
+      }, 1000);
+    } else {
+      checkoutNavigate("/shop/checkout");
+      setShowCartInfo(false);
+      setCartInfoArray([]);
+    };
   };
 
   return <button id="cartCheckoutButton" onClick={HandleCheckout}>PROCEED TO CHECKOUT</button>

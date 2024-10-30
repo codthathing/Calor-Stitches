@@ -29,25 +29,18 @@ const CheckoutSection = () => {
 
   const [showOptAddress, setShowOptAddress] = useState(false);
 
-  const [confirmedMethod, setConfirmedMethod] = useState({});
+  const [confirmedMethod, setConfirmedMethod] = useState({payHead: "Direct bank transfer"});
 
   const [seenTerms, setSeenTerms] = useState(false);
 
-  const [ showCheckoutInfo, setShowCheckoutInfo ] = useState(true);
-  const [checkoutInfoArray, setCheckoutInfoArray] = useState([
-    "Billing First name is a required filed",
-    "Billing Last name is a required filed",
-    "Billing Country/Region is a required filed",
-    "Billing Street address is a required filed",
-    "Billing Town/City is a required filed",
-    "Billing Phone is a required filed",
-    "Billing Email is a required filed",
-    "Please read and accept the terms and conditions to proceed with your order."
-  ]);
+  const [ showCheckoutInfo, setShowCheckoutInfo ] = useState(false);
+  const [checkoutInfoArray, setCheckoutInfoArray] = useState([]);
+
+  const [pageInfoBorder, setPageInfoBorder] = useState("#FF0000");
 
   return (
-    <CheckoutContext.Provider value={{ otherForm, setOtherForm, otherFormArray, userForm, setUserForm, userFormArray, showOptAddress, setShowOptAddress, confirmedMethod, setConfirmedMethod, seenTerms, setSeenTerms, setShowCheckoutInfo, setCheckoutInfoArray }}>
-      <PageInfo border={"#FF0000"} showInfo={showCheckoutInfo} infoTextArray={checkoutInfoArray} />
+    <CheckoutContext.Provider value={{ otherForm, setOtherForm, otherFormArray, userForm, setUserForm, userFormArray, showOptAddress, setShowOptAddress, confirmedMethod, setConfirmedMethod, seenTerms, setSeenTerms, setShowCheckoutInfo, setCheckoutInfoArray, setPageInfoBorder }}>
+      <PageInfo border={pageInfoBorder} showInfo={showCheckoutInfo} infoTextArray={checkoutInfoArray} />
       <section id="billOrderSection">
         <BillSection />
         <OrderSection />

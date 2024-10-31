@@ -6,11 +6,11 @@ const OrderProduct = () => {
 
   return (
     <main id="orderProductMain">
-      {cartItems.map(({ id, productName, cartAmt, productPrice, averagePrice }) => {
+      {cartItems.map(({ id, productName, cartAmt, price, averagePrice }) => {
         return (
           <div key={id} className="orderProductPriceDiv">
             <p className="orderProductNameAmt">{productName} * {cartAmt}</p>
-            <p className="orderPriceValue">{curSymbol}{((cartAmt) * (averagePrice ? averagePrice : productPrice)).toFixed(2)}</p>
+            <p className="orderPriceValue">{curSymbol}{((cartAmt) * (averagePrice ? averagePrice : price)).toFixed(2)}</p>
           </div>
         );
       })}

@@ -1,45 +1,19 @@
-import { useEffect, useState } from "react";
+import { useReviewEffect } from "./review_effect";
 
-const ReviewColor = ({ colorText, colorArray }) => {
-  const [colorDetails, setColorDetails] = useState({ colorText: colorText, colorArray: colorArray });
-  useEffect(() => {
-    setColorDetails({ colorText: colorText, colorArray: colorArray });
-  }, []);
-
-  const ChangeColor = (id) => {
-    const newColor = colorDetails.colorArray.find((color) => color.id === id);
-    const newArray = colorDetails.colorArray.map((colors) => {
-      if (colors.id === id) {
-        return { ...colors, style: true };
-      } else {
-        return { ...colors, style: false };
-      };
-    });
-    setColorDetails({ colorText: newColor.colorText, colorArray: newArray });
-  };
-
-  const ChangeColorHover = (id, toggle) => {
-    const newArray = colorDetails.colorArray.map((colors) => {
-      if (colors.id === id && colors.colorText !== colorDetails.colorText) {
-        return { ...colors, style: toggle };
-      } else {
-        return colors;
-      };
-    });
-    setColorDetails({ ...colorDetails, colorArray: newArray });
-  };
+const ReviewColor = ({ productId, colorText, colorArray }) => {
+  const { details, ChangeDetails, ChangeDetailsHover } = useReviewEffect(colorText, colorArray);
 
   return (
     <div id="productColorReview" className="productDivs">
-      <p id="productColorText">Color {colorDetails.colorText}</p>
+      <p id="productColorText">Color {details.text}</p>
       <main id="productColorMain">
-        {colorDetails.colorArray.map(({ id, color, style, colorText }) => {
+        {details.array.map(({ id, color, style, text }) => {
           return (
-            <div key={id} onClick={() => ChangeColor(id)} onMouseEnter={() => ChangeColorHover(id, true)} onMouseLeave={() => ChangeColorHover(id, false)} className="productColorDiv">
-              <div className="color-div" style={{ border: style ? `1px solid ${color}` : "" }}>
-                <div className="productColorInnerDiv" style={{ backgroundColor: `${color}` }}></div>
+            <div key={id} onClick={() => ChangeDetails(id, "color")} onMouseEnter={() => ChangeDetailsHover(id, true)} onMouseLeave={() => ChangeDetailsHover(id, false)} className="product-color-size-div">
+              <div className="color-div" style={{ border: style ? `1px solid ${color}` : "none" }}>
+                <div className="productColorInnerDiv" style={{ backgroundColor: color }}></div>
               </div>
-              <p className="productColorInnerText">{colorText}</p>
+              <p className="productColorInnerText">{text}</p>
             </div>
           );
         })}

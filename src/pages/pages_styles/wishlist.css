@@ -580,11 +580,9 @@
     margin-top: 4rem;
   }
 
-  #productWishlistTopicsDiv {
-    display: flex;
-    justify-content: space-between;
-    width: 65%;
-    margin-left: 10rem;
+  .product-wishlist-cart-topics {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
     padding-bottom: 0.75rem;
   }
 
@@ -592,13 +590,26 @@
     font-size: var(--16px);
     font-family: var(--Roboto);
     color: var(--1B1A1A);
+    justify-self: center;
   }
 
   .wishlistCartDiv {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
     align-items: center;
     padding: 2rem 0;
+  }
+
+  .wishlistCartPriceValueDiv {
+    justify-self: center;
+  }
+
+  .wishlistStatusDiv {
+    justify-self: center;
+  }
+
+  .wishlistToCartDiv {
+    justify-self: flex-end;
   }
 
   .wishlistCartIconImageTextDiv {

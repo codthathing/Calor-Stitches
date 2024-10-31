@@ -6,6 +6,8 @@ import ReviewPicture from "./review_picture";
 import ReviewDetails from "./review_details";
 import WishlistStock from "../../../header/header_pages/wishlist_page/wishlist_stock";
 import ReviewColor from "./review_color";
+import ReviewSize from "./review_size";
+import ReviewFunctions from "./review_functions";
 import Handle from "../../../news_section/handle";
 import serviceIcon from "../../../../asset/images-icons/serviceIcons/iconmonstr-delivery-2-240.png";
 import Payment from "../../../footer/payment";
@@ -17,7 +19,7 @@ const ProductReview = () => {
   const [product, setProduct] = useState({});
   const { productName } = useParams();
   const { pathname } = useLocation();
-  const { setSearch, setNavbar, setCart, setToggleSideMenu, products } = useContext(ToggleRegister);
+  const { setSearch, setNavbar, setCart, setToggleSideMenu, products, setProducts } = useContext(ToggleRegister);
 
   useEffect(() => {
     const presentProduct = products.find((product) => product.productName === productName);
@@ -27,9 +29,9 @@ const ProductReview = () => {
     setToggleSideMenu(false);
     setNavbar(true);
     setCart(false);
-  }, [pathname, productName, products, setCart, setNavbar, setSearch, setToggleSideMenu]);
+  }, [pathname, productName, setCart, setNavbar, setSearch, setToggleSideMenu]);
 
-  const { productImage, productImages, productName: productNameText, cutOff, productPrice, averagePrice, priceOne, priceTwo, productDesc, wishlistStock, productDetails, productColors, doubleAvailColor, doubleProductAvail, productAvailable, productAvailableColor } = product;
+  const { id, productImage, productImages, productName: productNameText, cutOff, productPrice, averagePrice, priceOne, priceTwo, productDesc, wishlistStock, cartAmt, productDetails, productColors, productAvailable, productSizes } = product;
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },
@@ -38,7 +40,7 @@ const ProductReview = () => {
   ]
 
   return (
-    <ReviewContext.Provider value={{doubleAvailColor, doubleProductAvail, productAvailable, productAvailableColor, productNameText, cutOff, productPrice, averagePrice, priceOne, priceTwo, productDesc}}>
+    <ReviewContext.Provider value={{ id, products, setProducts, productAvailable, productNameText, cutOff, productPrice, averagePrice, priceOne, priceTwo, cartAmt, productDesc, wishlistStock }}>
       <div className="otherPages" id="productReview">
         <PageLinkTemplate pageLinks={pageLinkDetails} />
         <main id="productReviewMain" className="productMains">
@@ -46,30 +48,9 @@ const ProductReview = () => {
           <div id="productReviewDiv">
             <ReviewDetails productReview={true} productNameText={productNameText} productDesc={productDesc} cutOff={cutOff} productPrice={productPrice} averagePrice={averagePrice} priceOne={priceOne} priceTwo={priceTwo} />
             {(wishlistStock || wishlistStock === 0) && <WishlistStock mainClass={"productDivs"} textClass={"productPrepText"} barClass={"productPrepDiv"} stockAmt={wishlistStock} showStockBar={true} />}
-            {(productDetails && productColors) && <ReviewColor colorText={productDetails.cartColor} colorArray={productColors} />}
-            <div id="productSizeReview" className="productDivs">
-              <div className="productSizeDiv">
-                <p className="productSizeText">Size L</p>
-                <p className="productSizeText">SIZE CHARTS</p>
-              </div>
-              <main className="productSizeMain">
-                <p className="productSizeMainText">L</p>
-              </main>
-            </div>
-            <div id="productFunctionsReview" className="productDivs">
-              <div className="productToCart">
-                <div className="productToCartDiv">
-                  <div className="productToCartInnerDiv">1</div>
-                  <div className="productToCartInnerDiv">+</div>
-                  <div className="productToCartInnerDiv">-</div>
-                </div>
-                <button type="button" className="productToCartButton">ADD TO CART</button>
-              </div>
-              <div className="productToWishlist">
-                <i className="fa-regular fa-heart productWishlistIcon"></i>
-                <p className="productWishlistText">ADD TO WISHLIST</p>
-              </div>
-            </div>
+            {(productDetails && productColors) && <ReviewColor productId={id} colorText={productDetails.cartColor} colorArray={productColors} />}
+            {(productDetails && productSizes) && <ReviewSize productId={id} sizeText={productDetails.cartSize} sizeArray={productSizes} />}
+            <ReviewFunctions />
             <div id="productDelivery">
               <div id="productDeliveryInfo">
                 <div className="productDeliveryInfoInnerDiv">

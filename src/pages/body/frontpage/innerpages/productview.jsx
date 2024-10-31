@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { ToggleRegister } from "../../../contextpage";
 import { useScroll } from "../../../header/usescroll";
 import AddToWishList from "./products_func/addtowishlist";
@@ -11,6 +11,7 @@ const ProductView = () => {
   const { productName } = useParams();
   const [product, setProduct] = useState({});
   const [displayPage, setDisplayPage] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const product = products.find((product) => product.productName === productName);
@@ -74,7 +75,7 @@ const ProductView = () => {
                     </div>
                     <button type="button" className="productToCartButton">ADD TO CART</button>
                   </div>
-                  <AddToWishList id={id} showText={true} showIcon={false}></AddToWishList>
+                  <span onClick={() => navigate(-1)}><AddToWishList id={id} showText={true} iconClass={"productWishlistIcon"}></AddToWishList></span>
                 </div>
                 <div id="productDeliveryDetailsView" className="productDeliveryDetails">
                   <p className="productDeliveryDetailsTexts">SKU: <span className="productDeliveryDetailsInnerText">ED5690042</span> <span className="productDeliveryDetailsSpan">|</span></p>

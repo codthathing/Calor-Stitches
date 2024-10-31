@@ -13,7 +13,7 @@ const CartSection = () => {
     return (
       <>
         <section className="productWishlistCartSection">
-          <ProductTopics id={"productCartTopicsDiv"} productTopicsArray={cartTopics} />
+          <ProductTopics productTopicsArray={cartTopics} />
           <CartProduct />
         </section>
         <CartUpdateBtn />

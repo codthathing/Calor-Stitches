@@ -17,7 +17,7 @@ const AddToCart = ({ id, buttonClass, itemsArray }) => {
 
   const AddToCartFunc = (id) => {
     const selectedItem = itemsArray.find((item) => item.id === id);
-    const { productImage, productName, productPrice, averagePrice, productDetails, cartAmt } = selectedItem;
+    const { productImage, productName, cutOff, productPrice, averagePrice, productDetails, cartAmt } = selectedItem;
     if (cartItems.some(item => item.productName === selectedItem.productName)) {
       let increseItem = cartItems.find((items) => items.productName === selectedItem.productName);
       increseItem.cartAmt += 1;
@@ -26,7 +26,8 @@ const AddToCart = ({ id, buttonClass, itemsArray }) => {
       if (selectedItem.averagePrice) {
         cartItems.push({ id: cartItems.length, productImage, productName, averagePrice, productDetails, cartAmt });
       } else {
-        cartItems.push({ id: cartItems.length, productImage, productName, productPrice, productDetails, cartAmt });
+        const price = cutOff ? (productPrice - ((cutOff / 100) * productPrice)) : productPrice;
+        cartItems.push({ id: cartItems.length, productImage, productName, price, productDetails, cartAmt });
       };
       dispatch({ display: "ADD" });
     };

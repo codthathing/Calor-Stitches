@@ -1,6 +1,6 @@
-const ProductTopics = ({id, productTopicsArray}) => {
+const ProductTopics = ({ productTopicsArray}) => {
   return (
-    <div id={id}>
+    <div className="product-wishlist-cart-topics">
       {productTopicsArray.map((topics) => {
         return <p key={topics} className="wishlistCartTopicTexts">{topics}</p> 
       })}

@@ -96,7 +96,7 @@
   align-items: center;
 } 
 
-.productColorDiv {
+.product-color-size-div {
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -129,7 +129,6 @@
 .productSizeMainText {
   font-family: var(--Roboto);
   color: var(--282828);
-  border: 0.15px solid var(--616161);
   width: fit-content;
 }
 
@@ -170,6 +169,7 @@
   background-color: var(--222222);
   color: white;
   font-family: var(--Roboto);
+  cursor: pointer;
   border: none;
 }
 
@@ -602,7 +602,7 @@
     gap: 0 1rem;
   }
 
-  .productColorDiv {
+  .product-color-size-div {
     gap: 0 0.75rem;
   }
 
@@ -908,7 +908,7 @@
     gap: 0 0.75rem;
   }
 
-  .productColorDiv {
+  .product-color-size-div {
     gap: 0 0.5rem;
   }
 

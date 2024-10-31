@@ -219,6 +219,7 @@
 
 .checkoutLoginTexts:nth-child(2) {
   color: var(--222222);
+  cursor: pointer;
 }
 
 .billOrderText {
@@ -1162,11 +1163,8 @@
     gap: 0.25rem 0;
   }
 
-  #productCartTopicsDiv {
-    display: flex;
-    justify-content: space-between;
-    margin-left: 12.5%;
-    padding-bottom: 0.75rem;
+  .cartQuantityDiv {
+    justify-self: center;
   }
 
   .cartPriceValueDiv {

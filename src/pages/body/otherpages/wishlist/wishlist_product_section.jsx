@@ -12,7 +12,7 @@ const WishlistProductSection = () => {
     <>
       {wishlistItems.length > 0 ?
         <section className="productWishlistCartSection">
-          <ProductTopics id={"productWishlistTopicsDiv"} productTopicsArray={wishlistTopics} />
+          <ProductTopics productTopicsArray={wishlistTopics} />
           <WishlistProduct wishlistProductArray={wishlistItems} />
         </section>
         : <DefaultText textStyle={"center"} text={"There are no products on the Wishlist!"} />

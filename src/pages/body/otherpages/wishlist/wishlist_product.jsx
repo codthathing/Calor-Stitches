@@ -29,7 +29,7 @@ const WishlistProduct = ({ wishlistProductArray }) => {
             </div>
             <div className="wishlistStatusDiv">
               <p className="wishlistStatusText">Stock Status</p>
-              <WishlistStock mainClass={""} textClass={"wishlistStatus"} showStockBar={false} stockAmt={wishlistStock} stockZero="No unit present" stockNine={`${wishlistStock} units left`} stockMore="In stock" />
+              <WishlistStock mainClass={""} textClass={"wishlistStatus"} showStock={false} showStockBar={false} stockAmt={wishlistStock} stockZero="No unit present" stockNine={`${wishlistStock} units left`} stockMore="In stock" />
             </div>
             <div className="wishlistToCartDiv">
               <button className="wishlistToCartBtn"><AddToCart id={id} buttonClass={""} itemsArray={wishlistItems} /></button>

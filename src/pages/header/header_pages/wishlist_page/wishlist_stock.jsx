@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const WishlistStock = ({mainClass, textClass, barClass, stockAmt, showStockBar, stockZero = "Item presently not in stock", stockNine = `Only ${stockAmt} units of this item are left in stock`, stockMore = "In stock, ready to be shipped" }) => {
+const WishlistStock = ({mainClass, textClass, barClass, showStock = true, stockAmt, showStockBar, stockZero = "Item presently not in stock", stockNine = `Only ${stockAmt} units of this item are left in stock`, stockMore = "In stock, ready to be shipped" }) => {
   const [stockDetails, setStockDetails] = useState({ stockText: "", stockColor: "" });
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const WishlistStock = ({mainClass, textClass, barClass, stockAmt, showStockBar, 
 
   return (
     <main className={mainClass}>
-      <p className={textClass}>Stock: {stockDetails.stockText}</p>
+      <p className={textClass}>{showStock && "Stock:"} {stockDetails.stockText}</p>
       {showStockBar && <div className={barClass} style={{ backgroundColor: `${stockDetails.stockColor}` }}></div>}
     </main>
   );

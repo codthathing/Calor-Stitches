@@ -3,7 +3,7 @@ import { ReviewContext } from "./productreview";
 import ProductAvail from "../../frontpage/innerpages/products_func/product_avail";
 
 const ReviewPicture = ({ mainImage, imagesArray }) => {
-  const { doubleAvailColor, doubleProductAvail, productAvailable, productAvailableColor } = useContext(ReviewContext);
+  const { wishlistStock, cutOff, productAvailable } = useContext(ReviewContext);
 
   const [productImage, setProductImage] = useState({ mainImage: mainImage, imagesArray: imagesArray });
   useEffect(() => {
@@ -30,7 +30,7 @@ const ReviewPicture = ({ mainImage, imagesArray }) => {
         })}
       </ul>
       <div id="productMainImageDiv" className="imageSize">
-        <ProductAvail doubleAvailColor={doubleAvailColor} doubleProductAvail={doubleProductAvail} productAvailable={productAvailable} productAvailableColor={productAvailableColor} />
+        <ProductAvail productAvailable={productAvailable} wishlistStock={wishlistStock} cutOff={cutOff} />
         <img src={productImage.mainImage} alt="" id="productMainImage imageSize" className="imageSize" />
       </div>
     </picture>

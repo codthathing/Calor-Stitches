@@ -8,7 +8,7 @@ const CartProduct = () => {
 
   return (
     <>
-      {cartItems.map(({ id, productImage, productName, cartAmt, price, averagePrice, productDetails }) => {
+      {cartItems.map(({ id, productImage, productName, cartAmt, productPrice, cartColor, cartSize }) => {
         return (
           <div key={id} className="wishlistCartDiv productCartDiv">
             <div className="wishlistCartIconImageTextDiv">
@@ -17,14 +17,14 @@ const CartProduct = () => {
                 <img src={productImage} alt="" className="wishlistCartMainImage" />
                 <div className="wishlistCartNameDiv">
                   <p className="wishlistCartName">{productName}</p>
-                  {productDetails?.cartColor && <p className="wishlistCartName">Color: {productDetails.cartColor}</p>}
-                  {productDetails?.cartSize && <p className="wishlistCartName">Size: {productDetails.cartSize}</p>}
+                  {cartColor && <p className="wishlistCartName">Color: {cartColor}</p>}
+                  {cartSize && <p className="wishlistCartName">Size: {cartSize}</p>}
                 </div>
               </div>
             </div>
             <div className="wishlistCartPriceValueDiv">
               <p className="wishlistCartPriceText">Price</p>
-              <p className="wishlistCartPriceValue">{curSymbol}{(averagePrice ? averagePrice : price).toFixed(2)}</p>
+              <p className="wishlistCartPriceValue">{curSymbol}{productPrice.toFixed(2)}</p>
             </div>
             <div className="cartQuantityDiv">
               <p className="wishlistStatusText">Quantity</p>
@@ -32,7 +32,7 @@ const CartProduct = () => {
             </div>
             <div className="wishlistCartPriceValueDiv">
               <p className="wishlistCartPriceText">Subtotal</p>
-              <p className="wishlistCartPriceValue">{curSymbol}{((cartAmt) * (averagePrice ? averagePrice : price)).toFixed(2)}</p>
+              <p className="wishlistCartPriceValue">{curSymbol}{((cartAmt) * productPrice).toFixed(2)}</p>
             </div>
           </div>
         );

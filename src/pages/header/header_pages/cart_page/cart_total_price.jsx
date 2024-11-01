@@ -4,8 +4,8 @@ import { ToggleRegister } from "../../../contextpage";
 import { useCalTotal } from "./cart_total";
 
 const CartTotalPriceMain = () => {
-  const { curSymbol, cartItems } = useContext(ToggleRegister);
-  const { total } = useCalTotal(cartItems);
+  const { curSymbol } = useContext(ToggleRegister);
+  const { total } = useCalTotal();
 
   return (
     <main id="cartTotalPriceMain">

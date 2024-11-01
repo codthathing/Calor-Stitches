@@ -10,7 +10,7 @@ import CartCheckout from "./cart_checkout";
 export const CartContext = createContext();
 const CartPage = () => {
 
-  const { setNavbar, setCart, setToggleSideMenu, cartItems, curSymbol, setShowPageInfo } = useContext(ToggleRegister);
+  const { setNavbar, setCart, setToggleSideMenu, cartItems, curSymbol } = useContext(ToggleRegister);
 
   const [city, setCity] = useState("address");
   const [showCartInfo, setShowCartInfo] = useState(false);
@@ -30,7 +30,7 @@ const CartPage = () => {
     { id: 2, linkDirect: "", linkText: "cart", linkArrow: false }
   ]
 
-  const { total } = useCalTotal(cartItems);
+  const { total } = useCalTotal();
 
   return (
     <CartContext.Provider value={{ city, setCity, setShowCartInfo, setCartInfoArray }}>

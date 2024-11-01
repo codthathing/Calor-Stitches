@@ -2,7 +2,7 @@ const CartAmt = ({ id, cartAmt, itemsArray, setItemsArray }) => {
   const IncreaseCart = (id) => {
     const selectedItem = itemsArray.map(((item) => {
       if (item.id === id) {
-        return { ...item, cartAmt: item.cartAmt += 1 };
+        return { ...item, cartAmt: item.cartAmt + 1 };
       } else {
         return item;
       };
@@ -14,7 +14,7 @@ const CartAmt = ({ id, cartAmt, itemsArray, setItemsArray }) => {
     if (cartAmt > 1) {
       const selectedItem = itemsArray.map(((item) => {
         if (item.id === id) {
-          return { ...item, cartAmt: item.cartAmt -= 1 };
+          return { ...item, cartAmt: item.cartAmt - 1 };
         } else {
           return item;
         };

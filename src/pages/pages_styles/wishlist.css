@@ -115,6 +115,7 @@
 .wishListTexts {
   font-family: var(--Yantramanav);
   color: var(--222222);
+  word-break: keep-all;
 }
 
 

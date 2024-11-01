@@ -1,32 +1,28 @@
 import { useState, useEffect, useContext } from "react";
 import { ReviewContext } from "./productreview";
-// import { ToggleRegister } from "../../../contextpage";
 
-// export const useReviewEffect = (productId, text, array) => {
-export const useReviewEffect = (text, array) => {
-  const [details, setDetails] = useState({ text, array });
+export const useReviewEffect = (productId, type, text, array) => {
+  const [details, setDetails] = useState({ text: text, array: array });
   const { products, setProducts } = useContext(ReviewContext);
 
   useEffect(() => {
-    setDetails({ text: text, array: array });
-  }, [text, array]);
+    const newProducts = products.map((product) => {
+      if (product.id === productId) {
+        return type === "size" ?
+          { ...product, productDetails: { ...product.productDetails, cartSize: details.text } } :
+          { ...product, productDetails: { ...product.productDetails, cartColor: details.text } };
+      } else {
+        return product;
+      };
+    });
+    setProducts(newProducts);
+  }, [details.text, productId, type]);
 
-  const ChangeDetails = (id, type) => {
+  const ChangeDetails = (id) => {
     const newText = details.array.find((detail) => detail.id === id);
     if (newText) {
-      const newArray = details.array.map((details) => ({ ...details, style: details.id === id }))
+      const newArray = details.array.map((detail) => ({ ...detail, style: detail.id === id ? true : false }));
       setDetails({ text: newText.text, array: newArray });
-
-    //   const newProducts = cloneProducts.map((product) => {
-    //     if (product.id === productId) {
-    //       return type === "size" ?
-    //         { ...product, productDetails: { ...product.productDetails, cartSize: newText.text } } :
-    //         { ...product, productDetails: { ...product.productDetails, cartColor: newText.text } };
-    //     } else {
-    //       return product;
-    //     };
-    //   });
-    //   setCloneProducts(newProducts);
     };
   };
 

@@ -11,9 +11,9 @@ const ReviewFunctions = () => {
     <div id="productFunctionsReview" className="productDivs">
       <div className="productToCart">
         <CartAmt id={id} cartAmt={cartAmt} itemsArray={products} setItemsArray={setProducts} />
-        <button type="button" className="productToCartButton"><AddToCart id={id} buttonClass={""} itemsArray={products} /></button>
+        <AddToCart id={id} buttonClass={"productToCartButton"} itemsArray={products} />
       </div>
-      <AddToWishList id={id} showText={true} iconClass={"productWishlistIcon"} />
+      <AddToWishList id={id} showText={true} showIcon={false} />
     </div>
   );
 };

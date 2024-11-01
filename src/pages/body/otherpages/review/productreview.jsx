@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext, createContext } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { ToggleRegister } from "../../../contextpage";
+import { usePageInitialEffects } from "../components/page_effects";
 import PageLinkTemplate from "../components/pagelinks";
 import ReviewPicture from "./review_picture";
 import ReviewDetails from "./review_details";
@@ -18,18 +19,14 @@ const ProductReview = () => {
 
   const [product, setProduct] = useState({});
   const { productName } = useParams();
-  const { pathname } = useLocation();
   const { setSearch, setNavbar, setCart, setToggleSideMenu, products, setProducts } = useContext(ToggleRegister);
+
+ usePageInitialEffects([{ effect: setSearch, value: false }, { effect: setToggleSideMenu, value: false }, { effect: setNavbar, value: true }, { effect: setCart, value: false }]);
 
   useEffect(() => {
     const presentProduct = products.find((product) => product.productName === productName);
     setProduct(presentProduct);
-    window.scrollTo(0, 0);
-    setSearch(false);
-    setToggleSideMenu(false);
-    setNavbar(true);
-    setCart(false);
-  }, [pathname, productName, setCart, setNavbar, setSearch, setToggleSideMenu]);
+  }, [products]);
 
   const { id, productImage, productImages, productName: productNameText, cutOff, productPrice, averagePrice, priceOne, priceTwo, productDesc, wishlistStock, cartAmt, productDetails, productColors, productAvailable, productSizes } = product;
 

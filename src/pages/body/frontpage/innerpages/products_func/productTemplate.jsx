@@ -9,7 +9,6 @@ import AddToCart from "./addtocart";
 const ProductTemplate = ({ productArray }) => {
   const { products } = useContext(ToggleRegister);
   const [showViewText, setShowViewText] = useState(false);
-  const [showWishlistText, setShowWishlistText] = useState(false);
 
   return (
     <main id="mainProduct">
@@ -24,10 +23,9 @@ const ProductTemplate = ({ productArray }) => {
               </Link>
               <div className="optionBtnsDiv">
                 <div className="optionDiv optionDivWishlist">
-                  <span onMouseEnter={() => setShowWishlistText(true)} onMouseLeave={() => setShowWishlistText(false)} onClick={() => setShowWishlistText(false)}><AddToWishList id={id} showText={false} iconClass={"optionIcon optioIconWishlist"} /></span>
-                  {showWishlistText && <p className="optionText wishlistOptionText">Add to Wishlist</p>}
+                  <AddToWishList id={id} showText={false} showIcon={true} />
                 </div>
-                <AddToCart id={id} buttonClass={"paragraphStyles selectOption"} itemsArray={products} />
+                <AddToCart id={id} textClass={"paragraphStyles selectOption"} itemsArray={products} />
                 <div className="optionDiv">
                   <Link to={`/${productName}`}><i className="fa-regular fa-eye optionIcon" onMouseEnter={() => setShowViewText(true)} onMouseLeave={() => setShowViewText(false)} onClick={() => setShowViewText(false)}></i></Link>
                   {showViewText && <div className="optionText viewOptionText">Quick View</div>}

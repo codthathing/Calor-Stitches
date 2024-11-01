@@ -1,25 +1,27 @@
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
 import { ToggleRegister } from "../../../../contextpage";
 
-const AddToWishList = ({ id, showText, iconClass }) => {
-  const { products, wishlistItems, setWishList, dispatch } = useContext(ToggleRegister);
-  const navPage = useNavigate();
+const AddToWishList = ({ id, showText, showIcon }) => {
+  const { products, wishlistItems, setWishlistItems, setWishList, dispatch } = useContext(ToggleRegister);
+  const [showWishlistText, setShowWishlistText] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("wishlistItems", JSON.stringify(wishlistItems));
+  }, [wishlistItems]);
 
   const AddToWishListFunc = (id) => {
     const selectedItem = products.find((item) => item.id === id);
-    const { productImage, productName, cutOff, productPrice, priceOne, priceTwo, averagePrice, cartAmt, wishlistDate, wishlistStock } = selectedItem;
+    const { productImage, productName, cartAmt, wishlistDate, wishlistStock } = selectedItem;
+    const [cutOff, productPrice, averagePrice, priceOne, priceTwo] = [selectedItem?.cutOff, selectedItem?.productPrice, selectedItem?.averagePrice, selectedItem?.priceOne, selectedItem?.priceTwo];
+
     if (!wishlistItems.some(item => item.productName === selectedItem.productName)) {
-      if (selectedItem.priceOne && selectedItem.priceTwo && selectedItem.averagePrice) {
-        wishlistItems.push({ id: wishlistItems.length, productImage, productName, priceOne, priceTwo, averagePrice, cartAmt, wishlistDate, wishlistStock });
-      } else {
-        wishlistItems.push({ id: wishlistItems.length, cutOff, productImage, productName, productPrice, cartAmt, wishlistDate, wishlistStock });
-      };
-      localStorage.setItem("wishlistItems", JSON.stringify(wishlistItems));
+      const newWishlist = { id: Date.now(), productImage, productName, cutOff, productPrice, averagePrice, priceOne, priceTwo, cartAmt, wishlistDate, wishlistStock };
+      setWishlistItems([...wishlistItems, newWishlist]);
       dispatch({ display: "ADD" });
     } else {
       dispatch({ display: "NOACTION" });
     };
+
     setTimeout(() => {
       setWishList(true);
       setTimeout(() => {
@@ -29,9 +31,15 @@ const AddToWishList = ({ id, showText, iconClass }) => {
   };
 
   return (
-    <div className="productToWishlist" onClick={() => AddToWishListFunc(id)}>
-      <i className={`fa-regular fa-heart ${iconClass}`}></i>
-      {showText && <p className="productWishlistText">ADD TO WISHLIST</p>}
+    <div onClick={() => AddToWishListFunc(id)}>
+      <>
+        {showIcon && <i onMouseEnter={() => setShowWishlistText(true)} onMouseLeave={() => setShowWishlistText(false)} onClick={() => setShowWishlistText(false)} className="fa-regular fa-heart optionIcon optioIconWishlist"></i>}
+        {showWishlistText && <p className="optionText wishlistOptionText">Add to Wishlist</p>}
+      </>
+      {showText && <div className="productToWishlist">
+        <i className="fa-regular fa-heart productWishlistIcon"></i>
+        <p className="productWishlistText">ADD TO WISHLIST</p>
+      </div>}
     </div>
   );
 };

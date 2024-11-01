@@ -1,7 +1,12 @@
-export const useCalTotal = (items) => {
+import { useContext } from "react";
+import { ToggleRegister } from "../../../contextpage";
+
+export const useCalTotal = () => {
+  const { cartItems } = useContext(ToggleRegister);
+
   let total = 0;
-  for (let i = 0; i < items.length; i++) {
-    total += items[i].averagePrice ? items[i].averagePrice * items[i].cartAmt : items[i].price * items[i].cartAmt;
+  for (let i = 0; i < cartItems.length; i++) {
+    total += cartItems[i].productPrice * cartItems[i].cartAmt;
   }
   return { total };
 }

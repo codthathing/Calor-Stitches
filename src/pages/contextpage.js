@@ -4,10 +4,19 @@ import { hotitems } from "./body/frontpage/innerpages/hotitems";
 import { newarrivals } from "./body/frontpage/innerpages/newarrivals";
 import { onsales } from "./body/frontpage/innerpages/onsale";
 
-export const ToggleRegister = createContext();
+const CURRENT_VERSION = '1.0.1';
+
+const APP_VERSION = localStorage.getItem('APP_VERSION');
+if (APP_VERSION !== CURRENT_VERSION) {
+  localStorage.removeItem('wishlistItems');
+  localStorage.removeItem('cartItems');
+  localStorage.setItem('APP_VERSION', CURRENT_VERSION);
+}
+
 const savedWishlistItems = localStorage.getItem('wishlistItems');
 const savedCartItems = localStorage.getItem('cartItems');
 
+export const ToggleRegister = createContext();
 export const OptNavProvider = ({ children }) => {
   const [account, setAccount] = useState(false);
   const [search, setSearch] = useState(false);

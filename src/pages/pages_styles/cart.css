@@ -455,10 +455,6 @@
 
 
 @media all and (max-width: 1023px) {
-  #productCartTopicsDiv {
-    display: none;
-  }
-
   .cartPriceValueDiv {
     justify-content: space-between;
   }

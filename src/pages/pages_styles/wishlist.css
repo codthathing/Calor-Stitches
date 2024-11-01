@@ -199,7 +199,7 @@
 
 
 @media all and (max-width: 1023px) {
-  #productWishlistTopicsDiv {
+  .product-wishlist-cart-topics {
     display: none;
   }
 

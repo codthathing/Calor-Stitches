@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ToggleRegister } from "../../contextpage";
+import { usePageInitialEffects } from "./components/page_effects";
 import ProductTemplate from "../frontpage/innerpages/products_func/productTemplate";
 import PageLinkTemplate from "./components/pagelinks";
 
@@ -8,7 +9,7 @@ const CollectionPage = () => {
   const { collectionName } = useParams();
   const [collection, setCollection] = useState([]);
   const { setToggleSideMenu, hotItems, newArrivals, onSales } = useContext(ToggleRegister);
-
+  usePageInitialEffects([{ effect: setToggleSideMenu, value: false }]);
   useEffect(() => {
     const pathName = window.location.pathname;
     if (pathName.includes("/Dresses")) {
@@ -18,9 +19,7 @@ const CollectionPage = () => {
     } else if (pathName.includes("/Outerwear")) {
       setCollection(onSales)
     }
-    window.scrollTo(0, 0);
-    setToggleSideMenu(false);
-  }, [hotItems, newArrivals, onSales, setToggleSideMenu])
+  }, [hotItems, newArrivals, onSales])
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },

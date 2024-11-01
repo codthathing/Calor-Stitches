@@ -1,5 +1,6 @@
 import { useEffect, useContext, useState, createContext } from "react";
 import { ToggleRegister } from "../../../contextpage";
+import { usePageInitialEffects } from "../components/page_effects";
 import PageLinkTemplate from "../components/pagelinks";
 import PageInfo from "../components/page_info";
 import CartSection from "./cart_section";
@@ -10,19 +11,13 @@ import CartCheckout from "./cart_checkout";
 export const CartContext = createContext();
 const CartPage = () => {
 
-  const { setNavbar, setCart, setToggleSideMenu, cartItems, curSymbol } = useContext(ToggleRegister);
+  const { setNavbar, setCart, setToggleSideMenu, curSymbol } = useContext(ToggleRegister);
 
   const [city, setCity] = useState("address");
   const [showCartInfo, setShowCartInfo] = useState(false);
   const [cartInfoArray, setCartInfoArray] = useState([]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    setCart(false);
-    setToggleSideMenu(false);
-    setNavbar(true);
-    setShowCartInfo(false);
-  }, [])
+  usePageInitialEffects([{ effect: setCart, value: false }, { effect: setToggleSideMenu, value: false }, { effect: setNavbar, value: true }, { effect: setShowCartInfo, value: false }]);
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },

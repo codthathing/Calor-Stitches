@@ -1,17 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { ToggleRegister } from "../../contextpage";
+import { usePageInitialEffects } from "./components/page_effects";
 import PageLinkTemplate from "./components/pagelinks";
 import ProductTemplate from "../frontpage/innerpages/products_func/productTemplate";
 
 const ProductPage = () => {
 
   const { setNavbar, setToggleSideMenu, products } = useContext(ToggleRegister);
-
-  useEffect(() => {
-    setNavbar(true);
-    setToggleSideMenu(false);
-    window.scrollTo(0, 0);
-  }, [setNavbar, setToggleSideMenu])
+  usePageInitialEffects([{ effect: setToggleSideMenu, value: false }, { effect: setNavbar, value: true }]);
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },

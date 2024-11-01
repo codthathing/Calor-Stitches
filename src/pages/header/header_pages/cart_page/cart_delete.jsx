@@ -6,7 +6,6 @@ const CartDelete = ({ id, cancelClass }) => {
 
   const RemoveCartItem = (id) => {
     let remainderItems = cartItems.filter((items) => items.id !== id);
-    localStorage.setItem("cartItems", JSON.stringify(remainderItems));
     setCartItems(remainderItems);
   };
 

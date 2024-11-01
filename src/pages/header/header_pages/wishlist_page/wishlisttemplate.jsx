@@ -4,17 +4,17 @@ import { ToggleRegister } from "../../../contextpage";
 import WishlistDelete from "./wishlist_delete";
 import ProductPrice from "../../../body/frontpage/innerpages/products_func/product_price";
 import WishlistStock from "./wishlist_stock";
-import AddToCart from "../../../body/frontpage/innerpages/products_func/addtocart";
+import ProductOptions from "../../../body/frontpage/innerpages/products_func/product_options";
 
 const WishlistTemplate = ({ wishlistArray }) => {
   const { setWishList, wishlistItems } = useContext(ToggleRegister);
 
   return (
     <>
-      {wishlistArray.map(({ id, productImage, productName, cutOff, productPrice, priceOne, priceTwo, averagePrice, wishlistDate, wishlistStock, wishlistStockColor }) => {
+      {wishlistArray.map(({ id, productImage, productName, cutOff, productPrice, priceOne, priceTwo, averagePrice, wishlistDate, wishlistStock, productDetails }) => {
         return (
           <div key={id} className="wishListDiv">
-            <WishlistDelete id={id} cancelClass={"delWishListIcon"}/>
+            <WishlistDelete id={id} cancelClass={"delWishListIcon"} />
             <img src={productImage} alt={productName} className="wishListImage" />
             <div className="wishListDetails">
               <h1 className="wishListName wishListTexts">
@@ -27,7 +27,7 @@ const WishlistTemplate = ({ wishlistArray }) => {
             </div>
             <div className="wishListAvailDiv">
               <WishlistStock mainClass={"wishListAvailMain"} textClass={"wishListAvail wishListTexts"} barClass={"wishListAvailBar"} stockAmt={wishlistStock} showStockBar={true} />
-              <AddToCart id={id} textClass={"wishListCartButton"} itemsArray={wishlistItems}></AddToCart>
+              <ProductOptions id={id} productDetails={productDetails} productName={productName} textClass={"wishListCartButton"} itemsArray={wishlistItems} />
             </div>
           </div>
         );

@@ -176,6 +176,7 @@
   color: #FFFFFF;
   font-family: var(--Roboto);
   border: none;
+  cursor: pointer;
 }
 
 #wishlistHandleShare {

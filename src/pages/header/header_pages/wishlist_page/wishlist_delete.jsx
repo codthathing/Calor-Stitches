@@ -6,7 +6,6 @@ const WishlistDelete = ({ id, cancelClass }) => {
 
   const RemoveWishlistItem = (id) => {
     let remainderItems = wishlistItems.filter((items) => items.id !== id);
-    localStorage.setItem("wishlistItems", JSON.stringify(remainderItems));
     dispatch({ display: "REMOVE" });
     setWishlistItems(remainderItems);
     setTimeout(() => {

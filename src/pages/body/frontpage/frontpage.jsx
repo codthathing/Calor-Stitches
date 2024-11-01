@@ -1,6 +1,7 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import { ToggleRegister } from "../../contextpage";
+import { usePageInitialEffects } from "../otherpages/components/page_effects";
 import FrontText from "./innerpages/frontText";
 import ProductSection from "./innerpages/product/product_section";
 import CollectionTemplate from "./innerpages/collection";
@@ -13,12 +14,7 @@ import ProductView from "./innerpages/productview";
 const FrontPage = () => {
 
   const { setToggleSideMenu, setNavbar } = useContext(ToggleRegister);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    setToggleSideMenu(false);
-    setNavbar(false);
-  }, [setNavbar, setToggleSideMenu]);
+  usePageInitialEffects([{ effect: setNavbar, value: false }, { effect: setToggleSideMenu, value: false }]);
 
   return (
     <>

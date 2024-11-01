@@ -1,5 +1,6 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ToggleRegister } from "../../../contextpage";
+import { usePageInitialEffects } from "../components/page_effects";
 import PageLinkTemplate from "../components/pagelinks";
 import WishlistProductSection from "./wishlist_product_section";
 import WishlistHandle from "./wishlist_handle";
@@ -7,13 +8,7 @@ import WishlistHandle from "./wishlist_handle";
 const WishListPage = () => {
 
   const { setNavbar, setWishList, setToggleSideMenu } = useContext(ToggleRegister);
-
-  useEffect(() => {
-    setNavbar(true);
-    setWishList(false);
-    setToggleSideMenu(false);
-    window.scrollTo(0, 0);
-  }, [])
+  usePageInitialEffects([{ effect: setWishList, value: false }, { effect: setToggleSideMenu, value: false }, { effect: setNavbar, value: true }]);
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },

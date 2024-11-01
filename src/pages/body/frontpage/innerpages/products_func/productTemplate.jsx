@@ -4,7 +4,7 @@ import { ToggleRegister } from "../../../../contextpage";
 import ProductAvail from "./product_avail";
 import ProductPrice from "./product_price";
 import AddToWishList from "./addtowishlist";
-import AddToCart from "./addtocart";
+import ProductOptions from "./product_options";
 
 const ProductTemplate = ({ productArray }) => {
   const { products } = useContext(ToggleRegister);
@@ -12,7 +12,7 @@ const ProductTemplate = ({ productArray }) => {
 
   return (
     <main id="mainProduct">
-      {productArray.map(({ id, productAvailable, productImage, productName, cutOff, productPrice, priceOne, priceTwo, averagePrice, wishlistStock }) => {
+      {productArray.map(({ id, productAvailable, productImage, productName, cutOff, productPrice, priceOne, priceTwo, averagePrice, productDetails, wishlistStock }) => {
         return (
           <div className="productDiv" key={id}>
             <div className="productInnerDiv" style={{ backgroundImage: `url(${productImage})` }}>
@@ -25,7 +25,7 @@ const ProductTemplate = ({ productArray }) => {
                 <div className="optionDiv optionDivWishlist">
                   <AddToWishList id={id} showText={false} showIcon={true} />
                 </div>
-                <AddToCart id={id} textClass={"paragraphStyles selectOption"} itemsArray={products} />
+                <ProductOptions id={id} productDetails={productDetails} productName={productName} textClass={"paragraphStyles selectOption"} itemsArray={products} />
                 <div className="optionDiv">
                   <Link to={`/${productName}`}><i className="fa-regular fa-eye optionIcon" onMouseEnter={() => setShowViewText(true)} onMouseLeave={() => setShowViewText(false)} onClick={() => setShowViewText(false)}></i></Link>
                   {showViewText && <div className="optionText viewOptionText">Quick View</div>}

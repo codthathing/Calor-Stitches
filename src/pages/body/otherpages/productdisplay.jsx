@@ -1,18 +1,16 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { ToggleRegister } from "../../contextpage";
+import { usePageInitialEffects } from "./components/page_effects";
 import ProductTemplate from "../frontpage/innerpages/products_func/productTemplate";
 import { useScroll } from "../../header/usescroll";
 import PageLinkTemplate from "./components/pagelinks";
 
 const ProductDisplay = () => {
-  const { latestItems, setToggleSideMenu, products } = useContext(ToggleRegister);
+  const { setToggleSideMenu, products } = useContext(ToggleRegister);
   const { presentScroll: addScroll } = useScroll("auto", "hidden");
   const { presentScroll: removeScroll } = useScroll("hidden", "auto");
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    setToggleSideMenu(false);
-  }, [latestItems]);
+  usePageInitialEffects([{ effect: setToggleSideMenu, value: false }]);
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },

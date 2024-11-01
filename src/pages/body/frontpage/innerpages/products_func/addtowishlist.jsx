@@ -12,10 +12,10 @@ const AddToWishList = ({ id, showText, showIcon }) => {
   const AddToWishListFunc = (id) => {
     const selectedItem = products.find((item) => item.id === id);
     const { productImage, productName, cartAmt, wishlistDate, wishlistStock } = selectedItem;
-    const [cutOff, productPrice, averagePrice, priceOne, priceTwo] = [selectedItem?.cutOff, selectedItem?.productPrice, selectedItem?.averagePrice, selectedItem?.priceOne, selectedItem?.priceTwo];
+    const [cutOff, productPrice, averagePrice, priceOne, priceTwo, productDetails] = [selectedItem?.cutOff, selectedItem?.productPrice, selectedItem?.averagePrice, selectedItem?.priceOne, selectedItem?.priceTwo, selectedItem?.productDetails];
 
     if (!wishlistItems.some(item => item.productName === selectedItem.productName)) {
-      const newWishlist = { id: Date.now(), productImage, productName, cutOff, productPrice, averagePrice, priceOne, priceTwo, cartAmt, wishlistDate, wishlistStock };
+      const newWishlist = { id: Date.now(), productImage, productName, cutOff, productPrice, averagePrice, priceOne, priceTwo, cartAmt, wishlistDate, wishlistStock, productDetails };
       setWishlistItems([...wishlistItems, newWishlist]);
       dispatch({ display: "ADD" });
     } else {

@@ -9,6 +9,8 @@ const changeText = (state, action) => {
       return "ITEM INCREASED";
     case "DEFAULT":
       return "ADD TO CART";
+    case "NOT_ENOUGH":
+      return "NOT ENOUGH UNITS";
   };
 };
 
@@ -22,28 +24,37 @@ const AddToCart = ({ id, buttonClass, textClass, itemsArray }) => {
 
   const AddToCartFunc = (id) => {
     const selectedItem = itemsArray.find((item) => item.id === id);
-    const { productImage, productName, cutOff, productPrice: price, averagePrice, cartAmt } = selectedItem;
+    const { productImage, productName, cutOff, productPrice: price, averagePrice, cartAmt, wishlistStock } = selectedItem;
     const cartSize = selectedItem?.productDetails?.cartSize;
     const cartColor = selectedItem?.productDetails?.cartColor;
 
-    const updatedCart = cartItems.map((items) => {
-      const { productName: productNameText, cartSize: size, cartColor: color } = items;
+    if (cartItems.some((item) => item.productName === productName && item?.cartSize === cartSize && item?.cartColor === cartColor)) {
+      const updatedCart = cartItems.map((item) => {
+        const { productName: productNameText, cartSize: size, cartColor: color, cartAmt, wishlistStock } = item;
+        if (productNameText === productName && size === cartSize && color === cartColor) {
+          if (cartAmt >= wishlistStock) {
+            dispatch({ display: "NOT_ENOUGH" });
+          } else {
+            dispatch({ display: "INCREASE" });
+            return { ...item, cartAmt: cartAmt + 1 };
+          }
+        }
+        return item;
+      });
 
-      if (productNameText === productName && size === cartSize && color === cartColor) {
-        dispatch({ display: "INCREASE" });
-        return { ...items, cartAmt: items.cartAmt + 1 };
-      } else {
-        return items;
-      };
-    });
-
-    if (!updatedCart.some((item) => item.productName === productName && item?.cartSize === cartSize && item?.cartColor === cartColor)) {
-      dispatch({ display: "ADD" });
-      const productPrice = averagePrice || (cutOff ? (price - ((cutOff / 100) * price)) : price);
-      const newItem = { id: Date.now(), productImage, productName, productPrice, cartSize, cartColor, cartAmt };
-      setCartItems([...updatedCart, newItem]);
-    } else {
       setCartItems(updatedCart);
+    } else {
+      const productPrice = averagePrice || (cutOff ? (price - ((cutOff / 100) * price)) : price);
+
+      if (wishlistStock === 0) {
+        return;
+      } else if (cartAmt > wishlistStock) {
+        dispatch({ display: "NOT_ENOUGH" });
+      } else {
+        dispatch({ display: "ADD" });
+        const newItem = { id: Date.now(), productImage, productName, productPrice, cartSize, cartColor, cartAmt, wishlistStock };
+        setCartItems([...cartItems, newItem]);
+      };
     };
 
     setTimeout(() => {

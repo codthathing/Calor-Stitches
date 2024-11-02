@@ -4,47 +4,39 @@ import america_flag from "../../../../asset/images-icons/currencyFlags/america-f
 import { ToggleRegister } from "../../../contextpage";
 import { useConversion } from "./conversion";
 
-// localStorage.clear()
 const CurLangTemplate = ({ className }) => {
   const { ChangeProductDollar, ChangeProductNaira } = useConversion();
   const [currency, setCurrency] = useState(false);
   const [curDetails, setCurDetails] = useState({ preNation: "Nigeria (Naira ₦)", preCur: "(Naira ₦)", curFlag: america_flag, curName: "USD $" });
-  const { presentCurrency, setPresentCurrency, products, setProducts, setCurSymbol, hotItems, setHotItems, newArrivals, setNewArrivals, onSales, setOnSales, latestItems, setLatestItems, wishlistItems, setWishlistItems, cartItems, setCartItems } = useContext(ToggleRegister);
+  const { setCurSymbol, products, setProducts, wishlistItems, setWishlistItems, cartItems, setCartItems } = useContext(ToggleRegister);
+  const [defaultCurrency, setDefaultCurrency] = useState(false);
+  const [presentCurrency, setPresentCurrency] = useState(JSON.parse(localStorage.getItem("PRESENT_CURRENCY")) || "NGN");
 
-  // useEffect(() => {
-  //   localStorage.setItem("PRESENT_CURRENCY", JSON.stringify(presentCurrency));
-  // }, [presentCurrency]);
+  useEffect(() => {
+    localStorage.setItem("PRESENT_CURRENCY", JSON.stringify(presentCurrency));
+  }, [presentCurrency]);
 
   useEffect(() => {
     if (presentCurrency === "USD") {
       setCurDetails({ preNation: "United states (USD $)", preCur: "(USD $)", curFlag: nigeria_flag, curName: "Naira ₦" });
-      if (presentCurrency === "NGN") {
-        setProducts(products.map((details) => ChangeProductDollar(details)));
-        setHotItems(hotItems.map((details) => ChangeProductDollar(details)));
-        setNewArrivals(newArrivals.map((details) => ChangeProductDollar(details)));
-        setOnSales(onSales.map((details) => ChangeProductDollar(details)));
-        setLatestItems(latestItems.map((details) => ChangeProductDollar(details)));
-        setWishlistItems(wishlistItems.map((details) => ChangeProductDollar(details)))
-        setCartItems(cartItems.map((details) => ChangeProductDollar(details)))
-      }
+      ChangeProductDollar([{ array: products, setArray: setProducts }]);
       setCurSymbol("$");
-    } else if (presentCurrency === "USD") {
+    } else if (presentCurrency === "NGN") {
       setCurDetails({ preNation: "Nigeria (Naira ₦)", preCur: "(Naira ₦)", curFlag: america_flag, curName: "USD $" });
-      if (presentCurrency === "USD") {
-        setProducts(products.map((details) => ChangeProductNaira(details)));
-        setHotItems(hotItems.map((details) => ChangeProductNaira(details)));
-        setNewArrivals(newArrivals.map((details) => ChangeProductNaira(details)));
-        setOnSales(onSales.map((details) => ChangeProductNaira(details)));
-        setLatestItems(latestItems.map((details) => ChangeProductNaira(details)));
-        setWishlistItems(wishlistItems.map((details) => ChangeProductNaira(details)));
-        setCartItems(cartItems.map((details) => ChangeProductNaira(details)));
-      }
+      { defaultCurrency && ChangeProductNaira([{ array: products, setArray: setProducts }]) };
       setCurSymbol("₦");
     }
   }, [presentCurrency]);
 
   const ChangeCurrency = () => {
-    setPresentCurrency(prevCurrency => prevCurrency === "NGN" ? "USD" : "NGN");
+    if (presentCurrency === "NGN") {
+      ChangeProductDollar([{ array: wishlistItems, setArray: setWishlistItems }, { array: cartItems, setArray: setCartItems }]);
+      setPresentCurrency("USD");
+    } else if (presentCurrency === "USD") {
+      ChangeProductNaira([{ array: wishlistItems, setArray: setWishlistItems }, { array: cartItems, setArray: setCartItems }]);
+      setPresentCurrency("NGN");
+      setDefaultCurrency(true);
+    };
     setCurrency(false);
   };
 

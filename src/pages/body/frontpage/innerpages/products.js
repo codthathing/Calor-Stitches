@@ -60,7 +60,7 @@ export const productDetails = [
     productAvailable: "new in",
     cartAmt: 1,
     wishlistDate: "June 19, 2024",
-    wishlistStock: 20,
+    wishlistStock: 24,
   },
   {
     id: 4,
@@ -93,7 +93,7 @@ export const productDetails = [
     productSizes: [{id: 0, text: "XXL", style: true}, {id: 1, text: "LL", style: false}],
     cartAmt: 1,
     wishlistDate: "February 14, 2024",
-    wishlistStock: 20
+    wishlistStock: 3
   },
   {
     id: 6,
@@ -107,7 +107,7 @@ export const productDetails = [
     productAvailable: "back in store",
     cartAmt: 1,
     wishlistDate: "April 1, 2024",
-    wishlistStock: 38
+    wishlistStock: 3
   },
   {
     id: 7,

@@ -21,7 +21,7 @@ const NavIcons = () => {
           return (
             <li className="icons" key={id}>
               <i id={`${iconId}`} className={`${iconClass} iconTag`} onClick={() => setPage(true)}>
-                {showValue && <var className="icon-values" style={{backgroundColor: navbar ? "black" : "white", color: navbar ? "white" : "black"}}>{value}</var>}
+                {showValue && <var className="icon-values" style={{backgroundColor: navbar ? "#222222" : "white", color: navbar ? "white" : "#222222"}}>{value}</var>}
               </i>
               {page && pageLayout}
             </li>

@@ -4,7 +4,7 @@ import { hotitems } from "./body/frontpage/innerpages/hotitems";
 import { newarrivals } from "./body/frontpage/innerpages/newarrivals";
 import { onsales } from "./body/frontpage/innerpages/onsale";
 
-const CURRENT_VERSION = '1.0.1';
+const CURRENT_VERSION = '1.0.2';
 
 const APP_VERSION = localStorage.getItem('APP_VERSION');
 if (APP_VERSION !== CURRENT_VERSION) {
@@ -24,7 +24,6 @@ export const OptNavProvider = ({ children }) => {
   const [wishlistItems, setWishlistItems] = useState(savedWishlistItems ? JSON.parse(savedWishlistItems) : []);
   const [cart, setCart] = useState(false);
   const [cartItems, setCartItems] = useState(savedCartItems ? JSON.parse(savedCartItems) : []);
-  const [presentCurrency, setPresentCurrency] = useState(JSON.parse(localStorage.getItem("PRESENT_CURRENCY")) || "NGN");
   const [toggleSideMenu, setToggleSideMenu] = useState(false);
   const [navbar, setNavbar] = useState(false);
   const [presentRegister, setPresentRegister] = useState("LOGIN");
@@ -53,7 +52,7 @@ export const OptNavProvider = ({ children }) => {
   const [state, dispatch] = useReducer(changeStyles, wishlistTextStyle);
 
   return (
-    <ToggleRegister.Provider value={{ account, setAccount, presentRegister, setPresentRegister, wishList, setWishList, cart, setCart, search, setSearch, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, hotItems, setHotItems, newArrivals, setNewArrivals, onSales, setOnSales, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, latestItems, setLatestItems, presentCurrency, setPresentCurrency }}>
+    <ToggleRegister.Provider value={{ account, setAccount, presentRegister, setPresentRegister, wishList, setWishList, cart, setCart, search, setSearch, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, hotItems, setHotItems, newArrivals, setNewArrivals, onSales, setOnSales, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, latestItems, setLatestItems }}>
       {children}
     </ToggleRegister.Provider>
   );

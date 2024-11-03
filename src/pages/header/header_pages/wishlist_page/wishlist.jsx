@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useScroll } from "../../usescroll";
 import { ToggleRegister } from "../../../contextpage";
@@ -6,9 +6,24 @@ import WishlistInfoText from "./wishlist_info_text";
 import WishlistSection from "./wishlist_section";
 
 const WishList = () => {
-  const { setWishList, wishlistItems } = useContext(ToggleRegister);
+  const { setWishList, wishlistItems, setWishlistItems, products } = useContext(ToggleRegister);
   const { presentScroll: addScroll } = useScroll("auto", "hidden");
   const { presentScroll: removeScroll } = useScroll("hidden", "auto");
+
+  // useEffect(() => {
+  //   const updatedWishlist = wishlistItems.map(({ productName, ...rest }) => {
+  //     for (let i = 0; i < products.length; i++) {
+  //       const { productName: productNameText, wishlistStock } = products[i];
+  //       if(productNameText === productName) {
+  //         return {...rest, productName, wishlistStock: wishlistStock};
+  //       };
+  //     };
+  //   });
+
+  //   if (JSON.stringify(updatedWishlist) !== JSON.stringify(wishlistItems)) {
+  //     setWishlistItems(updatedWishlist);
+  //   };
+  // }, []);
 
   return (
     <section id="wishListSection" className="navSections">

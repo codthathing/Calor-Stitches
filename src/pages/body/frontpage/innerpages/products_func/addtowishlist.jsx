@@ -15,7 +15,8 @@ const AddToWishList = ({ id, showText, showIcon }) => {
     const [cutOff, productPrice, averagePrice, priceOne, priceTwo, productDetails] = [selectedItem?.cutOff, selectedItem?.productPrice, selectedItem?.averagePrice, selectedItem?.priceOne, selectedItem?.priceTwo, selectedItem?.productDetails];
 
     if (!wishlistItems.some(item => item.productName === selectedItem.productName)) {
-      const newWishlist = { id: Date.now(), productImage, productName, cutOff, productPrice, averagePrice, priceOne, priceTwo, cartAmt, wishlistDate, wishlistStock, productDetails };
+      let newWishlist = { id: Date.now(), productImage, productName, cartAmt, wishlistDate, wishlistStock, productDetails };
+      newWishlist = averagePrice ? { ...newWishlist, averagePrice, priceOne, priceTwo } : cutOff ? {...newWishlist, cutOff, productPrice} : {...newWishlist, productPrice};
       setWishlistItems([...wishlistItems, newWishlist]);
       dispatch({ display: "ADD" });
     } else {

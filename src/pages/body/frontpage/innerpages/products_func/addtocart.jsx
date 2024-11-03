@@ -52,7 +52,7 @@ const AddToCart = ({ id, buttonClass, textClass, itemsArray }) => {
         dispatch({ display: "NOT_ENOUGH" });
       } else {
         dispatch({ display: "ADD" });
-        const newItem = { id: Date.now(), productImage, productName, productPrice, cartSize, cartColor, cartAmt, wishlistStock };
+        let newItem = { id: Date.now(), productImage, productName, productPrice, cartSize, cartColor, cartAmt, wishlistStock };
         setCartItems([...cartItems, newItem]);
       };
     };

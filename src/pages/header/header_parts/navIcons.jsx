@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ToggleRegister } from "../../contextpage";
 import AccountLayout from "../header_pages/account_pages/account_layout";
 import Search from "../header_pages/search/search";
@@ -12,7 +12,7 @@ const NavIcons = () => {
     { id: 0, iconId: "userIcon", iconClass: "fa-regular fa-user", setPage: setAccount, page: account, pageLayout: <AccountLayout /> },
     { id: 1, iconId: "", iconClass: "fa-solid fa-magnifying-glass", setPage: setSearch, page: search, pageLayout: <Search /> },
     { id: 2, iconId: "", iconClass: "fa-regular fa-heart", showValue: wishlistItems.length > 0, value: wishlistItems.length, setPage: setWishList, page: wishList, pageLayout: <WishList /> },
-    { id: 3, iconId: "", iconClass: "fa-solid fa-bag-shopping", showValue: cartItems.length > 0, value: cartItems.length, setPage: setCart, page: cart, pageLayout: <Cart /> }
+    { id: 3, iconId: "", iconClass: "fa-solid fa-bag-shopping", showValue: cartItems.length > 0, value: cartItems.reduce((sum, {cartAmt}) => sum + cartAmt, 0), setPage: setCart, page: cart, pageLayout: <Cart /> }
   ];
   const LinksIcon = () => {
     return (

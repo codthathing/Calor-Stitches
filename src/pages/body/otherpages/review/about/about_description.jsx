@@ -11,7 +11,7 @@ const AboutDescription = () => {
         amet saepe sunt quo repellat omnis atque quibusdam aperiam, nesciunt asperiores perferendis earum quis culpa quidem odit quia unde? Cupiditate veniam nulla id asperiores adipisci repellendus, doloribus minus quis
         voluptatem? Eligendi neque error dicta adipisci nesciunt mollitia vero vitae.
       </p>
-      <div id="productAboutDiv">
+      {/* <div id="productAboutDiv">
         <div className="productAboutInnerDiv">
           <img src={serviceIcon} alt="" className="productAboutInnerImage" />
           <p className="productAboutInnerText">Machine wash max. 30ºC. Short spin.</p>
@@ -24,7 +24,7 @@ const AboutDescription = () => {
           <img src={serviceIcon} alt="" className="productAboutInnerImage" />
           <p className="productAboutInnerText">Machine wash max. 30ºC. Short spin.</p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

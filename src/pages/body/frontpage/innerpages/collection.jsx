@@ -5,9 +5,9 @@ import outwearCollection from "../../../../asset/images-icons/collectionImages/d
 
 const CollectionTemplate = () => {
   const collections = [
-    { id: 0, collectionImage: dressCollection, collectionName: "Dresses" },
-    { id: 1, collectionImage: tshirtCollection, collectionName: "T-shirts" },
-    { id: 2, collectionImage: outwearCollection, collectionName: "Outerwear" }
+    { id: 0, collectionImage: dressCollection, collectionName: "dresses" },
+    { id: 1, collectionImage: tshirtCollection, collectionName: "t-shirts" },
+    { id: 2, collectionImage: outwearCollection, collectionName: "outerwear" }
   ]
 
   return (

@@ -12,11 +12,11 @@ const CollectionPage = () => {
   usePageInitialEffects([{ effect: setToggleSideMenu, value: false }]);
   useEffect(() => {
     const pathName = window.location.pathname;
-    if (pathName.includes("/Dresses")) {
+    if (pathName.includes("/dresses")) {
       setCollection(hotItems)
-    } else if (pathName.includes("/T-shirts")) {
+    } else if (pathName.includes("/t-shirts")) {
       setCollection(newArrivals)
-    } else if (pathName.includes("/Outerwear")) {
+    } else if (pathName.includes("/outerwear")) {
       setCollection(onSales)
     }
   }, [hotItems, newArrivals, onSales])

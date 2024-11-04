@@ -20,7 +20,11 @@ export const productDetails = [
     productSizes: [{id: 0, text: "L", style: true}, {id: 1, text: "XL", style: false}],
     cartAmt: 1,
     wishlistDate: "August 20, 2024",
-    wishlistStock: 0
+    wishlistStock: 0,
+    productInfo: [
+      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "8472ABX9"}]},
+      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "outerwear"}, {id: 1, text: "dresses", style: false}]}
+    ]
   },
   {
     id: 1,
@@ -34,7 +38,11 @@ export const productDetails = [
     productSizes: [{id: 0, text: "L", style: true}, {id: 1, text: "XXL", style: false}],
     cartAmt: 1,
     wishlistDate: "May 31, 2024",
-    wishlistStock: 4
+    wishlistStock: 4,
+    productInfo: [
+      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "5693ZYT7"}]},
+      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "activewear"}, {id: 1, text: "t-shirts", style: false}]}
+    ]
   },
   {
     id: 2,
@@ -48,7 +56,11 @@ export const productDetails = [
     productColors: [{id: 0, color: "#808000", style: true, text: "Olive green"}, {id: 1, color: "pink", style: false, text: "Pink"}],
     cartAmt: 1,
     wishlistDate: "August 24, 2024",
-    wishlistStock: 0
+    wishlistStock: 0,
+    productInfo: [
+      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "1928MNU4"}]},
+      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "outerwear"}, {id: 1, text: "sweaters", style: false}]}
+    ]
   },
   {
     id: 3,
@@ -61,6 +73,10 @@ export const productDetails = [
     cartAmt: 1,
     wishlistDate: "June 19, 2024",
     wishlistStock: 24,
+    productInfo: [
+      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "4567QWE3"}]},
+      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "jeans"}, {id: 1, text: "activewear", style: false}]}
+    ]
   },
   {
     id: 4,
@@ -77,7 +93,11 @@ export const productDetails = [
     productSizes: [{id: 0, text: "XL", style: true}, {id: 1, text: "L", style: false}],
     cartAmt: 1,
     wishlistDate: "September 9, 2024",
-    wishlistStock: 30
+    wishlistStock: 30,
+    productInfo: [
+      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "3902LKI5"}]},
+      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "sweaters"}, {id: 1, text: "t-shirts", style: false}]}
+    ]
   },
   {
     id: 5,
@@ -93,7 +113,11 @@ export const productDetails = [
     productSizes: [{id: 0, text: "XXL", style: true}, {id: 1, text: "LL", style: false}],
     cartAmt: 1,
     wishlistDate: "February 14, 2024",
-    wishlistStock: 5
+    wishlistStock: 5,
+    productInfo: [
+      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "7645OPR6"}]},
+      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "outerwear"}, {id: 1, text: "dresses", style: false}]}
+    ]
   },
   {
     id: 6,
@@ -107,7 +131,11 @@ export const productDetails = [
     productAvailable: "back in store",
     cartAmt: 1,
     wishlistDate: "April 1, 2024",
-    wishlistStock: 4
+    wishlistStock: 4,
+    productInfo: [
+      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "2138GHB8"}]},
+      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "sweaters"}, {id: 1, text: "activewear", style: false}]}
+    ]
   },
   {
     id: 7,
@@ -122,6 +150,10 @@ export const productDetails = [
     productSizes: [{id: 0, text: "L", style: true}, {id: 1, text: "XL", style: false}],
     cartAmt: 1,
     wishlistDate: "December 29, 2024",
-    wishlistStock: 0
+    wishlistStock: 0,
+    productInfo: [
+      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "9501TSV2"}]},
+      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "t-shirts"}, {id: 1, text: "dresses", style: false}]}
+    ]
   }
 ] 

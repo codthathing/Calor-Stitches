@@ -3,7 +3,7 @@ import instagram from "../../asset/images-icons/handleIcons/iconmonstr-instagram
 import tiktok from "../../asset/images-icons/handleIcons/iconmonstr-twitter-4-240.png";
 import twitter from "../../asset/images-icons/handleIcons/tiktok_round.png";
 
-const Handle = () => {
+const Handle = ({id}) => {
   const handleIcons = [
     {id: 0, handleIcon: facebook, handleAlt: "facebook_handle"},
     {id: 1, handleIcon: instagram, handleAlt: "instagram_handle"},
@@ -11,7 +11,7 @@ const Handle = () => {
     {id: 3, handleIcon: twitter, handleAlt: "twitter_handle"},
   ]
   return (
-    <aside id="newsAside">
+    <aside id={id}>
       {handleIcons.map(({id, handleIcon, handleAlt}) => {
         return <img key={id} src={handleIcon} alt={handleAlt} className="newsHandle" />
       })}

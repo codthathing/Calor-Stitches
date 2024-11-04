@@ -10,7 +10,7 @@ const NewsSection = () => {
         <h1 id="subscribeHead">Subscribe To Our Newsletter</h1>
         <SubscribeForm />
         <p id="subscribeParagraph">By subscribing, you accept the Privacy Policy</p>
-        <Handle />
+        <Handle id={"newsAside"} />
       </div>
     </section>
   );

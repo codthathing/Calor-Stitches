@@ -292,7 +292,7 @@
   margin: auto;
 }
 
-#productViewMainDiv::-webkit-scrollbar {
+#productViewMainDiv::-webkit-scrollbar, #productViewMain::-webkit-scrollbar {
   width: 2px;
 }
 
@@ -316,6 +316,10 @@
   right: 0;
 }
 
+#productViewBackIcon {
+  cursor: pointer;
+}
+
 #productViewImageDiv {
   background-repeat: no-repeat;
   background-size: cover;
@@ -330,6 +334,7 @@
   text-decoration: none;
   color: var(--222222);
   font-family: var(--Yantramanav);
+  cursor: pointer;
 }
 
 .about-main-text {

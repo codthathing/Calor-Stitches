@@ -1,9 +1,9 @@
 import { useState, useEffect, useContext } from "react";
-import { ReviewContext } from "./productreview";
+import { ToggleRegister } from "../../../contextpage";
 
 export const useReviewEffect = (productId, type, text, array) => {
   const [details, setDetails] = useState({ text: text, array: array });
-  const { products, setProducts } = useContext(ReviewContext);
+  const { products, setProducts } = useContext(ToggleRegister);
 
   useEffect(() => {
     const newProducts = products.map((product) => {

@@ -24,7 +24,7 @@ const AboutRating = () => {
       <p className="about-inner-text">Your rating *</p>
       <div id="rating-icons-div">
         {ratings.map(({ id, style }) => {
-          return <i key={id} onClick={() => ChangeRating(id)} class={`fa-${style ? "solid" : "regular"} fa-star rating-icon`}></i>
+          return <i key={id} onClick={() => ChangeRating(id)} className={`fa-${style ? "solid" : "regular"} fa-star rating-icon`}></i>
         })}
       </div>
     </section>

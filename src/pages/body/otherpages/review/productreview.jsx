@@ -6,7 +6,6 @@ import PageLinkTemplate from "../components/pagelinks";
 import ReviewPicture from "./review_picture";
 import ReviewDiv from "./review_div";
 import AboutDiv from "./about/about_div";
-import serviceIcon from "../../../../asset/images-icons/serviceIcons/iconmonstr-delivery-2-240.png";
 import ProductTemplate from "../../frontpage/innerpages/products_func/productTemplate";
 
 export const ReviewContext = createContext();
@@ -21,7 +20,7 @@ const ProductReview = () => {
   useEffect(() => {
     const presentProduct = products.find((product) => product.productName === productName);
     setProduct(presentProduct);
-  }, [products]);
+  }, [products, productName]);
 
   const { id, productImage, productImages, productName: productNameText, cutOff, productPrice, averagePrice, priceOne, priceTwo, productDesc, wishlistStock, cartAmt, productDetails, productColors, productAvailable, productSizes, productInfo } = product;
 

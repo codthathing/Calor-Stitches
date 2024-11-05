@@ -1,11 +1,13 @@
 import { useContext } from "react";
-import { ReviewContext } from "./productreview";
+import { useNavigate } from "react-router-dom";
+import { ToggleRegister } from "../../../contextpage";
 import CartAmt from "../cart/cart_amt";
 import AddToCart from "../../frontpage/innerpages/products_func/addtocart";
 import AddToWishList from "../../frontpage/innerpages/products_func/addtowishlist";
 
-const ReviewFunctions = () => {
-  const {id, cartAmt, products, setProducts} = useContext(ReviewContext);
+const ReviewFunctions = ({id, cartAmt, navPage}) => {
+  const { products, setProducts } = useContext(ToggleRegister);
+  const navigate = useNavigate();
 
   return (
     <div id="productFunctionsReview" className="productDivs">
@@ -13,7 +15,7 @@ const ReviewFunctions = () => {
         <CartAmt id={id} cartAmt={cartAmt} itemsArray={products} setItemsArray={setProducts} />
         <AddToCart id={id} buttonClass={"productToCartButton"} itemsArray={products} />
       </div>
-      <AddToWishList id={id} showText={true} showIcon={false} />
+      <span onClick={() => navigate(navPage)}><AddToWishList id={id} showText={true} showIcon={false} /></span>
     </div>
   );
 };

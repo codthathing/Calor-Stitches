@@ -16,7 +16,7 @@ const ProductReview = () => {
   const { setSearch, setNavbar, setCart, setToggleSideMenu, products, setProducts } = useContext(ToggleRegister);
 
   usePageInitialEffects([{ effect: setSearch, value: false }, { effect: setToggleSideMenu, value: false }, { effect: setNavbar, value: true }, { effect: setCart, value: false }]);
-
+  
   useEffect(() => {
     const presentProduct = products.find((product) => product.productName === productName);
     setProduct(presentProduct);
@@ -33,11 +33,11 @@ const ProductReview = () => {
   const [displayPage, setDisplayPage] = useState("DESCRIPTION");
 
   return (
-    <ReviewContext.Provider value={{ id, products, setProducts, productAvailable, productNameText, cutOff, productPrice, averagePrice, priceOne, priceTwo, cartAmt, productDesc, productDetails, productColors, productSizes, wishlistStock, productInfo, displayPage, setDisplayPage }}>
+    <ReviewContext.Provider value={{ id, products, setProducts, productAvailable, productNameText, productImage, productImages, cutOff, productPrice, averagePrice, priceOne, priceTwo, cartAmt, productDesc, productDetails, productColors, productSizes, wishlistStock, productInfo, displayPage, setDisplayPage }}>
       <div className="otherPages" id="productReview">
         <PageLinkTemplate pageLinks={pageLinkDetails} />
         <main id="productReviewMain" className="productMains">
-          {productImages && <ReviewPicture mainImage={productImage} imagesArray={productImages} />}
+          <ReviewPicture />
           <ReviewDiv />
         </main >
         <AboutDiv/>

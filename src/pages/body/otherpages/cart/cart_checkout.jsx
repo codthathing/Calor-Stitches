@@ -2,11 +2,13 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToggleRegister } from "../../../contextpage";
 import { CartContext } from "./cartpage";
+import { useCartEffect } from "./cart_effect";
 
 const CartCheckout = () => {
   const { cartItems } = useContext(ToggleRegister);
-  const { city, setShowCartInfo, setCartInfoArray } = useContext(CartContext);
+  const { city, setShowCartInfo } = useContext(CartContext);
   const checkoutNavigate = useNavigate();
+  const { CheckCart, DisplayInfo } = useCartEffect();
 
   const HandleCheckout = () => {
     const checkoutInfos = [];
@@ -17,18 +19,15 @@ const CartCheckout = () => {
       checkoutInfos.push("Kindly add items to the cart.")
     } else if (city === "address") {
       checkoutInfos.push("Please update the shipping address")
+    } else {
+      CheckCart(checkoutInfos)
     };
 
-    if(checkoutInfos.length > 0) {
-      setCartInfoArray(checkoutInfos);
-      setTimeout(() => {
-        setShowCartInfo(true);
-      }, 1000);
-    } else {
+    DisplayInfo(checkoutInfos);
+    if(checkoutInfos.length === 0) {
       checkoutNavigate("/shop/checkout");
       setShowCartInfo(false);
-      setCartInfoArray([]);
-    };
+    }
   };
 
   return <button id="cartCheckoutButton" onClick={HandleCheckout}>PROCEED TO CHECKOUT</button>

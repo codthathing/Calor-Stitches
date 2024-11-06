@@ -1,13 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { ToggleRegister } from "../../../../contextpage";
 
 const AddToWishList = ({ id, showText, showIcon }) => {
   const { products, wishlistItems, setWishlistItems, setWishList, dispatch } = useContext(ToggleRegister);
   const [showWishlistText, setShowWishlistText] = useState(false);
-
-  useEffect(() => {
-    localStorage.setItem("wishlistItems", JSON.stringify(wishlistItems));
-  }, [wishlistItems]);
 
   const AddToWishListFunc = (id) => {
     const selectedItem = products.find((item) => item.id === id);

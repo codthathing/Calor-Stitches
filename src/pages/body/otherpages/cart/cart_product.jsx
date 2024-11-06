@@ -4,11 +4,11 @@ import CartDelete from "../../../header/header_pages/cart_page/cart_delete";
 import CartAmt from "./cart_amt";
 
 const CartProduct = () => {
-  const { cartItems, setCartItems, curSymbol } = useContext(ToggleRegister);
+  const { curSymbol, cloneCart, setCloneCart } = useContext(ToggleRegister);
 
   return (
     <>
-      {cartItems.map(({ id, productImage, productName, cartAmt, productPrice, cartColor, cartSize }) => {
+      {cloneCart.map(({ id, productImage, productName, cartAmt, productPrice, cartColor, cartSize }) => {
         return (
           <div key={id} className="wishlistCartDiv productCartDiv">
             <div className="wishlistCartIconImageTextDiv">
@@ -28,7 +28,7 @@ const CartProduct = () => {
             </div>
             <div className="cartQuantityDiv">
               <p className="wishlistStatusText">Quantity</p>
-              <CartAmt id={id} cartAmt={cartAmt} itemsArray={cartItems} setItemsArray={setCartItems} />
+              <CartAmt id={id} cartAmt={cartAmt} itemsArray={cloneCart} setItemsArray={setCloneCart} />
             </div>
             <div className="wishlistCartPriceValueDiv">
               <p className="wishlistCartPriceText">Subtotal</p>

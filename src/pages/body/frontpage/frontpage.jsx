@@ -9,7 +9,7 @@ import LatestSection from "./innerpages/latest/latest_section";
 import PageArticle from "./innerpages/article";
 import VideoDiv from "./innerpages/video_div";
 import ServiceTemplate from "./innerpages/service";
-import ProductView from "./innerpages/productview";
+import ProductView from "./innerpages/view/productview";
 
 const FrontPage = () => {
 

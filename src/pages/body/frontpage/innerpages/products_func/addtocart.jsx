@@ -18,10 +18,6 @@ const AddToCart = ({ id, buttonClass, textClass, itemsArray }) => {
   const { cartItems, setCartItems } = useContext(ToggleRegister);
   const [state, dispatch] = useReducer(changeText, "ADD TO CART");
 
-  useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
-
   const AddToCartFunc = (id) => {
     const selectedItem = itemsArray.find((item) => item.id === id);
     const { productImage, productName, cutOff, productPrice: price, averagePrice, cartAmt, wishlistStock } = selectedItem;

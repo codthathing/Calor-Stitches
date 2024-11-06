@@ -1,4 +1,4 @@
-import { useEffect, useContext, useState, createContext } from "react";
+import { useContext, useState, createContext } from "react";
 import { ToggleRegister } from "../../../contextpage";
 import { usePageInitialEffects } from "../components/page_effects";
 import PageLinkTemplate from "../components/pagelinks";

@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react";
 import { ToggleRegister } from "../contextpage";
 
- export const useProductEffect = () => {
-  const { cartItems, products, setCartItems, wishlistItems, setWishlistItems } = useContext(ToggleRegister);
+export const useProductEffect = () => {
+  const { cartItems, products, setCartItems, wishlistItems, setWishlistItems, setCloneCart } = useContext(ToggleRegister);
 
   useEffect(() => {
 
@@ -12,7 +12,7 @@ import { ToggleRegister } from "../contextpage";
         const { wishlistStock, productSizes, productColors } = product;
         if (wishlistStock === 0) {
           return null;
-        } else if (productSizes && !productSizes.some(({text}) => text === cartSize)) {
+        } else if (productSizes && !productSizes.some(({ text }) => text === cartSize)) {
           return null;
         } else if (productColors && !productColors.some(({ text }) => text === cartColor)) {
           return null;
@@ -32,8 +32,8 @@ import { ToggleRegister } from "../contextpage";
     const updatedWishlist = wishlistItems.map(({ productName, ...rest }) => {
       for (let i = 0; i < products.length; i++) {
         const { productName: productNameText, wishlistStock } = products[i];
-        if(productNameText === productName) {
-          return {...rest, productName, wishlistStock: wishlistStock};
+        if (productNameText === productName) {
+          return { ...rest, productName, wishlistStock: wishlistStock };
         };
       };
     });
@@ -41,5 +41,7 @@ import { ToggleRegister } from "../contextpage";
     if (JSON.stringify(updatedWishlist) !== JSON.stringify(wishlistItems)) {
       setWishlistItems(updatedWishlist);
     };
-  }, []);
+
+    setCloneCart(cartItems);
+  }, [cartItems, wishlistItems, cartItems]);
 };

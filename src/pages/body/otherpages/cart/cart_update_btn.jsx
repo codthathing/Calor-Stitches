@@ -1,19 +1,27 @@
 import { useContext } from "react";
 import { ToggleRegister } from "../../../contextpage";
 import { CartContext } from "./cartpage";
+import { useCartEffect } from "./cart_effect";
 
 const CartUpdateBtn = () => {
-  const { cartItems } = useContext(ToggleRegister);
-  const { setShowCartInfo, setCartInfoArray } = useContext(CartContext);
+  const { cloneCart, setCartItems } = useContext(ToggleRegister);
+  const { setShowCartInfo } = useContext(CartContext);
+  const { CheckCart, DisplayInfo } = useCartEffect();
 
   const UpdateCart = () => {
-    if (JSON.stringify(cartItems) !== localStorage.getItem("cartItems")) {
-      localStorage.setItem("cartItems", JSON.stringify(cartItems));
-      setCartInfoArray(["Cart updated."]);
+    const cartInfos = [];
+    CheckCart(cartInfos);
+
+    if (JSON.stringify(cloneCart) !== localStorage.getItem("cartItems") && cartInfos.length === 0) {
+      setCartItems(cloneCart);
+      cartInfos.push("Cart updated.");
+    } else {
       setTimeout(() => {
-        setShowCartInfo(true);
+        setShowCartInfo(false);
       }, 1000);
     };
+
+    DisplayInfo(cartInfos);
   };
 
   return (

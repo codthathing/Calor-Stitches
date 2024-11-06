@@ -3,14 +3,13 @@ import { ToggleRegister } from "../../../../contextpage";
 import { useCalTotal } from "../../../../header/header_pages/cart_page/cart_total";
 
 const OrderSubtotal = () => {
-  const { curSymbol } = useContext(ToggleRegister);
+  const { curSymbol, shipFee } = useContext(ToggleRegister);
   const { total } = useCalTotal();
-  const shippingFee = 200;
 
   const subtotalArray = [
     { id: 0, subText: "Subtotal", subValue: total },
-    { id: 1, subText: "Shipping fee", subValue: shippingFee },
-    { id: 2, subText: "Total", subValue: (total + shippingFee) },
+    { id: 1, subText: "Shipping fee", subValue: shipFee },
+    { id: 2, subText: "Total", subValue: (total + shipFee) },
   ];
 
   return (

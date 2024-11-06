@@ -26,7 +26,7 @@ const ProductAvail = ({ productAvailable, wishlistStock, cutOff }) => {
     if(cutOff) {
       setDoubleAvail({color: "#FF0000", text: `${cutOff}% OFF`});
     };
-  }, []);
+  }, [productAvailable, wishlistStock, cutOff]);
 
   return (
     <div className="availDiv">

@@ -4,6 +4,7 @@ import { usePageInitialEffects } from "./components/page_effects";
 import ProductTemplate from "../frontpage/innerpages/products_func/productTemplate";
 import { useScroll } from "../../header/usescroll";
 import PageLinkTemplate from "./components/pagelinks";
+import ProductFilter from "./product_page/product_filter";
 
 const ProductDisplay = () => {
   const { setToggleSideMenu, products } = useContext(ToggleRegister);
@@ -19,7 +20,6 @@ const ProductDisplay = () => {
   const [mapProducts, setMapProducts] = useState(0);
   const shownProducts = 4;
   const pageNumbers = [];
-  const [showFilterDiv, setShowFilterDiv] = useState(false);
   const [showFilterSection, setShowFilterSection] = useState(false);
 
   for (let i = 0; i < Math.floor(products.length / shownProducts); i++) {
@@ -55,22 +55,7 @@ const ProductDisplay = () => {
             <i className="fa-solid fa-arrow-up-wide-short productIcons"></i>
             <p className="productShownText">FILTERS</p>
           </div>
-          <div className="productFilterDiv">
-            <div className="productTexIcontDiv" onClick={() => setShowFilterDiv(!showFilterDiv)}>
-              <i className="fa-solid fa-angle-down productIcons"></i>
-              <p className="productTexts">{"Date, new to old"}</p>
-            </div>
-            {showFilterDiv && <div className="productInnerDivs">
-              <p className="productFilterTexts">Best selling</p>
-              <p className="productFilterTexts">Rating</p>
-              <p className="productFilterTexts">Aphabetically, A to Z</p>
-              <p className="productFilterTexts">Aphabetically, Z to A</p>
-              <p className="productFilterTexts">Price, low to high</p>
-              <p className="productFilterTexts">Price, high to low</p>
-              <p className="productFilterTexts">Date, old to new</p>
-              <p className="productFilterTexts">Date, new to old</p>
-            </div>}
-          </div>
+          <ProductFilter textTwo={true} />
         </div>
         <ProductTemplate productArray={products.slice(mapProducts, mapProducts + shownProducts)} />
         <div className="productNavigationDiv">

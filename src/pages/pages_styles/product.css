@@ -443,11 +443,6 @@
   cursor: pointer;
 }
 
-.productFilterTexts:hover {
-  background-color: var(--222222);
-  color: #FFFFFF;
-}
-
 .productNavigationDiv {
   display: flex;
   justify-content: center;

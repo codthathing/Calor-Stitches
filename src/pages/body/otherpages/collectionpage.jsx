@@ -4,6 +4,7 @@ import { ToggleRegister } from "../../contextpage";
 import { usePageInitialEffects } from "./components/page_effects";
 import ProductTemplate from "../frontpage/innerpages/products_func/productTemplate";
 import PageLinkTemplate from "./components/pagelinks";
+import ProductFilter from "./product_page/product_filter";
 
 const CollectionPage = () => {
   const { collectionName } = useParams();
@@ -30,11 +31,18 @@ const CollectionPage = () => {
   const [mapProducts, setMapProducts] = useState(0);
   const shownProducts = 4;
   const pageNumbers = [];
-  const [showFilterDiv, setShowFilterDiv] = useState(false);
 
   for (let i = 0; i < Math.floor(collection.length / shownProducts); i++) {
     pageNumbers.push(i);
   };
+
+  const filterTexts = [
+    {id: 0, text: "Sort by popularity", style: false},
+    {id: 1, text: "Sort by average rating", style: false},
+    {id: 2, text: "Sort by latest", style: true},
+    {id: 3, text: "Sort by price: low to high", style: false},
+    {id: 4, text: "Sort by price: high to low", style: false},
+  ];
 
   return (
     <div className="otherPages">
@@ -42,19 +50,7 @@ const CollectionPage = () => {
       <main className="productMains">
         <div className="productShownDiv">
           <p className="productShownText">Showing {mapProducts + 1} - {mapProducts + shownProducts} of {collection.length} products</p>
-          <div className="productFilterDiv">
-            <div id="productSortTextIconDiv" className="productTexIcontDiv" onClick={() => setShowFilterDiv(!showFilterDiv)}>
-              <p className="productTexts">{"Sort by latest"}</p>
-              <i className="fa-solid fa-angle-down productIcons"></i>
-            </div>
-            {showFilterDiv && <div className="productInnerDivs">
-              <p className="productFilterTexts">Sort by popularity</p>
-              <p className="productFilterTexts">Sort by average rating</p>
-              <p className="productFilterTexts">Sort by latest</p>
-              <p className="productFilterTexts">Sort by price: low to high</p>
-              <p className="productFilterTexts">Sort by price: high to low</p>
-            </div>}
-          </div>
+          <ProductFilter id={"productSortTextIconDiv"} defaultText={"Sort by latest"} textOne={true} filterText={filterTexts} />
         </div>
         <ProductTemplate productArray={collection} />
         <div className="productNavigationDiv">

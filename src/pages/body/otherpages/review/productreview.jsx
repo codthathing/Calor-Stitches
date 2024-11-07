@@ -45,7 +45,7 @@ const ProductReview = () => {
           <p id="productRelatedText">Related products</p>
           <ProductTemplate productArray={products} />
         </div>
-      </div >
+      </div>
     </ReviewContext.Provider>
   );
 }

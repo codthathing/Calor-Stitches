@@ -20,7 +20,7 @@ export const productDetails = [
     productSizes: [{id: 0, text: "L", style: true}, {id: 1, text: "XL", style: false}],
     cartAmt: 1,
     wishlistDate: "August 20, 2024",
-    wishlistStock: 0,
+    wishlistStock: 4,
     productInfo: [
       {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "8472ABX9"}]},
       {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "outerwear"}, {id: 1, text: "dresses", style: false}]}
@@ -38,7 +38,7 @@ export const productDetails = [
     productSizes: [{id: 0, text: "L", style: true}, {id: 1, text: "XXL", style: false}],
     cartAmt: 1,
     wishlistDate: "May 31, 2024",
-    wishlistStock: 2,
+    wishlistStock: 5,
     productInfo: [
       {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "5693ZYT7"}]},
       {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "activewear"}, {id: 1, text: "t-shirts", style: false}]}

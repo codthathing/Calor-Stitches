@@ -6,5 +6,5 @@ export const usePageInitialEffects = (effectsArray = [{}]) => {
     for(let i = 0; i < effectsArray.length; i++) {
       effectsArray[i].effect(effectsArray[i].value);
     };
-  }, []);
+  }, [window.location.pathname]);
 };

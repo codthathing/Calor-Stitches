@@ -13,7 +13,7 @@ const WishlistStock = ({mainClass, textClass, barClass, showStock = true, stockA
     } else {
       setStockDetails({ stockText: stockMore, stockColor: "#00A849" });
     };
-  }, []);
+  }, [stockAmt]);
 
   return (
     <main className={mainClass}>

@@ -483,6 +483,7 @@
 
 #productFilterOptionsMain {
   background-color: #FFFFFF;
+  overflow-y: auto;
 }
 
 #productFilterOptionsMain::-webkit-scrollbar {
@@ -527,6 +528,7 @@
 .filterTextsLength {
   font-family: var(--Roboto);
   color: var(--222222);
+  text-transform: capitalize;
 }
 
 #productFilterSlider {

@@ -3,7 +3,7 @@ import FrontPage from "./frontpage/frontpage";
 import ProductReview from "./otherpages/review/productreview";
 import CollectionPage from "./otherpages/collectionpage";
 import ProductPage from "./otherpages/product_page/productpage";
-import ProductDisplay from "./otherpages/productdisplay";
+import ProductDisplay from "./otherpages/product_display/productdisplay";
 import WishListPage from "./otherpages/wishlist/wishlistpage";
 import CartPage from "./otherpages/cart/cartpage";
 import CheckoutPage from "./otherpages/checkout/checkoutpage";

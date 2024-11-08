@@ -7,7 +7,7 @@ export const useScroll = (page, body) => {
     if(presentScroll.current) {
       presentScroll.current.style.overflowY = page;
     }
-  }, []);
+  }, [page, body]);
 
   return {presentScroll};
 }

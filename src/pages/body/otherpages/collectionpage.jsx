@@ -5,22 +5,22 @@ import { usePageInitialEffects } from "./components/page_effects";
 import ProductTemplate from "../frontpage/innerpages/products_func/productTemplate";
 import PageLinkTemplate from "./components/pagelinks";
 import ProductFilter from "./product_page/product_filter";
+import { useProductShownEffect } from "./product_page/product_shown_effect";
 
 const CollectionPage = () => {
   const { collectionName } = useParams();
+  const { setToggleSideMenu, products } = useContext(ToggleRegister);
+  
   const [collection, setCollection] = useState([]);
-  const { setToggleSideMenu, hotItems, newArrivals, onSales } = useContext(ToggleRegister);
+
   usePageInitialEffects([{ effect: setToggleSideMenu, value: false }]);
+
   useEffect(() => {
-    const pathName = window.location.pathname;
-    if (pathName.includes("/dresses")) {
-      setCollection(hotItems)
-    } else if (pathName.includes("/t-shirts")) {
-      setCollection(newArrivals)
-    } else if (pathName.includes("/outerwear")) {
-      setCollection(onSales)
-    }
-  }, [hotItems, newArrivals, onSales])
+    const presentCollections = products.filter(({productInfo}) => productInfo.find(({name}) => name === "CARTEGORIES").links.find(({text}) => text === collectionName));
+    setCollection(presentCollections)
+  }, []);
+
+  const { ProductShown, Products, ProductPagination } = useProductShownEffect(collection);
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },
@@ -28,13 +28,6 @@ const CollectionPage = () => {
     { id: 2, linkDirect: "", linkText: "Collection", linkArrow: true },
     { id: 3, linkDirect: "", linkText: collectionName, linkArrow: false },
   ]
-  const [mapProducts, setMapProducts] = useState(0);
-  const shownProducts = 4;
-  const pageNumbers = [];
-
-  for (let i = 0; i < Math.floor(collection.length / shownProducts); i++) {
-    pageNumbers.push(i);
-  };
 
   const filterTexts = [
     {id: 0, text: "Sort by popularity", style: false},
@@ -49,15 +42,11 @@ const CollectionPage = () => {
       <PageLinkTemplate pageLinks={pageLinkDetails} />
       <main className="productMains">
         <div className="productShownDiv">
-          <p className="productShownText">Showing {mapProducts + 1} - {mapProducts + shownProducts} of {collection.length} products</p>
+          <ProductShown />
           <ProductFilter id={"productSortTextIconDiv"} defaultText={"Sort by latest"} textOne={true} filterText={filterTexts} />
         </div>
-        <ProductTemplate productArray={collection} />
-        <div className="productNavigationDiv">
-          {pageNumbers.map((pages) => {
-            return <p key={pages} className="productNavigationText" onClick={() => setMapProducts(shownProducts * pages)}>{pages + 1}</p>
-          })}
-        </div>
+        <Products />
+        <ProductPagination />
       </main>
     </div>
   );

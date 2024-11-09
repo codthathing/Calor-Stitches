@@ -114,6 +114,7 @@
 .productColorInnerText {
   font-family: var(--Roboto);
   color: var(--1B1A1A);
+  text-transform: capitalize;
 }
 
 .productSizeDiv {
@@ -130,6 +131,7 @@
 .productSizeMainText {
   font-family: var(--Roboto);
   color: var(--282828);
+  text-transform: uppercase;
   width: fit-content;
 }
 
@@ -518,17 +520,31 @@
 .productFilterDivs {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .filterCheckbox {
   accent-color: var(--222222);
   border: 1px solid var(--222222);
+  cursor: pointer;
 }
 
 .filterTextsLength {
   font-family: var(--Roboto);
   color: var(--222222);
+  display: flex;
+}
+
+#filter-text-type {
   text-transform: capitalize;
+}
+
+#filter-color-text {
+  text-transform: capitalize;
+}
+
+#filter-text-size {
+  text-transform: uppercase;
 }
 
 #productFilterSlider {
@@ -586,7 +602,6 @@
 
 .filterColorInnerDivs {
   border-radius: 50%;
-  background-color: red;
 }
 
 #productFilterFooter {
@@ -909,6 +924,7 @@
 
   .filterTextsLength {
     font-size: var(--16px);
+    gap: 0 0.35rem;
   }
 
   .filterPriceValueTexts {
@@ -1314,6 +1330,7 @@
   }
 
   .filterTextsLength {
+    gap: 0 0.15rem;
     font-size: var(--12px);
   }
 

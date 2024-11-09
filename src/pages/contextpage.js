@@ -30,7 +30,7 @@ export const OptNavProvider = ({ children }) => {
   const [products, setProducts] = useState(productDetails);
   const [presentCurrency, setPresentCurrency] = useLocalStorage("PRESENT_CURRENCY", "NGN");
   const [curDetails, setCurDetails] = useState({ preNation: "Nigeria (Naira ₦)", preCur: "(Naira ₦)", curFlag: america_flag, curName: "USD $" });
-  const [shipFee, setShipFee] = useState(10000);
+  const [productShipValue, setProductShipValue] = useState({shipFee: 10000, min: 20, max: 5020, minValue: 20, maxValue: 5020});
   const [hotItems, setHotItems] = useState(hotitems);
   const [newArrivals, setNewArrivals] = useState(newarrivals);
   const [onSales, setOnSales] = useState(onsales);
@@ -55,7 +55,7 @@ export const OptNavProvider = ({ children }) => {
   const [state, dispatch] = useReducer(changeStyles, wishlistTextStyle);
 
   return (
-    <ToggleRegister.Provider value={{ account, setAccount, presentRegister, setPresentRegister, wishList, setWishList, cart, setCart, search, setSearch, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, hotItems, setHotItems, newArrivals, setNewArrivals, onSales, setOnSales, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, latestItems, setLatestItems, curDetails, setCurDetails, shipFee, setShipFee, presentCurrency, setPresentCurrency, cloneCart, setCloneCart }}>
+    <ToggleRegister.Provider value={{ account, setAccount, presentRegister, setPresentRegister, wishList, setWishList, cart, setCart, search, setSearch, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, hotItems, setHotItems, newArrivals, setNewArrivals, onSales, setOnSales, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, latestItems, setLatestItems, curDetails, setCurDetails, productShipValue, setProductShipValue, presentCurrency, setPresentCurrency, cloneCart, setCloneCart }}>
       {children}
     </ToggleRegister.Provider>
   );

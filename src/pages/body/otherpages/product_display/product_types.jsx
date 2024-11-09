@@ -1,36 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { DisplayContext } from "./productdisplay";
-import { ToggleRegister } from "../../../contextpage";
+import ProductFilterOptionDiv from "./product_filter_option_div";
 
 const ProductTypes = () => {
-  const { ChangeProductsTypes } = useContext(DisplayContext);
-  const { products } = useContext(ToggleRegister);
+  const { ChangeProductsTypes, productTypes, setProductTypes } = useContext(DisplayContext);
 
-  const [productTypes, setProductTypes] = useState([
-    { id: 0, text: "t-shirts", option: true },
-    { id: 1, text: "activewear", option: true },
-    { id: 2, text: "jeans", option: true },
-    { id: 3, text: "outerwear", option: true }
-  ]);
-
-  return (
-    <div className="productFilterMainDivs">
-      <p className="productFilterText">Product Type</p>
-      <section className="productFilterSections">
-        {productTypes.map(({ id, text, option }) => {
-          return (
-            <div key={id} onClick={() => ChangeProductsTypes(id, option, text, productTypes, setProductTypes)} className="productFilterDivs">
-              <input type="checkbox" checked={!option} readOnly className="filterCheckbox" />
-              <p className="filterTextsLength">
-                {text}
-                ({products.filter(({ productInfo }) => productInfo.find(({ name }) => name === "CARTEGORIES").links.find(({ text: cartgory }) => cartgory === text)).length})
-              </p>
-            </div>
-          )
-        })}
-      </section>
-    </div>
-  );
+  return <ProductFilterOptionDiv filterText={"Product Type"} productFunction={ChangeProductsTypes} productArray={productTypes} setProductArray={setProductTypes} textLengthId={"filter-text-type"} showFirstInput={true} showTypeLength={true} />
 };
 
 export default ProductTypes;

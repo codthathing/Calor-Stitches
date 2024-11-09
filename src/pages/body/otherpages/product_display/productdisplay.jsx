@@ -1,4 +1,4 @@
-import { useState, useContext, createContext } from "react";
+import { useState, useContext, createContext, useEffect } from "react";
 import { ToggleRegister } from "../../../contextpage";
 import { usePageInitialEffects } from "../components/page_effects";
 import PageLinkTemplate from "../components/pagelinks";
@@ -6,6 +6,8 @@ import ProductFilter from "../product_page/product_filter";
 import { useProductShownEffect } from "../product_page/product_shown_effect";
 import { useProductOptionFilter } from "./product_option_filter";
 import ProductTypes from "./product_types";
+import ProductPrice from "./product_price";
+import ProductColors from "./product_colors";
 import ProductSize from "./product_size";
 
 export const DisplayContext = createContext();
@@ -16,14 +18,28 @@ const ProductDisplay = () => {
 
   const { Products, ProductPagination } = useProductShownEffect(presentFilterProducts);
 
-  const { ChangeProductsTypes, ChangeProductsSize } = useProductOptionFilter(setPresentFilterProducts);
+  const { ChangeProductsTypes, handleMinChange, handleMaxChange, ChangeProductsColors, ChangeProductsSize } = useProductOptionFilter(setPresentFilterProducts);
 
+  const [productTypes, setProductTypes] = useState([
+    { id: 0, text: "t-shirts", option: true, style: false },
+    { id: 1, text: "activewear", option: true, style: false },
+    { id: 2, text: "jeans", option: true, style: false },
+    { id: 3, text: "outerwear", option: true, style: false }
+  ]);
 
+  const [productColors, setProductColors] = useState([
+    { id: 0, text: "olive green", color: "#808000", option: true, style: false },
+    { id: 1, text: "army green", color: "#4B5320", option: true, style: false },
+    { id: 2, text: "navy blue", color: "#000080", option: true, style: false },
+    { id: 3, text: "pink", color: "pink", option: true, style: false },
+  ]);
 
-
-
-
-
+  const [productSize, setProductSize] = useState([
+    { id: 0, text: "l", option: true, style: false },
+    { id: 1, text: "xl", option: true, style: false },
+    { id: 2, text: "xxl", option: true, style: false },
+    { id: 3, text: "ll", option: true, style: false }
+  ]);
 
   usePageInitialEffects([{ effect: setToggleSideMenu, value: false }]);
 
@@ -34,25 +50,9 @@ const ProductDisplay = () => {
 
   const [showFilterSection, setShowFilterSection] = useState(false);
 
-  let min = 20;
-  let max = 170;
-
-  const [minValue, setMinValue] = useState(min);
-  const [maxValue, setMaxValue] = useState(max);
-
-  const handleMinChange = (event) => {
-    const value = Math.min(Number(event.target.value), maxValue - 1);
-    setMinValue(value);
-  };
-
-  const handleMaxChange = (event) => {
-    const value = Math.max(Number(event.target.value), minValue + 1);
-    setMaxValue(value);
-  };
-
 
   return (
-    <DisplayContext.Provider value={{ ChangeProductsTypes, ChangeProductsSize }}>
+    <DisplayContext.Provider value={{ ChangeProductsTypes, productTypes, setProductTypes, handleMinChange, handleMaxChange, ChangeProductsColors, productColors, setProductColors, ChangeProductsSize, productSize, setProductSize }}>
       <div className="otherPages">
         <PageLinkTemplate pageLinks={pageLinkDetails} />
         <main id="productAllMain" className="productMains">
@@ -73,45 +73,9 @@ const ProductDisplay = () => {
               <i className="fa-solid fa-xmark productIcons" onClick={() => setShowFilterSection(false)} id="filterHeaderBackIcon"></i>
             </div>
             <ProductTypes />
-            <div className="productFilterMainDivs">
-              <p className="productFilterText">Price</p>
-              <div id="productFilterSlider">
-                <input type="range" min={min} max={max} value={minValue} onChange={handleMinChange} className="filterPriceRange thumb thumb--left" />
-                <input type="range" min={min} max={max} value={maxValue} onChange={handleMaxChange} className="filterPriceRange thumb thumb--right" />
-                <div id="productFilterSliderTrack"></div>
-                <div id="productFilterSliderRange" style={{ left: `${((minValue - min) / (max - min)) * 100}%`, right: `${100 - ((maxValue - min) / (max - min)) * 100}%` }}></div>
-              </div>
-              <div id="filterPriceInnerDiv">
-                <p className="filterPriceValueTexts">${minValue}</p>
-                <p className="filterPriceValueTexts">${maxValue}</p>
-              </div>
-            </div>
-            <div className="productFilterMainDivs">
-              <p className="productFilterText">Color</p>
-              <section className="productFilterSections">
-                <div className="productFilterColorDiv">
-                  <div className="productFilterDivs">
-                    <div className="filterColorInnerDivs"></div>
-                    <p className="filterTextsLength">Red ({0})</p>
-                  </div>
-                  <input type="checkbox" name="" id="" className="filterCheckbox" />
-                </div>
-              </section>
-            </div>
+            <ProductPrice />
+            <ProductColors />
             <ProductSize />
-            {/* <div className="productFilterMainDivs">
-              <p className="productFilterText">Size</p>
-              <section className="productFilterSections">
-                <div className="productFilterDivs">
-                  <input type="checkbox" name="" id="" className="filterCheckbox" />
-                  <p className="filterTextsLength">L ({0})</p>
-                </div>
-                <div className="productFilterDivs">
-                  <input type="checkbox" name="" id="" className="filterCheckbox" />
-                  <p className="filterTextsLength">L ({0})</p>
-                </div>
-              </section>
-            </div> */}
             <footer id="productFilterFooter"></footer>
           </main>
         </section>}

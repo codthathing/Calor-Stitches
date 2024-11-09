@@ -16,8 +16,8 @@ const CartTemplate = ({ cartArray }) => {
               <CartDelete id={id} cancelClass={"cartRemove"} />
               <section className="cartDetailsSection">
                 <h1 className="cartProductName"><Link key={id} className="productNameText" to={`/product/${productName}`}>{productName}</Link></h1>
-                {cartColor && <p className="cartProductText">Color: {cartColor}</p>}
-                {cartSize && <p className="cartProductText">Size: {cartSize}</p>}
+                {cartColor && <p className="cartProductText">Color: <span style={{textTransform: "capitalize"}}>{cartColor}</span></p>}
+                {cartSize && <p className="cartProductText">Size: <span style={{textTransform: "uppercase"}}>{cartSize}</span></p>}
                 <p className="cartProductText">{cartAmt} * {curSymbol}{productPrice.toFixed(2)}</p>
               </section>
             </div>

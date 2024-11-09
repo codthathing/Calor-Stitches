@@ -17,8 +17,8 @@ const CartProduct = () => {
                 <img src={productImage} alt="" className="wishlistCartMainImage" />
                 <div className="wishlistCartNameDiv">
                   <p className="wishlistCartName">{productName}</p>
-                  {cartColor && <p className="wishlistCartName">Color: {cartColor}</p>}
-                  {cartSize && <p className="wishlistCartName">Size: {cartSize}</p>}
+                  {cartColor && <p className="wishlistCartName">Color: <span style={{textTransform: "capitalize"}}>{cartColor}</span></p>}
+                  {cartSize && <p className="wishlistCartName">Size: <span style={{textTransform: "uppercase"}}>{cartSize}</span></p>}
                 </div>
               </div>
             </div>

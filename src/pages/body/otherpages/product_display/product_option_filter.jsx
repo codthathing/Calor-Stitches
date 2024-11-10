@@ -1,8 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { ToggleRegister } from "../../../contextpage";
 
-export const useProductOptionFilter = (setPresentFilterProducts) => {
+export const useProductOptionFilter = () => {
   const { products, productShipValue, setProductShipValue } = useContext(ToggleRegister);
+
+  const [presentFilterProducts, setPresentFilterProducts] = useState(products);
 
   const [filterOption, setFilterOption] = useState({ minPrice: productShipValue.minValue, maxValue: productShipValue.maxValue });
 
@@ -20,7 +22,9 @@ export const useProductOptionFilter = (setPresentFilterProducts) => {
     if (filterOption.size) {
       updatedProducts = updatedProducts.filter(({ productSizes }) => productSizes?.find(({ text }) => text === filterOption.size));
     };
-    setPresentFilterProducts(updatedProducts);
+    if(JSON.stringify(updatedProducts) !== JSON.stringify(presentFilterProducts)) {
+      setPresentFilterProducts(updatedProducts);
+    };
   }, [filterOption]);
 
   const ChangeProductsTypes = (id, option, text, productTypes, setProductTypes) => {
@@ -59,5 +63,5 @@ export const useProductOptionFilter = (setPresentFilterProducts) => {
     setFilterOption({ ...filterOption, size: option ? text : "" });
   };
 
-  return { ChangeProductsTypes, handleMinChange, handleMaxChange, ChangeProductsColors, ChangeProductsSize }
+  return { presentFilterProducts, ChangeProductsTypes, handleMinChange, handleMaxChange, ChangeProductsColors, ChangeProductsSize }
 };

@@ -5,35 +5,23 @@ export const useHead = () => {
   const { navbar, setNavbar } = useContext(ToggleRegister);
   const [header, setHeader] = useState(false);
 
+  const path = window.location.pathname;
   let lastScrollY = 120;
-  const changeHeader = () => {
-    let presentScrollY = window.scrollY;
-    const path = window.location.pathname;
-    
-    if (presentScrollY > lastScrollY) {
-      setHeader(true);
-    } else {
-      setHeader(false);
-    }
-    
-    if (presentScrollY > 120) {
-      lastScrollY = presentScrollY;
-      setNavbar(true);
-    } else {
-      setNavbar(false)
-    }
 
-    if(presentScrollY <= 120 && path !== "/") {
-      setNavbar(true)
-    }
+  const changeHeader = () => {
+    const presentScrollY = window.scrollY;
+    {(presentScrollY > lastScrollY) ? setHeader(true) : setHeader(false)};
+    {(presentScrollY > 120) && (lastScrollY = presentScrollY)};
+    {path === "/" && presentScrollY <= 120 ? setNavbar(false) : setNavbar(true)};
   }
 
   useEffect(() => {
+    {(window.scrollY <= 120 && path !== "/") && setNavbar(true)};
     window.addEventListener("scroll", changeHeader);
     return () => {
       window.removeEventListener("scroll", changeHeader);
-    }
-  }, [])
+    };
+  }, [path])
 
   return { header, navbar };
 }

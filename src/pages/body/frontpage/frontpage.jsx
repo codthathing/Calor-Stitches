@@ -10,6 +10,7 @@ import PageArticle from "./innerpages/article";
 import VideoDiv from "./innerpages/video_div";
 import ServiceTemplate from "./innerpages/service";
 import ProductView from "./innerpages/view/productview";
+import PostTemplate from "./innerpages/post";
 
 const FrontPage = () => {
 
@@ -26,6 +27,7 @@ const FrontPage = () => {
       <PageArticle />
       <VideoDiv />
       <ServiceTemplate />
+      <PostTemplate />
     </>
   );
 }

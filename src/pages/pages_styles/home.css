@@ -1812,3 +1812,109 @@
         font-size: var(--13px);
     }
 }
+
+
+
+
+.postImage {
+    width: 100%;
+}
+
+.postDate {
+    color: var(--222222);
+}
+
+.postHead {
+    font-family: var(--Cormorant);
+    color: var(--222222);
+    font-weight: var(--500);
+}
+
+.postParagraph {
+    font-family: var(--Yantramanav);
+    color: var(--282828);
+}
+
+.postRead {
+    display: block;
+    color: var(--222222);
+    font-family: var(--Yantramanav);
+}
+
+@media all and (max-width: 1023px) {
+    .postParagraph {
+        margin: 1.25rem 0;
+    }
+}
+
+@media all and (min-width: 768px) {
+    .postImage {
+        height: 37.5rem;
+    }
+
+    .postHead {
+        font-size: var(--30px);
+    }
+
+    .postParagraph {
+        font-size: var(--17px);
+    }
+
+    .postRead {
+        font-size: var(--15px);
+    }
+}
+
+@media all and (max-width: 767px) {
+    .mainPostDiv {
+        padding: 0 1rem 3.5rem 1rem;
+    }
+
+    .postImage {
+        height: 30rem;
+    }
+
+    .postDate {
+        margin: 1rem 0;
+    }
+
+    .postHead {
+        font-size: var(--24px);
+    }
+
+    .postParagraph {
+        font-size: var(--12px);
+    }
+
+    .postRead {
+        font-size: var(--12px);
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 1023px) {
+    .mainPostDiv:nth-child(1) {
+        grid-column: 1/3;
+    }
+
+    .mainPostDiv:nth-child(2) {
+        grid-column: 3/5;
+    }
+
+    .mainPostDiv:nth-child(3) {
+        grid-column: 2/4;
+    }
+
+    .postDate {
+        margin: 1.75rem 0 0.75rem 0;
+    }
+}
+
+@media all and (min-width: 1024px) {
+    .postDate {
+        margin: 2rem 0 1rem 0;
+    }
+
+    .postParagraph {
+        margin: 1.5rem 0;
+    }
+}

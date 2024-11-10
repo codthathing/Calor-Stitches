@@ -29,19 +29,25 @@ const PostTemplate = () => {
   ]
 
   return (
-    <>
-      {posts.map(({ id, postImage, postDate, postHead, postParagraph }) => {
-        return (
-          <div key={id} className="mainPostDiv">
-            <img src={postImage} className="postImage" alt="post_image" />
-            <p className="paragraphStyles postDate">{postDate}</p>
-            <h1 className="postHead">{postHead}</h1>
-            <p className="postParagraph">{postParagraph}</p>
-            <span className="postRead">READ MORE</span>
-          </div>
-        );
-      })}
-    </>
+    <section id="postSection">
+      <div id="postHeadDiv">
+        <p id="postParagraph" className="paragraphStyles">FROM THE BLOGS</p>
+        <p id="postHead">Check Out Our Latest Posts</p>
+      </div>
+      <main id="mainPost">
+        {posts.map(({ id, postImage, postDate, postHead, postParagraph }) => {
+          return (
+            <div key={id} className="mainPostDiv">
+              <img src={postImage} className="postImage" alt="post_image" />
+              <p className="paragraphStyles postDate">{postDate}</p>
+              <h1 className="postHead">{postHead}</h1>
+              <p className="postParagraph">{postParagraph}</p>
+              <span className="postRead">READ MORE</span>
+            </div>
+          );
+        })}
+      </main>
+    </section>
   );
 }
 

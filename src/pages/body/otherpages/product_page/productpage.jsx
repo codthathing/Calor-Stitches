@@ -15,7 +15,7 @@ const ProductPage = () => {
     { id: 1, linkDirect: "", linkText: "Product", linkArrow: false },
   ];
 
-  const { ProductShown, Products, ProductPagination } = useProductShownEffect(products)
+  const { ProductShown, Products, ProductPagination } = useProductShownEffect({products: products})
 
   return (
     <div className="otherPages">

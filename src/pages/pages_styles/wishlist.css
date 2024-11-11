@@ -208,7 +208,7 @@
   .wishlistCartIconImageTextDiv {
     position: relative;
   }
-  
+
   .wishlistCartDeleteIcon {
     position: absolute;
   }
@@ -217,12 +217,12 @@
     display: flex;
     justify-content: space-between;
   }
-  
+
   .wishlistStatusDiv {
     display: flex;
     justify-content: space-between;
   }
-  
+
   .wishlistToCartDiv {
     display: flex;
     justify-content: flex-end;
@@ -412,7 +412,7 @@
   .defaultText {
     font-size: var(--12px);
   }
-  
+
   .productWishlistCartMain {
     margin-top: 1.5rem;
   }
@@ -422,7 +422,7 @@
   }
 
   .wishlistCartDeleteIcon {
-    left: 0.25rem; 
+    left: 0.25rem;
     top: 0.15rem;
     font-size: var(--12px);
   }
@@ -632,7 +632,7 @@
     display: none;
   }
 
-  #wishlistHandleShare {
+  .desktop-center {
     justify-content: center;
   }
 }

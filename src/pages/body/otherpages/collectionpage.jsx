@@ -20,7 +20,7 @@ const CollectionPage = () => {
     setCollection(presentCollections)
   }, []);
 
-  const { ProductShown, Products, ProductPagination } = useProductShownEffect(collection);
+  const { ProductShown, Products, ProductPagination } = useProductShownEffect({products: collection});
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },

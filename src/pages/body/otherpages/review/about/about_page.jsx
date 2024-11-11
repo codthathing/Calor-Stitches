@@ -9,7 +9,7 @@ const AboutPage = () => {
   if(displayPage === "DESCRIPTION") {
     return <AboutDescription />;
   } else if (displayPage === "REVIEW") {
-    return <AboutReview />;
+    return <AboutReview reviewText={"Add A Review"} reviewPlaceholder={"Your Review *"} reviewButton={"SUBMIT"} />;
   };
 };
 

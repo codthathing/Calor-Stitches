@@ -1,14 +1,14 @@
 import facebook from "../../../../asset/images-icons/handleIcons/iconmonstr-facebook-4-240.png";
 import twitter from "../../../../asset/images-icons/handleIcons/iconmonstr-twitter-4-240.png";
 
-const WishlistHandle = () => {
+const WishlistHandle = ({className}) => {
   const wishlistHandles = [
     { id: 0, handleIcon: facebook, handleText: "SHARE" },
     { id: 1, handleIcon: twitter, handleText: "TWEET" }
   ];
 
   return (
-    <div id="wishlistHandleShare">
+    <div id="wishlistHandleShare" className={className}>
       {wishlistHandles.map(({ id, handleIcon, handleText }) => {
         return (
           <div key={id} className="wishlistHandleDiv">

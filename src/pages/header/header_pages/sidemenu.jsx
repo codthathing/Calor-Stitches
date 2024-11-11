@@ -9,7 +9,7 @@ const Sidemenu = () => {
     { id: 2, menuText: "products", link: "", path: "/product", borderStyle: { borderBottom: "" } },
     { id: 3, menuText: "pages", link: "", path: "/page", borderStyle: { borderBottom: "" } },
     { id: 4, menuText: "blog", link: "", path: "/blog", borderStyle: { borderBottom: "" } },
-    { id: 5, menuText: "features", link: "", path: "/feature", borderStyle: { borderBottom: "" } },
+    // { id: 5, menuText: "features", link: "", path: "/feature", borderStyle: { borderBottom: "" } },
   ])
 
   const pathLink = window.location.pathname;

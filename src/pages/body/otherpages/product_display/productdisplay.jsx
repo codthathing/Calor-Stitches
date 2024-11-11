@@ -14,7 +14,7 @@ const ProductDisplay = () => {
 
   const { presentFilterProducts, ChangeProductsTypes, handleMinChange, handleMaxChange, ChangeProductsColors, ChangeProductsSize } = useProductOptionFilter();
 
-  const { Products, ProductPagination } = useProductShownEffect(presentFilterProducts);
+  const { Products, ProductPagination } = useProductShownEffect({products: presentFilterProducts});
 
   const { productTypes, setProductTypes, productColors, setProductColors, productSize, setProductSize } = useProductFiltersArray();
 

@@ -1,9 +1,6 @@
 import { createContext, useReducer, useState } from "react";
-import { productDetails } from "./body/frontpage/innerpages/products";
+import { product_details } from "./body/frontpage/innerpages/product/products";
 import useLocalStorage from "./components/local_storage";
-import { hotitems } from "./body/frontpage/innerpages/hotitems";
-import { newarrivals } from "./body/frontpage/innerpages/newarrivals";
-import { onsales } from "./body/frontpage/innerpages/onsale";
 import america_flag from "../asset/images-icons/currencyFlags/america-flag.png";
 
 const CURRENT_VERSION = '1.0.1';
@@ -27,14 +24,10 @@ export const OptNavProvider = ({ children }) => {
   const [toggleSideMenu, setToggleSideMenu] = useState(false);
   const [navbar, setNavbar] = useState(false);
   const [presentRegister, setPresentRegister] = useState("LOGIN");
-  const [products, setProducts] = useState(productDetails);
+  const [products, setProducts] = useState(product_details);
   const [presentCurrency, setPresentCurrency] = useLocalStorage("PRESENT_CURRENCY", "NGN");
   const [curDetails, setCurDetails] = useState({ preNation: "Nigeria (Naira ₦)", preCur: "(Naira ₦)", curFlag: america_flag, curName: "USD $" });
   const [productShipValue, setProductShipValue] = useState({shipFee: 10000, min: 20, max: 5020, minValue: 20, maxValue: 5020});
-  const [hotItems, setHotItems] = useState(hotitems);
-  const [newArrivals, setNewArrivals] = useState(newarrivals);
-  const [onSales, setOnSales] = useState(onsales);
-  const [latestItems, setLatestItems] = useState(hotItems);
   const [curSymbol, setCurSymbol] = useState("₦");
   const changeStyles = (state, action) => {
     if (action.display === "ADD") {
@@ -55,7 +48,7 @@ export const OptNavProvider = ({ children }) => {
   const [state, dispatch] = useReducer(changeStyles, wishlistTextStyle);
 
   return (
-    <ToggleRegister.Provider value={{ account, setAccount, presentRegister, setPresentRegister, wishList, setWishList, cart, setCart, search, setSearch, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, hotItems, setHotItems, newArrivals, setNewArrivals, onSales, setOnSales, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, latestItems, setLatestItems, curDetails, setCurDetails, productShipValue, setProductShipValue, presentCurrency, setPresentCurrency, cloneCart, setCloneCart }}>
+    <ToggleRegister.Provider value={{ account, setAccount, presentRegister, setPresentRegister, wishList, setWishList, cart, setCart, search, setSearch, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, curDetails, setCurDetails, productShipValue, setProductShipValue, presentCurrency, setPresentCurrency, cloneCart, setCloneCart }}>
       {children}
     </ToggleRegister.Provider>
   );

@@ -20,7 +20,7 @@ const WishListPage = () => {
       <PageLinkTemplate pageLinks={pageLinkDetails} />
       <main className="productWishlistCartMain">
         <WishlistProductSection />
-        <WishlistHandle />
+        <WishlistHandle className={"desktop-center"} />
       </main>
     </div>
   );

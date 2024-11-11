@@ -1,19 +1,19 @@
 import { useContext, useState } from "react";
-import { ToggleRegister } from "../../../../contextpage";
+import { LatetProductContext } from "./latest_section";
 
 const LatestLinks = () => {
-  const { hotItems, newArrivals, onSales, setLatestItems } = useContext(ToggleRegister);
+  const {setMapProducts} = useContext(LatetProductContext)
 
   const latestObject = [
-    { id: 0, latestText: "HOT ITEMS", latestArray: hotItems, borderBool: true, borderStyle: "1px solid black" },
-    { id: 1, latestText: "NEW ARRIVALS", latestArray: newArrivals, borderBool: false, borderStyle: "1px solid black" },
-    { id: 2, latestText: "ON SALE", textColor: "#FF421D", latestArray: onSales, borderBool: false, borderStyle: "1px solid #FF421D" }
+    { id: 0, latestText: "HOT ITEMS", borderBool: true, borderStyle: "1px solid black" },
+    { id: 1, latestText: "NEW ARRIVALS", borderBool: false, borderStyle: "1px solid black" },
+    { id: 2, latestText: "ON SALE", textColor: "#FF421D", borderBool: false, borderStyle: "1px solid #FF421D" }
   ];
 
   const [changeLatestObject, setChangeLatestObject] = useState(latestObject);
 
-  const ChangeLatestItem = (newitem, latestText) => {
-    setLatestItems(newitem);
+  const ChangeLatestItem = (id, latestText) => {
+    setMapProducts((id * 4) + 4);
     const updatedLatestObject = latestObject.map((link) => {
       if (link.latestText === latestText) {
         return { ...link, borderBool: true };
@@ -26,8 +26,8 @@ const LatestLinks = () => {
 
   return (
     <ul id="navLatest">
-      {changeLatestObject.map(({ id, latestText, textColor, latestArray, borderBool, borderStyle }) => {
-        return <li key={id} className="latestItem" style={{ borderBottom: borderBool ? borderStyle : "", color: textColor ? textColor : "#222222" }} onMouseEnter={() => ChangeLatestItem(latestArray, latestText)}>{latestText}</li>
+      {changeLatestObject.map(({ id, latestText, textColor, borderBool, borderStyle }) => {
+        return <li key={id} className="latestItem" style={{ borderBottom: borderBool ? borderStyle : "", color: textColor ? textColor : "#222222" }} onMouseEnter={() => ChangeLatestItem(id, latestText)}>{latestText}</li>
       })}
     </ul>
   );

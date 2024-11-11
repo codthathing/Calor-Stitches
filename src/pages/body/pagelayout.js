@@ -9,6 +9,7 @@ import CartPage from "./otherpages/cart/cartpage";
 import CheckoutPage from "./otherpages/checkout/checkoutpage";
 import ConfirmPage from "./otherpages/confirm_page/confirm_page";
 import PaymentPage from "./otherpages/payment/payment_page";
+import PostPage from "./otherpages/post/post_page";
 
 const PageLayout = () => {
 
@@ -24,6 +25,7 @@ const PageLayout = () => {
       <Route path="/shop/checkout" element={<CheckoutPage />}></Route>
       <Route path="/pages/confirmation_page" element={<ConfirmPage />}/>
       <Route path="/pages/payment_page" element={<PaymentPage />} />
+      <Route path="/blog/:post_head" element={<PostPage />} />
     </Routes>
   );
 }

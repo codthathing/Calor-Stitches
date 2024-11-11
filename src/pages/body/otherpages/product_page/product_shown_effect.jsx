@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import ProductTemplate from "../../frontpage/innerpages/products_func/productTemplate";
 
-export const useProductShownEffect = (products) => {
+export const useProductShownEffect = ({products, startPosition = 0, shownProducts = 4}) => {
 
-  const [mapProducts, setMapProducts] = useState(0);
-  const shownProducts = 4;
+  const [mapProducts, setMapProducts] = useState(startPosition);
   const pageNumbers = [];
 
   for (let i = 0; i < Math.ceil(products.length / shownProducts); i++) {
@@ -42,5 +41,5 @@ export const useProductShownEffect = (products) => {
     );
   };
 
-  return { ProductShown, Products, ProductPagination };
+  return { setMapProducts, ProductShown, Products, ProductPagination };
 };

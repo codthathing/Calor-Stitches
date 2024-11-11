@@ -1,18 +1,19 @@
 import { useContext } from "react";
 import { ToggleRegister } from "../../../../contextpage";
-import ProductTemplate from "../products_func/productTemplate";
 import ProductButton from "./product_button";
+import { useProductShownEffect } from "../../../otherpages/product_page/product_shown_effect";
 
 const ProductSection = () => {
   const { products } = useContext(ToggleRegister);
+  const { Products } = useProductShownEffect({products: products, shownProducts: 8});
 
   return (
     <section id="productSection">
       <div id="productTopicDiv">
-        <p id="productParagraph" className="paragraphStyles">NEW AND EXTRAORDINARY</p>
-        <h1 id="productHead">Featured Products</h1>
+        <p className="product-section-para paragraphStyles">NEW AND EXTRAORDINARY</p>
+        <h1 className="product-section-head">Featured Products</h1>
       </div>
-      <ProductTemplate productArray={products} />
+      <Products />
       <ProductButton linkTo={"/product"} />
     </section>
   );

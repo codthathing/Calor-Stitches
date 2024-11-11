@@ -7,7 +7,7 @@ const PageLinkTemplate = ({ pageLinks }) => {
         return (
           <li className="productListItem" key={id}>
             <Link to={linkDirect} className="productLink">
-              <p className="productLinkText">{linkText}</p>
+              <p className="productLinkText" style={{fontWeight: linkArrow ? "700" : "normal" }}>{linkText}</p>
               {linkArrow && <i className="fa-solid fa-chevron-right productLinkIcon"></i>}
             </Link>
           </li>

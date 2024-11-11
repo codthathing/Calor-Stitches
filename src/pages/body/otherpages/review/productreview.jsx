@@ -6,7 +6,7 @@ import PageLinkTemplate from "../components/pagelinks";
 import ReviewPicture from "./review_picture";
 import ReviewDiv from "./review_div";
 import AboutDiv from "./about/about_div";
-import ProductTemplate from "../../frontpage/innerpages/products_func/productTemplate";
+import { useProductShownEffect } from "../product_page/product_shown_effect";
 
 export const ReviewContext = createContext();
 const ProductReview = () => {
@@ -14,13 +14,19 @@ const ProductReview = () => {
   const [product, setProduct] = useState({});
   const { productName } = useParams();
   const { setSearch, setNavbar, setCart, setToggleSideMenu, products, setProducts } = useContext(ToggleRegister);
+  const [relatedProduct, setRelatedProduct] = useState([]);
 
   usePageInitialEffects([{ effect: setSearch, value: false }, { effect: setToggleSideMenu, value: false }, { effect: setNavbar, value: true }, { effect: setCart, value: false }]);
-  
+
   useEffect(() => {
     const presentProduct = products.find((product) => product.productName === productName);
     setProduct(presentProduct);
+    const presentProductCategory = presentProduct.productInfo.find(({ name }) => name === "CARTEGORIES")?.links.map(({ text }) => text);
+    const relatedProducts = products.filter(({ productInfo, productName }) => (productName !== presentProduct.productName) && productInfo.find(({ name }) => name === "CARTEGORIES")?.links.some(({ text }) => presentProductCategory.includes(text)));
+    setRelatedProduct(relatedProducts);
   }, [products, productName]);
+
+  const { Products, ProductPagination } = useProductShownEffect({products: relatedProduct});
 
   const { id, productImage, productImages, productName: productNameText, cutOff, productPrice, averagePrice, priceOne, priceTwo, productDesc, wishlistStock, cartAmt, productDetails, productColors, productAvailable, productSizes, productInfo } = product;
 
@@ -40,10 +46,11 @@ const ProductReview = () => {
           <ReviewPicture />
           <ReviewDiv />
         </main >
-        <AboutDiv/>
+        <AboutDiv />
         <div id="productRelatedDiv">
           <p id="productRelatedText">Related products</p>
-          <ProductTemplate productArray={products} />
+          <Products />
+          <ProductPagination />
         </div>
       </div>
     </ReviewContext.Provider>

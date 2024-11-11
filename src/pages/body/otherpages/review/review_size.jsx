@@ -6,7 +6,7 @@ const ReviewSize = ({ productId, sizeText, sizeArray }) => {
   return (
     <div className="productDivs">
       <div className="productSizeDiv">
-        <p className="productSizeText">Size {details.text}</p>
+        <p className="productSizeText">Size <span style={{textTransform: "uppercase"}}>{details.text}</span></p>
         <p className="productSizeText">SIZE CHARTS</p>
       </div>
       <main className="product-color-size-div">

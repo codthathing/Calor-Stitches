@@ -852,6 +852,10 @@
     padding: 1.25rem 1.75rem;
   }
 
+  #productRelatedDiv {
+    margin-bottom: 4rem;
+  }
+
   #productViewBack {
     padding: 1rem;
   }
@@ -1268,6 +1272,10 @@
   #rating-submit-button {
     font-size: var(--12px);
     padding: 1rem 1.5rem;
+  }
+
+  #productRelatedDiv {
+    margin-bottom: 2rem;
   }
 
   .productShownDiv {

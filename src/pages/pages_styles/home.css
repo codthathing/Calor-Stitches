@@ -484,15 +484,21 @@
     width: 100%;
 }
 
-.postDate {
+.post-display-div {
     color: var(--222222);
     text-transform: uppercase;
+}
+
+.post-display-link {
+    color: var(--222222);
+    text-decoration: none;
 }
 
 .postHead {
     font-family: var(--Cormorant);
     color: var(--222222);
     font-weight: var(--500);
+    text-decoration: none;
 }
 
 .postParagraph {
@@ -1219,7 +1225,7 @@
         height: 25rem;
     }
 
-    .postDate {
+    .post-display-div {
         margin: 0.75rem 0;
     }
 
@@ -1571,7 +1577,7 @@
         grid-column: 2/4;
     }
 
-    .postDate {
+    .post-display-div {
         margin: 1.5rem 0 0.75rem 0;
     }
 
@@ -1879,7 +1885,7 @@
         height: 30rem;
     }
 
-    .postDate {
+    .post-display-div {
         margin: 1.5rem 0 1rem 0;
     }
 

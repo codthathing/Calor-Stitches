@@ -1,5 +1,8 @@
-#post-main {
+.post-main {
   margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0 5rem;
 }
 
 #post-image-div {
@@ -22,12 +25,19 @@
   gap: 0 1.5rem;
 }
 
-#post-details-div {
+.post-details-div {
   margin: 1.5rem 0;
 }
 
-.post-details-inner-div {
+.post-details-text {
   text-transform: uppercase;
+  color: var(--222222);
+  font-family: var(--Roboto);
+}
+
+.post-details-link {
+  color: var(--222222);
+  text-decoration: none;
 }
 
 #post-topic {
@@ -54,4 +64,175 @@
   font-size: var(--16px);
   font-family: var(--Roboto);
   text-transform: uppercase;
+  color: var(--222222);
+  text-decoration: none;
+}
+
+#post-shown-div {
+  display: flex;
+  gap: 0 2.5rem;
+  align-items: center;
+  background-color: var(--F3F2ED);
+  padding: 4rem;
+}
+
+#post-shown-image {
+  height: 11.5rem;
+  width: 13rem;
+  border-radius: 45%;
+}
+
+#post-shown-head {
+  font-size: var(--32px);
+  font-family: var(--Cormorant);
+  color: var(--222222);
+}
+
+#post-shown-text {
+  font-size: var(--16px);
+  color: var(--282828);
+  font-family: var(--Roboto);
+  margin: 1rem 0;
+}
+
+.post-shown-handle {
+  display: flex;
+  gap: 0 1.5rem;
+}
+
+#post-toggle-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2.5rem 0;
+}
+
+.post-toggle-text {
+  color: var(--282828);
+  font-size: var(--16px);
+  font-family: var(--Roboto);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--282828);
+  cursor: pointer;
+}
+
+.post-inner-div {
+  margin: 4rem 0;
+}
+
+#post-input-div {
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  padding: 0.25rem 1.25rem;
+  gap: 0 1.25rem;
+  border: 1px solid var(--222222);
+}
+
+#post-input-icon {
+  font-size: var(--16px);
+}
+
+#post-input-field {
+  border: none;
+  outline: none;
+  font-size: var(--16px);
+  font-family: var(--Roboto);
+  color: var(--222222);
+  padding: 1rem 0;
+}
+
+.post-inner-text {
+  text-transform: capitalize;
+  font-size: var(--32px);
+  color: var(--222222);
+  font-family: var(--Cormorant);
+  margin-bottom: 1.5rem;
+}
+
+#post-categories-div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem 0;
+}
+
+.post-categories-tag-text {
+  font-family: var(--Roboto);
+  color: var(--282828);
+  font-size: var(--16px);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+#post-recent-div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem 0;
+}
+
+.post-recent-inner-div {
+  display: flex;
+  gap: 0 1.5rem;
+}
+
+.post-recent-image {
+  height: 7.5rem;
+  width: 8.5rem;
+}
+
+.post-recent-text-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.post-recent-head {
+  font-size: var(--16px);
+  color: var(--222222);
+  font-family: var(--Roboto);
+  text-transform: uppercase;
+}
+
+.post-recent-text {
+  font-size: var(--32px);
+  color: var(--282828);
+  font-family: var(--Cormorant);
+}
+
+#post-instagram-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.post-instagram-inner-div {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 7.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.post-instagram-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #FFFFFF;
+  padding: 0.5rem;
+}
+
+.post-other-image {
+  width: 100%;
+  height: 37.5rem;
+}
+
+.post-other-button {
+  text-decoration: none;
+  color: #FFFFFF;
+  background-color: var(--222222);
+  font-family: var(--Roboto);
+  padding: 1.25rem 1.75rem;
+  font-size: var(--16px);
+  cursor: pointer;
 }

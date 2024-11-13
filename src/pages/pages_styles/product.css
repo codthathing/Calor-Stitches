@@ -3,7 +3,7 @@
   align-items: center;
   gap: 0 0.35rem;
   flex-wrap: wrap;
-  text-align: center;
+  justify-content: center;
 }
 
 .productListItem {

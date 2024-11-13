@@ -19,7 +19,7 @@ const PostToggle = () => {
 
   return (
     <div id="post-toggle-div">
-      <p className="post-toggle-text" onClick={() => ChangePost("PREV")}>prev post</p>
+      <p className="post-toggle-text" onClick={() => ChangePost("PREV")}>previous post</p>
       <p className="post-toggle-text" onClick={() => ChangePost("NEXT")}>next post</p>
     </div>
   );

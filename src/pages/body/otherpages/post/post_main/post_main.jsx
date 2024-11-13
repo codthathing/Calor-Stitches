@@ -11,7 +11,7 @@ const PostMain = () => {
       <PostCategoryHandle />
       <PostAuthor />
       <PostToggle />
-      <AboutReview showReviewText={false} reviewText={"Leave A Reply"} showRating={false} reviewPlaceholder={"Your Comment *"} reviewButton={"POST COMMENT"} />
+      <AboutReview id={"post-reply-div"} showReviewText={false} reviewText={"Leave A Reply"} showRating={false} reviewPlaceholder={"Your Comment *"} reviewButton={"POST COMMENT"} />
     </section>
   );
 };

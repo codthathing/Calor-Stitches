@@ -1,6 +1,6 @@
 import AboutRating from "./about_rating"
 
-const AboutReview = ({showReviewText = true, reviewText, showRating = true, reviewPlaceholder, reviewButton}) => {
+const AboutReview = ({id, showReviewText = true, reviewText, showRating = true, reviewPlaceholder, reviewButton}) => {
   return (
     <div className="productAboutDivs">
       {showReviewText && <main className="product-about-main">
@@ -9,7 +9,7 @@ const AboutReview = ({showReviewText = true, reviewText, showRating = true, revi
           <p className="about-inner-text">There are no reviews yet.</p>
         </div>
       </main>}
-      <main className="product-about-main">
+      <main id={id} className="product-about-main">
         <p className="about-main-text">{reviewText}</p>
         <p className="about-inner-text">Your email address will not be published. Required fields are marked *</p>
         <div id="about-rating-div">

@@ -484,9 +484,10 @@
     width: 100%;
 }
 
-.post-display-div {
-    color: var(--222222);
+.post-dislpay-text {
+    color: var(--282828);
     text-transform: uppercase;
+    font-family: var(--Yantramanav);
 }
 
 .post-display-link {
@@ -845,6 +846,10 @@
 
     .serviceParagraph {
         font-size: var(--15px);
+    }
+
+    .post-dislpay-text {
+        font-size: var(--16px);
     }
 
     .postHead {
@@ -1227,6 +1232,10 @@
 
     .post-display-div {
         margin: 0.75rem 0;
+    }
+
+    .post-dislpay-text { 
+        font-size: var(--12px);
     }
 
     .postHead {

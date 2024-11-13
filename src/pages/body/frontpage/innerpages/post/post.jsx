@@ -10,7 +10,7 @@ const Post = () => {
         <p className="product-section-head">Check Out Our Latest Posts</p>
       </div>
       <main id="mainPost">
-        <PostTemplate postArray={posts.slice(0, 3)} imageClass={"postImage"} buttonClass={"postRead"} />
+        <PostTemplate postArray={posts.slice(0, 3)} imageClass={"postImage"} buttonClass={"postRead"} divClass={"mainPostDiv"} />
       </main>
     </section>
   );

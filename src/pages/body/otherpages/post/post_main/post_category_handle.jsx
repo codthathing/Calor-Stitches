@@ -14,7 +14,7 @@ const PostCategoryHandle = () => {
             {inner_text && inner_text.map(({ id, text, style }) => <Link to={`/blog/post/${text}`} className="post-category-text" key={id}>{text}{style && ","} </Link>)}
           </div>
         );
-      })};
+      })}
       <WishlistHandle />
     </div>
   );

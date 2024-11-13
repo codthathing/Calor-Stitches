@@ -23,7 +23,7 @@ const PostOther = () => {
       <PostInstagram />
       <div className="post-inner-div">
         <PostText text={"follow us"} />
-        <Handle className={"post-shown-handle"} />
+        <Handle className={"post-shown-handle post-other-handle"} />
       </div>
     </section>
   );

@@ -4,11 +4,11 @@ import ProductButton from "./product_button";
 import { useProductShownEffect } from "../../../otherpages/product_page/product_shown_effect";
 
 const ProductSection = () => {
-  const { products } = useContext(ToggleRegister);
-  const { Products } = useProductShownEffect({products: products, shownProducts: 8});
+  const { products, product_section } = useContext(ToggleRegister);
+  const { Products } = useProductShownEffect({ products: products, shownProducts: 8 });
 
   return (
-    <section id="productSection">
+    <section id="productSection" ref={product_section}>
       <div id="productTopicDiv">
         <p className="product-section-para paragraphStyles">NEW AND EXTRAORDINARY</p>
         <h1 className="product-section-head">Featured Products</h1>

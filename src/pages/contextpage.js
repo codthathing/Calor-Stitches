@@ -1,4 +1,4 @@
-import { createContext, useReducer, useState } from "react";
+import { createContext, useReducer, useState, useRef } from "react";
 import { product_details } from "./body/frontpage/innerpages/product/products";
 import useLocalStorage from "./components/local_storage";
 import america_flag from "../asset/images-icons/currencyFlags/america-flag.png";
@@ -25,6 +25,7 @@ export const OptNavProvider = ({ children }) => {
   const [navbar, setNavbar] = useState(false);
   const [presentRegister, setPresentRegister] = useState("LOGIN");
   const [products, setProducts] = useState(product_details);
+  const product_section = useRef(null);
   const [presentCurrency, setPresentCurrency] = useLocalStorage("PRESENT_CURRENCY", "NGN");
   const [curDetails, setCurDetails] = useState({ preNation: "Nigeria (Naira ₦)", preCur: "(Naira ₦)", curFlag: america_flag, curName: "USD $" });
   const [productShipValue, setProductShipValue] = useState({shipFee: 10000, min: 20, max: 5020, minValue: 20, maxValue: 5020});
@@ -48,7 +49,7 @@ export const OptNavProvider = ({ children }) => {
   const [state, dispatch] = useReducer(changeStyles, wishlistTextStyle);
 
   return (
-    <ToggleRegister.Provider value={{ account, setAccount, presentRegister, setPresentRegister, wishList, setWishList, cart, setCart, search, setSearch, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, curDetails, setCurDetails, productShipValue, setProductShipValue, presentCurrency, setPresentCurrency, cloneCart, setCloneCart }}>
+    <ToggleRegister.Provider value={{ account, setAccount, presentRegister, setPresentRegister, wishList, setWishList, cart, setCart, search, setSearch, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, curDetails, setCurDetails, productShipValue, setProductShipValue, presentCurrency, setPresentCurrency, cloneCart, setCloneCart, product_section }}>
       {children}
     </ToggleRegister.Provider>
   );

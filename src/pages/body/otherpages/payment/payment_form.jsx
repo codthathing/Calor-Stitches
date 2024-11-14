@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PageButtons from "../../../components/page_buttons";
 
 const PaymentForm = ({setInfo}) => {
   const paymentNavigate = useNavigate();
@@ -31,8 +32,8 @@ const PaymentForm = ({setInfo}) => {
         <input type="number" name="cvc" value={paymentInput.cvc} onChange={HandlePaymentInput} placeholder="CVC" className="card-payment-input" />
       </div>
       <div id="card-payment-buttons-div">
-        <button type="button" className="card-payment-button" onClick={SubmitPaymentDetails}>Pay Now</button>
-        <button type="button" className="card-payment-button" onClick={() => paymentNavigate("/shop/checkout")}>Cancel</button>
+        <PageButtons type={"button"} buttonType={"black-button"} buttonClass={"card-payment-button"} buttonFunction={SubmitPaymentDetails} text={"pay now"} />
+        <PageButtons type={"button"} buttonType={"black-button"} buttonClass={"card-payment-button"} buttonFunction={() => paymentNavigate("/shop/checkout")} text={"cancel"} />
       </div>
     </div>
   );

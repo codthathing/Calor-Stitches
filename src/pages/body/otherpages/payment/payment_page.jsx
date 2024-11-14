@@ -2,7 +2,7 @@ import PageLinkTemplate from "../components/pagelinks";
 import RegisterMessage from "../../../header/header_pages/account_pages/register_page/register_message";
 import bank_card from "../../../../asset/images-icons/bank_card/bank_card.jpeg";
 import PaymentForm from "./payment_form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const PaymentPage = () => {
   const pageLinkDetails = [
@@ -10,6 +10,10 @@ const PaymentPage = () => {
     { id: 1, linkDirect: "", linkText: "Page", linkArrow: true },
     { id: 2, linkDirect: "", linkText: "Payment", linkArrow: false },
   ];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const [paymentInfo, setPaymentInfo] = useState("");
 

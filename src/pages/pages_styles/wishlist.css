@@ -92,11 +92,6 @@
   border-bottom: 1px solid var(--9B9B9B);
 }
 
-.wishListCartButton {
-  font-family: var(--Yantramanav);
-  color: var(--222222);
-}
-
 .defaultText {
   font-family: var(--Yantramanav);
   color: var(--222222);
@@ -105,11 +100,6 @@
 #wishListLinkDiv {
   bottom: 0;
   background-color: white;
-}
-
-.wishListLinks {
-  color: var(--222222);
-  font-family: var(--Yantramanav);
 }
 
 .wishListTexts {
@@ -282,10 +272,6 @@
     margin: 0.5rem 0 1rem 0;
   }
 
-  .wishListCartButton {
-    font-size: var(--16px);
-  }
-
   .defaultText {
     font-size: var(--16px);
   }
@@ -403,10 +389,6 @@
   .wishListAvailBar {
     padding: 0.15rem;
     margin: 0.25rem 0 0.5rem 0;
-  }
-
-  .wishListCartButton {
-    font-size: var(--12px);
   }
 
   .defaultText {

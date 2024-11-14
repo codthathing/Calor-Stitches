@@ -1,11 +1,13 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ToggleRegister } from "../../../contextpage";
 import { useCalTotal } from "./cart_total";
+import PageButtons from "../../../components/page_buttons";
 
 const CartTotalPriceMain = () => {
   const { curSymbol } = useContext(ToggleRegister);
   const { total } = useCalTotal();
+  const navigate = useNavigate();
 
   return (
     <main id="cartTotalPriceMain">
@@ -16,8 +18,8 @@ const CartTotalPriceMain = () => {
         </p>
       </div>
       <div id="cartButtonsDiv">
-        <Link to="/shop/cart" className="navBtn cartButtons" id="cartButton">VIEW CART</Link>
-        <Link to="/shop/checkout" className="navBtn cartButtons" id="checkoutButton">CHECKOUT</Link>
+        <PageButtons type={"button"} buttonType={"black-button"} buttonClass={"navBtn cartButtons"} buttonFunction={() => navigate("/shop/cart")} text={"view cart"} />
+        <PageButtons type={"button"} buttonType={"white-button"} buttonClass={"navBtn cartButtons"} buttonFunction={() => navigate("/shop/checkout")} text={"checkout"} />
       </div>
     </main>
   );

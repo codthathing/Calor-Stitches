@@ -1,10 +1,15 @@
 import { useContext } from "react";
 import { ToggleRegister } from "../../../../contextpage";
+import PageButtons from "../../../../components/page_buttons";
 
-const RegisterNav = ({nextRegister, navText}) => {
+const RegisterNav = ({ nextRegister, navText }) => {
   const { setPresentRegister } = useContext(ToggleRegister);
 
-  return <p onClick={() => setPresentRegister(nextRegister)} className="registerNavText">{navText}</p>
+  return (
+    <div className="register-nav-div">
+      <PageButtons type={"text"} buttonFunction={() => setPresentRegister(nextRegister)} text={navText} />
+    </div>
+  );
 };
 
 export default RegisterNav;

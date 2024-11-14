@@ -3,14 +3,18 @@ import { useNavigate } from "react-router-dom";
 import { ToggleRegister } from "../../../contextpage";
 import { CartContext } from "./cartpage";
 import { useCartEffect } from "./cart_effect";
+import { useShowPreload } from "../../../components/show_preload";
+import PageButtons from "../../../components/page_buttons";
 
 const CartCheckout = () => {
   const { cartItems } = useContext(ToggleRegister);
   const { city, setShowCartInfo } = useContext(CartContext);
   const checkoutNavigate = useNavigate();
   const { CheckCart, DisplayInfo } = useCartEffect();
+  const { HandlePreload } = useShowPreload();
 
   const HandleCheckout = () => {
+    setShowCartInfo(false);
     const checkoutInfos = [];
     if (cartItems < 1 && city === "address") {
       checkoutInfos.push("Kindly add items to the cart.")
@@ -23,14 +27,19 @@ const CartCheckout = () => {
       CheckCart(checkoutInfos)
     };
 
+    HandlePreload();
     DisplayInfo(checkoutInfos);
-    if(checkoutInfos.length === 0) {
-      checkoutNavigate("/shop/checkout");
-      setShowCartInfo(false);
-    }
+    setTimeout(() => {
+      if (checkoutInfos.length === 0) {
+        checkoutNavigate("/shop/checkout");
+        setShowCartInfo(false);
+      } else {
+        window.scrollTo(0, 0);
+      };
+    }, 2000);
   };
 
-  return <button id="cartCheckoutButton" onClick={HandleCheckout}>PROCEED TO CHECKOUT</button>
+  return <PageButtons type={"button"} buttonType={"black-button"} buttonClass={"cart-checkout-button"} buttonFunction={HandleCheckout} text={"proceed to checkout"} />
 };
 
 export default CartCheckout;

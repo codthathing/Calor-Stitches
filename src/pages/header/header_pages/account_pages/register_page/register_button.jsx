@@ -1,5 +1,7 @@
+import PageButtons from "../../../../components/page_buttons";
+
 const RegisterButton = ({buttonFunction, buttonText}) => {
-  return <button type="submit" className="navBtn registerBtn" onClick={buttonFunction}>{buttonText}</button>
+  return <PageButtons type={"submit"} buttonType={"black-button"} buttonClass={"navBtn registerBtn"} text={buttonText} buttonFunction={buttonFunction} />
 };
 
 export default RegisterButton;

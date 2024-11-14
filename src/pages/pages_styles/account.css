@@ -69,31 +69,16 @@
 
 #registerCheck {
   vertical-align: middle;
-  accent-color: #222222;
-}
-
-#forgotBtn {
-  color: var(--222222);
+  accent-color: var(--222222);
 }
 
 .navBtn {
-  background-color: var(--222222);
-  color: white;
   width: 100%;
-  font-family: var(--Yantramanav);
-  outline: none;
-  text-decoration: none;
-  border: none;
 }
 
-.registerBtn {
-  cursor: pointer;
-}
-
-.registerNavText {
-  text-align: center;
-  font-family: var(--Yantramanav);
-  color: var(--222222);
+.register-nav-div {
+  display: flex;
+  justify-content: center;
 }
 
 #register-message {
@@ -132,14 +117,6 @@
 #user-buttons-div {
   display: flex;
   justify-content: space-between;
-}
-
-.user-buttons {
-  border: none;
-  background-color: var(--222222);
-  color: #FFFFFF;
-  font-family: var(--Yantramanav);
-  border: none;
 }
 
 
@@ -189,14 +166,6 @@
   margin: 0;
 }
 
-#confirm-button {
-  background-color: var(--222222);
-  color: #FFFFFF;
-  border: none;
-  font-family: var(--Roboto);
-  text-align: center;
-}
-
 
 
 
@@ -239,21 +208,13 @@
     margin-right: 0.75rem;
   }
 
-  #forgotBtn {
+  .forgot-btn {
     margin-left: 0.75rem;
-  }
-
-  .navBtn {
-    font-size: var(--16px);
   }
 
   .registerBtn {
     margin-bottom: 1.5rem;
     padding: 1.25rem 0;
-  }
-
-  .registerNavText {
-    font-size: var(--16px);
   }
 
   #register-message {
@@ -275,8 +236,7 @@
   }
 
   .user-buttons {
-    font-size: var(--16px);
-    padding: 1.25rem 2.5rem;
+    padding: 1.25rem 1.75rem;
   }
 
   #confirm-head {
@@ -296,9 +256,8 @@
     font-size: var(--16px);
   }
 
-  #confirm-button {
+  .confirm-button {
     padding: 1.25rem 2.5rem;
-    font-size: var(--16px);
   }
 }
 
@@ -354,21 +313,13 @@
     margin-right: 0.5rem;
   }
 
-  #forgotBtn {
+  .forgot-btn {
     margin-left: 0.5rem;
-  }
-
-  .navBtn {
-    font-size: var(--12px);
   }
 
   .registerBtn {
     padding: 1rem 0;
     margin-bottom: 1rem;
-  }
-
-  .registerNavText {
-    font-size: var(--12px);
   }
 
   #register-message {
@@ -393,8 +344,7 @@
   }
 
   .user-buttons {
-    font-size: var(--12px);
-    padding: 0.75rem 1.25rem;
+    padding: 1rem 1.5rem;
   }
 
   #confirm-main {
@@ -421,9 +371,8 @@
     font-size: var(--12px);
   }
 
-  #confirm-button {
-    padding: 0.75rem 1.25rem;
-    font-size: var(--12px);
+  .confirm-button {
+    padding: 1rem 1.5rem;
   }
 }
 

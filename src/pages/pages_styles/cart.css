@@ -88,13 +88,7 @@
 }
 
 .cartButtons {
-  text-align: center;
   border: 1px solid var(--222222);
-}
-
-#checkoutButton {
-  background: transparent;
-  color: var(--222222);
 }
 
 
@@ -119,12 +113,7 @@
   align-items: center;
 }
 
-#cartUpdateBtn {
-  background-color: var(--222222);
-  color: #FFFFFF;
-  font-family: var(--Roboto);
-  border: none;
-  cursor: pointer;
+.cart-update-btn {
   margin: 2rem 0;
 }
 
@@ -163,12 +152,6 @@
   text-transform: uppercase;
 }
 
-#cartAddressText {
-  cursor: pointer;
-  color: var(--222222);
-  font-family: var(--Roboto);
-}
-
 #cartAddressDiv {
   display: flex;
   flex-direction: column;
@@ -179,24 +162,12 @@
   box-shadow: 0 0 0px 1000px white inset;
 }
 
-.cartAddressBtn {
+.cart-address-btn {
   width: fit-content;
-  color: #FFFFFF;
-  background-color: var(--222222);
-  border: none;
-  cursor: pointer;
 }
 
 .cartTotalValue {
   font-weight: 600;
-}
-
-#cartCheckoutButton {
-  background-color: var(--222222);
-  color: #FFFFFF;
-  font-family: var(--Roboto);
-  border: none;
-  cursor: pointer;
 }
 
 
@@ -247,6 +218,7 @@
   color: var(--222222);
   font-family: var(--Roboto);
   outline: none;
+  box-shadow: 0 0 0px 1000px white inset;
 }
 
 #billOtherMain {
@@ -376,12 +348,7 @@
   font-family: var(--Roboto);
 }
 
-#placeOrderBtn {
-  background-color: var(--222222);
-  color: #FFFFFF;
-  font-family: var(--Roboto);
-  border: none;
-  cursor: pointer;
+.place-order-btn {
   width: 100%;
 }
 
@@ -433,13 +400,6 @@
 #card-payment-buttons-div {
   display: grid;
   grid-template-columns: 65% 35%;
-}
-
-.card-payment-button {
-  background-color: var(--222222);
-  color: #FFFFFF;
-  font-family: var(--Roboto);
-  border: none;
 }
 
 
@@ -544,8 +504,7 @@
     justify-content: flex-end;
   }
 
-  #cartUpdateBtn {
-    font-size: var(--16px);
+  .cart-update-btn {
     padding: 1.25rem 2rem;
   }
 
@@ -553,13 +512,8 @@
     margin: 2rem 0;
   }
 
-  #cartAddressText {
-    font-size: var(--16px);
-  }
-
-  #cartCheckoutButton {
+  .cart-checkout-button {
     padding: 1.25rem 2rem;
-    font-size: var(--16px);
     margin: 2rem 0 5rem 0;
   }
 
@@ -572,9 +526,8 @@
     font-size: var(--16px);
   }
 
-  .cartAddressBtn {
+  .cart-address-btn {
     padding: 1.25rem 2rem;
-    font-size: var(--16px);
   }
 
   #checkoutLoginDiv {
@@ -683,8 +636,7 @@
     font-size: var(--16px);
   }
 
-  #placeOrderBtn {
-    font-size: var(--16px);
+  .place-order-btn {
     padding: 1.25rem 0;
   }
 
@@ -710,7 +662,6 @@
   }
 
   .card-payment-button {
-    font-size: var(--16px);
     padding: 1.25rem 0;
   }
 
@@ -810,8 +761,7 @@
     padding: 0.5rem 0;
   }
 
-  #cartUpdateBtn {
-    font-size: var(--12px);
+  .cart-update-btn {
     width: 100%;
     padding: 1rem 0;
   }
@@ -829,10 +779,6 @@
     font-size: var(--16px);
   }
 
-  #cartAddressText {
-    font-size: var(--12px);
-  }
-
   #cartAddressDiv {
     margin: 0.5rem 0;
     gap: 0.75rem 0;
@@ -843,14 +789,12 @@
     font-size: var(--12px);
   }
 
-  .cartAddressBtn {
+  .cart-address-btn {
     padding: 1rem 1.5rem;
-    font-size: var(--12px);
   }
 
-  #cartCheckoutButton {
+  .cart-checkout-button {
     padding: 1rem 1.5rem;
-    font-size: var(--12px);
     margin: 2rem 0 4rem 0;
   }
 
@@ -984,9 +928,8 @@
     font-size: var(--12px);
   }
 
-  #placeOrderBtn {
+  .place-order-btn {
     padding: 1rem 0;
-    font-size: var(--12px);
   }
 
   #card-payment-main {
@@ -1004,7 +947,6 @@
   }
 
   .card-payment-button {
-    font-size: var(--12px);
     padding: 0.75rem 0;
   }
 

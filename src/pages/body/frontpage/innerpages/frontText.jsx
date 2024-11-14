@@ -34,7 +34,7 @@ const FrontText = () => {
       <div id="displayText">
         <p id="disParagraph" className="paragraphStyles">YOU CAN HAVE ANYTHING YOU WANT IF YOU DRESS FOR IT</p>
         <h1 id="disHead" className="headStyles">{initialDetails.head}</h1>
-        <PageButtons type={"button"} text={"SHOP NOW"} buttonType={"white-button"} buttonClass={"shop-btn"} pageFunction={scrollToSection} />
+        <PageButtons type={"button"} text={"SHOP NOW"} buttonType={"white-button"} buttonClass={"shop-btn"} buttonFunction={scrollToSection} />
         <div id="disDiv">
           <span className="disShowing" style={{ paddingRight: initialDetails.disOnePad }}>01</span>
           <span className="disShowing" style={{ paddingRight: initialDetails.disTwoPad }}>02</span>

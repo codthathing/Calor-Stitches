@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import PageButtons from "../../../components/page_buttons";
 
 const ConfirmForm = () => {
   const [confirmInput, setConfirmInput] = useState(Array(6).fill("")); 
@@ -46,7 +47,7 @@ const ConfirmForm = () => {
           />
         ))}
       </div>
-      <button type="submit" id="confirm-button">Confirm</button>
+      <PageButtons type={"submit"} buttonType={"black-button"} buttonClass={"confirm-button"} text={"confirm"} />
     </form>
   );
 };

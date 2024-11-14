@@ -16,7 +16,7 @@ export const useHead = () => {
   }
 
   useEffect(() => {
-    {(window.scrollY <= 120 && path !== "/") && setNavbar(true)};
+    {(window.scrollY > 120 || path !== "/") && setNavbar(true)};
     window.addEventListener("scroll", changeHeader);
     return () => {
       window.removeEventListener("scroll", changeHeader);

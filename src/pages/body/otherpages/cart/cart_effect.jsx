@@ -22,7 +22,7 @@ export const useCartEffect = () => {
       setCartInfoArray(info);
       setTimeout(() => {
         setShowCartInfo(true);
-      }, 1000);
+      }, 2000);
     };
   };
 

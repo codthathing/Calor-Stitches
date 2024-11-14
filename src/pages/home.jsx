@@ -3,7 +3,7 @@ import PageLayout from "./body/pagelayout";
 import NewsSection from "./news_section/news_section";
 import Footer from "./footer/footer";
 import { useProductEffect } from "./components/products_effect";
-
+import PreLoad from "./components/pre_load";
 
 const Home = () => {
   useProductEffect();
@@ -14,6 +14,7 @@ const Home = () => {
       <PageLayout />
       <NewsSection />
       <Footer />
+      <PreLoad />
     </>
   );
 }

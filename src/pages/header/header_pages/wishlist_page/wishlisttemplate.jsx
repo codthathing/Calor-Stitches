@@ -27,7 +27,7 @@ const WishlistTemplate = ({ wishlistArray }) => {
             </div>
             <div className="wishListAvailDiv">
               <WishlistStock mainClass={"wishListAvailMain"} textClass={"wishListAvail wishListTexts"} barClass={"wishListAvailBar"} stockAmt={wishlistStock} showStockBar={true} />
-              <ProductOptions id={id} productDetails={productDetails} productName={productName} textClass={"wishListCartButton"} itemsArray={wishlistItems} />
+              <ProductOptions id={id} productDetails={productDetails} productName={productName} textClass={"wishlist-cart-btn"} itemsArray={wishlistItems} />
             </div>
           </div>
         );

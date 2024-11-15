@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ToggleRegister } from "../../../contextpage";
 import { useScrollToSection } from "../../../components/use_show_section";
 import PageButtons from "../../../components/page_buttons";
@@ -7,37 +7,35 @@ const FrontText = () => {
   const { product_section } = useContext(ToggleRegister);
   const { scrollToSection } = useScrollToSection(product_section);
 
-  // const [currentDisplay, setCurrentDisplay] = useState("ONE");
-  // const [initialDetails, setInitialDetails] = useState({
-  const initialDetails = {
-    head: "Inspired By Nature & Crafted With Love",
-    disOnePad: "0.75rem",
-    disTwoPad: "0"
-  }
-  // });
-  // if (currentDisplay == "ONE") {
-  //   setTimeout(() => {
-  //     setCurrentDisplay("TWO");
-  //     setInitialDetails({...initialDetails, head: "Outrageous Fashion Always For You", disOnePad: "0", disTwoPad: "0.75rem"});
-  //   }, 2500)
-  // } else if (currentDisplay == "TWO") {
-  //   setTimeout(() => {
-  //     setCurrentDisplay("ONE");
-  //     setInitialDetails({...initialDetails, head: "Inspired By Nature & Crafted With Love", disOnePad: "0.75rem", disTwoPad: "0"});
-  //   }, 2500)
-  // };
+  const [pageDetails, setPageDetails] = useState({
+    text: "Outrageous Fashion Always For You", array: [
+      { id: 1, head: "Outrageous Fashion Always For You", style: true },
+      { id: 2, head: "Inspired By Nature & Crafted With Love", style: false }
+    ]
+  });
 
+  const [changeDetails, setChangeDetails] = useState(1);
 
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setChangeDetails(prevState => prevState < pageDetails.array.length ? prevState + 1 : 1);
+    }, 5000);
+    setPageDetails(prevState => ({
+      text: prevState.array.find(({ id }) => id === changeDetails).head,
+      array: prevState.array.map((text) => ({ ...text, style: text.id === changeDetails }))
+    }));
+
+    return () => clearTimeout(timeoutId);
+  }, [changeDetails]);
 
   return (
     <section id="frontPage">
       <div id="displayText">
         <p id="disParagraph" className="paragraphStyles">YOU CAN HAVE ANYTHING YOU WANT IF YOU DRESS FOR IT</p>
-        <h1 id="disHead" className="headStyles">{initialDetails.head}</h1>
+        <h1 id="disHead">{pageDetails.text}</h1>
         <PageButtons type={"button"} text={"SHOP NOW"} buttonType={"white-button"} buttonClass={"shop-btn"} buttonFunction={scrollToSection} />
         <div id="disDiv">
-          <span className="disShowing" style={{ paddingRight: initialDetails.disOnePad }}>01</span>
-          <span className="disShowing" style={{ paddingRight: initialDetails.disTwoPad }}>02</span>
+          {pageDetails.array.map(({ id, style }) => <span key={id} className={`dispay-number ${style && "style-display-number"}`}>{id}</span>)}
         </div>
       </div>
     </section>

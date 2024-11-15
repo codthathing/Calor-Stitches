@@ -6,8 +6,8 @@ import NavIcons from "./header_parts/navIcons";
 import { useContext } from "react";
 
 const Header = () => {
-  const { header, navbar } = useHead();
-  const { toggleSideMenu } = useContext(ToggleRegister);
+  const { header } = useHead();
+  const { toggleSideMenu, navbar } = useContext(ToggleRegister);
 
   return (
     <header id="header" className={header ? "scrollTop" : ""}>

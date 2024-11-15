@@ -1,14 +1,10 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import PageButtons from "../../../../components/page_buttons";
 
 const ProductButton = ({ linkTo }) => {
-  return (
+  const navigate = useNavigate();
 
-    <Link style={{ textDecoration: "none", color: "#222222" }} to={linkTo}>
-      <button className="viewButton">
-        <p className="paragraphStyles">VIEW ALL</p>
-      </button>
-    </Link>
-  );
+  return <PageButtons type={"button"} buttonType={"white-button"} buttonClass={"view-button"} buttonFunction={() => navigate(linkTo)} text={"view all"} />
 };
 
 export default ProductButton;

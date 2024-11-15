@@ -224,11 +224,6 @@
   align-items: center;
 }
 
-.productDeliveryDetailsInnerText {
-  color: var(--222222);
-  text-transform: uppercase;
-}
-
 #productHandles {
   display: flex;
 }
@@ -330,13 +325,6 @@
 #productReviewLinkDiv {
   display: flex;
   justify-content: flex-end;
-}
-
-#productReviewLink {
-  text-decoration: none;
-  color: var(--222222);
-  font-family: var(--Yantramanav);
-  cursor: pointer;
 }
 
 .about-main-text {
@@ -868,8 +856,7 @@
     padding: 1.5rem;
   }
 
-  #productReviewLink {
-    font-size: var(--16px);
+  .product-review-link{
     margin-top: 2rem;
   }
 
@@ -1203,8 +1190,11 @@
     padding: 1rem;
   }
 
-  #productReviewLink {
-    font-size: var(--12px);
+  .product-view-price {
+    margin-bottom: 1rem;
+  }
+
+  .product-review-link {
     margin-top: 1rem;
   }
 
@@ -1464,6 +1454,10 @@
     height: 30rem;
   }
 
+  .product-view-price {
+    margin-bottom: 1rem;
+  }
+
   .productFilterSection {
     grid-template-columns: 1fr 1fr;
   }
@@ -1622,6 +1616,10 @@
   #productViewMainDiv {
     height: 55vh;
     overflow-y: auto;
+  }
+
+  .product-view-price {
+    margin-bottom: 1.25rem;
   }
 
   #productColorView {

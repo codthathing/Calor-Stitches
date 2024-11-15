@@ -13,10 +13,9 @@ import Post from "./innerpages/post/post";
 
 const FrontPage = () => {
 
-  const { setToggleSideMenu, setNavbar } = useContext(ToggleRegister);
+  const { setToggleSideMenu } = useContext(ToggleRegister);
   useEffect(() => {
     setToggleSideMenu(false);
-    setNavbar(false);
   }, []);
 
   return (

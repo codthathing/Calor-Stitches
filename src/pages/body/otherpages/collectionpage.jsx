@@ -2,22 +2,21 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ToggleRegister } from "../../contextpage";
 import { usePageInitialEffects } from "./components/page_effects";
-import ProductTemplate from "../frontpage/innerpages/products_func/productTemplate";
 import PageLinkTemplate from "./components/pagelinks";
 import ProductFilter from "./product_page/product_filter";
 import { useProductShownEffect } from "./product_page/product_shown_effect";
 
 const CollectionPage = () => {
   const { collectionName } = useParams();
-  const { setToggleSideMenu, products } = useContext(ToggleRegister);
+  const { products } = useContext(ToggleRegister);
   
   const [collection, setCollection] = useState([]);
 
-  usePageInitialEffects([{ effect: setToggleSideMenu, value: false }]);
+  usePageInitialEffects({});
 
   useEffect(() => {
     const presentCollections = products.filter(({productInfo}) => productInfo.find(({name}) => name === "CARTEGORIES").links.find(({text}) => text === collectionName));
-    setCollection(presentCollections)
+    setCollection(presentCollections);
   }, []);
 
   const { ProductShown, Products, ProductPagination } = useProductShownEffect({products: collection});

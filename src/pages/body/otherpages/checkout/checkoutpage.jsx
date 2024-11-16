@@ -7,8 +7,8 @@ import CheckoutSection from "./checkout_section";
 
 const CheckoutPage = () => {
 
-  const { setNavbar, setCart, setToggleSideMenu } = useContext(ToggleRegister);
-  usePageInitialEffects([{ effect: setCart, value: false }, { effect: setToggleSideMenu, value: false }, { effect: setNavbar, value: true }]);
+  const { setCart } = useContext(ToggleRegister);
+  usePageInitialEffects({effectsArray: [{ effect: setCart, value: false }]});
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },

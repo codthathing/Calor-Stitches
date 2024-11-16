@@ -1,8 +1,10 @@
+import PageButtons from "../components/page_buttons";
+
 const SubscribeForm = () => {
   return (
     <form id="subscribeForm">
       <input type="text" id="subscribeInput" title="Please fill out this field" placeholder="Your Email Address" />
-      <button type="submit" id="subscribeButton">SUBSCRIBE</button>
+      <PageButtons type={"submit"} buttonType={"black-button"} buttonClass={"subscribe-button"} text={"subscribe"} />
     </form>
   );
 };

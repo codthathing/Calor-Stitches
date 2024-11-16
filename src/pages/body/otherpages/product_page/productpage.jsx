@@ -7,8 +7,8 @@ import { useProductShownEffect } from "./product_shown_effect";
 
 const ProductPage = () => {
 
-  const { setNavbar, setToggleSideMenu, products } = useContext(ToggleRegister);
-  usePageInitialEffects([{ effect: setToggleSideMenu, value: false }, { effect: setNavbar, value: true }]);
+  const { setToggleSideMenu, products } = useContext(ToggleRegister);
+  usePageInitialEffects({effectsArray: [{ effect: setToggleSideMenu, value: false }]});
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },

@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useFocus } from "../usefocus";
 import { ToggleRegister } from "../../../../../contextpage";
 import RegisterInput from "../register_input";
@@ -8,6 +9,7 @@ import RegisterButton from "../register_button";
 
 const LoginForm = ({ setText }) => {
   const { inputFocus } = useFocus();
+  const navigate = useNavigate();
 
   const { setPresentRegister } = useContext(ToggleRegister);
   const [loginValue, setLoginValue] = useState({ email: "", password: "" });
@@ -25,7 +27,11 @@ const LoginForm = ({ setText }) => {
     } else if (!loginValue.password) {
       setText("Enter your password");
     } else {
-      setText("User cannot login");
+      if (loginValue.email === "akinwunmibolu@gmail.com" && loginValue.password === "Esther2003") {
+        navigate("/pages/admin_page");
+      } else {
+        setText("User cannot login");
+      };
     };
   };
 

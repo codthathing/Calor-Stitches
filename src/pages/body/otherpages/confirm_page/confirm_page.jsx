@@ -1,8 +1,9 @@
-import { useEffect, useContext } from "react";
+import { useContext } from "react";
 import { useSearchParams } from "react-router-dom";
 import {ToggleRegister} from "../../../contextpage";
 import PageLinkTemplate from "../components/pagelinks";
 import ConfirmForm from "./confirm_form";
+import {usePageInitialEffects} from "../components/page_effects";
 
 const ConfirmPage = () => {
   const { setAccount, setPresentRegister } = useContext(ToggleRegister);
@@ -10,12 +11,7 @@ const ConfirmPage = () => {
   const [searchParams] = useSearchParams();
   const [pageLink, pageHead, pageText] = [searchParams.get("link"), searchParams.get("head"), searchParams.get("text")];
 
-  useEffect(() => {
-    if (pageLink === "New password" || pageLink === "Create account") {
-      setAccount(false);
-      setPresentRegister("LOGIN");
-    }
-  }, [])
+  usePageInitialEffects({effectsArray: [{effect: setAccount, value: false}, {effect: setPresentRegister, value: "LOGIN"}]});
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },

@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   gap: 0 0.35rem;
+  flex-wrap: wrap;
 }
 
 .productListItem {
@@ -289,7 +290,8 @@
   margin: auto;
 }
 
-#productViewMainDiv::-webkit-scrollbar, #productViewMain::-webkit-scrollbar {
+#productViewMainDiv::-webkit-scrollbar,
+#productViewMain::-webkit-scrollbar {
   width: 2px;
 }
 
@@ -363,13 +365,6 @@
   accent-color: var(--222222);
 }
 
-#rating-submit-button {
-  color: #FFFFFF;
-  background-color: var(--222222);
-  border: none;
-  font-family: var(--Roboto);
-}
-
 
 
 
@@ -434,6 +429,12 @@
   cursor: pointer;
 }
 
+.product-shown-default-text {
+  color: var(--222222);
+  font-family: var(--Roboto);
+  text-align: center;
+}
+
 .productNavigationDiv {
   display: flex;
   justify-content: center;
@@ -444,6 +445,12 @@
   color: var(--222222);
   font-family: var(--Roboto);
   cursor: pointer;
+}
+
+.navigation-text {
+  border-bottom: 1px solid var(--222222);
+  font-weight: bold;
+  text-align: center;
 }
 
 
@@ -777,7 +784,7 @@
   .productAboutInnerText {
     font-size: var(--16px);
   }
-    
+
   .product-about-main {
     margin: 1.25rem 0;
   }
@@ -835,8 +842,7 @@
     margin: 1.25rem 0 1.75rem 0;
   }
 
-  #rating-submit-button {
-    font-size: var(--16px);
+  .rating-submit-button {
     padding: 1.25rem 1.75rem;
   }
 
@@ -856,7 +862,7 @@
     padding: 1.5rem;
   }
 
-  .product-review-link{
+  .product-review-link {
     margin-top: 2rem;
   }
 
@@ -889,6 +895,11 @@
     padding: 0.35rem 5rem 0.35rem 1rem;
   }
 
+  .product-shown-default-text {
+    font-size: var(--16px);
+    margin: 2rem 0;
+  }
+
   .productFilterSection {
     display: grid;
     gap: 0 3.5rem;
@@ -900,6 +911,10 @@
 
   .productNavigationText {
     font-size: var(--16px);
+  }
+
+  .navigation-text {
+    padding: 0 0.5rem 0.10rem 0.5rem;
   }
 
   .productFilterMainDivs {
@@ -1259,8 +1274,7 @@
     margin: 0.75rem 0 1rem 0;
   }
 
-  #rating-submit-button {
-    font-size: var(--12px);
+  .rating-submit-button {
     padding: 1rem 1.5rem;
   }
 
@@ -1289,6 +1303,11 @@
     padding: 0.35rem 4rem 0.35rem 0.75rem;
   }
 
+  .product-shown-default-text {
+    font-size: var(--12px);
+    margin: 1rem 0;
+  }
+
   .productInnerDivs {
     padding: 0.75rem 0;
     margin-top: 0.5rem;
@@ -1300,6 +1319,10 @@
 
   .productNavigationText {
     font-size: var(--12px);
+  }
+
+  .navigation-text {
+    padding: 0 0.25rem 0.10rem 0.25rem;
   }
 
   #productFilterOptionsMain {

@@ -1,6 +1,4 @@
-import { useContext, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { ToggleRegister } from "../../contextpage";
 import FrontText from "./innerpages/frontText";
 import ProductSection from "./innerpages/product/product_section";
 import CollectionTemplate from "./innerpages/collection";
@@ -10,13 +8,10 @@ import VideoDiv from "./innerpages/video_div";
 import ServiceTemplate from "./innerpages/service";
 import ProductView from "./innerpages/view/productview";
 import Post from "./innerpages/post/post";
+import { usePageInitialEffects } from "../otherpages/components/page_effects";
 
 const FrontPage = () => {
-
-  const { setToggleSideMenu } = useContext(ToggleRegister);
-  useEffect(() => {
-    setToggleSideMenu(false);
-  }, []);
+  usePageInitialEffects({});
 
   return (
     <>

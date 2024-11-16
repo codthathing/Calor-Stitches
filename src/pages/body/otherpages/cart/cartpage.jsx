@@ -11,13 +11,13 @@ import CartCheckout from "./cart_checkout";
 export const CartContext = createContext();
 const CartPage = () => {
 
-  const { setNavbar, setCart, setToggleSideMenu, curSymbol } = useContext(ToggleRegister);
+  const { setCart, curSymbol } = useContext(ToggleRegister);
 
   const [city, setCity] = useState("address");
   const [showCartInfo, setShowCartInfo] = useState(false);
   const [cartInfoArray, setCartInfoArray] = useState([]);
 
-  usePageInitialEffects([{ effect: setCart, value: false }, { effect: setToggleSideMenu, value: false }, { effect: setNavbar, value: true }, { effect: setShowCartInfo, value: false }]);
+  usePageInitialEffects({effectsArray: [{ effect: setCart, value: false }, { effect: setShowCartInfo, value: false }]});
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },

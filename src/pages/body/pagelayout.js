@@ -11,6 +11,7 @@ import ConfirmPage from "./otherpages/confirm_page/confirm_page";
 import PaymentPage from "./otherpages/payment/payment_page";
 import PostPage from "./otherpages/post/post_page";
 import PostOtherBlogs from "./otherpages/post/post_other_blogs/post_other_blogs";
+import AdminPage from "./otherpages/admin/admin_page";
 
 const PageLayout = () => {
 
@@ -28,6 +29,7 @@ const PageLayout = () => {
       <Route path="/pages/payment_page" element={<PaymentPage />} />
       <Route path="/blog/:post_head" element={<PostPage />} />
       <Route path="/blog/post/:post_title" element={<PostOtherBlogs />} />
+      <Route path="/pages/admin_page" element={<AdminPage />} />
     </Routes>
   );
 }

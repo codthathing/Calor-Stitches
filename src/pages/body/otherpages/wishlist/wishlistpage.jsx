@@ -7,8 +7,8 @@ import WishlistHandle from "./wishlist_handle";
 
 const WishListPage = () => {
 
-  const { setNavbar, setWishList, setToggleSideMenu } = useContext(ToggleRegister);
-  usePageInitialEffects([{ effect: setWishList, value: false }, { effect: setToggleSideMenu, value: false }, { effect: setNavbar, value: true }]);
+  const { setWishList } = useContext(ToggleRegister);
+  usePageInitialEffects({effectsArray: [{ effect: setWishList, value: false }]});
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },

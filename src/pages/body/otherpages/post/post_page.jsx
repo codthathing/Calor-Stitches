@@ -1,6 +1,5 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { ToggleRegister } from "../../../contextpage";
 import { usePageInitialEffects } from "../components/page_effects";
 import PageLinkTemplate from "../components/pagelinks";
 import { posts } from "../../frontpage/innerpages/post/blog_posts";
@@ -9,19 +8,17 @@ import PostOther from "./post_other/post_other";
 
 export const PostContext = createContext();
 const PostPage = () => {
-  const { setToggleSideMenu } = useContext(ToggleRegister)
-
-  usePageInitialEffects([{ effect: setToggleSideMenu, value: false }]);
-
   const { post_head } = useParams();
   const [blog, setBlog] = useState({});
 
   const [postState, setPostState] = useState(post_head);
 
+  usePageInitialEffects({dependency: post_head});
+
   useEffect(() => {
-    const presentBlog = posts.find((post) => post.postHead === postState);
+    const presentBlog = posts.find((post) => post.postHead === post_head);
     setBlog(presentBlog);
-  }, [postState]);
+  }, [posts, post_head]);
 
   const { id, postImage, postDetails, postAuthor, postHead: postTopic, postParagraph } = blog;
 

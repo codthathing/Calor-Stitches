@@ -14,6 +14,15 @@
     overflow-y: scroll;
 }
 
+#page-top-div {
+    background-color: var(--222222);
+    color: #FFFFFF;
+    border-radius: 0.25rem;
+    width: fit-content;
+    cursor: pointer;
+    position: fixed;
+}
+
 #frontPage {
     background: url("../../asset/images-icons/productImages/design_six.jpeg");
     background-repeat: no-repeat;
@@ -262,6 +271,7 @@
 }
 
 .style-display-number {
+    text-align: center;
     border-bottom: 1px solid #FFFFFF;
 }
 
@@ -569,12 +579,6 @@
     color: var(--282828);
 }
 
-.postRead {
-    color: var(--222222);
-    font-family: var(--Yantramanav);
-    text-decoration: none;
-}
-
 #newsSection {
     display: grid;
     border-top: var(--border_size) solid var(--F3F2ED);
@@ -616,14 +620,6 @@
     color: var(--222222);
     font-family: var(--Yantramanav);
     outline: none;
-}
-
-#subscribeButton {
-    font-family: var(--Yantramanav);
-    border: none;
-    background-color: var(--222222);
-    color: white;
-    padding: 1.5rem 1.25rem;
 }
 
 #subscribeParagraph {
@@ -848,7 +844,7 @@
     }
 
     .style-display-number {
-        padding-right: 0.5rem;
+        padding: 0 0.5rem 0.10rem 0.5rem;
     }
 
     #mainProduct {
@@ -934,10 +930,6 @@
         -webkit-line-clamp: 3;
     }
 
-    .postRead {
-        font-size: var(--15px);
-    }
-
     .contactHead {
         font-size: var(--22px);
     }
@@ -961,9 +953,8 @@
         font-size: var(--15px);
     }
 
-    #subscribeButton {
+    .subscribe-button {
         padding: 1.25rem 0;
-        font-size: var(--15px);
     }
 
     #subscribeParagraph {
@@ -1017,6 +1008,16 @@
 
     #pre-load-image {
         height: 2rem;
+    }
+
+    #page-top-div {
+        padding: 0.75rem 1rem;
+        right: 1.25rem;
+        bottom: 1.25rem;
+    }
+    
+    .page-top-icon {
+        font-size: var(--16px);
     }
 
     #frontPage {
@@ -1140,7 +1141,7 @@
     }
 
     .style-display-number {
-        padding-right: 0.35rem;
+        padding: 0 0.25rem 0.10rem 0.25rem;
     }
 
     #productSection {
@@ -1252,7 +1253,8 @@
     }
 
     #pageArticle {
-        padding: 2.5rem 0.75rem;
+        padding: 0 0.75rem;
+        height: 20rem;
     }
 
     #articleText {
@@ -1337,10 +1339,6 @@
         -webkit-line-clamp: 2;
     }
 
-    .postRead {
-        font-size: var(--12px);
-    }
-
     #newsSection {
         padding: 4rem 0.5rem;
     }
@@ -1382,9 +1380,8 @@
         font-size: var(--12px);
     }
 
-    #subscribeButton {
+    .subscribe-button {
         padding: 1rem 0;
-        font-size: var(--12px);
     }
 
     #subscribeParagraph {
@@ -1454,6 +1451,16 @@
 @media all and (min-width: 768px) and (max-width: 1023px) {
     :root {
         --60px: 3.75rem;
+    }
+
+    #page-top-div {
+        padding: 1.25rem 1.65rem;
+        right: 3rem;
+        bottom: 3rem;
+    }
+    
+    .page-top-icon {
+        font-size: var(--24px);
     }
 
     #frontPage {
@@ -1617,7 +1624,8 @@
     }
 
     #pageArticle {
-        padding: 7.5rem 0.75rem;
+        padding: 0 0.75rem;
+        height: 27.5rem;
     }
 
     #videoDiv {
@@ -1746,6 +1754,16 @@
         --85px: 5.3125rem;
         --45px: 2.8125rem;
         --55px: 3.4375rem;
+    }
+
+    #page-top-div {
+        padding: 1.15rem 1.5rem;
+        right: 2rem;
+        bottom: 2rem;
+    }
+    
+    .page-top-icon {
+        font-size: var(--20px);
     }
 
     #frontPage {
@@ -1929,7 +1947,8 @@
     }
 
     #pageArticle {
-        padding: 5rem 20rem;
+        padding: 0 20rem;
+        height: 25rem;
     }
 
     #videoDiv {

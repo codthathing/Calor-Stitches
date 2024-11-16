@@ -1,10 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { ToggleRegister } from "../../../contextpage";
 
-export const usePageInitialEffects = (effectsArray = [{}]) => {
+export const usePageInitialEffects = ({effectsArray, dependency}) => {
+  const { setToggleSideMenu } = useContext(ToggleRegister);
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    for(let i = 0; i < effectsArray.length; i++) {
-      effectsArray[i].effect(effectsArray[i].value);
+    setToggleSideMenu(false);
+    for(let i = 0; i < effectsArray?.length; i++) {
+      effectsArray[i]?.effect(effectsArray[i]?.value);
     };
-  }, [window.location.pathname]);
+  }, [dependency]);
 };

@@ -1,4 +1,5 @@
-import AboutRating from "./about_rating"
+import AboutRating from "./about_rating";
+import PageButtons from "../../../../components/page_buttons";
 
 const AboutReview = ({id, showReviewText = true, reviewText, showRating = true, reviewPlaceholder, reviewButton}) => {
   return (
@@ -24,7 +25,7 @@ const AboutReview = ({id, showReviewText = true, reviewText, showRating = true, 
               <input type="checkbox" id="rating-details-checkbox" />
               <p className="about-inner-text">Save my name, email, and website in this browser for the next time I comment.</p>
             </div>
-            <button type="button" id="rating-submit-button">{reviewButton}</button>
+            <PageButtons type={"button"} buttonType={"black-button"} buttonClass={"rating-submit-button"} text={reviewButton} />
           </form>
         </div>
       </main>

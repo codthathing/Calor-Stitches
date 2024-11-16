@@ -1,5 +1,4 @@
-import { useState, useContext, createContext } from "react";
-import { ToggleRegister } from "../../../contextpage";
+import { useState, createContext } from "react";
 import { usePageInitialEffects } from "../components/page_effects";
 import PageLinkTemplate from "../components/pagelinks";
 import ProductFilter from "../product_page/product_filter";
@@ -10,19 +9,18 @@ import ProductFilterSection from "./product_filter_section";
 
 export const DisplayContext = createContext();
 const ProductDisplay = () => {
-  const { setToggleSideMenu } = useContext(ToggleRegister);
-
   const { presentFilterProducts, ChangeProductsTypes, handleMinChange, handleMaxChange, ChangeProductsColors, ChangeProductsSize } = useProductOptionFilter();
 
   const { Products, ProductPagination } = useProductShownEffect({products: presentFilterProducts});
 
   const { productTypes, setProductTypes, productColors, setProductColors, productSize, setProductSize } = useProductFiltersArray();
 
-  usePageInitialEffects([{ effect: setToggleSideMenu, value: false }]);
+  usePageInitialEffects({});
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },
-    { id: 1, linkDirect: "", linkText: "Product", linkArrow: false },
+    { id: 1, linkDirect: "", linkText: "Product", linkArrow: true },
+    { id: 1, linkDirect: "", linkText: "latest items", linkArrow: false },
   ]
 
   const [showFilterSection, setShowFilterSection] = useState(false);

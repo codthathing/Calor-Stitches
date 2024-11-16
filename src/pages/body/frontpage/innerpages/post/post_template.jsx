@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PostDetails from "../../../otherpages/post/components/post_details";
+import PageButtons from "../../../../components/page_buttons";
 
 const PostTemplate = ({ postArray, imageClass, buttonClass, type = "link", divClass }) => {
+  const navigate = useNavigate();
+
   return (
     <>
       {postArray.map(({ id, postImage, postDetails, postHead, postParagraph }) => {
@@ -11,9 +14,7 @@ const PostTemplate = ({ postArray, imageClass, buttonClass, type = "link", divCl
             <PostDetails postDetails={postDetails.slice(0, 2)} divClass={"post-display-div"} textClass={"post-dislpay-text"} linkClass={"post-display-link"} />
             <h1 className="postHead">{postHead}</h1>
             <p className="postParagraph">{postParagraph}</p>
-            <Link to={`/blog/${postHead}`} style={{textDecoration: "none"}}>
-              {type === "link" ? <span className={buttonClass}>READ MORE</span> : <button className={buttonClass}>READ MORE</button>}
-            </Link>
+            {type === "link" ? <PageButtons type={"text"} textClass={buttonClass} buttonFunction={() => navigate(`/blog/${postHead}`)} text={"read more"} /> : <PageButtons type={"button"} buttonType={"black-button"} buttonClass={buttonClass} buttonFunction={() => navigate(`/blog/${postHead}`)} text={"read more"} />}
           </div>
         );
       })}

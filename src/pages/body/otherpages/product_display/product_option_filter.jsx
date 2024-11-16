@@ -4,7 +4,7 @@ import { ToggleRegister } from "../../../contextpage";
 export const useProductOptionFilter = () => {
   const { products, productShipValue, setProductShipValue } = useContext(ToggleRegister);
 
-  const [presentFilterProducts, setPresentFilterProducts] = useState(products);
+  const [presentFilterProducts, setPresentFilterProducts] = useState([]);
 
   const [filterOption, setFilterOption] = useState({ minPrice: productShipValue.minValue, maxValue: productShipValue.maxValue });
 
@@ -22,7 +22,7 @@ export const useProductOptionFilter = () => {
     if (filterOption.size) {
       updatedProducts = updatedProducts.filter(({ productSizes }) => productSizes?.find(({ text }) => text === filterOption.size));
     };
-    if(JSON.stringify(updatedProducts) !== JSON.stringify(presentFilterProducts)) {
+    if (JSON.stringify(updatedProducts) !== JSON.stringify(presentFilterProducts)) {
       setPresentFilterProducts(updatedProducts);
     };
   }, [filterOption]);

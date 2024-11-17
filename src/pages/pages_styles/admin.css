@@ -17,6 +17,7 @@
   border: 1px solid var(--222222);
   font-family: var(--Roboto);
   color: var(--222222);
+  box-shadow: 0 0 0px 1000px white inset;
 }
 
 .admin-input::-webkit-inner-spin-button, .admin-input::-webkit-inner-spin-button {
@@ -24,15 +25,29 @@
   margin: 0;
 }
 
+.admin-add-text-div {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--222222);
+}
+
+.admin-add-text {
+  font-family: var(--Roboto);
+  border: none;
+  box-shadow: 0 0 0px 1000px white inset;
+}
+
 .admin-group-div {
   border: 1px solid var(--222222);
   width: fit-content;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .admin-group-main {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -87,8 +102,8 @@
 }
 
 #admin-price-average-div {
+  /* grid-template-columns: 35% 35%; */
   display: grid;
-  grid-template-columns: 35% 35%;
   justify-content: space-between;
 }
 
@@ -111,6 +126,11 @@
 
   .admin-information-text {
     font-size: var(--16px);
+  }
+  
+  .admin-add-text {
+    font-size: var(--16px);
+    width: 7.5rem;
   }
   
   .admin-form-div {
@@ -138,6 +158,10 @@
 
   .admin-price-text {
     font-size: var(--16px);
+  }
+
+  #admin-price-average-div {
+    grid-template-columns: 40% 40%;
   }
   
   .admin-buttons {
@@ -179,13 +203,23 @@
     font-size: var(--12px);
   }
 
+  .admin-add-text-div {
+    gap: 0 0.5rem;
+    padding: 0.10rem 0.25rem;
+  }
+  
+  .admin-add-text {
+    font-size: var(--12px);
+    width: 3.5rem;
+  }
+
   .admin-product-input-name {
     width: 75%;
   }
 
   .admin-group-div {
     padding: 0.5rem 0.75rem;
-    gap: 0 0.5rem;
+    gap: 0.5rem;
   }
 
   .admin-group-main {
@@ -205,7 +239,7 @@
   }
 
   .admin-product-text {
-    width: 9rem;
+    width: 4rem;
   }
 
   #admin-product-price-div {
@@ -236,6 +270,7 @@
   }
 
   #admin-price-average-div {
+    grid-template-columns: 47.5% 47.5%;
     margin-bottom: 0.75rem;
   }
 
@@ -271,13 +306,18 @@
     margin-top: 3.5rem;
   }
 
+  .admin-add-text-div {
+    gap: 0 1rem;
+    padding: 0.20rem 1rem;
+  }
+
   .admin-product-input-name {
     width: 65%;
   }
 
   .admin-group-div {
     padding: 1.5rem;
-    gap: 0 2.5rem;
+    gap: 2.5rem;
   }
 
   .admin-group-main {
@@ -347,13 +387,18 @@
     margin-top: 2rem;
   }
 
+  .admin-add-text-div {
+    gap: 0 0.75rem;
+    padding: 0.10rem 0.75rem;
+  }
+
   .admin-product-input-name {
     width: 50%;
   }
 
   .admin-group-div {
     padding: 1rem 1.25rem;
-    gap: 0 2rem;
+    gap: 2rem;
   }
 
   .admin-group-main {

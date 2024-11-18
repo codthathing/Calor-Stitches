@@ -3,7 +3,7 @@ import { ToggleRegister } from "../../../contextpage";
 import { usePageInitialEffects } from "../components/page_effects";
 import PageLinkTemplate from "../components/pagelinks";
 import ProductFilter from "./product_filter";
-import { useProductShownEffect } from "./product_shown_effect";
+import { useProductShownEffect, ProductShown, Products, ProductPagination } from "./product_shown_effect";
 
 const ProductPage = () => {
 
@@ -15,18 +15,18 @@ const ProductPage = () => {
     { id: 1, linkDirect: "", linkText: "Product", linkArrow: false },
   ];
 
-  const { ProductShown, Products, ProductPagination } = useProductShownEffect({products: products})
+  const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers, productValue } = useProductShownEffect({products: products})
 
   return (
     <div className="otherPages">
       <PageLinkTemplate pageLinks={pageLinkDetails} />
       <main id="productAllMain" className="productMains">
         <div className="productShownDiv">
-          <ProductShown />
+          <ProductShown mapProducts={mapProducts} productValue={productValue} products={products} />
           <ProductFilter textTwo={true} />
         </div>
-        <Products />
-        <ProductPagination />
+        <Products products={products} mapProducts={mapProducts} shownProducts={shownProducts} />
+        <ProductPagination setMapProducts={setMapProducts} setPageNumbers={setPageNumbers} pageNumbers={pageNumbers} shownProducts={shownProducts} />
       </main>
     </div>
   );

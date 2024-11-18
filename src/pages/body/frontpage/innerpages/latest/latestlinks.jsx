@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { LatetProductContext } from "./latest_section";
 
 const LatestLinks = () => {
-  const {setMapProducts} = useContext(LatetProductContext)
+  const { setMapProducts } = useContext(LatetProductContext);
 
   const latestObject = [
     { id: 0, latestText: "HOT ITEMS", borderBool: true, borderStyle: "1px solid black" },

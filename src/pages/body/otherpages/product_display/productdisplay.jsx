@@ -2,16 +2,16 @@ import { useState, createContext } from "react";
 import { usePageInitialEffects } from "../components/page_effects";
 import PageLinkTemplate from "../components/pagelinks";
 import ProductFilter from "../product_page/product_filter";
-import { useProductShownEffect } from "../product_page/product_shown_effect";
 import { useProductOptionFilter } from "./product_option_filter";
 import { useProductFiltersArray } from "./product_filters_array";
 import ProductFilterSection from "./product_filter_section";
+import { useProductShownEffect, Products, ProductPagination } from "../product_page/product_shown_effect";
 
 export const DisplayContext = createContext();
 const ProductDisplay = () => {
   const { presentFilterProducts, ChangeProductsTypes, handleMinChange, handleMaxChange, ChangeProductsColors, ChangeProductsSize } = useProductOptionFilter();
 
-  const { Products, ProductPagination } = useProductShownEffect({products: presentFilterProducts});
+  const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers } = useProductShownEffect({products: presentFilterProducts});
 
   const { productTypes, setProductTypes, productColors, setProductColors, productSize, setProductSize } = useProductFiltersArray();
 
@@ -38,8 +38,8 @@ const ProductDisplay = () => {
             </div>
             <ProductFilter textTwo={true} />
           </div>
-          <Products />
-          <ProductPagination />
+          <Products products={presentFilterProducts} mapProducts={mapProducts} shownProducts={shownProducts} />
+          <ProductPagination setMapProducts={setMapProducts} pageNumbers={pageNumbers} setPageNumbers={setPageNumbers} shownProducts={shownProducts} />
         </main>
         {showFilterSection && <ProductFilterSection />}
       </div>

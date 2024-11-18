@@ -9,7 +9,7 @@ import { useShowPreload } from "../../../../components/show_preload";
 
 const ProductTemplate = ({ productArray }) => {
   const { products } = useContext(ToggleRegister);
-  const [showViewText, setShowViewText] = useState(false);
+  const [showViewText, setShowViewText] = useState(null);
   const navigate = useNavigate();
   const { HandlePreload } = useShowPreload();
 
@@ -38,8 +38,8 @@ const ProductTemplate = ({ productArray }) => {
                 </div>
                 <ProductOptions id={id} productDetails={productDetails} productName={productName} textClass={"paragraphStyles selectOption"} itemsArray={products} />
                 <div className="optionDiv">
-                  <i className="fa-regular fa-eye optionIcon" onClick={() => NavigateToView(productName)} onMouseEnter={() => setShowViewText(true)} onMouseLeave={() => setShowViewText(false)}></i>
-                  {showViewText && <div className="optionText viewOptionText">Quick View</div>}
+                  <i className="fa-regular fa-eye optionIcon" onClick={() => NavigateToView(productName)} onMouseEnter={() => setShowViewText(id)} onMouseLeave={() => setShowViewText(null)}></i>
+                  {showViewText === id && <div className="optionText viewOptionText">Quick View</div>}
                 </div>
               </div>
             </div>

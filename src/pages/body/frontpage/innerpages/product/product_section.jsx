@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { ToggleRegister } from "../../../../contextpage";
 import ProductButton from "./product_button";
-import { useProductShownEffect } from "../../../otherpages/product_page/product_shown_effect";
+import { useProductShownEffect, Products } from "../../../otherpages/product_page/product_shown_effect";
 
 const ProductSection = () => {
   const { products, product_section } = useContext(ToggleRegister);
-  const { Products } = useProductShownEffect({ products: products, shownProducts: 8 });
+  const { mapProducts, shownProducts } = useProductShownEffect({ products: products, shownProducts: 8 });
 
   return (
     <section id="productSection" ref={product_section}>
@@ -13,7 +13,7 @@ const ProductSection = () => {
         <p className="product-section-para paragraphStyles">NEW AND EXTRAORDINARY</p>
         <h1 className="product-section-head">Featured Products</h1>
       </div>
-      <Products />
+      <Products products={products} mapProducts={mapProducts} shownProducts={shownProducts} />
       <ProductButton linkTo={"/product"} />
     </section>
   );

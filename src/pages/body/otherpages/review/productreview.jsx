@@ -6,7 +6,7 @@ import PageLinkTemplate from "../components/pagelinks";
 import ReviewPicture from "./review_picture";
 import ReviewDiv from "./review_div";
 import AboutDiv from "./about/about_div";
-import { useProductShownEffect } from "../product_page/product_shown_effect";
+import { useProductShownEffect, Products, ProductPagination } from "../product_page/product_shown_effect";
 
 export const ReviewContext = createContext();
 const ProductReview = () => {
@@ -26,7 +26,7 @@ const ProductReview = () => {
     setRelatedProduct(relatedProducts);
   }, [products, productName]);
 
-  const { Products, ProductPagination } = useProductShownEffect({products: relatedProduct});
+  const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers } = useProductShownEffect({products: relatedProduct});
 
   const { id, productImage, productImages, productName: productNameText, cutOff, productPrice, averagePrice, priceOne, priceTwo, productDesc, wishlistStock, cartAmt, productDetails, productColors, productAvailable, productSizes, productInfo } = product;
 
@@ -49,8 +49,8 @@ const ProductReview = () => {
         <AboutDiv />
         <div id="productRelatedDiv">
           <p id="productRelatedText">Related products</p>
-          <Products />
-          <ProductPagination />
+          <Products products={relatedProduct} mapProducts={mapProducts} shownProducts={shownProducts} />
+          <ProductPagination setMapProducts={setMapProducts} setPageNumbers={setPageNumbers} pageNumbers={pageNumbers} shownProducts={shownProducts} />
         </div>
       </div>
     </ReviewContext.Provider>

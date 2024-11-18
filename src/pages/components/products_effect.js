@@ -30,18 +30,18 @@ export const useProductEffect = () => {
 
 
     const updatedWishlist = wishlistItems.map(({ productName, ...rest }) => {
-      for (let i = 0; i < products.length; i++) {
-        const { productName: productNameText, wishlistStock } = products[i];
-        if (productNameText === productName) {
-          return { ...rest, productName, wishlistStock: wishlistStock };
-        };
-      };
-    });
+      const product = products.find(({ productName: name }) => name === productName);
+      if (product) {
+        const { wishlistStock } = product;
+        return { ...rest, productName, wishlistStock };
+      }
+      return null;
+    }).filter(Boolean);
 
     if (JSON.stringify(updatedWishlist) !== JSON.stringify(wishlistItems)) {
       setWishlistItems(updatedWishlist);
     };
 
     setCloneCart(cartItems);
-  }, [cartItems, wishlistItems]);
+  }, [cartItems, wishlistItems, products, setCartItems, setWishlistItems, setCloneCart]);
 };

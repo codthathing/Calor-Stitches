@@ -3,7 +3,7 @@ import { ToggleRegister } from "../../../contextpage";
 import PageLinkTemplate from "../components/pagelinks";
 import { usePageInitialEffects } from "../components/page_effects";
 import AboutLinks from "../review/about/about_links";
-import AdminProduct from "./admin_product";
+import AdminProduct from "./admin_product/admin_product";
 import AdminBlog from "./admin_blog";
 
 const AdminPage = () => {

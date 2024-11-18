@@ -14,8 +14,9 @@ const AdminGroup = ({ addOne, addTwo, addText, style, color, textClass, adminArr
 
   const HandleNewText = () => {
     if (adminText.text) {
-      setAdminArray([...adminArray, { id: adminArray.length, text: adminText.text, ...(style && { style: adminArray.length === 0 }), ...(color && { color: adminText.color }) }]);
-      setProductNames([...productNames, { id: Date.now(), name: adminText.text }]);
+      const _id = Date.now();
+      setAdminArray([...adminArray, { id: _id, text: adminText.text, ...(style && { style: adminArray.length === 0 }), ...(color && { color: adminText.color }) }]);
+      setProductNames([...productNames, { id: _id, name: adminText.text }]);
       setAdminText({ text: "", color: "" });
     };
     setShowAddText(true);
@@ -23,18 +24,24 @@ const AdminGroup = ({ addOne, addTwo, addText, style, color, textClass, adminArr
 
   const file_upload = useRef(null);
 
+  const DeleteText = (id) => {
+    setProductNames(prevState => prevState.filter((item) => item.id !== id));
+    setAdminArray(prevState => prevState.filter((item) => item.id !== id));
+  };
+
   return (
     <div className="admin-form-div admin-group-div">
       <input ref={file_upload} type="file" hidden onChange={({ target: { files } }) => {
         if (files) {
-          setProductNames([...productNames, { id: Date.now(), name: files[0].name }])
-          setAdminArray([...adminArray, { id: adminArray.length, image: URL.createObjectURL(files[0]), style: adminArray.length === 0 }])
+          const _id = Date.now();
+          setProductNames([...productNames, { id: _id, name: files[0].name }])
+          setAdminArray([...adminArray, { id: _id, image: URL.createObjectURL(files[0]), style: adminArray.length === 0 }])
         }
       }} />
       {adminArray.length > 0 ?
         <>
           <main className="admin-group-main">
-            {productNames.map(({ id, name }) => <span key={id} className="admin-group-name"><span className={`admin-group-text ${textClass}`}>{name}</span><i className="fa-solid fa-xmark admin-group-remove"></i></span>)}
+            {productNames.map(({ id, name }) => <span key={id} className="admin-group-name"><span className={`admin-group-text ${textClass}`}>{name}</span><i onClick={() => DeleteText(id)} className="fa-solid fa-xmark admin-group-remove"></i></span>)}
           </main>
         </> :
         <p className="admin-group-name">{defaultText}</p>

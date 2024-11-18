@@ -16,7 +16,7 @@ const changeText = (state, action) => {
 };
 
 const AddToCart = ({ id, buttonClass, textClass, itemsArray }) => {
-  const { cartItems, cloneCart, setCartItems } = useContext(ToggleRegister);
+  const { cartItems, setCartItems } = useContext(ToggleRegister);
   const [state, dispatch] = useReducer(changeText, "ADD TO CART");
 
   const AddToCartFunc = (id) => {
@@ -25,8 +25,8 @@ const AddToCart = ({ id, buttonClass, textClass, itemsArray }) => {
     const cartSize = selectedItem?.productDetails?.cartSize;
     const cartColor = selectedItem?.productDetails?.cartColor;
 
-    if (cloneCart.some((item) => item.productName === productName && item?.cartSize === cartSize && item?.cartColor === cartColor)) {
-      const updatedCart = cloneCart.map((item) => {
+    if (cartItems.some((item) => item.productName === productName && item?.cartSize === cartSize && item?.cartColor === cartColor)) {
+      const updatedCart = cartItems.map((item) => {
         const { productName: productNameText, cartSize: size, cartColor: color, cartAmt, wishlistStock } = item;
         if (productNameText === productName && size === cartSize && color === cartColor) {
           if (cartAmt >= wishlistStock) {
@@ -50,7 +50,7 @@ const AddToCart = ({ id, buttonClass, textClass, itemsArray }) => {
       } else {
         dispatch({ display: "ADD" });
         let newItem = { id: Date.now(), productImage, productName, productPrice, cartSize, cartColor, cartAmt, wishlistStock };
-        setCartItems([...cloneCart, newItem]);
+        setCartItems([...cartItems, newItem]);
       };
     };
 

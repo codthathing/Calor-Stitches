@@ -23,6 +23,7 @@ export const OptNavProvider = ({ children }) => {
   const [cloneCart, setCloneCart] = useState([]);
   const [toggleSideMenu, setToggleSideMenu] = useState(false);
   const [navbar, setNavbar] = useState(false);
+  const [view, setView] = useState(false);
   const [presentRegister, setPresentRegister] = useState("LOGIN");
   const [products, setProducts] = useState(product_details);
   const product_section = useRef(null);
@@ -51,7 +52,7 @@ export const OptNavProvider = ({ children }) => {
   const [state, dispatch] = useReducer(changeStyles, wishlistTextStyle);
 
   return (
-    <ToggleRegister.Provider value={{ account, setAccount, presentRegister, setPresentRegister, wishList, setWishList, cart, setCart, search, setSearch, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, curDetails, setCurDetails, productShipValue, setProductShipValue, presentCurrency, setPresentCurrency, cloneCart, setCloneCart, product_section, home_section, showPreload, setShowPreload }}>
+    <ToggleRegister.Provider value={{ account, setAccount, presentRegister, setPresentRegister, wishList, setWishList, cart, setCart, search, setSearch, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, curDetails, setCurDetails, productShipValue, setProductShipValue, presentCurrency, setPresentCurrency, cloneCart, setCloneCart, product_section, home_section, showPreload, setShowPreload, view, setView }}>
       {children}
     </ToggleRegister.Provider>
   );

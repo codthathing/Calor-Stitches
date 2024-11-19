@@ -5,8 +5,8 @@ import { useCalTotal } from "./cart_total";
 import PageButtons from "../../../components/page_buttons";
 
 const CartTotalPriceMain = () => {
-  const { curSymbol } = useContext(ToggleRegister);
-  const { total } = useCalTotal();
+  const { curSymbol, cartItems } = useContext(ToggleRegister);
+  const { total } = useCalTotal(cartItems);
   const navigate = useNavigate();
 
   return (

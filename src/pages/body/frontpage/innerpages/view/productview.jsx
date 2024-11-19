@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { ToggleRegister } from "../../../../contextpage";
 import { useScroll } from "../../../../header/usescroll";
 import ViewImage from "./view_image";
@@ -9,11 +9,11 @@ export const ViewContext = createContext();
 const ProductView = () => {
   const { presentScroll: addScroll } = useScroll("auto", "hidden");
   const { presentScroll: removeScroll } = useScroll("hidden", "auto");
-  const { productName } = useParams();
+  const location = useLocation();
+  const productName = location.state;
   const [product, setProduct] = useState({});
-  const navigate = useNavigate();
 
-  const { products } = useContext(ToggleRegister);
+  const { products, setView } = useContext(ToggleRegister);
 
   useEffect(() => {
     const presentProduct = products.find((product) => product.productName === productName);
@@ -26,7 +26,7 @@ const ProductView = () => {
       <section className="navSections">
         <main id="productViewMain" ref={addScroll}>
           <div id="productViewDiv">
-            <div id="productViewBack"><i className="fa-solid fa-xmark" onClick={() => navigate(-1)} id="productViewBackIcon" ref={removeScroll}></i></div>
+            <div id="productViewBack"><i className="fa-solid fa-xmark" onClick={() => setView(false)} id="productViewBackIcon" ref={removeScroll}></i></div>
             <main id="productViewInnerMain">
               <ViewImage />
               <ViewDiv />

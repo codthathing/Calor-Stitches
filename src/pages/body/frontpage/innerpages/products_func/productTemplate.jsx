@@ -8,7 +8,7 @@ import ProductOptions from "./product_options";
 import { useShowPreload } from "../../../../components/show_preload";
 
 const ProductTemplate = ({ productArray }) => {
-  const { products } = useContext(ToggleRegister);
+  const { products, setView } = useContext(ToggleRegister);
   const [showViewText, setShowViewText] = useState(null);
   const navigate = useNavigate();
   const { HandlePreload } = useShowPreload();
@@ -17,7 +17,8 @@ const ProductTemplate = ({ productArray }) => {
     HandlePreload();
     setShowViewText(false);
     setTimeout(() => {
-      navigate(`/${productName}`);
+      navigate("", { state: productName });
+      setView(true);
     }, 2000);
   };
 

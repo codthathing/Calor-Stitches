@@ -12,6 +12,8 @@ const changeText = (state, action) => {
       return "ADD TO CART";
     case "NOT_ENOUGH":
       return "NOT ENOUGH UNITS";
+    default:
+      return state;
   };
 };
 

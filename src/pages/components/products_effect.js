@@ -43,5 +43,5 @@ export const useProductEffect = () => {
     };
 
     setCloneCart(cartItems);
-  }, [cartItems, wishlistItems, products, setCartItems, setWishlistItems, setCloneCart]);
+  }, []);
 };

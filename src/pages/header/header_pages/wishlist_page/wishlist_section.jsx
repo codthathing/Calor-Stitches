@@ -8,7 +8,7 @@ const WishlistSection = () => {
 
   return (
     <section id="wishListItemSection">
-      {wishlistItems.length > 0 ? <WishlistTemplate wishlistArray={wishlistItems} />
+      {wishlistItems.length > 0 ? <WishlistTemplate />
         : <DefaultText textStyle={"center"} text={"There are no products on the Wishlist!"} />}
     </section>
   );

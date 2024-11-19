@@ -17,7 +17,7 @@ const PageLayout = () => {
 
   return (
     <Routes>
-      <Route path="/*" element={<FrontPage />}></Route>
+      <Route exact path="/*" element={<FrontPage />}></Route>
       <Route path="/product/:productName" element={<ProductReview />}></Route>
       <Route path="/product/collection/:collectionName" element={<CollectionPage />}></Route>
       <Route path="/product" element={<ProductPage />}></Route>

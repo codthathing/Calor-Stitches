@@ -57,6 +57,7 @@
 
 #wishListCanIcon {
   color: var(--9B9B9B);
+  cursor: pointer;
 }
 
 #wishlistInfoText {
@@ -78,10 +79,15 @@
 
 .delWishListIcon {
   color: var(--222222);
+  cursor: pointer;
 }
 
 .wishListDetails {
   word-break: keep-all;
+}
+
+.wishListName {
+  cursor: pointer;
 }
 
 .wishListPrice {

@@ -35,7 +35,7 @@
     width: 100%;
     top: 0;
     bottom: auto;
-    z-index: 100;
+    z-index: 25;
 }
 
 #header.scrollTop {

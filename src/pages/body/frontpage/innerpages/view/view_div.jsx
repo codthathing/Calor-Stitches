@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ViewContext } from "./productview";
+import { ToggleRegister } from "../../../../contextpage";
 import ReviewDetails from "../../../otherpages/review/review_details";
 import WishlistStock from "../../../../header/header_pages/wishlist_page/wishlist_stock";
 import ReviewColor from "../../../otherpages/review/review_color";
@@ -10,6 +11,7 @@ import ReviewProductDetails from "../../../otherpages/review/review_product_deta
 import PageButtons from "../../../../components/page_buttons";
 
 const ViewDiv = () => {
+  const { setView } = useContext(ToggleRegister)
   const { id, productNameText, productDesc, cutOff, productPrice, averagePrice, priceOne, priceTwo, wishlistStock, productDetails, productColors, productSizes, cartAmt, productInfo } = useContext(ViewContext);
   const navigate = useNavigate();
 
@@ -19,10 +21,12 @@ const ViewDiv = () => {
       {(wishlistStock || wishlistStock === 0) && <WishlistStock mainClass={"productDivs"} textClass={"productPrepText"} barClass={"productPrepDiv"} stockAmt={wishlistStock} showStockBar={true} />}
       {(productDetails && productColors) && <ReviewColor productId={id} colorText={productDetails.cartColor} colorArray={productColors} />}
       {(productDetails && productSizes) && <ReviewSize productId={id} sizeText={productDetails.cartSize} sizeArray={productSizes} />}
-      <ReviewFunctions id={id} cartAmt={cartAmt} navPage={-1} />
+      <ReviewFunctions id={id} cartAmt={cartAmt} buttonFunction={() => setView(false)} />
       {productInfo && <ReviewProductDetails productInfo={productInfo} />}
       <div id="productReviewLinkDiv">
-        <PageButtons type={"text"} textClass={"product-review-link"} buttonFunction={() => navigate(`/product/${productNameText}`)} text={"view product details"} />
+        <PageButtons type={"text"} textClass={"product-review-link"} buttonFunction={() => {
+          navigate(`/product/${productNameText}`);
+          setView(false)}} text={"view product details"} />
       </div>
     </div>
   );

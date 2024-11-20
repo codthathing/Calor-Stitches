@@ -10,9 +10,9 @@ const SearchMain = () => {
   const [searchItems, setSearchItems] = useState(products);
   const [searchInput, setSearchInput] = useState("");
   useEffect(() => {
-    setSearchItems(products.filter((items) => (items.productName).includes(searchInput.toLowerCase())));
+    setSearchItems(products.filter((items) => (items.productName.toLowerCase()).includes(searchInput.toLowerCase())));
   }, [searchInput]);
-  const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers } = useProductShownEffect({ products: searchItems, startPosition: 5, shownProducts: 8 });
+  const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers } = useProductShownEffect({ products: searchItems, shownProducts: 8 });
 
 
   return (

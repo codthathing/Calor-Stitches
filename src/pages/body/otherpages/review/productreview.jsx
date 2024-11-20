@@ -13,10 +13,10 @@ const ProductReview = () => {
 
   const [product, setProduct] = useState({});
   const { productName } = useParams();
-  const { setSearch, setCart, products, setProducts } = useContext(ToggleRegister);
+  const { setSearch, setCart, products, setProducts, setWishList } = useContext(ToggleRegister);
   const [relatedProduct, setRelatedProduct] = useState([]);
 
-  usePageInitialEffects({effectsArray: [{ effect: setSearch, value: false }, { effect: setCart, value: false }], dependency: productName});
+  usePageInitialEffects({effectsArray: [{ effect: setSearch, value: false }, { effect: setCart, value: false }, { effect: setWishList, value: false }], dependency: productName});
 
   useEffect(() => {
     const presentProduct = products.find((product) => product.productName === productName);

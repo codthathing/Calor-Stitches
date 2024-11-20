@@ -20,7 +20,7 @@ const ProductDisplay = () => {
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },
     { id: 1, linkDirect: "", linkText: "Product", linkArrow: true },
-    { id: 1, linkDirect: "", linkText: "latest items", linkArrow: false },
+    { id: 2, linkDirect: "", linkText: "latest items", linkArrow: false },
   ]
 
   const [showFilterSection, setShowFilterSection] = useState(false);

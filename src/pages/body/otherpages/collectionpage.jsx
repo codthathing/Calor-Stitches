@@ -8,11 +8,11 @@ import { useProductShownEffect, ProductShown, Products, ProductPagination } from
 
 const CollectionPage = () => {
   const { collectionName } = useParams();
-  const { products } = useContext(ToggleRegister);
+  const { products, setView, setSearch } = useContext(ToggleRegister);
 
   const [collection, setCollection] = useState([]);
 
-  usePageInitialEffects({});
+  usePageInitialEffects({effectsArray: [{effect: setView, value: false}, {effect: setSearch, value: false}]});
 
   useEffect(() => {
     const presentCollections = products.filter(({ productInfo }) => productInfo.find(({ name }) => name === "CARTEGORIES").links.find(({ text }) => text === collectionName));

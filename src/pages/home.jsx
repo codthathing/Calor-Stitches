@@ -27,11 +27,11 @@ const Home = () => {
   return (
     <>
       {(currentPage.search || currentPage.wishlist || currentPage.cart || currentPage.view) && <Routes>
-        {(currentPage.view || currentPage.search) && <Route path={currentPage.location} element={<>
+        {(currentPage.view || currentPage.search || currentPage.wishlist) && <Route path={currentPage.location} element={<>
           {currentPage.search && <Search />}
           {currentPage.view && <ProductView />}
+          {currentPage.wishlist && <WishList />}
         </>} />}
-        {currentPage.wishlist && <Route path={currentPage.location} element={<WishList />} />}
         {currentPage.cart && <Route path={currentPage.location} element={<Cart />} />}
       </Routes>}
       <Header />

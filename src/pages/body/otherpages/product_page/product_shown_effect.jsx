@@ -8,18 +8,12 @@ export const useProductShownEffect = ({ products, startPosition = 0, shownProduc
 
   useEffect(() => {
     const totalPages = Math.ceil(products.length / shownProducts);
-    setPageNumbers(
-      Array.from({ length: totalPages }, (_, i) => ({ id: i, style: i === 0 }))
-    );
+    setPageNumbers(Array.from({ length: totalPages }, (_, i) => ({ id: i, style: i === 0 })));
     setMapProducts(startPosition);
   }, [products, shownProducts]);
 
   useEffect(() => {
-    if ((mapProducts + shownProducts) > products.length) {
-      setProductValue(products.length);
-    } else {
-      setProductValue(mapProducts + shownProducts);
-    };
+    setProductValue(((mapProducts + shownProducts) > products.length) ? products.length : mapProducts + shownProducts);
   }, [mapProducts, products]);
 
   return { mapProducts, setMapProducts, pageNumbers, setPageNumbers, productValue, shownProducts };

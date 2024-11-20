@@ -388,6 +388,7 @@
 
 .productFilterDiv {
   position: relative;
+  z-index: 20;
 }
 
 .productTexIcontDiv {

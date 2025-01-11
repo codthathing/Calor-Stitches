@@ -1,0 +1,44 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { NavigateContext } from "../../services/contexts/NavigateContext";
+import { CartContext } from "../../services/contexts/CartContext";
+import { useCartEffect } from "../../hooks/useCartEffect";
+import { ShowPreload } from "../../utils/showPreload";
+import PageButtons from "../common/PageButtons";
+
+const CartCheckoutButton = () => {
+  const { cartItems } = useContext(NavigateContext);
+  const { city, setShowCartInfo } = useContext(CartContext);
+  const navigate = useNavigate();
+  const { checkCart, displayInfo } = useCartEffect();
+
+  const handleCheckout = () => {
+    setShowCartInfo(false);
+    const checkoutInfos = [];
+    if (cartItems < 1 && city === "address") {
+      checkoutInfos.push("Kindly add items to the cart.");
+      checkoutInfos.push("Please update the shipping address.");
+    } else if (cartItems < 1) {
+      checkoutInfos.push("Kindly add items to the cart.");
+    } else if (city === "address") {
+      checkoutInfos.push("Please update the shipping address");
+    } else {
+      checkCart(checkoutInfos);
+    }
+
+    ShowPreload();
+    displayInfo(checkoutInfos);
+    setTimeout(() => {
+      if (checkoutInfos.length === 0) {
+        navigate("/shop/checkout");
+        setShowCartInfo(false);
+      } else {
+        window.scrollTo(0, 0);
+      }
+    }, 2000);
+  };
+
+  return <PageButtons type={"button"} buttonType={"black-button"} buttonClass={"cart-checkout-button"} buttonFunction={handleCheckout} text={"proceed to checkout"} />;
+};
+
+export default CartCheckoutButton;

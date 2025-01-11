@@ -7,11 +7,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant&family=Roboto&family=Yantramanav&display=swap');
 
-
-*:active {
-    background-color: none;
-}
-
 :root {
     --Yantramanav: "Yantramanav", sans-serif;
     --Cormorant: "Cormorant Infant", sans-serif;
@@ -33,12 +28,12 @@
     --500: 500;
 }
 
-@import url('pages/pages_styles/home.css');
-@import url('pages/pages_styles/product.css');
-@import url('pages/pages_styles/account.css');
-@import url('pages/pages_styles/search.css');
-@import url('pages/pages_styles/wishlist.css');
-@import url('pages/pages_styles/cart.css');
-@import url('pages/pages_styles/collection.css');
-@import url('pages/pages_styles/post.css');
-@import url('pages/pages_styles/admin.css');
+@import url('./styles/home.css');
+@import url('./styles/product.css');
+@import url('./styles/account.css');
+@import url('./styles/search.css');
+@import url('./styles/wishlist.css');
+@import url('./styles/cart.css');
+@import url('./styles/collection.css');
+@import url('./styles/post.css');
+@import url('./styles/admin.css');

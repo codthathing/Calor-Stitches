@@ -1,16 +1,16 @@
-import React, { StrictMode } from "react";
-import ReactDOM from "react-dom/client";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import "../src/style.css";
-import Home from "./pages/home";
-import { OptNavProvider } from "./pages/contextpage";
+import App from "./App";
+import "./style.css";
+import { NavigateProvider } from "./services/contexts/NavigateContext";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <OptNavProvider>
-    <BrowserRouter>
-      <StrictMode>
-        <Home />
-      </StrictMode>
-    </BrowserRouter>
-  </OptNavProvider>
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <NavigateProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </NavigateProvider>
+  </StrictMode>
 );

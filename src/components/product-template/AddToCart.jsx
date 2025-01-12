@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
-import { CartReducer } from "../../services/reducers/CartReducer";
+import { CartReducer } from "../../services/reducers/cartReducer";
 import PageButtons from "../common/PageButtons";
 
 const AddToCart = ({ id, buttonClass, textClass, itemsArray }) => {

@@ -1,7 +1,7 @@
 import { createContext, useState, useRef } from "react";
 import { mockProducts } from "../../database/mockProducts";
 import useLocalStorage from "../../hooks/useLocalStorage";
-import { WishlistReducer } from "../reducers/WishlistReducer";
+import { WishlistReducer } from "../reducers/wishlistReducer";
 import america_flag from "../../assets/currency-flags/america-flag.png";
 
 const CURRENT_VERSION = "1.0.1";

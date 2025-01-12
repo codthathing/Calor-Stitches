@@ -2,7 +2,7 @@ import { useState } from "react";
 import AdminGroupInput from "./AdminGroupInput";
 import PageButtons from "../common/PageButtons";
 import PageFeedback from "../ui/PageFeedback";
-import { ShowPreload } from "../../utils/showPreload";
+import { useShowPreload } from "../../hooks/useShowPreload";
 
 const AdminBlogSection = () => {
 
@@ -12,6 +12,8 @@ const AdminBlogSection = () => {
     const value = e.target.value;
     setAdminBlogValues({ ...adminBlogValues, [name]: value });
   };
+
+  const { showPreload } = useShowPreload();
 
   const [blogImage, setBlogImage] = useState([]);
 
@@ -33,7 +35,7 @@ const AdminBlogSection = () => {
   const handleAdminInfo = () => {
     const updatedInfoArray = AdminBlogResponse.filter(({ check }) => check).map(({ response }) => response);
     setAdminInfo((prevState) => ({ ...prevState, infoArray: updatedInfoArray }));
-    ShowPreload();
+    showPreload();
     setTimeout(() => {
       if (updatedInfoArray.length > 0) {
         setAdminInfo((prevState) => ({ ...prevState, showInfo: true }));

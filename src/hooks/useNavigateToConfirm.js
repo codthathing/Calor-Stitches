@@ -7,7 +7,7 @@ export const useNavigateToConfirm = () => {
 
   useEffect(() => {
     if (confirm.confirmPage && confirm.confirmHead && confirm.confirmText) {
-      navigate(`/pages/confirmation_page?link=${confirm.confirmPage}&head=${confirm.confirmHead}&text=${confirm.confirmText}`);
+      navigate(`/pages/confirm-page?link=${confirm.confirmPage}&head=${confirm.confirmHead}&text=${confirm.confirmText}`);
     }
   }, [confirm]);
 

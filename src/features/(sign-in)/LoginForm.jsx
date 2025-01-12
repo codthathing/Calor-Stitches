@@ -28,7 +28,7 @@ const LoginForm = ({ setText }) => {
       setText("Enter your password");
     } else {
       if (loginValue.email === "akinwunmibolu@gmail.com" && loginValue.password === "Esther2003") {
-        navigate("/pages/admin_page");
+        navigate("/pages/admin-page");
       } else {
         setText("User cannot login");
       }

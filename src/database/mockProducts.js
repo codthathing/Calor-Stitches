@@ -20,61 +20,121 @@ export const mockProducts = [
   {
     id: 0,
     productImage: product_one,
-    productImages: [{ id: 0, style: true, image: product_one }, { id: 1, style: false, image: product_four }, { id: 2, style: false, image: product_eight }, { id: 3, style: false, image: product_five }, { id: 4, style: false, image: product_two }],
+    productImages: [
+      { id: 0, style: true, image: product_one },
+      { id: 1, style: false, image: product_four },
+      { id: 2, style: false, image: product_eight },
+      { id: 3, style: false, image: product_five },
+      { id: 4, style: false, image: product_two },
+    ],
     productName: "sunflower jumpsuit",
     productPrice: 4275,
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
     productDetails: { cartColor: "olive green", cartSize: "l" },
-    productColors: [{id: 0, color: "#808000", style: true, text: "olive green"}, {id: 1, color: "#DAA520", style: false, text: "goldenrod"}],
-    productSizes: [{id: 0, text: "l", style: true}, {id: 1, text: "xl", style: false}],
+    productColors: [
+      { id: 0, color: "#808000", style: true, text: "olive green" },
+      { id: 1, color: "#DAA520", style: false, text: "goldenrod" },
+    ],
+    productSizes: [
+      { id: 0, text: "l", style: true },
+      { id: 1, text: "xl", style: false },
+    ],
     cartAmt: 1,
     wishlistDate: "August 20, 2024",
     wishlistStock: 4,
     productInfo: [
-      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "8472ABX9"}]},
-      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "outerwear"}, {id: 1, text: "dresses", style: false}]}
-    ]
+      { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: "8472ABX9" }] },
+      {
+        id: 1,
+        name: "CARTEGORIES",
+        type: "link",
+        links: [
+          { id: 0, text: "outerwear" },
+          { id: 1, text: "dresses", style: false },
+        ],
+      },
+    ],
   },
   {
     id: 1,
     productImage: product_two,
-    productImages: [{ id: 0, style: true, image: product_two}, { id: 1, style: false, image: product_five}, { id: 2, style: false, image: product_four}, { id: 3, style: false, image: product_three}, { id: 4, style: false, image: product_five}],
+    productImages: [
+      { id: 0, style: true, image: product_two },
+      { id: 1, style: false, image: product_five },
+      { id: 2, style: false, image: product_four },
+      { id: 3, style: false, image: product_three },
+      { id: 4, style: false, image: product_five },
+    ],
     productName: "dust lightweight jacket",
     productPrice: 5000,
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
     cutOff: 10,
     productDetails: { cartSize: "l" },
-    productSizes: [{id: 0, text: "l", style: true}, {id: 1, text: "xxl", style: false}],
+    productSizes: [
+      { id: 0, text: "l", style: true },
+      { id: 1, text: "xxl", style: false },
+    ],
     cartAmt: 1,
     wishlistDate: "May 31, 2024",
     wishlistStock: 5,
     productInfo: [
-      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "5693ZYT7"}]},
-      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "activewear"}, {id: 1, text: "t-shirts", style: false}]}
-    ]
+      { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: "5693ZYT7" }] },
+      {
+        id: 1,
+        name: "CARTEGORIES",
+        type: "link",
+        links: [
+          { id: 0, text: "activewear" },
+          { id: 1, text: "t-shirts", style: false },
+        ],
+      },
+    ],
   },
   {
     id: 2,
     productImage: product_three,
-    productImages: [{ id: 0, style: true, image: product_three}, { id: 1, style: false, image: product_six}, { id: 2, style: false, image: product_four}, { id: 3, style: false, image: product_five}, { id: 4, style: false, image: product_eight}],
+    productImages: [
+      { id: 0, style: true, image: product_three },
+      { id: 1, style: false, image: product_six },
+      { id: 2, style: false, image: product_four },
+      { id: 3, style: false, image: product_five },
+      { id: 4, style: false, image: product_eight },
+    ],
     productName: "karatima outwear",
     productPrice: 2750,
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
     productAvailable: "hot",
     productDetails: { cartColor: "olive green" },
-    productColors: [{id: 0, color: "#808000", style: true, text: "olive green"}, {id: 1, color: "pink", style: false, text: "pink"}],
+    productColors: [
+      { id: 0, color: "#808000", style: true, text: "olive green" },
+      { id: 1, color: "pink", style: false, text: "pink" },
+    ],
     cartAmt: 1,
     wishlistDate: "August 24, 2024",
     wishlistStock: 0,
     productInfo: [
-      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "1928MNU4"}]},
-      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "outerwear"}, {id: 1, text: "sweaters", style: false}]}
-    ]
+      { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: "1928MNU4" }] },
+      {
+        id: 1,
+        name: "CARTEGORIES",
+        type: "link",
+        links: [
+          { id: 0, text: "outerwear" },
+          { id: 1, text: "sweaters", style: false },
+        ],
+      },
+    ],
   },
   {
     id: 3,
     productImage: product_four,
-    productImages: [{ id: 0, style: true, image: product_four}, { id: 1, style: false, image: product_five}, { id: 2, style: false, image: product_three}, { id: 3, style: false, image: product_two}, { id: 4, style: false, image: product_five}],
+    productImages: [
+      { id: 0, style: true, image: product_four },
+      { id: 1, style: false, image: product_five },
+      { id: 2, style: false, image: product_three },
+      { id: 3, style: false, image: product_two },
+      { id: 4, style: false, image: product_five },
+    ],
     productName: "white dressed pants",
     productPrice: 3500,
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
@@ -83,14 +143,28 @@ export const mockProducts = [
     wishlistDate: "June 19, 2024",
     wishlistStock: 24,
     productInfo: [
-      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "4567QWE3"}]},
-      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "jeans"}, {id: 1, text: "activewear", style: false}]}
-    ]
+      { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: "4567QWE3" }] },
+      {
+        id: 1,
+        name: "CARTEGORIES",
+        type: "link",
+        links: [
+          { id: 0, text: "jeans" },
+          { id: 1, text: "activewear", style: false },
+        ],
+      },
+    ],
   },
   {
     id: 4,
     productImage: product_five,
-    productImages: [{ id: 0, style: true, image: product_five}, { id: 1, style: false, image: product_eight}, { id: 2, style: false, image: product_two}, { id: 3, style: false, image: product_six}, { id: 4, style: false, image: product_five}],
+    productImages: [
+      { id: 0, style: true, image: product_five },
+      { id: 1, style: false, image: product_eight },
+      { id: 2, style: false, image: product_two },
+      { id: 3, style: false, image: product_six },
+      { id: 4, style: false, image: product_five },
+    ],
     productName: "lime punch outerwear",
     priceOne: 1250,
     priceTwo: 4500,
@@ -98,40 +172,80 @@ export const mockProducts = [
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
     productAvailable: "back in store",
     productDetails: { cartColor: "navy blue", cartSize: "xl" },
-    productColors: [{id: 0, color: "#000080", style: true, text: "navy blue"}, {id: 1, color: "#228B22", style: false, text: "forest green"}],
-    productSizes: [{id: 0, text: "xl", style: true}, {id: 1, text: "l", style: false}],
+    productColors: [
+      { id: 0, color: "#000080", style: true, text: "navy blue" },
+      { id: 1, color: "#228B22", style: false, text: "forest green" },
+    ],
+    productSizes: [
+      { id: 0, text: "xl", style: true },
+      { id: 1, text: "l", style: false },
+    ],
     cartAmt: 1,
     wishlistDate: "September 9, 2024",
     wishlistStock: 30,
     productInfo: [
-      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "3902LKI5"}]},
-      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "sweaters"}, {id: 1, text: "t-shirts", style: false}]}
-    ]
+      { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: "3902LKI5" }] },
+      {
+        id: 1,
+        name: "CARTEGORIES",
+        type: "link",
+        links: [
+          { id: 0, text: "sweaters" },
+          { id: 1, text: "t-shirts", style: false },
+        ],
+      },
+    ],
   },
   {
     id: 5,
     productImage: product_six,
-    productImages: [{ id: 0, style: true, image: product_six}, { id: 1, style: false, image: product_two}, { id: 2, style: false, image: product_three}, { id: 3, style: false, image: product_four}, { id: 4, style: false, image: product_five}],
+    productImages: [
+      { id: 0, style: true, image: product_six },
+      { id: 1, style: false, image: product_two },
+      { id: 2, style: false, image: product_three },
+      { id: 3, style: false, image: product_four },
+      { id: 4, style: false, image: product_five },
+    ],
     productName: "lightweight jacket",
     productPrice: 4000,
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
     productAvailable: "new in",
     cutOff: 50,
     productDetails: { cartColor: "army green", cartSize: "xxl" },
-    productColors: [{id: 0, color: "#4B5320", style: true, text: "army green"}, {id: 1, color: "#DC143C", style: false, text: "crimson"}],
-    productSizes: [{id: 0, text: "xxl", style: true}, {id: 1, text: "ll", style: false}],
+    productColors: [
+      { id: 0, color: "#4B5320", style: true, text: "army green" },
+      { id: 1, color: "#DC143C", style: false, text: "crimson" },
+    ],
+    productSizes: [
+      { id: 0, text: "xxl", style: true },
+      { id: 1, text: "ll", style: false },
+    ],
     cartAmt: 1,
     wishlistDate: "February 14, 2024",
     wishlistStock: 1,
     productInfo: [
-      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "7645OPR6"}]},
-      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "outerwear"}, {id: 1, text: "dresses", style: false}]}
-    ]
+      { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: "7645OPR6" }] },
+      {
+        id: 1,
+        name: "CARTEGORIES",
+        type: "link",
+        links: [
+          { id: 0, text: "outerwear" },
+          { id: 1, text: "dresses", style: false },
+        ],
+      },
+    ],
   },
   {
     id: 6,
     productImage: product_seven,
-    productImages: [{ id: 0, style: true, image: product_seven}, { id: 1, style: false, image: product_seven}, { id: 2, style: false, image: product_six}, { id: 3, style: false, image: product_eight}, { id: 4, style: false, image: product_five}],
+    productImages: [
+      { id: 0, style: true, image: product_seven },
+      { id: 1, style: false, image: product_seven },
+      { id: 2, style: false, image: product_six },
+      { id: 3, style: false, image: product_eight },
+      { id: 4, style: false, image: product_five },
+    ],
     productName: "lime outerwear",
     priceOne: 2500,
     priceTwo: 5000,
@@ -142,51 +256,105 @@ export const mockProducts = [
     wishlistDate: "April 1, 2024",
     wishlistStock: 4,
     productInfo: [
-      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "2138GHB8"}]},
-      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "sweaters"}, {id: 1, text: "activewear", style: false}]}
-    ]
+      { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: "2138GHB8" }] },
+      {
+        id: 1,
+        name: "CARTEGORIES",
+        type: "link",
+        links: [
+          { id: 0, text: "sweaters" },
+          { id: 1, text: "activewear", style: false },
+        ],
+      },
+    ],
   },
   {
     id: 7,
     productImage: product_eight,
-    productImages: [{ id: 0, style: true, image: product_eight}, { id: 1, style: false, image: product_five}, { id: 2, style: false, image: product_seven}, { id: 3, style: false, image: product_eight}, { id: 4, style: false, image: product_two}],
+    productImages: [
+      { id: 0, style: true, image: product_eight },
+      { id: 1, style: false, image: product_five },
+      { id: 2, style: false, image: product_seven },
+      { id: 3, style: false, image: product_eight },
+      { id: 4, style: false, image: product_two },
+    ],
     productName: "cocoon davni dress",
     productPrice: 1250,
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
     productAvailable: "hot",
     productDetails: { cartColor: "moon black", cartSize: "l" },
-    productColors: [{id: 0, color: "#191919", style: true, text: "moon black"}, {id: 1, color: "#00BFFF", style: false, text: "deep sky blue"}],
-    productSizes: [{id: 0, text: "l", style: true}, {id: 1, text: "xl", style: false}],
+    productColors: [
+      { id: 0, color: "#191919", style: true, text: "moon black" },
+      { id: 1, color: "#00BFFF", style: false, text: "deep sky blue" },
+    ],
+    productSizes: [
+      { id: 0, text: "l", style: true },
+      { id: 1, text: "xl", style: false },
+    ],
     cartAmt: 1,
     wishlistDate: "December 29, 2024",
     wishlistStock: 0,
     productInfo: [
-      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "9501TSV2"}]},
-      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "t-shirts"}, {id: 1, text: "dresses", style: false}]}
-    ]
+      { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: "9501TSV2" }] },
+      {
+        id: 1,
+        name: "CARTEGORIES",
+        type: "link",
+        links: [
+          { id: 0, text: "t-shirts" },
+          { id: 1, text: "dresses", style: false },
+        ],
+      },
+    ],
   },
   {
     id: 8,
     productImage: product_twelve,
-    productImages: [{ id: 0, style: true, image: product_twelve}, { id: 1, style: false, image: product_four}, { id: 2, style: false, image: product_seven}, { id: 3, style: false, image: product_three}, { id: 4, style: false, image: product_one}],
+    productImages: [
+      { id: 0, style: true, image: product_twelve },
+      { id: 1, style: false, image: product_four },
+      { id: 2, style: false, image: product_seven },
+      { id: 3, style: false, image: product_three },
+      { id: 4, style: false, image: product_one },
+    ],
     productName: "cold weather short",
     productPrice: 1270,
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
     productDetails: { cartColor: "pink", cartSize: "ll" },
-    productColors: [{id: 0, color: "pink", style: true, text: "pink"}, {id: 1, color: "#228B22", style: false, text: "forest green"}],
-    productSizes: [{id: 0, text: "ll", style: true}, {id: 1, text: "xxl", style: false}],
+    productColors: [
+      { id: 0, color: "pink", style: true, text: "pink" },
+      { id: 1, color: "#228B22", style: false, text: "forest green" },
+    ],
+    productSizes: [
+      { id: 0, text: "ll", style: true },
+      { id: 1, text: "xxl", style: false },
+    ],
     cartAmt: 1,
     wishlistDate: "November 17, 2024",
     wishlistStock: 45,
     productInfo: [
-      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "A7Z4X3L2"}]},
-      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "jeans"}, {id: 1, text: "dresses", style: false}]}
-    ]
+      { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: "A7Z4X3L2" }] },
+      {
+        id: 1,
+        name: "CARTEGORIES",
+        type: "link",
+        links: [
+          { id: 0, text: "jeans" },
+          { id: 1, text: "dresses", style: false },
+        ],
+      },
+    ],
   },
   {
     id: 9,
     productImage: product_thirteen,
-    productImages: [{ id: 0, style: true, image: product_thirteen}, { id: 1, style: false, image: product_fifteen}, { id: 2, style: false, image: product_four}, { id: 3, style: false, image: product_eight}, { id: 4, style: false, image: product_six}],
+    productImages: [
+      { id: 0, style: true, image: product_thirteen },
+      { id: 1, style: false, image: product_fifteen },
+      { id: 2, style: false, image: product_four },
+      { id: 3, style: false, image: product_eight },
+      { id: 4, style: false, image: product_six },
+    ],
     productName: "midnight trail bomber",
     priceOne: 950,
     priceTwo: 2500,
@@ -197,111 +365,219 @@ export const mockProducts = [
     wishlistDate: "June 29, 2024",
     wishlistStock: 5,
     productInfo: [
-      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "B6Y3M5N8"}]},
-      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "t-shirts"}, {id: 1, text: "outerwear", style: false}]}
-    ]
+      { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: "B6Y3M5N8" }] },
+      {
+        id: 1,
+        name: "CARTEGORIES",
+        type: "link",
+        links: [
+          { id: 0, text: "t-shirts" },
+          { id: 1, text: "outerwear", style: false },
+        ],
+      },
+    ],
   },
   {
     id: 10,
     productImage: product_fourteen,
-    productImages: [{ id: 0, style: true, image: product_fourteen}, { id: 1, style: false, image: product_eight}, { id: 2, style: false, image: product_four}, { id: 3, style: false, image: product_sixteen}, { id: 4, style: false, image: product_three}],
+    productImages: [
+      { id: 0, style: true, image: product_fourteen },
+      { id: 1, style: false, image: product_eight },
+      { id: 2, style: false, image: product_four },
+      { id: 3, style: false, image: product_sixteen },
+      { id: 4, style: false, image: product_three },
+    ],
     productName: "Cozy Cabin Cardigan",
     priceOne: 3750,
     priceTwo: 5000,
     averagePrice: 4525,
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
     productAvailable: "back in store",
-    productDetails: { cartColor: "navy blue"},
-    productColors: [{id: 0, color: "#000080", style: true, text: "navy blue"}, {id: 1, color: "#191919", style: false, text: "moon black"}],
+    productDetails: { cartColor: "navy blue" },
+    productColors: [
+      { id: 0, color: "#000080", style: true, text: "navy blue" },
+      { id: 1, color: "#191919", style: false, text: "moon black" },
+    ],
     cartAmt: 1,
     wishlistDate: "May 31, 2024",
     wishlistStock: 35,
     productInfo: [
-      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "C2K9P7R4"}]},
-      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "sweaters"}, {id: 1, text: "dresses", style: false}]}
-    ]
+      { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: "C2K9P7R4" }] },
+      {
+        id: 1,
+        name: "CARTEGORIES",
+        type: "link",
+        links: [
+          { id: 0, text: "sweaters" },
+          { id: 1, text: "dresses", style: false },
+        ],
+      },
+    ],
   },
   {
     id: 11,
     productImage: product_fifteen,
-    productImages: [{ id: 0, style: true, image: product_fifteen}, { id: 1, style: false, image: product_five}, { id: 2, style: false, image: product_seventeen}, { id: 3, style: false, image: product_three}, { id: 4, style: false, image: product_two}],
+    productImages: [
+      { id: 0, style: true, image: product_fifteen },
+      { id: 1, style: false, image: product_five },
+      { id: 2, style: false, image: product_seventeen },
+      { id: 3, style: false, image: product_three },
+      { id: 4, style: false, image: product_two },
+    ],
     productName: "coastal breeze windbreaker",
     productPrice: 3500,
     cutOff: 25,
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
     productAvailable: "new in",
     productDetails: { cartColor: "goldenrod", cartSize: "xxl" },
-    productColors: [{id: 0, color: "#DAA520", style: true, text: "goldenrod"}, {id: 1, color: "#4B5320", style: false, text: "army green"}],
-    productSizes: [{id: 0, text: "xxl", style: true}, {id: 1, text: "xl", style: false}],
+    productColors: [
+      { id: 0, color: "#DAA520", style: true, text: "goldenrod" },
+      { id: 1, color: "#4B5320", style: false, text: "army green" },
+    ],
+    productSizes: [
+      { id: 0, text: "xxl", style: true },
+      { id: 1, text: "xl", style: false },
+    ],
     cartAmt: 1,
     wishlistDate: "January 31, 2024",
     wishlistStock: 20,
     productInfo: [
-      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "J4X5V8T2"}]},
-      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "jeans"}, {id: 1, text: "activewear", style: false}]}
-    ]
+      { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: "J4X5V8T2" }] },
+      {
+        id: 1,
+        name: "CARTEGORIES",
+        type: "link",
+        links: [
+          { id: 0, text: "jeans" },
+          { id: 1, text: "activewear", style: false },
+        ],
+      },
+    ],
   },
   {
     id: 12,
     productImage: product_sixteen,
-    productImages: [{ id: 0, style: true, image: product_sixteen}, { id: 1, style: false, image: product_five}, { id: 2, style: false, image: product_seven}, { id: 3, style: false, image: product_eight}, { id: 4, style: false, image: product_two}],
+    productImages: [
+      { id: 0, style: true, image: product_sixteen },
+      { id: 1, style: false, image: product_five },
+      { id: 2, style: false, image: product_seven },
+      { id: 3, style: false, image: product_eight },
+      { id: 4, style: false, image: product_two },
+    ],
     productName: "woodland wool sweater",
     productPrice: 3250,
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
     productAvailable: "new in",
     productDetails: { cartSize: "ll" },
-    productSizes: [{id: 0, text: "ll", style: true}, {id: 1, text: "xxl", style: false}],
+    productSizes: [
+      { id: 0, text: "ll", style: true },
+      { id: 1, text: "xxl", style: false },
+    ],
     cartAmt: 1,
     wishlistDate: "September 16, 2024",
     wishlistStock: 20,
     productInfo: [
-      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "F3M6Z1Y7"}]},
-      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "sweaters"}, {id: 1, text: "dresses", style: false}]}
-    ]
+      { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: "F3M6Z1Y7" }] },
+      {
+        id: 1,
+        name: "CARTEGORIES",
+        type: "link",
+        links: [
+          { id: 0, text: "sweaters" },
+          { id: 1, text: "dresses", style: false },
+        ],
+      },
+    ],
   },
   {
     id: 13,
     productImage: product_seventeen,
-    productImages: [{ id: 0, style: true, image: product_seventeen}, { id: 1, style: false, image: product_nineteen}, { id: 2, style: false, image: product_two}, { id: 3, style: false, image: product_eight}, { id: 4, style: false, image: product_four}],
+    productImages: [
+      { id: 0, style: true, image: product_seventeen },
+      { id: 1, style: false, image: product_nineteen },
+      { id: 2, style: false, image: product_two },
+      { id: 3, style: false, image: product_eight },
+      { id: 4, style: false, image: product_four },
+    ],
     productName: "driftwood turtleneck pullover",
     productPrice: 1265,
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
     productAvailable: "back in store",
     productDetails: { cartColor: "crimson", cartSize: "xl" },
-    productColors: [{id: 0, color: "#DC143C", style: true, text: "crimson"}, {id: 1, color: "#00BFFF", style: false, text: "deep sky blue"}],
-    productSizes: [{id: 0, text: "xl", style: true}, {id: 1, text: "ll", style: false}],
+    productColors: [
+      { id: 0, color: "#DC143C", style: true, text: "crimson" },
+      { id: 1, color: "#00BFFF", style: false, text: "deep sky blue" },
+    ],
+    productSizes: [
+      { id: 0, text: "xl", style: true },
+      { id: 1, text: "ll", style: false },
+    ],
     cartAmt: 1,
     wishlistDate: "March 14, 2024",
     wishlistStock: 0,
     productInfo: [
-      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "H1K7Q3L8"}]},
-      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "t-shirts"}, {id: 1, text: "dresses", style: false}]}
-    ]
+      { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: "H1K7Q3L8" }] },
+      {
+        id: 1,
+        name: "CARTEGORIES",
+        type: "link",
+        links: [
+          { id: 0, text: "t-shirts" },
+          { id: 1, text: "dresses", style: false },
+        ],
+      },
+    ],
   },
   {
     id: 14,
     productImage: product_eighteen,
-    productImages: [{ id: 0, style: true, image: product_eighteen}, { id: 1, style: false, image: product_six}, { id: 2, style: false, image: product_seven}, { id: 3, style: false, image: product_twelve}, { id: 4, style: false, image: product_fourteen}],
+    productImages: [
+      { id: 0, style: true, image: product_eighteen },
+      { id: 1, style: false, image: product_six },
+      { id: 2, style: false, image: product_seven },
+      { id: 3, style: false, image: product_twelve },
+      { id: 4, style: false, image: product_fourteen },
+    ],
     productName: "heritage canvas trench coat",
     productPrice: 4250,
     cutOff: 35,
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
     productAvailable: "hot",
     productDetails: { cartColor: "olive green", cartSize: "l" },
-    productColors: [{id: 0, color: "#808000", style: true, text: "olive green"}, {id: 1, color: "#228B22", style: false, text: "forest green"}],
-    productSizes: [{id: 0, text: "l", style: true}, {id: 1, text: "xxl", style: false}],
+    productColors: [
+      { id: 0, color: "#808000", style: true, text: "olive green" },
+      { id: 1, color: "#228B22", style: false, text: "forest green" },
+    ],
+    productSizes: [
+      { id: 0, text: "l", style: true },
+      { id: 1, text: "xxl", style: false },
+    ],
     cartAmt: 1,
     wishlistDate: "August 8, 2024",
     wishlistStock: 8,
     productInfo: [
-      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "E8T4L9B2"}]},
-      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "sweaters"}, {id: 1, text: "jeans", style: false}]}
-    ]
+      { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: "E8T4L9B2" }] },
+      {
+        id: 1,
+        name: "CARTEGORIES",
+        type: "link",
+        links: [
+          { id: 0, text: "sweaters" },
+          { id: 1, text: "jeans", style: false },
+        ],
+      },
+    ],
   },
   {
     id: 15,
     productImage: product_nineteen,
-    productImages: [{ id: 0, style: true, image: product_nineteen}, { id: 1, style: false, image: product_five}, { id: 2, style: false, image: product_twenty}, { id: 3, style: false, image: product_four}, { id: 4, style: false, image: product_fifteen}],
+    productImages: [
+      { id: 0, style: true, image: product_nineteen },
+      { id: 1, style: false, image: product_five },
+      { id: 2, style: false, image: product_twenty },
+      { id: 3, style: false, image: product_four },
+      { id: 4, style: false, image: product_fifteen },
+    ],
     productName: "nordic knit pullover",
     productPrice: 950,
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
@@ -310,14 +586,28 @@ export const mockProducts = [
     wishlistDate: "October 19, 2024",
     wishlistStock: 12,
     productInfo: [
-      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "G9P2R5N6"}]},
-      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "outerwear"}, {id: 1, text: "activewear", style: false}]}
-    ]
+      { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: "G9P2R5N6" }] },
+      {
+        id: 1,
+        name: "CARTEGORIES",
+        type: "link",
+        links: [
+          { id: 0, text: "outerwear" },
+          { id: 1, text: "activewear", style: false },
+        ],
+      },
+    ],
   },
   {
     id: 16,
     productImage: product_twenty,
-    productImages: [{ id: 0, style: true, image: product_twenty}, { id: 1, style: false, image: product_five}, { id: 2, style: false, image: product_one}, { id: 3, style: false, image: product_seven}, { id: 4, style: false, image: product_eighteen}],
+    productImages: [
+      { id: 0, style: true, image: product_twenty },
+      { id: 1, style: false, image: product_five },
+      { id: 2, style: false, image: product_one },
+      { id: 3, style: false, image: product_seven },
+      { id: 4, style: false, image: product_eighteen },
+    ],
     productName: "heathered cable crewneck",
     priceOne: 2500,
     priceTwo: 4750,
@@ -325,13 +615,24 @@ export const mockProducts = [
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
     productAvailable: "hot",
     productDetails: { cartColor: "pink" },
-    productColors: [{id: 0, color: "pink", style: true, text: "pink"}, {id: 1, color: "#191919", style: false, text: "moon black"}],
+    productColors: [
+      { id: 0, color: "pink", style: true, text: "pink" },
+      { id: 1, color: "#191919", style: false, text: "moon black" },
+    ],
     cartAmt: 1,
     wishlistDate: "November 21, 2024",
     wishlistStock: 0,
     productInfo: [
-      {id: 0, name: "SKU", type: "text", links: [{id: 0, text: "D5V1X8Q3"}]},
-      {id: 1, name: "CARTEGORIES", type: "link", links: [{id: 0, text: "t-shirts"}, {id: 1, text: "jeans", style: false}]}
-    ]
-  }
+      { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: "D5V1X8Q3" }] },
+      {
+        id: 1,
+        name: "CARTEGORIES",
+        type: "link",
+        links: [
+          { id: 0, text: "t-shirts" },
+          { id: 1, text: "jeans", style: false },
+        ],
+      },
+    ],
+  },
 ];

@@ -33,8 +33,8 @@ const HeaderNavigationIcons = () => {
     <ul id="navIcons">
       <li className="icons"><p onClick={() => setAccount(true)} id="loginText">LOGIN</p></li>
       <NavigationIcons />
-      <li className="icons">
-        <i className={toggleSideMenu ? "fa-solid fa-xmark iconTag" : "fa-solid fa-bars iconTag"} onClick={() => setToggleSideMenu(!toggleSideMenu)}></i>
+      <li className="icons side-menu-icon-list">
+        <i className={`${toggleSideMenu ? "fa-solid fa-xmark" : "fa-solid fa-bars"} iconTag side-menu-icon`} onClick={() => setToggleSideMenu(!toggleSideMenu)}></i>
       </li>
     </ul>
   );

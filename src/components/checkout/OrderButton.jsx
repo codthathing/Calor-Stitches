@@ -1,12 +1,13 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CheckoutContext } from "../../services/contexts/CheckoutContext";
-import { ShowPreload } from "../../utils/showPreload";
+import { useShowPreload } from "../../hooks/useShowPreload";
 import PageButtons from "../common/PageButtons";
 
 const OrderButton = () => {
   const { showOptAddress, userFormArray, setShowCheckoutInfo, setCheckoutInfoArray, otherFormArray, seenTerms, confirmedMethod, setPageInfoBorder } = useContext(CheckoutContext);
   const navigate = useNavigate();
+  const { showPreload } = useShowPreload();
 
   const handleOrder = () => {
     setShowCheckoutInfo(false);
@@ -29,7 +30,7 @@ const OrderButton = () => {
       orderInfos.push("Please read and accept the terms and conditions to proceed with your order.");
     }
 
-    ShowPreload();
+    showPreload();
     if (orderInfos.length > 0) {
       setCheckoutInfoArray(orderInfos);
       setTimeout(() => {
@@ -39,7 +40,7 @@ const OrderButton = () => {
     } else {
       setTimeout(() => {
         if (confirmedMethod.payHead === "Direct bank transfer") {
-          navigate("/pages/payment_page");
+          navigate("/pages/payment-page");
           setShowCheckoutInfo(false);
         } else {
           setCheckoutInfoArray(["Order placed and processing!"]);

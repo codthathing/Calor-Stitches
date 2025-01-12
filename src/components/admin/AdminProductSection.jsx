@@ -5,7 +5,7 @@ import AdminMainPriceDiv from "./AdminMainPriceDiv";
 import AdminAveragePriceDiv from "./AdminAveragePriceDiv";
 import PageFeedback from "../ui/PageFeedback";
 import PageButtons from "../common/PageButtons";
-import { ShowPreload } from "../../utils/showPreload";
+import { useShowPreload } from "../../hooks/useShowPreload";
 
 const AdminProductSection = () => {
   const [adminProductValues, setAdminProductValues] = useState({ product_name: "", product_price: "", cut_off: "", price_one: "", price_two: "", average_price: "", product_desc: "", product_status: "", product_unit: "", product_sku: "" });
@@ -16,6 +16,8 @@ const AdminProductSection = () => {
     setAdminProductValues({ ...adminProductValues, [name]: value });
   };
 
+  const { showPreload } = useShowPreload();
+  
   const [productImages, setProductImages] = useState([]);
 
   const [checkCutOff, setCheckCutOff] = useState(false);
@@ -53,7 +55,7 @@ const AdminProductSection = () => {
   const handleAdminInfo = () => {
     const updatedInfoArray = adminProductResponse.filter(({ check }) => check).map(({ response }) => response);
     setAdminInfo((prevState) => ({ ...prevState, infoArray: updatedInfoArray }));
-    ShowPreload();
+    showPreload();
     setTimeout(() => {
       if (updatedInfoArray.length > 0) {
         setAdminInfo((prevState) => ({ ...prevState, showInfo: true }));

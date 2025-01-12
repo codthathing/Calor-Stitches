@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 import { CartContext } from "../../services/contexts/CartContext";
 import { useCartEffect } from "../../hooks/useCartEffect";
-import { ShowPreload } from "../../utils/showPreload";
+import { useShowPreload } from "../../hooks/useShowPreload";
 import PageButtons from "../common/PageButtons";
 
 const CartCheckoutButton = () => {
@@ -11,6 +11,7 @@ const CartCheckoutButton = () => {
   const { city, setShowCartInfo } = useContext(CartContext);
   const navigate = useNavigate();
   const { checkCart, displayInfo } = useCartEffect();
+  const { showPreload } = useShowPreload();
 
   const handleCheckout = () => {
     setShowCartInfo(false);
@@ -26,7 +27,7 @@ const CartCheckoutButton = () => {
       checkCart(checkoutInfos);
     }
 
-    ShowPreload();
+    showPreload();
     displayInfo(checkoutInfos);
     setTimeout(() => {
       if (checkoutInfos.length === 0) {

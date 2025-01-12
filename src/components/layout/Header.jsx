@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { useHeadEffect } from "../../hooks/useHeadEffect";
+import { useScrollEffect } from "../../hooks/useScrollEffect";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 import HeaderCurrencyDiv from "../header/HeaderCurrencyDiv";
 import HeaderSideMenu from "../header/HeaderSideMenu";
 import HeaderNavigationIcons from "../header/HeaderNavigationIcons";
 
 const Header = () => {
-  const { header } = useHeadEffect();
+  const { header } = useScrollEffect();
   const { toggleSideMenu, navbar } = useContext(NavigateContext);
 
   return (

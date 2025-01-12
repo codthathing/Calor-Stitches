@@ -8,16 +8,14 @@ import { useProductShownEffect, ProductShown, Products, ProductPagination } from
 
 const CollectionPage = () => {
   const { collectionName } = useParams();
-  const { products, setView, setSearch } = useContext(NavigateContext);
-
-  const [collection, setCollection] = useState([]);
+  const { products, setView, setSearch, collection, setCollection } = useContext(NavigateContext);
 
   usePageLoadEffects({effectsArray: [{effect: setView, value: false}, {effect: setSearch, value: false}]});
 
   useEffect(() => {
     const presentCollections = products.filter(({ productInfo }) => productInfo.find(({ name }) => name === "CARTEGORIES").links.find(({ text }) => text === collectionName));
     setCollection(presentCollections);
-  }, []);
+  }, [products]);
 
   const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers, productValue } = useProductShownEffect({ products: collection });
 

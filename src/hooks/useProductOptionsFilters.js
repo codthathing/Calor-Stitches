@@ -2,9 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { NavigateContext } from "../services/contexts/NavigateContext";
 
 export const useProductOptionsFilters = () => {
-  const { products, productShipValue, setProductShipValue } = useContext(NavigateContext);
-
-  const [presentFilterProducts, setPresentFilterProducts] = useState([]);
+  const { products, productShipValue, setProductShipValue, presentFilterProducts, setPresentFilterProducts } = useContext(NavigateContext);
 
   const [filterOption, setFilterOption] = useState({ minPrice: productShipValue.minValue, maxValue: productShipValue.maxValue });
 
@@ -25,7 +23,7 @@ export const useProductOptionsFilters = () => {
     if (JSON.stringify(updatedProducts) !== JSON.stringify(presentFilterProducts)) {
       setPresentFilterProducts(updatedProducts);
     };
-  }, [filterOption]);
+  }, [filterOption, products]);
 
   const changeProductsTypes = (id, option, text, productTypes, setProductTypes) => {
     const newProductTypes = productTypes.map((item) => {

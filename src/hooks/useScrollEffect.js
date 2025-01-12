@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { NavigateContext } from "../services/contexts/NavigateContext";
 import { scrollToSection } from "../utils/scrollToSection";
 
-export const useHeadEffect = () => {
+export const useScrollEffect = () => {
   const { setNavbar, home_section } = useContext(NavigateContext);
   const [header, setHeader] = useState(false);
   const [showNavToTop, setShowNavToTop] = useState(false);
@@ -38,7 +38,7 @@ export const useHeadEffect = () => {
     };
   }, [path]);
 
-  const PageToTop = () => {
+  const PageScrollToTop = () => {
     if (showNavToTop) {
       return (
         <div id="page-top-div" onClick={() => scrollToSection(home_section)}>
@@ -48,5 +48,5 @@ export const useHeadEffect = () => {
     }
   };
 
-  return { header, PageToTop };
+  return { header, PageScrollToTop };
 };

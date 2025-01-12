@@ -28,8 +28,8 @@ const ViewDetailsDiv = () => {
           type={"text"}
           textClass={"product-review-link"}
           buttonFunction={() => {
-            navigate(`/product/${productNameText}`);
             setView(false);
+            navigate(`/product/${productNameText}`);
           }}
           text={"view product details"}
         />

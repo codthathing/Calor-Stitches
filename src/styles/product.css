@@ -91,6 +91,7 @@
 #productColorText {
   color: var(--1B1A1A);
   font-family: var(--Roboto);
+  text-transform: capitalize;
 }
 
 #productColorMain {

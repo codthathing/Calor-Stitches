@@ -3,19 +3,18 @@ import { NavigateContext } from "../services/contexts/NavigateContext";
 
 export const useReviewEffect = (productId, type, text, array) => {
   const [details, setDetails] = useState({ text: text, array: array });
-  const { products, setProducts } = useContext(NavigateContext);
+  const { setProducts } = useContext(NavigateContext);
 
   useEffect(() => {
-    const newProducts = products.map((product) => {
-      if (product.id === productId) {
-        return type === "size" ?
-          { ...product, productDetails: { ...product.productDetails, cartSize: details.text } } :
-          { ...product, productDetails: { ...product.productDetails, cartColor: details.text } };
-      } else {
-        return product;
-      };
-    });
-    setProducts(newProducts);
+    setProducts((prevState) =>
+      prevState.map((product) => {
+        if (product.id === productId) {
+          return type === "size" ? { ...product, productSizes: details.array, productDetails: { ...product.productDetails, cartSize: details.text } } : { ...product, productColors: details.array, productDetails: { ...product.productDetails, cartColor: details.text } };
+        } else {
+          return product;
+        }
+      })
+    );
   }, [details.text, productId, type]);
 
   const changeDetails = (id) => {
@@ -23,7 +22,7 @@ export const useReviewEffect = (productId, type, text, array) => {
     if (newText) {
       const newArray = details.array.map((detail) => ({ ...detail, style: detail.id === id ? true : false }));
       setDetails({ text: newText.text, array: newArray });
-    };
+    }
   };
 
   const changeDetailsHover = (id, toggle) => {
@@ -32,7 +31,7 @@ export const useReviewEffect = (productId, type, text, array) => {
         return { ...detail, style: toggle };
       } else {
         return detail;
-      };
+      }
     });
     setDetails({ ...details, array: newArray });
   };

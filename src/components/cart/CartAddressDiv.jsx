@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { CartContext } from "../../services/contexts/CartContext";
 import FormFeedback from "../common/FormFeedback";
 import PageButtons from "../common/PageButtons";
-import { ShowPreload } from "../../utils/showPreload";
+import { useShowPreload } from "../../hooks/useShowPreload";
 
 const CartAddressDiv = () => {
   const { city, setCity, setShowCartInfo, setCartInfoArray } = useContext(CartContext);
@@ -15,6 +15,8 @@ const CartAddressDiv = () => {
     const name = e.target.name;
     setAddress({ ...address, [name]: value });
   };
+
+  const { showPreload } = useShowPreload();
 
   const [addressText, setAddressText] = useState("");
   const submitAddress = (e) => {
@@ -29,7 +31,7 @@ const CartAddressDiv = () => {
     } else {
       setAddressText(false);
       setCartInfoArray(["Shipping address updated."]);
-      ShowPreload();
+      showPreload();
       setTimeout(() => {
         window.scroll(0, 0);
         setCity(address.city);

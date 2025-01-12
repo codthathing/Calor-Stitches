@@ -5,15 +5,16 @@ import ProductStockAlert from "./ProductStockAlert";
 import ProductPrice from "./ProductPrice";
 import AddToWishList from "./AddToWishlist";
 import ProductOptions from "./ProductOptions";
-import { ShowPreload } from "../../utils/showPreload";
+import { useShowPreload } from "../../hooks/useShowPreload";
 
 const ProductTemplate = ({ productArray }) => {
   const { products, setView } = useContext(NavigateContext);
   const [showViewText, setShowViewText] = useState(null);
   const navigate = useNavigate();
+  const { showPreload } = useShowPreload();
 
   const navigateToView = (productName) => {
-    ShowPreload();
+    showPreload();
     setShowViewText(false);
     setTimeout(() => {
       navigate("", { state: productName });

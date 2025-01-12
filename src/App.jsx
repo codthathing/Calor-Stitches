@@ -1,55 +1,45 @@
-import { useContext, useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { NavigateContext } from "./services/contexts/NavigateContext";
-import { useHeadEffect } from "./hooks/useHeadEffect";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useUpdateProducts } from "./hooks/useUpdateProducts";
-import PagePreLoad from "./components/ui/PagePreload";
+import PageFeatures from "./components/layout/PageFeatures";
 import PageLayout from "./components/layout/PageLayout";
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
-import NewsSection from "./components/news-letter/NewsSection";
-import WishlistSection from "./features/wishlist/WishlistSection";
-import SearchSection from "./features/search/SearchSection";
-import CartSection from "./features/cart/CartSection";
-import ViewSection from "./features/view/ViewSection";
+import HomePage from "./pages/HomePage";
+import ReviewPage from "./pages/ReviewPage";
+import CollectionPage from "./pages/CollectionPage";
+import ProductPage from "./pages/ProductPage";
+import DisplayPage from "./pages/DisplayPage";
+import WishlistPage from "./pages/WishlistPage";
+import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/CheckoutPage";
+import ConfirmPage from "./pages/ConfirmPage";
+import PaymentPage from "./pages/PaymentPage";
+import PostMainPage from "./pages/PostMainPage";
+import PostBlogsPage from "./pages/PostBlogsPage";
+import AdminPage from "./pages/AdminPage";
 
 const App = () => {
-  const { search, wishList, cart, view } = useContext(NavigateContext);
-
   useUpdateProducts();
-  const { PageToTop } = useHeadEffect();
-  const location = useLocation().pathname;
-  const [currentPage, setCurrentPage] = useState({ search: search, wishlist: wishList, cart: cart, view: view, location: "" });
-  useEffect(() => {
-    setCurrentPage({ ...currentPage, search: search, wishlist: wishList, cart: cart, view: view, location: decodeURIComponent(location) });
-  }, [location, search, wishList, cart, view]);
 
   return (
-    <>
-      {(currentPage.search || currentPage.wishlist || currentPage.cart || currentPage.view) && (
-        <Routes>
-          {(currentPage.view || currentPage.search || currentPage.wishlist) && (
-            <Route
-              path={currentPage.location}
-              element={
-                <>
-                  {currentPage.search && <SearchSection />}
-                  {currentPage.view && <ViewSection />}
-                  {currentPage.wishlist && <WishlistSection />}
-                </>
-              }
-            />
-          )}
-          {currentPage.cart && <Route path={currentPage.location} element={<CartSection />} />}
-        </Routes>
-      )}
-      <Header />
-      <PageLayout />
-      <NewsSection />
-      <Footer />
-      <PagePreLoad />
-      <PageToTop />
-    </>
+    <BrowserRouter>
+      <PageFeatures />
+      <Routes>
+        <Route exact path="/" element={<PageLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/product/:productName" element={<ReviewPage />} />
+          <Route path="/product/collection/:collectionName" element={<CollectionPage />} />
+          <Route path="/product" element={<ProductPage />} />
+          <Route path="/product/display-page" element={<DisplayPage />} />
+          <Route path="/shop/wishlist" element={<WishlistPage />} />
+          <Route path="/shop/cart" element={<CartPage />} />
+          <Route path="/shop/checkout" element={<CheckoutPage />} />
+          <Route path="/pages/confirm-page" element={<ConfirmPage />} />
+          <Route path="/pages/payment-page" element={<PaymentPage />} />
+          <Route path="/blog/:post_head" element={<PostMainPage />} />
+          <Route path="/blog/post/:post_title" element={<PostBlogsPage />} />
+          <Route path="/pages/admin-page" element={<AdminPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 

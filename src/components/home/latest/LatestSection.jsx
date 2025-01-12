@@ -15,7 +15,7 @@ const LatestSection = () => {
       <section id="latestSection">
         <LatestNavigationLinks />
         <Products products={products} mapProducts={mapProducts} shownProducts={shownProducts} />
-        <ProductButton linkTo={"/product/latest-items"} />
+        <ProductButton linkTo={"/product/display-page"} />
       </section>
     </LatestContext.Provider>
   );

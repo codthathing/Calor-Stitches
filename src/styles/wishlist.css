@@ -376,8 +376,8 @@
   }
 
   .wishListDiv {
-    grid-template-columns: 15% auto 40%;
-    gap: 0 1.5rem;
+    grid-template-columns: 20% auto 37.5%;
+    gap: 0 0.75rem;
     padding: 0.75rem 0;
   }
 

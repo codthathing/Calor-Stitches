@@ -7,8 +7,7 @@ import ViewImageDiv from "./ViewImageDiv";
 import ViewDetailsDiv from "./ViewDetailsDiv";
 
 const ViewSection = () => {
-  const { presentScroll: addScroll } = useSectionScroll("auto", "hidden");
-  const { presentScroll: removeScroll } = useSectionScroll("hidden", "auto");
+  const { presentScroll } = useSectionScroll();
   const location = useLocation();
   const productName = location.state;
   const [product, setProduct] = useState({});
@@ -22,20 +21,20 @@ const ViewSection = () => {
 
   const { id, productName: productNameText, productImage, cutOff, wishlistStock, productAvailable, productPrice, averagePrice, priceOne, priceTwo, productDesc, productDetails, productColors, productSizes, cartAmt, productInfo } = product;
   return (
-    <ViewContext.Provider value={{id, productImage, productNameText, productAvailable, productDesc, cutOff, productPrice, averagePrice, priceOne, priceTwo, wishlistStock, productDetails, productColors, productSizes, cartAmt, productInfo}}>
-      <section className="navSections">
-        <main id="productViewMain" ref={addScroll}>
-          <div id="productViewDiv">
-            <div id="productViewBack"><i className="fa-solid fa-xmark" onClick={() => setView(false)} id="productViewBackIcon" ref={removeScroll}></i></div>
-            <main id="productViewInnerMain">
-              <ViewImageDiv />
-              <ViewDetailsDiv />
-            </main>
+    <ViewContext.Provider value={{ id, productImage, productNameText, productAvailable, productDesc, cutOff, productPrice, averagePrice, priceOne, priceTwo, wishlistStock, productDetails, productColors, productSizes, cartAmt, productInfo }}>
+      <section className="navSections" id="productViewSection">
+        <main id="productViewMain">
+          <div id="productViewBack">
+            <i className="fa-solid fa-xmark" onClick={() => setView(false)} id="productViewBackIcon"></i>
           </div>
-        </main >
-      </section >
+          <main id="productViewInnerMain" ref={presentScroll}>
+            <ViewImageDiv />
+            <ViewDetailsDiv />
+          </main>
+        </main>
+      </section>
     </ViewContext.Provider>
   );
-}
+};
 
 export default ViewSection;

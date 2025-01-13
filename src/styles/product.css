@@ -280,15 +280,15 @@
 
 
 
+#productViewSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 #productViewMain {
   background-color: white;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+  position: relative;
 }
 
 #productViewMainDiv::-webkit-scrollbar,
@@ -305,10 +305,6 @@
 #productViewMainDiv::-webkit-scrollbar-thumb {
   border-radius: 1rem;
   background-color: var(--9B9B9B);
-}
-
-#productViewDiv {
-  position: relative;
 }
 
 #productViewBack {
@@ -1187,6 +1183,9 @@
 
   #productViewMain {
     width: 90%;
+  }
+
+  #productViewInnerMain {
     height: 90vh;
   }
 
@@ -1471,6 +1470,9 @@
 
   #productViewMain {
     width: 57.5%;
+  }
+
+  #productViewInnerMain {
     height: 90vh;
   }
 
@@ -1616,6 +1618,9 @@
 
   #productViewMain {
     width: 70%;
+  }
+
+  #productViewInnerMain {
     height: fit-content;
   }
 

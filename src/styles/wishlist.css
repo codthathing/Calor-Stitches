@@ -68,13 +68,18 @@
 
 .wishListDiv {
   display: grid;
-  grid-template-columns: 10% 20% 30% 40%;
   align-items: center;
   border-bottom: 0.5px solid var(--9B9B9B);
 }
 
 .wishListDiv:last-child {
   border-bottom: none;
+}
+
+.wishlist-icon-image-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .delWishListIcon {
@@ -371,7 +376,8 @@
   }
 
   .wishListDiv {
-    grid-gap: 0.25rem;
+    grid-template-columns: 15% auto 40%;
+    gap: 0 1.5rem;
     padding: 0.75rem 0;
   }
 
@@ -499,7 +505,8 @@
   }
 
   .wishListDiv {
-    grid-gap: 0.25rem;
+    grid-template-columns: 22% auto 37.5%;
+    gap: 0 1.5rem;
     padding: 1rem 0;
   }
 
@@ -557,7 +564,8 @@
   }
 
   .wishListDiv {
-    grid-gap: 0.35rem;
+    grid-template-columns: 26% auto 35%;
+    gap: 0 1rem;
     padding: 1.25rem 0;
   }
 

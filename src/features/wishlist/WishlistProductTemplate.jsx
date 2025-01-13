@@ -20,8 +20,10 @@ const WishlistProductTemplate = () => {
       {wishlistItems.map(({ id, productImage, productName, cutOff, productPrice, priceOne, priceTwo, averagePrice, wishlistDate, wishlistStock, productDetails }) => {
         return (
           <div key={id} className="wishListDiv">
-            <WishlistDeleteIcon id={id} cancelClass={"delWishListIcon"} />
-            <img src={productImage} alt={productName} className="wishListImage" />
+            <div className="wishlist-icon-image-div">
+              <WishlistDeleteIcon id={id} cancelClass={"delWishListIcon"} />
+              <img src={productImage} alt={productName} className="wishListImage" />
+            </div>
             <div className="wishListDetails">
               <h1 className="wishListName wishListTexts" onClick={() => navigateToView(productName)}>
                 {productName}

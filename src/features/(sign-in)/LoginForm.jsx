@@ -40,7 +40,8 @@ const LoginForm = ({ setText }) => {
       <AuthInput refFunction={inputFocus} type={"text"} name={"email"} value={loginValue.email} onChange={handleLoginValue} placeholder={"Email/User"} />
       <AuthPassowrdInput name={"password"} value={loginValue.password} onChange={handleLoginValue} placeholder={"Password"} />
       <div id="registerParagraph">
-        <input type="checkbox" id="registerCheck" /> Remember Me
+        <input type="checkbox" id="registerCheck" />
+        <span>Remember Me</span>
         <PageButtons type={"text"} buttonFunction={() => setPresentRegister("FORGOTPASSWORD")} textClass={"forgot-btn"} text={"forgot password"} />
       </div>
       <AuthButton buttonFunction={handleLogin} buttonText={"LOGIN"} />

@@ -9,17 +9,16 @@ import PageButtons from "../../components/common/PageButtons";
 
 const WishlistSection = () => {
   const { setWishList, wishlistItems, product_section } = useContext(NavigateContext);
-  const { presentScroll: addScroll } = useSectionScroll("auto", "hidden");
-  const { presentScroll: removeScroll } = useSectionScroll("hidden", "auto");
+  const { presentScroll } = useSectionScroll();
   const navigate = useNavigate();
 
   return (
     <section id="wishListSection" className="navSections">
-      <main ref={addScroll} id="wishListMain">
+      <main ref={presentScroll} id="wishListMain">
         <header className="wishListContainers" id="wishListHeader">
           <div id="wishlistHeaderDiv" className="wishlistInnerContainers">
             <p id="wishListText">Wishlist ({wishlistItems.length})</p>
-            <span ref={removeScroll} id="wishListCancel" onClick={() => setWishList(false)}>
+            <span id="wishListCancel" onClick={() => setWishList(false)}>
               <i id="wishListCanIcon" className="fa-solid fa-xmark"></i>
             </span>
           </div>

@@ -10,7 +10,7 @@ import { useProductShownEffect, Products, ProductPagination } from "../component
 
 
 const DisplayPage = () => {
-  const { presentFilterProducts, changeProductsTypes, handleMinChange, handleMaxChange,  changeProductsColors, changeProductsSize } = useProductOptionsFilters();
+  const { presentFilterProducts, filterOption, changeProductsTypes, handleMinChange, handleMaxChange,  changeProductsColors, changeProductsSize } = useProductOptionsFilters();
 
   const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers } = useProductShownEffect({products: presentFilterProducts});
 
@@ -28,7 +28,7 @@ const DisplayPage = () => {
 
 
   return (
-    <DisplayContext.Provider value={{ setShowFilterSection, changeProductsTypes, productTypes, setProductTypes, handleMinChange, handleMaxChange,  changeProductsColors, productColors, setProductColors, changeProductsSize, productSize, setProductSize }}>
+    <DisplayContext.Provider value={{ setShowFilterSection, filterOption, changeProductsTypes, productTypes, setProductTypes, handleMinChange, handleMaxChange,  changeProductsColors, productColors, setProductColors, changeProductsSize, productSize, setProductSize }}>
       <div className="otherPages">
         <PageNavigationLinks pageLinks={pageLinkDetails} />
         <main id="productAllMain" className="productMains">

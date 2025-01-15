@@ -34,14 +34,14 @@ export const useProductOptionsFilters = () => {
   };
 
   const handleMinChange = (event) => {
-    const value = Math.min(Number(event.target.value), productShipValue.maxValue - 1);
-    setProductShipValue({ ...productShipValue, minValue: value });
+    const value = Math.min(Number(event.target.value), filterOption.maxPrice - 1);
+    // setProductShipValue({ ...productShipValue, minValue: value });
     setFilterOption(({ ...filterOption, minPrice: value }));
   };
 
   const handleMaxChange = (event) => {
-    const value = Math.max(Number(event.target.value), productShipValue.minValue + 1);
-    setProductShipValue({ ...productShipValue, maxValue: value });
+    const value = Math.max(Number(event.target.value), filterOption.maxPrice + 1);
+    // setProductShipValue({ ...productShipValue, maxValue: value });
     setFilterOption(({ ...filterOption, maxPrice: value }));
   };
 
@@ -61,5 +61,5 @@ export const useProductOptionsFilters = () => {
     setFilterOption({ ...filterOption, size: option ? text : "" });
   };
 
-  return { presentFilterProducts, changeProductsTypes, handleMinChange, handleMaxChange, changeProductsColors, changeProductsSize }
+  return { presentFilterProducts, filterOption, changeProductsTypes, handleMinChange, handleMaxChange, changeProductsColors, changeProductsSize }
 };

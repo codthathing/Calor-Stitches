@@ -4,7 +4,10 @@ import { NavigateContext } from "../services/contexts/NavigateContext";
 export const useProductOptionsFilters = () => {
   const { products, productShipValue, setProductShipValue, presentFilterProducts, setPresentFilterProducts } = useContext(NavigateContext);
 
-  const [filterOption, setFilterOption] = useState({ minPrice: productShipValue.minValue, maxValue: productShipValue.maxValue });
+  const [filterOption, setFilterOption] = useState({});
+  useEffect(() => {
+    setFilterOption({minPrice: productShipValue.minValue, maxPrice: productShipValue.maxValue, color: "", type: "", size: ""})
+  }, [productShipValue]);
 
   useEffect(() => {
     let updatedProducts = products;
@@ -35,13 +38,11 @@ export const useProductOptionsFilters = () => {
 
   const handleMinChange = (event) => {
     const value = Math.min(Number(event.target.value), filterOption.maxPrice - 1);
-    // setProductShipValue({ ...productShipValue, minValue: value });
     setFilterOption(({ ...filterOption, minPrice: value }));
   };
 
   const handleMaxChange = (event) => {
-    const value = Math.max(Number(event.target.value), filterOption.maxPrice + 1);
-    // setProductShipValue({ ...productShipValue, maxValue: value });
+    const value = Math.max(Number(event.target.value), filterOption.minPrice + 1);
     setFilterOption(({ ...filterOption, maxPrice: value }));
   };
 

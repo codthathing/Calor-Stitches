@@ -10,23 +10,25 @@ const PageFeatures = () => {
   const location = decodeURIComponent(useLocation().pathname);
   const { search, wishList: wishlist, cart, view } = useContext(NavigateContext);
 
-  return (
-    <Routes>
-      {(view || search || wishlist) && (
-        <Route
-          path={location}
-          element={
-            <>
-              {search && <SearchSection />}
-              {view && <ViewSection />}
-              {wishlist && <WishlistSection />}
-            </>
-          }
-        />
-      )}
-      {cart && <Route path={location} element={<CartSection />} />}
-    </Routes>
-  );
+  if (view || search || wishlist || cart) {
+    return (
+      <Routes>
+        {(view || search || wishlist) && (
+          <Route
+            path={location}
+            element={
+              <>
+                {search && <SearchSection />}
+                {view && <ViewSection />}
+                {wishlist && <WishlistSection />}
+              </>
+            }
+          />
+        )}
+        {cart && <Route path={location} element={<CartSection />} />}
+      </Routes>
+    );
+  };
 };
 
 export default PageFeatures;

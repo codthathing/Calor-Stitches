@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 import { DisplayContext } from "../../services/contexts/DisplayContext";
 
@@ -8,10 +8,6 @@ const DisplayFilterPriceDiv = () => {
 
   let min = productShipValue.min;
   let max = productShipValue.max;
-
-  useEffect(() => {
-    console.log(filterOption)
-  }, [])
 
   return (
     <div className="productFilterMainDivs">
@@ -23,8 +19,8 @@ const DisplayFilterPriceDiv = () => {
         <div id="productFilterSliderRange" style={{ left: `${((filterOption.minPrice - min) / (max - min)) * 100}%`, right: `${100 - ((filterOption.maxPrice - min) / (max - min)) * 100}%` }}></div>
       </div>
       <div id="filterPriceInnerDiv">
-        <p className="filterPriceValueTexts">{curSymbol}{productShipValue.minValue}</p>
-        <p className="filterPriceValueTexts">{curSymbol}{productShipValue.maxValue}</p>
+        <p className="filterPriceValueTexts">{curSymbol}{filterOption.minPrice}</p>
+        <p className="filterPriceValueTexts">{curSymbol}{filterOption.maxPrice}</p>
       </div>
     </div>
   );

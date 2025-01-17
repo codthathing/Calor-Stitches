@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     outline: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant&family=Roboto&family=Yantramanav&display=swap');

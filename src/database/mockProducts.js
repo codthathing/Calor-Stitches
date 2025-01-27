@@ -1,4 +1,4 @@
-import product_one from "../assets/product-images/design-two.jpeg";
+import product_one from "../assets/product-images/design-one.jpeg";
 import product_two from "../assets/product-images/design-two.jpeg";
 import product_three from "../assets/product-images/design-three.jpeg";
 import product_four from "../assets/product-images/design-four.jpeg";

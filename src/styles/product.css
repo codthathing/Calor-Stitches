@@ -61,6 +61,7 @@
 .productDetailName {
   font-family: var(--Cormorant);
   color: var(--1B1A1A);
+  text-transform: capitalize;
 }
 
 .productDetailPrice {

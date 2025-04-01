@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import dress_collection from "../../assets/collection-images/design-nine.jpeg";
-import t_shirt_collection from "../../assets/collection-images/design-ten.jpeg";
-import outerwear_collection from "../../assets/collection-images/design-eleven.jpeg";
+import dress_collection from "../../assets/collection-images/collection-dresses.jpg";
+import t_shirt_collection from "../../assets/collection-images/collection-t-shirt.jpg";
+import outerwear_collection from "../../assets/collection-images/collection-outerwear.jpg";
 
 const HomeCollection = () => {
   const collections = [

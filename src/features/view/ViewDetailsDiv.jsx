@@ -24,14 +24,11 @@ const ViewDetailsDiv = () => {
       <ReviewFunctions id={id} cartAmt={cartAmt} buttonFunction={() => setView(false)} />
       {productInfo && <ReviewProductDetails productInfo={productInfo} />}
       <div id="productReviewLinkDiv">
-        <PageButtons
-          type={"text"}
-          textClass={"product-review-link"}
+        <PageButtons type={"text"} textClass={"product-review-link"} text={"view product details"}
           buttonFunction={() => {
             setView(false);
             navigate(`/product/${productNameText}`);
           }}
-          text={"view product details"}
         />
       </div>
     </div>

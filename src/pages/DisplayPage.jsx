@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { DisplayContext } from "../services/contexts/DisplayContext";
 import { usePageLoadEffects } from "../hooks/usePageLoadEffects";
 import PageNavigationLinks from "../components/ui/PageNavigationLinks";
@@ -16,7 +16,7 @@ const DisplayPage = () => {
 
   const { productTypes, setProductTypes, productColors, setProductColors, productSize, setProductSize } = useProductFiltersArray();
 
-  usePageLoadEffects({});
+  usePageLoadEffects({ dependency: filterOption });
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },

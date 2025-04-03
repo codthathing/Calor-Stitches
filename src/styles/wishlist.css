@@ -93,6 +93,7 @@
 
 .wishListName {
   cursor: pointer;
+  text-transform: capitalize;
 }
 
 .wishListPrice {
@@ -145,6 +146,7 @@
 .wishlistCartName {
   color: var(--222222);
   font-family: var(--Roboto);
+  text-transform: capitalize;
 }
 
 .wishlistDate {

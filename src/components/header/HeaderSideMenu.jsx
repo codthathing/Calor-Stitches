@@ -5,10 +5,10 @@ const HeaderSideMenu = () => {
 
   const [currentSideMenu, setCurrentSideMenu] = useState([
     { id: 0, menuText: "home", link: "/", path: false, borderStyle: { borderBottom: "" } },
-    { id: 1, menuText: "shop", link: "", path: "/shop", borderStyle: { borderBottom: "" } },
-    { id: 2, menuText: "products", link: "", path: "/product", borderStyle: { borderBottom: "" } },
-    { id: 3, menuText: "pages", link: "", path: "/page", borderStyle: { borderBottom: "" } },
-    { id: 4, menuText: "blog", link: "", path: "/blog", borderStyle: { borderBottom: "" } },
+    { id: 1, menuText: "shop", path: "/shop", borderStyle: { borderBottom: "" } },
+    { id: 2, menuText: "products", path: "/product", borderStyle: { borderBottom: "" } },
+    { id: 3, menuText: "pages", path: "/page", borderStyle: { borderBottom: "" } },
+    { id: 4, menuText: "blog", path: "/blog", borderStyle: { borderBottom: "" } },
     // { id: 5, menuText: "features", link: "", path: "/feature", borderStyle: { borderBottom: "" } },
   ])
 
@@ -31,7 +31,7 @@ const HeaderSideMenu = () => {
       <div id="sidemenuList">
         {currentSideMenu.map(({ id, link, menuText, borderStyle }) => {
           return (
-            <Link key={id} to={link} className="sideMenuItem" style={borderStyle}>
+            <Link key={id} {...(link && { to: link })} className="sideMenuItem" style={borderStyle}>
               <p className="sideMenuText">{menuText}</p>
               <i className="fa-solid fa-chevron-down sideMenuIcon"></i>
             </Link>

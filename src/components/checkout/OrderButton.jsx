@@ -35,7 +35,7 @@ const OrderButton = () => {
       setCheckoutInfoArray(orderInfos);
       setTimeout(() => {
         setShowCheckoutInfo(true);
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
       }, 2000);
     } else {
       setTimeout(() => {
@@ -46,7 +46,7 @@ const OrderButton = () => {
           setCheckoutInfoArray(["Order placed and processing!"]);
           setPageInfoBorder("green");
           setShowCheckoutInfo(true);
-          window.scrollTo(0, 0);
+          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         }
       }, 2000);
     }

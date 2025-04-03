@@ -13,7 +13,7 @@ const WishlistSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="wishListSection" className="navSections">
+    <section className="navSections">
       <main ref={presentScroll} id="wishListMain">
         <header className="wishListContainers" id="wishListHeader">
           <div id="wishlistHeaderDiv" className="wishlistInnerContainers">
@@ -27,13 +27,11 @@ const WishlistSection = () => {
         <WishlistProductDiv />
         <div className="wishListContainers wishlistInnerContainers" id="wishListLinkDiv">
           <PageButtons type={"text"} buttonFunction={() => navigate("/shop/wishlist")} text={"open wishlist page"} />
-          <PageButtons
-            type={"text"}
+          <PageButtons type={"text"} text={"continue shopping"}
             buttonFunction={() => {
               setWishList(false);
               scrollToSection(product_section);
             }}
-            text={"continue shopping"}
           />
         </div>
       </main>

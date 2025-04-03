@@ -28,7 +28,7 @@ const HomeText = () => {
   }, [changeDetails]);
 
   return (
-    <section id="frontPage" ref={home_section}>
+    <section ref={home_section} id="frontPage">
       <div id="displayText">
         <p id="disParagraph" className="paragraphStyles">YOU CAN HAVE ANYTHING YOU WANT IF YOU DRESS FOR IT</p>
         <h1 id="disHead">{pageDetails.text}</h1>

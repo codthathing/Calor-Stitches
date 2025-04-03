@@ -8,10 +8,10 @@ import ReviewFunctions from "./ReviewFunctions";
 import ReviewDeliveryDiv from "./ReviewDeliveryDiv";
 
 const ReviewSection = () => {
-  const { id, productNameText, productDesc, cutOff, productPrice, averagePrice, priceOne, priceTwo, wishlistStock, productDetails, productSizes, productColors, cartAmt } = useContext(ReviewContext);
+  const { id, productNameText, productDesc, cutOff, productPrice, averagePrice, priceOne, priceTwo, wishlistStock, productDetails, productSizes, productColors, cartAmt, reviewSectionRef } = useContext(ReviewContext);
 
   return (
-    <div id="productReviewDiv">
+    <div id="productReviewDiv" ref={reviewSectionRef}>
       <ReviewDetails productReview={true} productNameText={productNameText} productDesc={productDesc} cutOff={cutOff} productPrice={productPrice} averagePrice={averagePrice} priceOne={priceOne} priceTwo={priceTwo} />
       {(wishlistStock || wishlistStock === 0) && <WishlistStockAlert mainClass={"productDivs"} textClass={"productPrepText"} barClass={"productPrepDiv"} stockAmt={wishlistStock} showStockBar={true} />}
       {(productDetails && productColors) && <ReviewColorDiv productId={id} colorText={productDetails.cartColor} colorArray={productColors} />}

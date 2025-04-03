@@ -28,6 +28,7 @@
 .cancelBtn {
   position: relative;
   left: 100%;
+  cursor: pointer;
 }
 
 .cancelIcon {

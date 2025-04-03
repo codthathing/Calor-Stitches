@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { NavigateContext } from "../services/contexts/NavigateContext";
 
 export const useProductOptionsFilters = () => {
-  const { products, productShipValue, setProductShipValue, presentFilterProducts, setPresentFilterProducts } = useContext(NavigateContext);
+  const { products, productShipValue, presentFilterProducts, setPresentFilterProducts } = useContext(NavigateContext);
 
   const [filterOption, setFilterOption] = useState({});
   useEffect(() => {

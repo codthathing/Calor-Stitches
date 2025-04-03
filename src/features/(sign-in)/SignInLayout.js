@@ -5,11 +5,13 @@ import UserProfileSection from "./UserProfileSection";
 const SignInLayout = () => {
   const [status, setStatus] = useState("REGISTER");
 
-  if (status === "REGISTER") {
-    return <AuthLayout />;
-  } else if (status === "LOGGED_IN") {
-    return <UserProfileSection />;
-  }
+  return (
+    <section className="navSections">
+      <main className="mainRegister mainNav">
+        {status === "REGISTER" ? <AuthLayout /> : <UserProfileSection />}
+      </main>
+    </section>
+  );
 };
 
 export default SignInLayout;

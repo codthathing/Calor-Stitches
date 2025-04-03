@@ -5,12 +5,13 @@ import SearchSection from "../../features/search/SearchSection";
 import ViewSection from "../../features/view/ViewSection";
 import WishlistSection from "../../features/wishlist/WishlistSection";
 import CartSection from "../../features/cart/CartSection";
+import SignInLayout from "../../features/(sign-in)/SignInLayout";
 
 const PageFeatures = () => {
   const location = decodeURIComponent(useLocation().pathname);
-  const { search, wishList: wishlist, cart, view } = useContext(NavigateContext);
+  const { search, wishList: wishlist, cart, view, account } = useContext(NavigateContext);
 
-  if (view || search || wishlist || cart) {
+  if (view || search || wishlist || cart || account) {
     return (
       <Routes>
         {(view || search || wishlist) && (
@@ -25,6 +26,7 @@ const PageFeatures = () => {
             }
           />
         )}
+        {account && <Route path={location} element={<SignInLayout />} />}
         {cart && <Route path={location} element={<CartSection />} />}
       </Routes>
     );

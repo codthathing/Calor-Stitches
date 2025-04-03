@@ -10,17 +10,15 @@ const UserProfileSection = () => {
   const [user, setUser] = useState({ user_image: user_profile, user_name: "John Doe", user_email: "johndoe@gmail.com" });
 
   return (
-    <section className="registerSection navSections">
-      <main className="mainRegister mainNav">
-        <AuthCancelIcon />
-        <div className="registerDiv">
-          <AuthHeadText headText={"Profile"} />
-          <UserImage userImage={user.user_image} />
-          <UserDetails userName={user.user_name} userEmail={user.user_email} />
-          <UserButtons />
-        </div>
-      </main>
-    </section>
+    <>
+      <AuthCancelIcon />
+      <div className="registerDiv">
+        <AuthHeadText headText={"Profile"} />
+        <UserImage userImage={user.user_image} />
+        <UserDetails userName={user.user_name} userEmail={user.user_email} />
+        <UserButtons />
+      </div>
+    </>
   );
 };
 

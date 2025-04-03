@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { NavigateContext } from "../services/contexts/NavigateContext";
 import { ReviewContext } from "../services/contexts/ReviewContext";
@@ -10,11 +10,11 @@ import AboutSection from "../components/review/AboutSection";
 import { useProductShownEffect, Products, ProductPagination } from "../components/product/ProductDisplayComponents";
 
 const ReviewPage = () => {
-
   const [product, setProduct] = useState({});
   const { productName } = useParams();
   const { setSearch, setCart, products, setProducts, setWishList } = useContext(NavigateContext);
   const [relatedProduct, setRelatedProduct] = useState([]);
+  const reviewSectionRef = useRef(null);
 
   usePageLoadEffects({effectsArray: [{ effect: setSearch, value: false }, { effect: setCart, value: false }, { effect: setWishList, value: false }], dependency: productName});
 
@@ -24,6 +24,7 @@ const ReviewPage = () => {
     const presentProductCategory = presentProduct.productInfo.find(({ name }) => name === "CARTEGORIES")?.links.map(({ text }) => text);
     const relatedProducts = products.filter(({ productInfo, productName }) => (productName !== presentProduct.productName) && productInfo.find(({ name }) => name === "CARTEGORIES")?.links.some(({ text }) => presentProductCategory.includes(text)));
     setRelatedProduct(relatedProducts);
+    reviewSectionRef.current.scrollTo(0, 0);
   }, [products, productName]);
 
   const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers } = useProductShownEffect({products: relatedProduct});
@@ -39,7 +40,7 @@ const ReviewPage = () => {
   const [displayPage, setDisplayPage] = useState("DESCRIPTION");
 
   return (
-    <ReviewContext.Provider value={{ id, products, setProducts, productAvailable, productNameText, productImage, productImages, cutOff, productPrice, averagePrice, priceOne, priceTwo, cartAmt, productDesc, productDetails, productColors, productSizes, wishlistStock, productInfo, displayPage, setDisplayPage }}>
+    <ReviewContext.Provider value={{ id, products, setProducts, productAvailable, productNameText, productImage, productImages, cutOff, productPrice, averagePrice, priceOne, priceTwo, cartAmt, productDesc, productDetails, productColors, productSizes, wishlistStock, productInfo, displayPage, setDisplayPage, reviewSectionRef }}>
       <div className="otherPages" id="productReview">
         <PageNavigationLinks pageLinks={pageLinkDetails} />
         <main id="productReviewMain" className="productMains">

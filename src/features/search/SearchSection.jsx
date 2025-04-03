@@ -1,12 +1,16 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 import { useSectionScroll } from "../../hooks/useSectionScroll";
 import SearchMain from "./SearchMain"
 
 const SearchSection = () => {
-
   const { setSearch } = useContext(NavigateContext)
   const { presentScroll } = useSectionScroll();
+
+  useEffect(() => {
+    document.querySelector("body").style.overflowY = "hidden";
+    return () => document.querySelector("body").style.overflowY = "auto";
+  }, []);
   
   return (
     <section ref={presentScroll} id="searchSection" className="whiteBackSections">

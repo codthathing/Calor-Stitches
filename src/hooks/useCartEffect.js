@@ -22,6 +22,7 @@ export const useCartEffect = () => {
       setCartInfoArray(info);
       setTimeout(() => {
         setShowCartInfo(true);
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
       }, 2000);
     }
   };

@@ -4,38 +4,31 @@ import { NavigateContext } from "../services/contexts/NavigateContext";
 import { scrollToSection } from "../utils/scrollToSection";
 
 export const useScrollEffect = () => {
-  const { setNavbar, home_section } = useContext(NavigateContext);
+  const { setNavbar, home_section, setToggleSideMenu } = useContext(NavigateContext);
   const [header, setHeader] = useState(false);
   const [showNavToTop, setShowNavToTop] = useState(false);
 
-  const location = useLocation();
-  const path = location.pathname;
-  let lastScrollY = 120;
-
-  const changeHeader = () => {
-    const presentScrollY = window.scrollY;
-    {
-      presentScrollY > lastScrollY ? setHeader(true) : setHeader(false);
-    }
-    {
-      presentScrollY < lastScrollY && presentScrollY >= 120 && path === "/" ? setShowNavToTop(true) : setShowNavToTop(false);
-    }
-    {
-      presentScrollY > 120 && (lastScrollY = presentScrollY);
-    }
-    {
-      path === "/" && presentScrollY <= 120 ? setNavbar(false) : setNavbar(true);
-    }
-  };
+  const path = useLocation().pathname;
 
   useEffect(() => {
-    {
-      window.scrollY > 120 || path.includes("/product") || path.includes("/shop") || path.includes("/pages") || path.includes("/blog") ? setNavbar(true) : setNavbar(false);
-    }
-    window.addEventListener("scroll", changeHeader);
-    return () => {
-      window.removeEventListener("scroll", changeHeader);
+    { (window.scrollY > 120 || path.includes("/product") || path.includes("/shop") || path.includes("/pages") || path.includes("/blog")) ? setNavbar(true) : setNavbar(false) };
+
+    let lastScrollY = 120;
+    const changeHeader = () => {
+      const presentScrollY = window.scrollY;
+      if(presentScrollY > lastScrollY){
+        setHeader(true);
+        setToggleSideMenu(false);
+      } else {
+        setHeader(false);
+      };
+      { presentScrollY < lastScrollY && presentScrollY >= 120 && path === "/" ? setShowNavToTop(true) : setShowNavToTop(false) };
+      if(presentScrollY > 120) lastScrollY = presentScrollY;
+      { path === "/" && presentScrollY <= 120 ? setNavbar(false) : setNavbar(true) };
     };
+
+    window.addEventListener("scroll", changeHeader);
+    return () => window.removeEventListener("scroll", changeHeader);
   }, [path]);
 
   const PageScrollToTop = () => {

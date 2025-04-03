@@ -1,33 +1,9 @@
-import { useState, useRef } from "react";
 import advert_video_poster from "../../assets/advert-video/advert-video-poster.jpeg";
 import advert_video from "../../assets/advert-video/advert-video.mp4";
+import { useVideoControl } from "../../hooks/useVideoControl";
 
 const HomeVideoDiv = () => {
-  const [videoControls, setVideoControls] = useState({ showAside: true, showPlayer: false, showControl: false, currentControl: false });
-  const { showAside, showPlayer, showControl, currentControl } = videoControls;
-  const videoContainer = useRef();
-
-  const playVideo = () => {
-    videoContainer.current.play();
-    setVideoControls(state => ({ ...state, showAside: false, showControl: true, currentControl: true }));
-    setTimeout(() => {
-      setVideoControls(state => ({ ...state, showControl: false }));
-    }, 5000);
-  };
-
-  const controlVideo = () => {
-    if (currentControl) {
-      videoContainer.current.pause();
-      setVideoControls(state => ({ ...state, currentControl: false }));
-    } else {
-      videoContainer.current.play();
-      setVideoControls(state => ({ ...state, showAside: false, currentControl: true }));
-    };
-    setVideoControls(state => ({ ...state, showControl: true }));
-    setTimeout(() => {
-      setVideoControls(state => ({ ...state, showControl: false }));
-    }, 5000);
-  };
+  const { showAside, showPlayer, showControl, currentControl, videoContainer, setVideoControls, playVideo, controlVideo } = useVideoControl();
 
   return (
     <div id="videoDiv">

@@ -317,6 +317,10 @@
   cursor: pointer;
 }
 
+#productViewInnerMain::-webkit-scrollbar {
+  display: none;
+}
+
 #productViewImageDiv {
   background-repeat: no-repeat;
   background-size: cover;
@@ -494,6 +498,7 @@
   background-color: white;
   position: sticky;
   top: 0;
+  z-index: 25;
 }
 
 #filterHeaderText {
@@ -601,6 +606,7 @@
 #productFilterFooter {
   position: fixed;
   bottom: 0;
+  z-index: 25;
   background-color: white;
 }
 

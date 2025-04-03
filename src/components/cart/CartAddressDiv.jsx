@@ -33,7 +33,7 @@ const CartAddressDiv = () => {
       setCartInfoArray(["Shipping address updated."]);
       showPreload();
       setTimeout(() => {
-        window.scroll(0, 0);
+        window.scroll({ top: 0, left: 0, behavior: "smooth" });
         setCity(address.city);
         setAddress({ country: "Nigeria", state: "", city: "" });
         setShowUpdateAddress(false);

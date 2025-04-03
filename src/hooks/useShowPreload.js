@@ -6,9 +6,7 @@ export const useShowPreload = () => {
 
   const showPreload = () => {
     setShowPreload(true);
-    document.querySelector("body").style.overflowY = "hidden";
     const timeout = setTimeout(() => {
-      document.querySelector("body").style.overflowY = "auto";
       setShowPreload(false);
       clearTimeout(timeout);
     }, 2000);

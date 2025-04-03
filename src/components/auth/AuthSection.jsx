@@ -8,17 +8,15 @@ const AuthSection = ({ headText, RegisterForm, nextRegister, navText }) => {
   const [infoText, setInfoText] = useState("");
 
   return (
-    <section className="registerSection navSections">
-      <main className="mainRegister mainNav">
-        <AuthCancelIcon />
-        <div className="registerDiv">
-          <AuthHeadText headText={headText} />
-          <FormFeedback text={infoText} showText={infoText} />
-          <RegisterForm setText={setInfoText} />
-          <AuthNavigateText nextRegister={nextRegister} navText={navText} />
-        </div>
-      </main>
-    </section>
+    <>
+      <AuthCancelIcon />
+      <div className="registerDiv">
+        <AuthHeadText headText={headText} />
+        <FormFeedback text={infoText} showText={infoText} />
+        <RegisterForm setText={setInfoText} />
+        <AuthNavigateText nextRegister={nextRegister} navText={navText} />
+      </div>
+    </>
   );
 };
 

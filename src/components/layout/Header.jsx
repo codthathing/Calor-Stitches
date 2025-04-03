@@ -19,10 +19,8 @@ const Header = () => {
         {toggleSideMenu && <HeaderSideMenu />}
         <div id="logoIcon" className={navbar ? "scrollDownNavbar" : ""}>
           <h1 id="logo">
-            <blockquote abbr="Calor Stiches" id="logoMob">
-              CS
-            </blockquote>
-            <span id="logoDesk">Calor Stiches</span>
+            <blockquote cite="https://calor-stitches.vercel.app" title="Calor Stitches" id="logoMob">CS</blockquote>
+            <span id="logoDesk">Calor Stitches</span>
           </h1>
           <HeaderNavigationIcons />
         </div>

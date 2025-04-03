@@ -1,5 +1,5 @@
-import display_one from "../../assets/display-images/design-twenty-two.jpeg";
-import display_two from "../../assets/display-images/design-twenty-four.jpeg";
+import display_one from "../../assets/display-images/display-1.jpg";
+import display_two from "../../assets/display-images/display-2.jpg";
 
 const HomeDisplay = () => {
 

@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
-import advert_video_poster from "../../assets/advert-video-poster.jpeg";
-import advert_video from "../../assets/advert-video.mp4";
+import advert_video_poster from "../../assets/advert-video/advert-video-poster.jpeg";
+import advert_video from "../../assets/advert-video/advert-video.mp4";
 
 const HomeVideoDiv = () => {
   const [videoControls, setVideoControls] = useState({ showAside: true, showPlayer: false, showControl: false, currentControl: false });

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import post_image from "../../assets/display-images/design-twenty-two.jpeg";
+import post_image from "../../assets/post-images/post-authors/author-1.jpg";
 import instagram_icon from "../../assets/handle-icons/iconmonstr-instagram-11-240.png";
 import PostText from "./PostText";
 

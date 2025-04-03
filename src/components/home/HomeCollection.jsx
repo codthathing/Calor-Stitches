@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import dress_collection from "../../assets/collection-images/collection-dresses.jpg";
-import t_shirt_collection from "../../assets/collection-images/collection-t-shirt.jpg";
+import t_shirt_collection from "../../assets/collection-images/collection-t-shirts.jpg";
 import outerwear_collection from "../../assets/collection-images/collection-outerwear.jpg";
 
 const HomeCollection = () => {

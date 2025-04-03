@@ -1,39 +1,62 @@
-import product_one from "../assets/product-images/design-one.jpeg";
-import product_two from "../assets/product-images/design-two.jpeg";
-import product_three from "../assets/product-images/design-three.jpeg";
-import product_four from "../assets/product-images/design-four.jpeg";
-import product_five from "../assets/product-images/design-five.jpeg";
-import product_six from "../assets/product-images/design-six.jpeg";
-import product_seven from "../assets/product-images/design-seven.jpeg";
-import product_eight from "../assets/product-images/design-eight.jpeg";
-import product_twelve from "../assets/product-images/design-twelve.jpeg";
-import product_thirteen from "../assets/product-images/design-thirteen.jpeg";
-import product_fourteen from "../assets/product-images/design-fourteen.jpeg";
-import product_fifteen from "../assets/product-images/design-fifteen.jpeg";
-import product_sixteen from "../assets/product-images/design-sixteen.jpeg";
-import product_seventeen from "../assets/product-images/design-seventeen.jpeg";
-import product_eighteen from "../assets/product-images/design-eighteen.jpeg";
-import product_nineteen from "../assets/product-images/design-nineteen.jpeg";
-import product_twenty from "../assets/product-images/design-twenty.jpeg";
+import undefined_activewear_jean_two from "../assets/product-images/undefined-activewear-jean-2.jpg";
+import undefined_crop_shirt_four from "../assets/product-images/undefined-crop-shirt-4.jpg";
+import undefined_crop_sweater_one from "../assets/product-images/undefined-crop-sweater-1.jpg";
+import undefined_dress_activewear_two from "../assets/product-images/undefined-dress-activewear-2.jpg";
+import undefined_dress_outerwear_one from "../assets/product-images/undefined-dress-outerwear-1.jpg";
+import undefined_sweater_outerwear_two from "../assets/product-images/undefined-sweater-outerwear-2.jpg";
+import undefined_singlet_activewear_four from "../assets/product-images/undefined-singlet-activewear-4.jpg";
+import undefined_singlet_crop_three from "../assets/product-images/undefined-singlet-crop-3.jpg";
+import army_green_deep_sky_blue_singlet_dress_three from "../assets/product-images/army-green-deep-sky-blue-singlet-dress-3.jpg";
+import army_green_pink_jean_shirt_one from "../assets/product-images/army-green-pink-jean-shirt-1.jpg";
+import army_green_pink_jean_singlet_four from "../assets/product-images/army-green-pink-jean-singlet-4.jpg";
+import army_green_pink_shirt_jean_four from "../assets/product-images/army-green-pink-shirt-jean-4.jpg";
+import crimson_forest_green_crop_singlet_two from "../assets/product-images/crimson-forest-green-crop-singlet-2.jpg";
+import crimson_forest_green_outerwear_dress_two from "../assets/product-images/crimson-forest-green-outerwear-dress-2.jpg";
+import crimson_goldenrod_outerwear_jean_one from "../assets/product-images/crimson-goldenrod-outerwear-jean-1.jpg";
+import crimson_moon_black_jean_outerwear_three from "../assets/product-images/crimson-moon-black-jean-outerwear-3.jpg";
+import crimson_pink_crop_activewear_one from "../assets/product-images/crimson-pink-crop-activewear-1.jpg";
+import crimson_pink_shirt_crop_four from "../assets/product-images/crimson-pink-shirt-crop-4.jpg";
+import deep_sky_blue_crimson_dress_jean_three from "../assets/product-images/deep-sky-blue-crimson-dress-jean-3.jpg";
+import deep_sky_blue_goldenrod_jean_singlet_three from "../assets/product-images/deep-sky-blue-goldenrod-jean-singlet-3.jpg";
+import deep_sky_blue_pink_activewear_sweater_three from "../assets/product-images/deep-sky-blue-pink-activewear-sweater-3.jpg";
+import forest_green_pink_activewear_shirt_five from "../assets/product-images/forest-green-pink-activewear-shirt-5.jpg";
+import goldenrod_crimson_dress_sweater_five from "../assets/product-images/goldenrod-crimson-dress-sweater-5.jpg";
+import goldenrod_forest_green_outerwear_sweater_four from "../assets/product-images/goldenrod-forest-green-outerwear-sweater-4.jpg";
+import goldenrod_olive_green_singlet_dress_one from "../assets/product-images/goldenrod-olive-green-singlet-dress-1.jpg";
+import moon_black_deep_sky_blue_activewear_shirt_three from "../assets/product-images/moon-black-deep-sky-blue-activewear-shirt-3.jpg";
+import moon_black_goldenrod_activewear_outerwear_four from "../assets/product-images/moon-black-goldenrod-activewear-outerwear-4.jpg";
+import moon_black_pink_activewear_singlet_one from "../assets/product-images/moon-black-pink-activewear-singlet-1.jpg";
+import moon_black_pink_activewear_sweater_two from "../assets/product-images/moon-black-pink-activewear-sweater-2.jpg";
+import moon_black_pink_outerwear_crop_five from "../assets/product-images/moon-black-pink-outerwear-crop-5.jpg";
+import moon_black_pink_sweater_activewear_five from "../assets/product-images/moon-black-pink-sweater-activewear-5.jpg";
+import navy_blue_crimson_outerwear_dress_five from "../assets/product-images/navy-blue-crimson-outerwear-dress-5.jpg";
+import navy_blue_goldenrod_outerwear_shirt_two from "../assets/product-images/navy-blue-goldenrod-outerwear-shirt-2.jpg";
+import navy_blue_pink_sweater_jean_five from "../assets/product-images/navy-blue-pink-sweater-jean-5.jpg";
+import navy_blue_pink_sweater_singlet_five from "../assets/product-images/navy-blue-pink-sweater-singlet-5.jpg";
+import olive_green_crimson_activewear_crop_two from "../assets/product-images/olive-green-crimson-activewear-crop-2.jpg";
+import olive_green_crimson_shirt_activewear_three from "../assets/product-images/olive-green-crimson-shirt-activewear-3.jpg";
+import olive_green_navy_blue_shirt_outerwear_five from "../assets/product-images/olive-green-navy-blue-shirt-outerwear-5.jpg";
+import olive_green_pink_activewear_dress_four from "../assets/product-images/olive-green-pink-activewear-dress-4.jpg";
+import pink_forest_green_dress_crop_one from "../assets/product-images/pink-forest-green-dress-crop-1.jpg";
 
 export const mockProducts = [
   {
     id: 0,
-    productImage: product_one,
+    productImage: crimson_forest_green_outerwear_dress_two,
     productImages: [
-      { id: 0, style: true, image: product_one },
-      { id: 1, style: false, image: product_four },
-      { id: 2, style: false, image: product_eight },
-      { id: 3, style: false, image: product_five },
-      { id: 4, style: false, image: product_two },
+      { id: 0, style: true, image: crimson_forest_green_outerwear_dress_two },
+      { id: 1, style: false, image: army_green_deep_sky_blue_singlet_dress_three },
+      { id: 2, style: false, image: undefined_sweater_outerwear_two },
+      { id: 3, style: false, image: crimson_moon_black_jean_outerwear_three },
+      { id: 4, style: false, image: forest_green_pink_activewear_shirt_five },
     ],
     productName: "sunflower jumpsuit",
     productPrice: 4275,
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
-    productDetails: { cartColor: "olive green", cartSize: "l" },
+    productDetails: { cartColor: "crimson", cartSize: "l" },
     productColors: [
-      { id: 0, color: "#808000", style: true, text: "olive green" },
-      { id: 1, color: "#DAA520", style: false, text: "goldenrod" },
+      { id: 0, color: "#DC143C", style: true, text: "crimson" },
+      { id: 1, color: "#228B22", style: false, text: "forest green" },
     ],
     productSizes: [
       { id: 0, text: "l", style: true },
@@ -49,21 +72,21 @@ export const mockProducts = [
         name: "CARTEGORIES",
         type: "link",
         links: [
-          { id: 0, text: "outerwear" },
-          { id: 1, text: "dresses", style: false },
+          { id: 0, text: "dresses" },
+          { id: 1, text: "outerwears", style: false },
         ],
       },
     ],
   },
   {
     id: 1,
-    productImage: product_two,
+    productImage: undefined_crop_shirt_four,
     productImages: [
-      { id: 0, style: true, image: product_two },
-      { id: 1, style: false, image: product_five },
-      { id: 2, style: false, image: product_four },
-      { id: 3, style: false, image: product_three },
-      { id: 4, style: false, image: product_five },
+      { id: 0, style: true, image: undefined_crop_shirt_four },
+      { id: 1, style: false, image: navy_blue_goldenrod_outerwear_shirt_two },
+      { id: 2, style: false, image: olive_green_crimson_activewear_crop_two },
+      { id: 3, style: false, image: moon_black_deep_sky_blue_activewear_shirt_three },
+      { id: 4, style: false, image: crimson_pink_shirt_crop_four },
     ],
     productName: "dust lightweight jacket",
     productPrice: 5000,
@@ -84,30 +107,30 @@ export const mockProducts = [
         name: "CARTEGORIES",
         type: "link",
         links: [
-          { id: 0, text: "activewear" },
-          { id: 1, text: "t-shirts", style: false },
+          { id: 0, text: "t-shirts" },
+          { id: 1, text: "crop tops", style: false },
         ],
       },
     ],
   },
   {
     id: 2,
-    productImage: product_three,
+    productImage: goldenrod_forest_green_outerwear_sweater_four,
     productImages: [
-      { id: 0, style: true, image: product_three },
-      { id: 1, style: false, image: product_six },
-      { id: 2, style: false, image: product_four },
-      { id: 3, style: false, image: product_five },
-      { id: 4, style: false, image: product_eight },
+      { id: 0, style: true, image: goldenrod_forest_green_outerwear_sweater_four },
+      { id: 1, style: false, image: undefined_crop_sweater_one },
+      { id: 2, style: false, image: moon_black_goldenrod_activewear_outerwear_four },
+      { id: 3, style: false, image: goldenrod_olive_green_singlet_dress_one },
+      { id: 4, style: false, image: forest_green_pink_activewear_shirt_five },
     ],
     productName: "karatima outwear",
     productPrice: 2750,
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
     productAvailable: "hot",
-    productDetails: { cartColor: "olive green" },
+    productDetails: { cartColor: "goldenrod" },
     productColors: [
-      { id: 0, color: "#808000", style: true, text: "olive green" },
-      { id: 1, color: "pink", style: false, text: "pink" },
+      { id: 0, color: "#DAA520", style: true, text: "goldenrod" },
+      { id: 1, color: "#228B22", style: false, text: "forest green" },
     ],
     cartAmt: 1,
     wishlistDate: "August 24, 2024",
@@ -119,21 +142,21 @@ export const mockProducts = [
         name: "CARTEGORIES",
         type: "link",
         links: [
-          { id: 0, text: "outerwear" },
-          { id: 1, text: "sweaters", style: false },
+          { id: 0, text: "sweaters" },
+          { id: 1, text: "outerwears", style: false },
         ],
       },
     ],
   },
   {
     id: 3,
-    productImage: product_four,
+    productImage: undefined_activewear_jean_two,
     productImages: [
-      { id: 0, style: true, image: product_four },
-      { id: 1, style: false, image: product_five },
-      { id: 2, style: false, image: product_three },
-      { id: 3, style: false, image: product_two },
-      { id: 4, style: false, image: product_five },
+      { id: 0, style: true, image: undefined_activewear_jean_two },
+      { id: 1, style: false, image: crimson_goldenrod_outerwear_jean_one },
+      { id: 2, style: false, image: crimson_pink_crop_activewear_one },
+      { id: 3, style: false, image: olive_green_pink_activewear_dress_four },
+      { id: 4, style: false, image: deep_sky_blue_goldenrod_jean_singlet_three },
     ],
     productName: "white dressed pants",
     productPrice: 3500,
@@ -150,20 +173,20 @@ export const mockProducts = [
         type: "link",
         links: [
           { id: 0, text: "jeans" },
-          { id: 1, text: "activewear", style: false },
+          { id: 1, text: "activewears", style: false },
         ],
       },
     ],
   },
   {
     id: 4,
-    productImage: product_five,
+    productImage: crimson_pink_shirt_crop_four,
     productImages: [
-      { id: 0, style: true, image: product_five },
-      { id: 1, style: false, image: product_eight },
-      { id: 2, style: false, image: product_two },
-      { id: 3, style: false, image: product_six },
-      { id: 4, style: false, image: product_five },
+      { id: 0, style: true, image: crimson_pink_shirt_crop_four },
+      { id: 1, style: false, image: army_green_pink_shirt_jean_four },
+      { id: 2, style: false, image: undefined_crop_sweater_one },
+      { id: 3, style: false, image: olive_green_crimson_shirt_activewear_three },
+      { id: 4, style: false, image: navy_blue_pink_sweater_jean_five },
     ],
     productName: "lime punch outerwear",
     priceOne: 1250,
@@ -171,10 +194,10 @@ export const mockProducts = [
     averagePrice: 2750,
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
     productAvailable: "back in store",
-    productDetails: { cartColor: "navy blue", cartSize: "xl" },
+    productDetails: { cartColor: "crimson", cartSize: "xl" },
     productColors: [
-      { id: 0, color: "#000080", style: true, text: "navy blue" },
-      { id: 1, color: "#228B22", style: false, text: "forest green" },
+      { id: 0, color: "#DC143C", style: true, text: "crimson" },
+      { id: 1, color: "pink", style: false, text: "pink" },
     ],
     productSizes: [
       { id: 0, text: "xl", style: true },
@@ -190,7 +213,7 @@ export const mockProducts = [
         name: "CARTEGORIES",
         type: "link",
         links: [
-          { id: 0, text: "sweaters" },
+          { id: 0, text: "crop tops" },
           { id: 1, text: "t-shirts", style: false },
         ],
       },
@@ -198,23 +221,23 @@ export const mockProducts = [
   },
   {
     id: 5,
-    productImage: product_six,
+    productImage: olive_green_navy_blue_shirt_outerwear_five,
     productImages: [
-      { id: 0, style: true, image: product_six },
-      { id: 1, style: false, image: product_two },
-      { id: 2, style: false, image: product_three },
-      { id: 3, style: false, image: product_four },
-      { id: 4, style: false, image: product_five },
+      { id: 0, style: true, image: olive_green_navy_blue_shirt_outerwear_five },
+      { id: 1, style: false, image: navy_blue_goldenrod_outerwear_shirt_two },
+      { id: 2, style: false, image: moon_black_pink_outerwear_crop_five },
+      { id: 3, style: false, image: olive_green_crimson_shirt_activewear_three },
+      { id: 4, style: false, image: navy_blue_pink_sweater_singlet_five },
     ],
     productName: "lightweight jacket",
     productPrice: 4000,
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
     productAvailable: "new in",
     cutOff: 50,
-    productDetails: { cartColor: "army green", cartSize: "xxl" },
+    productDetails: { cartColor: "olive green", cartSize: "xxl" },
     productColors: [
-      { id: 0, color: "#4B5320", style: true, text: "army green" },
-      { id: 1, color: "#DC143C", style: false, text: "crimson" },
+      { id: 0, color: "#808000", style: true, text: "olive green" },
+      { id: 1, color: "#000080", style: false, text: "navy blue" },
     ],
     productSizes: [
       { id: 0, text: "xxl", style: true },
@@ -230,21 +253,21 @@ export const mockProducts = [
         name: "CARTEGORIES",
         type: "link",
         links: [
-          { id: 0, text: "outerwear" },
-          { id: 1, text: "dresses", style: false },
+          { id: 0, text: "outerwears" },
+          { id: 1, text: "t-shirts", style: false },
         ],
       },
     ],
   },
   {
     id: 6,
-    productImage: product_seven,
+    productImage: undefined_singlet_activewear_four,
     productImages: [
-      { id: 0, style: true, image: product_seven },
-      { id: 1, style: false, image: product_seven },
-      { id: 2, style: false, image: product_six },
-      { id: 3, style: false, image: product_eight },
-      { id: 4, style: false, image: product_five },
+      { id: 0, style: true, image: undefined_singlet_activewear_four },
+      { id: 1, style: false, image: moon_black_pink_sweater_activewear_five },
+      { id: 2, style: false, image: navy_blue_pink_sweater_singlet_five },
+      { id: 3, style: false, image: deep_sky_blue_pink_activewear_sweater_three },
+      { id: 4, style: false, image: undefined_singlet_crop_three },
     ],
     productName: "lime outerwear",
     priceOne: 2500,
@@ -262,21 +285,21 @@ export const mockProducts = [
         name: "CARTEGORIES",
         type: "link",
         links: [
-          { id: 0, text: "sweaters" },
-          { id: 1, text: "activewear", style: false },
+          { id: 0, text: "activewears" },
+          { id: 1, text: "singlets", style: false },
         ],
       },
     ],
   },
   {
     id: 7,
-    productImage: product_eight,
+    productImage: moon_black_pink_activewear_singlet_one,
     productImages: [
-      { id: 0, style: true, image: product_eight },
-      { id: 1, style: false, image: product_five },
-      { id: 2, style: false, image: product_seven },
-      { id: 3, style: false, image: product_eight },
-      { id: 4, style: false, image: product_two },
+      { id: 0, style: true, image: moon_black_pink_activewear_singlet_one },
+      { id: 1, style: false, image: undefined_activewear_jean_two },
+      { id: 2, style: false, image: navy_blue_pink_sweater_singlet_five },
+      { id: 3, style: false, image: moon_black_pink_activewear_sweater_two },
+      { id: 4, style: false, image: forest_green_pink_activewear_shirt_five },
     ],
     productName: "cocoon davni dress",
     productPrice: 1250,
@@ -285,7 +308,7 @@ export const mockProducts = [
     productDetails: { cartColor: "moon black", cartSize: "l" },
     productColors: [
       { id: 0, color: "#191919", style: true, text: "moon black" },
-      { id: 1, color: "#00BFFF", style: false, text: "deep sky blue" },
+      { id: 1, color: "pink", style: false, text: "pink" },
     ],
     productSizes: [
       { id: 0, text: "l", style: true },
@@ -301,29 +324,29 @@ export const mockProducts = [
         name: "CARTEGORIES",
         type: "link",
         links: [
-          { id: 0, text: "t-shirts" },
-          { id: 1, text: "dresses", style: false },
+          { id: 0, text: "singlets" },
+          { id: 1, text: "activewears", style: false },
         ],
       },
     ],
   },
   {
     id: 8,
-    productImage: product_twelve,
+    productImage: deep_sky_blue_crimson_dress_jean_three,
     productImages: [
-      { id: 0, style: true, image: product_twelve },
-      { id: 1, style: false, image: product_four },
-      { id: 2, style: false, image: product_seven },
-      { id: 3, style: false, image: product_three },
-      { id: 4, style: false, image: product_one },
+      { id: 0, style: true, image: deep_sky_blue_crimson_dress_jean_three },
+      { id: 1, style: false, image: crimson_goldenrod_outerwear_jean_one },
+      { id: 2, style: false, image: army_green_deep_sky_blue_singlet_dress_three },
+      { id: 3, style: false, image: deep_sky_blue_goldenrod_jean_singlet_three },
+      { id: 4, style: false, image: goldenrod_crimson_dress_sweater_five },
     ],
     productName: "cold weather short",
     productPrice: 1270,
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
-    productDetails: { cartColor: "pink", cartSize: "ll" },
+    productDetails: { cartColor: "deep sky blue", cartSize: "ll" },
     productColors: [
-      { id: 0, color: "pink", style: true, text: "pink" },
-      { id: 1, color: "#228B22", style: false, text: "forest green" },
+      { id: 0, color: "#00BFFF", style: true, text: "deep sky blue" },
+      { id: 1, color: "#DC143C", style: false, text: "crimson" },
     ],
     productSizes: [
       { id: 0, text: "ll", style: true },
@@ -347,13 +370,13 @@ export const mockProducts = [
   },
   {
     id: 9,
-    productImage: product_thirteen,
+    productImage: undefined_dress_activewear_two,
     productImages: [
-      { id: 0, style: true, image: product_thirteen },
-      { id: 1, style: false, image: product_fifteen },
-      { id: 2, style: false, image: product_four },
-      { id: 3, style: false, image: product_eight },
-      { id: 4, style: false, image: product_six },
+      { id: 0, style: true, image: undefined_dress_activewear_two },
+      { id: 1, style: false, image: undefined_activewear_jean_two },
+      { id: 2, style: false, image: undefined_dress_outerwear_one },
+      { id: 3, style: false, image: olive_green_pink_activewear_dress_four },
+      { id: 4, style: false, image: deep_sky_blue_pink_activewear_sweater_three },
     ],
     productName: "midnight trail bomber",
     priceOne: 950,
@@ -371,21 +394,21 @@ export const mockProducts = [
         name: "CARTEGORIES",
         type: "link",
         links: [
-          { id: 0, text: "t-shirts" },
-          { id: 1, text: "outerwear", style: false },
+          { id: 0, text: "activewears" },
+          { id: 1, text: "dresses", style: false },
         ],
       },
     ],
   },
   {
     id: 10,
-    productImage: product_fourteen,
+    productImage: goldenrod_crimson_dress_sweater_five,
     productImages: [
-      { id: 0, style: true, image: product_fourteen },
-      { id: 1, style: false, image: product_eight },
-      { id: 2, style: false, image: product_four },
-      { id: 3, style: false, image: product_sixteen },
-      { id: 4, style: false, image: product_three },
+      { id: 0, style: true, image: goldenrod_crimson_dress_sweater_five },
+      { id: 1, style: false, image: goldenrod_forest_green_outerwear_sweater_four },
+      { id: 2, style: false, image: pink_forest_green_dress_crop_one },
+      { id: 3, style: false, image: crimson_forest_green_outerwear_dress_two },
+      { id: 4, style: false, image: navy_blue_crimson_outerwear_dress_five },
     ],
     productName: "Cozy Cabin Cardigan",
     priceOne: 3750,
@@ -393,10 +416,10 @@ export const mockProducts = [
     averagePrice: 4525,
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
     productAvailable: "back in store",
-    productDetails: { cartColor: "navy blue" },
+    productDetails: { cartColor: "goldenrod" },
     productColors: [
-      { id: 0, color: "#000080", style: true, text: "navy blue" },
-      { id: 1, color: "#191919", style: false, text: "moon black" },
+      { id: 0, color: "#DAA520", style: true, text: "goldenrod" },
+      { id: 1, color: "#DC143C", style: false, text: "crimson" },
     ],
     cartAmt: 1,
     wishlistDate: "May 31, 2024",
@@ -416,23 +439,23 @@ export const mockProducts = [
   },
   {
     id: 11,
-    productImage: product_fifteen,
+    productImage: army_green_pink_jean_shirt_one,
     productImages: [
-      { id: 0, style: true, image: product_fifteen },
-      { id: 1, style: false, image: product_five },
-      { id: 2, style: false, image: product_seventeen },
-      { id: 3, style: false, image: product_three },
-      { id: 4, style: false, image: product_two },
+      { id: 0, style: true, image: army_green_pink_jean_shirt_one },
+      { id: 1, style: false, image: army_green_pink_jean_singlet_four },
+      { id: 2, style: false, image: army_green_pink_shirt_jean_four },
+      { id: 3, style: false, image: navy_blue_pink_sweater_jean_five },
+      { id: 4, style: false, image: crimson_pink_shirt_crop_four },
     ],
     productName: "coastal breeze windbreaker",
     productPrice: 3500,
     cutOff: 25,
     productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
     productAvailable: "new in",
-    productDetails: { cartColor: "goldenrod", cartSize: "xxl" },
+    productDetails: { cartColor: "army green", cartSize: "xxl" },
     productColors: [
-      { id: 0, color: "#DAA520", style: true, text: "goldenrod" },
-      { id: 1, color: "#4B5320", style: false, text: "army green" },
+      { id: 0, color: "#4B5320", style: true, text: "army green" },
+      { id: 1, color: "pink", style: false, text: "pink" },
     ],
     productSizes: [
       { id: 0, text: "xxl", style: true },
@@ -448,21 +471,21 @@ export const mockProducts = [
         name: "CARTEGORIES",
         type: "link",
         links: [
-          { id: 0, text: "jeans" },
-          { id: 1, text: "activewear", style: false },
+          { id: 0, text: "t-shirts" },
+          { id: 1, text: "jeans", style: false },
         ],
       },
     ],
   },
   {
     id: 12,
-    productImage: product_sixteen,
+    productImage: undefined_singlet_crop_three,
     productImages: [
-      { id: 0, style: true, image: product_sixteen },
-      { id: 1, style: false, image: product_five },
-      { id: 2, style: false, image: product_seven },
-      { id: 3, style: false, image: product_eight },
-      { id: 4, style: false, image: product_two },
+      { id: 0, style: true, image: undefined_singlet_crop_three },
+      { id: 1, style: false, image: undefined_singlet_activewear_four },
+      { id: 2, style: false, image: undefined_crop_shirt_four },
+      { id: 3, style: false, image: crimson_forest_green_crop_singlet_two },
+      { id: 4, style: false, image: deep_sky_blue_goldenrod_jean_singlet_three },
     ],
     productName: "woodland wool sweater",
     productPrice: 3250,
@@ -483,21 +506,21 @@ export const mockProducts = [
         name: "CARTEGORIES",
         type: "link",
         links: [
-          { id: 0, text: "sweaters" },
-          { id: 1, text: "dresses", style: false },
+          { id: 0, text: "crop tops" },
+          { id: 1, text: "singlets", style: false },
         ],
       },
     ],
   },
   {
     id: 13,
-    productImage: product_seventeen,
+    productImage: crimson_forest_green_crop_singlet_two,
     productImages: [
-      { id: 0, style: true, image: product_seventeen },
-      { id: 1, style: false, image: product_nineteen },
-      { id: 2, style: false, image: product_two },
-      { id: 3, style: false, image: product_eight },
-      { id: 4, style: false, image: product_four },
+      { id: 0, style: true, image: crimson_forest_green_crop_singlet_two },
+      { id: 1, style: false, image: undefined_singlet_crop_three },
+      { id: 2, style: false, image: crimson_pink_shirt_crop_four },
+      { id: 3, style: false, image: crimson_pink_crop_activewear_one },
+      { id: 4, style: false, image: crimson_forest_green_outerwear_dress_two },
     ],
     productName: "driftwood turtleneck pullover",
     productPrice: 1265,
@@ -506,7 +529,7 @@ export const mockProducts = [
     productDetails: { cartColor: "crimson", cartSize: "xl" },
     productColors: [
       { id: 0, color: "#DC143C", style: true, text: "crimson" },
-      { id: 1, color: "#00BFFF", style: false, text: "deep sky blue" },
+      { id: 1, color: "#228B22", style: false, text: "forest green" },
     ],
     productSizes: [
       { id: 0, text: "xl", style: true },
@@ -522,21 +545,21 @@ export const mockProducts = [
         name: "CARTEGORIES",
         type: "link",
         links: [
-          { id: 0, text: "t-shirts" },
-          { id: 1, text: "dresses", style: false },
+          { id: 0, text: "singlets" },
+          { id: 1, text: "crop tops", style: false },
         ],
       },
     ],
   },
   {
     id: 14,
-    productImage: product_eighteen,
+    productImage: goldenrod_olive_green_singlet_dress_one,
     productImages: [
-      { id: 0, style: true, image: product_eighteen },
-      { id: 1, style: false, image: product_six },
-      { id: 2, style: false, image: product_seven },
-      { id: 3, style: false, image: product_twelve },
-      { id: 4, style: false, image: product_fourteen },
+      { id: 0, style: true, image: goldenrod_olive_green_singlet_dress_one },
+      { id: 1, style: false, image: goldenrod_crimson_dress_sweater_five },
+      { id: 2, style: false, image: undefined_singlet_activewear_four },
+      { id: 3, style: false, image: deep_sky_blue_goldenrod_jean_singlet_three },
+      { id: 4, style: false, image: olive_green_pink_activewear_dress_four },
     ],
     productName: "heritage canvas trench coat",
     productPrice: 4250,
@@ -546,7 +569,7 @@ export const mockProducts = [
     productDetails: { cartColor: "olive green", cartSize: "l" },
     productColors: [
       { id: 0, color: "#808000", style: true, text: "olive green" },
-      { id: 1, color: "#228B22", style: false, text: "forest green" },
+      { id: 1, color: "#DAA520", style: false, text: "goldenrod" },
     ],
     productSizes: [
       { id: 0, text: "l", style: true },
@@ -562,21 +585,21 @@ export const mockProducts = [
         name: "CARTEGORIES",
         type: "link",
         links: [
-          { id: 0, text: "sweaters" },
-          { id: 1, text: "jeans", style: false },
+          { id: 0, text: "dresses" },
+          { id: 1, text: "singlets", style: false },
         ],
       },
     ],
   },
   {
     id: 15,
-    productImage: product_nineteen,
+    productImage: undefined_dress_outerwear_one,
     productImages: [
-      { id: 0, style: true, image: product_nineteen },
-      { id: 1, style: false, image: product_five },
-      { id: 2, style: false, image: product_twenty },
-      { id: 3, style: false, image: product_four },
-      { id: 4, style: false, image: product_fifteen },
+      { id: 0, style: true, image: undefined_dress_outerwear_one },
+      { id: 1, style: false, image: undefined_sweater_outerwear_two },
+      { id: 2, style: false, image: undefined_dress_activewear_two },
+      { id: 3, style: false, image: navy_blue_crimson_outerwear_dress_five },
+      { id: 4, style: false, image: moon_black_goldenrod_activewear_outerwear_four },
     ],
     productName: "nordic knit pullover",
     productPrice: 950,
@@ -592,21 +615,21 @@ export const mockProducts = [
         name: "CARTEGORIES",
         type: "link",
         links: [
-          { id: 0, text: "outerwear" },
-          { id: 1, text: "activewear", style: false },
+          { id: 0, text: "outerwears" },
+          { id: 1, text: "dresses", style: false },
         ],
       },
     ],
   },
   {
     id: 16,
-    productImage: product_twenty,
+    productImage: pink_forest_green_dress_crop_one,
     productImages: [
-      { id: 0, style: true, image: product_twenty },
-      { id: 1, style: false, image: product_five },
-      { id: 2, style: false, image: product_one },
-      { id: 3, style: false, image: product_seven },
-      { id: 4, style: false, image: product_eighteen },
+      { id: 0, style: true, image: pink_forest_green_dress_crop_one },
+      { id: 1, style: false, image: crimson_pink_crop_activewear_one },
+      { id: 2, style: false, image: crimson_pink_shirt_crop_four },
+      { id: 3, style: false, image: olive_green_pink_activewear_dress_four },
+      { id: 4, style: false, image: crimson_forest_green_crop_singlet_two },
     ],
     productName: "heathered cable crewneck",
     priceOne: 2500,
@@ -617,7 +640,7 @@ export const mockProducts = [
     productDetails: { cartColor: "pink" },
     productColors: [
       { id: 0, color: "pink", style: true, text: "pink" },
-      { id: 1, color: "#191919", style: false, text: "moon black" },
+      { id: 1, color: "#228B22", style: false, text: "forest green" },
     ],
     cartAmt: 1,
     wishlistDate: "November 21, 2024",
@@ -629,8 +652,124 @@ export const mockProducts = [
         name: "CARTEGORIES",
         type: "link",
         links: [
-          { id: 0, text: "t-shirts" },
+          { id: 0, text: "crop tops" },
+          { id: 1, text: "dresses", style: false },
+        ],
+      },
+    ],
+  },
+  {
+    id: 17,
+    productImage: navy_blue_crimson_outerwear_dress_five,
+    productImages: [
+      { id: 0, style: true, image: navy_blue_crimson_outerwear_dress_five },
+      { id: 1, style: false, image: crimson_forest_green_outerwear_dress_two },
+      { id: 2, style: false, image: crimson_goldenrod_outerwear_jean_one },
+      { id: 3, style: false, image: undefined_dress_outerwear_one },
+      { id: 4, style: false, image: navy_blue_goldenrod_outerwear_shirt_two },
+    ],
+    productName: "olive whisper midi dress",
+    productPrice: 3570,
+    cutOff: 25,
+    productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
+    productAvailable: "hot",
+    productDetails: { cartColor: "navy blue", cartSize: "xxl" },
+    productColors: [
+      { id: 0, color: "#000080", style: true, text: "navy blue" },
+      { id: 1, color: "#DC143C", style: false, text: "crimson" },
+    ],
+    productSizes: [
+      { id: 0, text: "xxl", style: true },
+      { id: 1, text: "l", style: false },
+    ],
+    cartAmt: 1,
+    wishlistDate: "September 25, 2023",
+    wishlistStock: 25,
+    productInfo: [
+      { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: "SHDKAOAK" }] },
+      {
+        id: 1,
+        name: "CARTEGORIES",
+        type: "link",
+        links: [
+          { id: 0, text: "dresses" },
+          { id: 1, text: "outerwears", style: false },
+        ],
+      },
+    ],
+  },
+  {
+    id: 18,
+    productImage: army_green_pink_jean_singlet_four,
+    productImages: [
+      { id: 0, style: true, image: army_green_pink_jean_singlet_four },
+      { id: 1, style: false, image: army_green_deep_sky_blue_singlet_dress_three },
+      { id: 2, style: false, image: navy_blue_pink_sweater_singlet_five },
+      { id: 3, style: false, image: army_green_pink_jean_shirt_one },
+      { id: 4, style: false, image: army_green_pink_shirt_jean_four },
+    ],
+    productName: "pink sunkissed tank",
+    productPrice: 2250,
+    productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
+    productAvailable: "new in",
+    productDetails: { cartColor: "army green", cartSize: "ll" },
+    productColors: [
+      { id: 0, color: "#4B5320", style: true, text: "army green" },
+      { id: 1, color: "pink", style: false, text: "pink" },
+    ],
+    productSizes: [
+      { id: 0, text: "ll", style: true },
+      { id: 1, text: "xl", style: false },
+    ],
+    cartAmt: 1,
+    wishlistDate: "May 25, 2024",
+    wishlistStock: 20,
+    productInfo: [
+      { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: "BDNAKEJS" }] },
+      {
+        id: 1,
+        name: "CARTEGORIES",
+        type: "link",
+        links: [
+          { id: 0, text: "singlets" },
           { id: 1, text: "jeans", style: false },
+        ],
+      },
+    ],
+  },
+  {
+    id: 19,
+    productImage: moon_black_pink_activewear_sweater_two,
+    productImages: [
+      { id: 0, style: true, image: moon_black_pink_activewear_sweater_two },
+      { id: 1, style: false, image: navy_blue_pink_sweater_jean_five },
+      { id: 2, style: false, image: moon_black_pink_activewear_singlet_one },
+      { id: 3, style: false, image: moon_black_deep_sky_blue_activewear_shirt_three },
+      { id: 4, style: false, image: navy_blue_pink_sweater_singlet_five },
+    ],
+    productName: "moon black cozy knit sweater",
+    priceOne: 1500,
+    priceTwo: 2750,
+    averagePrice: 1975,
+    productDesc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vitae provident odio, suscipit repellendus vero in voluptas molestias alias doloremque nihil recusandae ratione totam optio, deserunt sint dignissimos placeat ex!",
+    productAvailable: "back in store",
+    productDetails: { cartColor: "moon black" },
+    productColors: [
+      { id: 0, color: "#191919", style: true, text: "moon black" },
+      { id: 1, color: "pink", style: false, text: "pink" },
+    ],
+    cartAmt: 1,
+    wishlistDate: "October 1, 2022",
+    wishlistStock: 26,
+    productInfo: [
+      { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: "NSJ2NSHW" }] },
+      {
+        id: 1,
+        name: "CARTEGORIES",
+        type: "link",
+        links: [
+          { id: 0, text: "sweaters" },
+          { id: 1, text: "activewears", style: false },
         ],
       },
     ],

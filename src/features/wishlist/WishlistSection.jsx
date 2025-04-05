@@ -6,6 +6,7 @@ import WishlistActionText from "./WishlistActionText";
 import WishlistProductDiv from "./WishlistProductDiv";
 import { scrollToSection } from "../../utils/scrollToSection";
 import PageButtons from "../../components/common/PageButtons";
+import { FaTimes } from "react-icons/fa";
 
 const WishlistSection = () => {
   const { setWishList, wishlistItems, product_section } = useContext(NavigateContext);
@@ -19,7 +20,7 @@ const WishlistSection = () => {
           <div id="wishlistHeaderDiv" className="wishlistInnerContainers">
             <p id="wishListText">Wishlist ({wishlistItems.length})</p>
             <span id="wishListCancel" onClick={() => setWishList(false)}>
-              <i id="wishListCanIcon" className="fa-solid fa-xmark"></i>
+              <FaTimes id="wishListCanIcon" />
             </span>
           </div>
           <WishlistActionText />

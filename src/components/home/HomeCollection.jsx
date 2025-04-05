@@ -7,14 +7,14 @@ const HomeCollection = () => {
   const collections = [
     { id: 0, collectionImage: dress_collection, collectionName: "dresses" },
     { id: 1, collectionImage: t_shirt_collection, collectionName: "t-shirts" },
-    { id: 2, collectionImage: outerwear_collection, collectionName: "outerwear" }
+    { id: 2, collectionImage: outerwear_collection, collectionName: "outerwears" }
   ]
 
   return (
     <section id="collectionSection">
       {collections.map(({ id, collectionImage, collectionName }) => {
         return (
-          <div key={id} style={{ backgroundImage: `url(${collectionImage})`, backgroundPosition: 'center', backgroundSize: 'cover' }} className="mainCollection">
+          <div key={id} style={{ backgroundImage: `url(${collectionImage})` }} className="mainCollection">
             <main className="collectionMain">
               <h1 className="collectionTopic">{collectionName}</h1>
               <Link to={`/product/collection/${collectionName}`} className="paragraphStyles collectionLink">VIEW COLLECTION</Link>

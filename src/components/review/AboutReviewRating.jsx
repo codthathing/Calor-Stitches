@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaStar, FaRegStar } from "react-icons/fa";
 
 const AboutReviewRating = () => {
   const [ratings, setRatings] = useState([
@@ -24,7 +25,7 @@ const AboutReviewRating = () => {
       <p className="about-inner-text">Your rating *</p>
       <div id="rating-icons-div">
         {ratings.map(({ id, style }) => {
-          return <i key={id} onClick={() => changeRating(id)} className={`fa-${style ? "solid" : "regular"} fa-star rating-icon`}></i>
+          return <span onClick={() => changeRating(id)} key={id}>{ style ? <FaStar className="rating-icon" /> : <FaRegStar className="rating-icon" /> }</span>
         })}
       </div>
     </section>

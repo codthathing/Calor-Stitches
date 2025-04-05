@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PageNavigationLinks from "../components/ui/PageNavigationLinks";
 import FormFeedback from "../components/common/FormFeedback";
-import bank_card from "../assets/bank-card.jpeg";
+import bank_card from "../assets/bank-card.jpg";
 import PaymentForm from "../components/payment/PaymentForm";
 import { usePageLoadEffects } from "../hooks/usePageLoadEffects";
 

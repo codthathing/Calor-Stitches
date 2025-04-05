@@ -729,8 +729,7 @@
   }
 
   .productDeliveryInfoIcons {
-    width: 1.75rem;
-    height: 1.75rem;
+    font-size: var(--24px);
   }
 
   .productDeliveryInfoTexts {
@@ -1109,8 +1108,7 @@
   }
 
   .productDeliveryInfoIcons {
-    width: 1.5rem;
-    height: 1.5rem;
+    font-size: var(--20px);
   }
 
   .productDeliveryInfoTexts {

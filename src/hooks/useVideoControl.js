@@ -28,22 +28,36 @@ export const useVideoControl = () => {
   };
 
   useEffect(() => {
-    videoContainer.current.addEventListener("play", () => setVideoControls(state => ({ ...state, currentControl: true })));
-    videoContainer.current.addEventListener("pause", () => setVideoControls(state => ({ ...state, currentControl: false })));
-    videoContainer.current.addEventListener("ended", () => {
-      videoContainer.current.currentTime = 0;
-      videoContainer.current.load();
+    const videoElement = videoContainer.current;
+    
+    if (!videoElement) return;
+
+    const handlePlay = () => {
+      setVideoControls(state => ({ ...state, currentControl: true }));
+      handleShowControl();
+    };
+    
+    const handlePause = () => {
+      setVideoControls(state => ({ ...state, currentControl: false }));
+      handleShowControl();
+    };
+    
+    const handleEnded = () => {
+      videoElement.currentTime = 0;
+      videoElement.load();
       setVideoControls(state => ({ ...state, showAside: true, showPlayer: false }));
-    });
+    };
+
+    videoElement.addEventListener("play", handlePlay);
+    videoElement.addEventListener("pause", handlePause);
+    videoElement.addEventListener("ended", handleEnded);
 
     return () => {
-      videoContainer.current.removeEventListener("play", () => setVideoControls(state => ({ ...state, currentControl: true })));
-      videoContainer.current.removeEventListener("pause", () => setVideoControls(state => ({ ...state, currentControl: false })));
-      videoContainer.current.removeEventListener("ended", () => {
-        videoContainer.current.currentTime = 0;
-        videoContainer.current.load();
-        setVideoControls(state => ({ ...state, showAside: true, showPlayer: false }));
-      });
+      if (videoElement) {
+        videoElement.removeEventListener("play", handlePlay);
+        videoElement.removeEventListener("pause", handlePause);
+        videoElement.removeEventListener("ended", handleEnded);
+      }
     };
   }, [])
 

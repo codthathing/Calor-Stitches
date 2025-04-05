@@ -248,7 +248,8 @@
   }
 
   .post-instagram-icon {
-    padding: 0.5rem;
+    padding: 0.35rem;
+    font-size: var(--32px);
   }
 
   #post-other-div {
@@ -392,8 +393,8 @@
   }
 
   .post-recent-image {
-    height: 4.5rem;
-    width: 4rem;
+    height: 4rem;
+    width: 3rem;
   }
 
   .post-recent-head {
@@ -413,9 +414,8 @@
   }
 
   .post-instagram-icon {
-    width: 1.75rem;
-    height: 1.75rem;
-    padding: 0.35rem;
+    font-size: var(--20px);
+    padding: 0.15rem;
   }
 
   .post-other-handle {
@@ -500,7 +500,7 @@
   }
 
   .post-recent-image {
-    height: 6rem;
+    height: 7rem;
     width: 5rem;
   }
 
@@ -514,11 +514,6 @@
 
   .post-instagram-inner-div {
     height: 10rem;
-  }
-
-  .post-instagram-icon {
-    width: 3.5rem;
-    height: 3.5rem;
   }
 
   .post-other-image {
@@ -590,8 +585,8 @@
   }
 
   .post-recent-image {
-    height: 7.5rem;
-    width: 6rem;
+    height: 7rem;
+    width: 5rem;
   }
 
   .post-recent-text {
@@ -604,11 +599,6 @@
 
   .post-instagram-inner-div {
     height: 8rem;
-  }
-
-  .post-instagram-icon {
-    width: 2.5rem;
-    height: 2.5rem;
   }
 
   .post-other-image {

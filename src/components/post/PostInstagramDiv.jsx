@@ -1,7 +1,7 @@
 import { useState } from "react";
 import post_image from "../../assets/post-images/post-authors/author-1.jpg";
-import instagram_icon from "../../assets/handle-icons/iconmonstr-instagram-11-240.png";
 import PostText from "./PostText";
+import { FaInstagram } from 'react-icons/fa';
 
 const PostInstagramDiv = () => {
   const [socialImages, setSocialImages] = useState([
@@ -24,7 +24,7 @@ const PostInstagramDiv = () => {
         {socialImages.map(({ id, image, display }) => {
           return (
             <div key={id} onMouseEnter={() => changeSocialHover(id, true)} onMouseLeave={() => changeSocialHover(id, false)} style={{ backgroundImage: `url(${image})` }} className="post-instagram-inner-div">
-              {display && <img src={instagram_icon} alt="instagram-icon" className="post-instagram-icon" />}
+              {display && <FaInstagram className="post-instagram-icon" />}
             </div>
           );
         })}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { FaChevronDown } from "react-icons/fa";
 
 const HeaderSideMenu = () => {
 
@@ -33,7 +34,7 @@ const HeaderSideMenu = () => {
           return (
             <Link key={id} {...(link && { to: link })} className="sideMenuItem" style={borderStyle}>
               <p className="sideMenuText">{menuText}</p>
-              <i className="fa-solid fa-chevron-down sideMenuIcon"></i>
+              <FaChevronDown className="sideMenuIcon" />
             </Link>
           );
         })}

@@ -4,6 +4,7 @@ import DisplayFilterColorsDiv from "./DisplayFilterColorsDiv";
 import DisplayFilterPriceDiv from "./DisplayFilterPriceDiv";
 import DisplayFilterSizeDiv from "./DisplayFilterSizeDiv";
 import DisplayFilterTypesDiv from "./DisplayFilterTypesDiv";
+import { FaTimes } from "react-icons/fa";
 
 const DisplayFilterSection = () => {
   const { setShowFilterSection } = useContext(DisplayContext);
@@ -13,7 +14,7 @@ const DisplayFilterSection = () => {
       <main id="productFilterOptionsMain" className="productFilterSectionMainFixed">
         <div id="productFilterHeader" className="productFilterMainDivs">
           <p id="filterHeaderText">Filters</p>
-          <i className="fa-solid fa-xmark productIcons" onClick={() => setShowFilterSection(false)} id="filterHeaderBackIcon"></i>
+          <FaTimes onClick={() => setShowFilterSection(false)} className="productIcons" id="filterHeaderBackIcon" />
         </div>
         <DisplayFilterTypesDiv />
         <DisplayFilterPriceDiv />

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const AuthPasswordInput = ({ name, value, onChange, placeholder }) => {
   const [viewPassword, setViewPassword] = useState(false);
@@ -6,7 +7,7 @@ const AuthPasswordInput = ({ name, value, onChange, placeholder }) => {
   return (
     <div className="register-input-div register-password-div">
       <input type={viewPassword ? "text" : "password"} name={name} value={value} onChange={onChange} className="registerInput" placeholder={placeholder} required />
-      <i className={`fa-solid fa-${viewPassword ? "eye-slash" : "eye"} password-view-icon`} onClick={() => setViewPassword(!viewPassword)}></i>
+      <span onClick={() => setViewPassword(!viewPassword)}>{ viewPassword ? <FaEyeSlash className="password-view-icon" /> : <FaEye className="password-view-icon" />}</span>
     </div>
   );
 };

@@ -3,12 +3,13 @@ import PostGeneralCategories from "./PostGeneralCategories";
 import PostRecentDiv from "./PostRecentDiv";
 import PostInstagramDiv from "./PostInstagramDiv";
 import NewsHandleIcons from "../news-letter/NewsHandleIcons";
+import { FiSearch } from "react-icons/fi";
 
 const PostOtherSection = () => {
   return (
     <section id="post-other-section">
       <div className="post-inner-div" id="post-input-div">
-        <i className="fa-solid fa-magnifying-glass" id="post-input-icon"></i>
+        <FiSearch id="post-input-icon" />
         <input type="text" placeholder="What are you looking for?" id="post-input-field" />
       </div>
       <div className="post-inner-div">  

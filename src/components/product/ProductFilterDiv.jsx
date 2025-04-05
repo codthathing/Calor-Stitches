@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaChevronDown } from "react-icons/fa";
 
 const ProductFilterDiv = ({ id, defaultText, filterText, textOne, textTwo }) => {
   const [showFilterDiv, setShowFilterDiv] = useState(false);
@@ -42,7 +43,7 @@ const ProductFilterDiv = ({ id, defaultText, filterText, textOne, textTwo }) => 
     <div className="productFilterDiv">
       <div id={id} className="productTexIcontDiv" onClick={() => setShowFilterDiv(!showFilterDiv)}>
         {textOne && <p className="productTexts">{presentFilter.text}</p>}
-        <i className="fa-solid fa-angle-down productIcons"></i>
+        <FaChevronDown className="productIcons" />
         {textTwo && <p className="productTexts">{presentFilter.text}</p>}
       </div>
       {showFilterDiv && <div className="productInnerDivs">

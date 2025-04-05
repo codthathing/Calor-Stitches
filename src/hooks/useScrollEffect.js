@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { NavigateContext } from "../services/contexts/NavigateContext";
 import { scrollToSection } from "../utils/scrollToSection";
+import { FaArrowUp } from "react-icons/fa";
 
 export const useScrollEffect = () => {
   const { setNavbar, home_section, setToggleSideMenu } = useContext(NavigateContext);
@@ -35,7 +36,7 @@ export const useScrollEffect = () => {
     if (showNavToTop) {
       return (
         <div id="page-top-div" onClick={() => scrollToSection(home_section)}>
-          <i className="fa-solid fa-arrow-up page-top-icon"></i>
+          <FaArrowUp className="page-top-icon" />
         </div>
       );
     }

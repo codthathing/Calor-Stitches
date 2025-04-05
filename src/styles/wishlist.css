@@ -269,7 +269,8 @@
   }
 
   .wishListImage {
-    height: 8rem;
+    height: 7rem;
+    width: 5rem;
   }
 
   .wishListTexts {
@@ -333,8 +334,7 @@
   }
 
   .wislistHandleShareImg {
-    width: 1.75rem;
-    height: 1.75rem;
+    font-size: var(--24px);
   }
 
   .wishlistHandleText {
@@ -378,7 +378,7 @@
   }
 
   .wishListDiv {
-    grid-template-columns: 20% auto 37.5%;
+    grid-template-columns: 16% auto 40%;
     gap: 0 0.75rem;
     padding: 0.75rem 0;
   }
@@ -479,8 +479,7 @@
   }
 
   .wislistHandleShareImg {
-    width: 1.25rem;
-    height: 1.25rem;
+    font-size: var(--20px);
   }
 
   .wishlistHandleText {
@@ -510,11 +509,6 @@
     grid-template-columns: 22% auto 37.5%;
     gap: 0 1.5rem;
     padding: 1rem 0;
-  }
-
-  .wishListImage {
-    height: 7rem;
-    width: 6rem;
   }
 
   .productWishlistCartMain {
@@ -566,14 +560,9 @@
   }
 
   .wishListDiv {
-    grid-template-columns: 26% auto 35%;
+    grid-template-columns: 22% auto 35%;
     gap: 0 1rem;
     padding: 1.25rem 0;
-  }
-
-  .wishListImage {
-    height: 7rem;
-    width: 6.5rem;
   }
 
   .productWishlistCartMain {

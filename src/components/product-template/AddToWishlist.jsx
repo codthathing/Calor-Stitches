@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
+import { FiHeart } from 'react-icons/fi';
 
 const AddToWishList = ({ id, showText, showIcon }) => {
   const { products, wishlistItems, setWishlistItems, setWishList, dispatch } = useContext(NavigateContext);
@@ -29,11 +30,11 @@ const AddToWishList = ({ id, showText, showIcon }) => {
   return (
     <div onClick={() => addToWishlistFunction(id)}>
       <>
-        {showIcon && <i onMouseEnter={() => setShowWishlistText(true)} onMouseLeave={() => setShowWishlistText(false)} onClick={() => setShowWishlistText(false)} className="fa-regular fa-heart optionIcon optioIconWishlist"></i>}
+        {showIcon && <FiHeart onMouseEnter={() => setShowWishlistText(true)} onMouseLeave={() => setShowWishlistText(false)} onClick={() => setShowWishlistText(false)} className="optionIcon optioIconWishlist" /> }
         {showWishlistText && <p className="optionText wishlistOptionText">Add to Wishlist</p>}
       </>
       {showText && <div className="productToWishlist">
-        <i className="fa-regular fa-heart productWishlistIcon"></i>
+        <FiHeart className="productWishlistIcon" />
         <p className="productWishlistText">ADD TO WISHLIST</p>
       </div>}
     </div>

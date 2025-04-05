@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { DisplayContext } from "../services/contexts/DisplayContext";
 import { usePageLoadEffects } from "../hooks/usePageLoadEffects";
 import PageNavigationLinks from "../components/ui/PageNavigationLinks";
@@ -7,6 +7,7 @@ import { useProductOptionsFilters } from "../hooks/useProductOptionsFilters";
 import { useProductFiltersArray } from "../hooks/useProductFiltersArray";
 import DisplayFilterSection from "../components/display/DisplayFilterSection";
 import { useProductShownEffect, Products, ProductPagination } from "../components/product/ProductDisplayComponents";
+import { FiFilter } from 'react-icons/fi';
 
 
 const DisplayPage = () => {
@@ -34,7 +35,7 @@ const DisplayPage = () => {
         <main id="productAllMain" className="productMains">
           <div className="productShownDiv">
             <div id="productFilterIconTextDiv" onClick={() => setShowFilterSection(true)}>
-              <i className="fa-solid fa-arrow-up-wide-short productIcons"></i>
+              <FiFilter className="productIcons" />
               <p className="productShownText">FILTERS</p>
             </div>
             <ProductFilterDiv textTwo={true} />

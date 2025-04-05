@@ -1,7 +1,8 @@
 import { useContext, useEffect } from "react";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 import { useSectionScroll } from "../../hooks/useSectionScroll";
-import SearchMain from "./SearchMain"
+import SearchMain from "./SearchMain";
+import { FaTimes } from "react-icons/fa";
 
 const SearchSection = () => {
   const { setSearch } = useContext(NavigateContext)
@@ -14,7 +15,7 @@ const SearchSection = () => {
   
   return (
     <section ref={presentScroll} id="searchSection" className="whiteBackSections">
-      <div id="searchHeader" className="navBack"><i onClick={() => setSearch(false)} className="fa-solid fa-xmark navBackIcon"></i></div>
+      <div id="searchHeader" className="navBack"><FaTimes onClick={() => setSearch(false)} className="navBackIcon" /></div>
       <SearchMain />
       <footer id="searchFooter" className="navFooter"></footer>
     </section>

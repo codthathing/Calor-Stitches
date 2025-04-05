@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
+import { FaTimes } from "react-icons/fa";
 
 const WishlistDeleteIcon = ({ id, cancelClass }) => {
   const { wishlistItems, setWishlistItems, dispatch } = useContext(NavigateContext);
@@ -15,7 +16,7 @@ const WishlistDeleteIcon = ({ id, cancelClass }) => {
 
   return (
     <>
-      <i onClick={() => removeWishlistItem(id)} className={`fa-solid fa-xmark ${cancelClass}`}></i>
+      <FaTimes onClick={() => removeWishlistItem(id)} className={cancelClass} />
     </>
   )
 };

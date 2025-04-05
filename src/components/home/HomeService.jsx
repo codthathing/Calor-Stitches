@@ -1,23 +1,20 @@
-import shipping from "../../assets/service-icons/iconmonstr-delivery-2-240.png";
-import money_back from "../../assets/service-icons/iconmonstr-coin-2-240.png";
-import payment from "../../assets/service-icons/iconmonstr-credit-card-6-240.png";
-import exchanges from "../../assets/service-icons/iconmonstr-time-17-240.png"; 
+import { FaTruck, FaUndo, FaCreditCard, FaHandHoldingUsd } from "react-icons/fa";
 
 const HomeService = () => {
 
   const services = [
-    { id: 0, serviceIcon: shipping, serviceHead: "Free Shipping", serviceParagraph: "A free trackable two days delivery service on all orders over $90." },
-    { id: 1, serviceIcon: money_back, serviceHead: "Money Back Guarantee", serviceParagraph: "We offer customers 100% money back guarantee on everything we sell." },
-    { id: 2, serviceIcon: payment, serviceHead: "Flexible Payment", serviceParagraph: "All orders placed before Sunday to Friday are dispatched same day." },
-    { id: 3, serviceIcon: exchanges, serviceHead: "Exchanges & Returns", serviceParagraph: "You have 30 days from the shipping date to return your purchase." },
+    { id: 0, ServiceIcon: FaTruck, serviceHead: "Free Shipping", serviceParagraph: "A free trackable two days delivery service on all orders over $90." },
+    { id: 1, ServiceIcon: FaHandHoldingUsd, serviceHead: "Money Back Guarantee", serviceParagraph: "We offer customers 100% money back guarantee on everything we sell." },
+    { id: 2, ServiceIcon: FaCreditCard, serviceHead: "Flexible Payment", serviceParagraph: "All orders placed before Sunday to Friday are dispatched same day." },
+    { id: 3, ServiceIcon: FaUndo, serviceHead: "Exchanges & Returns", serviceParagraph: "You have 30 days from the shipping date to return your purchase." },
   ]
 
   return (
     <section id="serviceSection">
-      {services.map(({ id, serviceIcon, serviceHead, serviceParagraph }) => {
+      {services.map(({ id, ServiceIcon, serviceHead, serviceParagraph }) => {
         return (
           <div key={id} className="serviceDiv">
-            <img src={serviceIcon} className="serviceIcon" alt={serviceHead}/>
+            <ServiceIcon className="serviceIcon" /> 
             <h1 className="serviceHead">{serviceHead}</h1>
             <p className="serviceParagraph">{serviceParagraph}</p>
           </div>

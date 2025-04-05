@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { useInputFocus } from "../../hooks/useInputFocus";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 import { useProductShownEffect, Products, ProductPagination } from "../../components/product/ProductDisplayComponents";
+import { FaSearch } from "react-icons/fa";
 
 const SearchMain = () => {
   const { products } = useContext(NavigateContext);
@@ -25,7 +26,7 @@ const SearchMain = () => {
           type="text"
           id="searchInput"
           placeholder="What are you looking for?" />
-        <i className="fa-solid fa-magnifying-glass" id="searchIcon" type="submit"></i>
+        <FaSearch id="searchIcon" />
       </form>
       <div id="searchProductDiv">
         {searchItems.length > 0 ?

@@ -4,6 +4,7 @@ import america_flag from "../../assets/currency-flags/america-flag.png";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 import { changeCurrencyToDollar, changeCurrencyToNaira } from "../../utils/convertCurrency";
 import { useShowPreload } from "../../hooks/useShowPreload";
+import { FaChevronDown } from "react-icons/fa";
 
 const HeaderCurrencyDiv = ({ className }) => {
   const [currency, setCurrency] = useState(false);
@@ -62,7 +63,7 @@ const HeaderCurrencyDiv = ({ className }) => {
         <p id="curLangInerText">{curDetails.preNation}</p>
         <main className="curLangMain">
           <p className="curLangText">{curDetails.preCur}</p>
-          <i className="fa-solid fa-chevron-down curLangIcon"></i>
+          <FaChevronDown className="curLangIcon" />
         </main>
         {currency && (
           <div onMouseEnter={() => setCurrency(true)} onMouseLeave={() => setCurrency(false)} onClick={changeCurrency} className={`display-currency ${className}`}>

@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
+import { FaTimes } from "react-icons/fa";
 
 const CartDeleteIcon = ({ id, cancelClass }) => {
   const { cartItems, setCartItems } = useContext(NavigateContext);
@@ -11,7 +12,7 @@ const CartDeleteIcon = ({ id, cancelClass }) => {
 
   return (
     <>
-      <i className={`fa-solid fa-xmark ${cancelClass}`} onClick={() => removeCartItem(id)}></i>
+      <FaTimes onClick={() => removeCartItem(id)} className={cancelClass} />
     </>
   );
 };

@@ -6,6 +6,7 @@ import ProductPrice from "./ProductPrice";
 import AddToWishList from "./AddToWishlist";
 import ProductOptions from "./ProductOptions";
 import { useShowPreload } from "../../hooks/useShowPreload";
+import { FiEye } from "react-icons/fi";
 
 const ProductTemplate = ({ productArray }) => {
   const { products, setView } = useContext(NavigateContext);
@@ -39,7 +40,7 @@ const ProductTemplate = ({ productArray }) => {
                 </div>
                 <ProductOptions id={id} productDetails={productDetails} productName={productName} textClass={"paragraphStyles selectOption"} itemsArray={products} />
                 <div className="optionDiv">
-                  <i className="fa-regular fa-eye optionIcon" onClick={() => navigateToView(productName)} onMouseEnter={() => setShowViewText(id)} onMouseLeave={() => setShowViewText(null)}></i>
+                  <FiEye className="optionIcon" onClick={() => navigateToView(productName)} onMouseEnter={() => setShowViewText(id)} onMouseLeave={() => setShowViewText(null)} />
                   {showViewText === id && <div className="optionText viewOptionText">Quick View</div>}
                 </div>
               </div>

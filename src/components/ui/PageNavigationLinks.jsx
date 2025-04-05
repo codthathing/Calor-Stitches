@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { FaChevronRight } from "react-icons/fa";
 
 const PageNavigationLinks = ({ pageLinks }) => {
   return (
@@ -8,7 +9,7 @@ const PageNavigationLinks = ({ pageLinks }) => {
           <li className="productListItem" key={id}>
             <Link to={linkDirect} className="productLink">
               <p className="productLinkText" style={{fontWeight: linkArrow ? "700" : "normal" }}>{linkText}</p>
-              {linkArrow && <i className="fa-solid fa-chevron-right productLinkIcon"></i>}
+              {linkArrow && <FaChevronRight className="productLinkIcon" />}
             </Link>
           </li>
         );

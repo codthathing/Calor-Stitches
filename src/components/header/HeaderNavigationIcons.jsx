@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect, useCallback } from "react";
+import { useContext, useState, useEffect } from "react";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 import { FiUser, FiSearch, FiHeart, FiShoppingBag, FiX, FiMenu } from "react-icons/fi";
 
@@ -6,14 +6,11 @@ import { FiUser, FiSearch, FiHeart, FiShoppingBag, FiX, FiMenu } from "react-ico
 const HeaderNavigationIcons = () => {
   const { setAccount, setSearch, setWishList, setCart, toggleSideMenu, setToggleSideMenu, cartItems, wishlistItems, navbar } = useContext(NavigateContext);
 
-  const [windowWidth, setWindowWidth] = useState(null);
-  const calWindowWidth = useCallback(() => {
-    window.addEventListener("load", () => window.innerWidth < 768 ? setWindowWidth(true) : setWindowWidth(false));
-    window.addEventListener("resize", () => window.innerWidth < 768 ? setWindowWidth(true) : setWindowWidth(false));
-  }, []);
-  
+  const [windowWidth, setWindowWidth] = useState(false);
   useEffect(() => {
-    calWindowWidth();
+    setWindowWidth(window.innerWidth < 768);
+    window.addEventListener("resize", () => setWindowWidth(window.innerWidth < 768));
+    return () => window.removeEventListener("resize", () => setWindowWidth(window.innerWidth < 768));
   }, []);
 
   const navigationIconsDetails = [
@@ -41,7 +38,7 @@ const HeaderNavigationIcons = () => {
     <ul id="navIcons">
       <NavigationIcons />
       <li className="icons side-menu-icon-list">
-        { toggleSideMenu ? <FiX className="iconTag side-menu-icon" onClick={() => setToggleSideMenu(false)} /> : <FiMenu className="iconTag side-menu-icon" onClick={() => setToggleSideMenu(true)} /> }
+        { toggleSideMenu ? <FiX className="side-menu-icon" onClick={() => setToggleSideMenu(false)} /> : <FiMenu className="side-menu-icon" onClick={() => setToggleSideMenu(true)} /> }
       </li>
     </ul>
   );

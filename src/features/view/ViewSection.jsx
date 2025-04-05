@@ -5,6 +5,7 @@ import { ViewContext } from "../../services/contexts/ViewContext";
 import { useSectionScroll } from "../../hooks/useSectionScroll";
 import ViewImageDiv from "./ViewImageDiv";
 import ViewDetailsDiv from "./ViewDetailsDiv";
+import { FaTimes } from "react-icons/fa";
 
 const ViewSection = () => {
   const { presentScroll } = useSectionScroll();
@@ -25,7 +26,7 @@ const ViewSection = () => {
       <section className="navSections" id="productViewSection">
         <main id="productViewMain">
           <div id="productViewBack">
-            <i className="fa-solid fa-xmark" onClick={() => setView(false)} id="productViewBackIcon"></i>
+            <FaTimes onClick={() => setView(false)} id="productViewBackIcon" />
           </div>
           <main id="productViewInnerMain" ref={presentScroll}>
             <ViewImageDiv />

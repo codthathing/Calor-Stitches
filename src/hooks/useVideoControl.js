@@ -45,7 +45,7 @@ export const useVideoControl = () => {
     const handleEnded = () => {
       videoElement.currentTime = 0;
       videoElement.load();
-      setVideoControls(state => ({ ...state, showAside: true, showPlayer: false }));
+      setVideoControls(state => ({ ...state, showAside: true, showPlayer: false, showControl: false }));
     };
 
     videoElement.addEventListener("play", handlePlay);

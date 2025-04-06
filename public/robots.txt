@@ -1,6 +1,5 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow: /pages/admin-page
 Allow: /
 
-Sitemap: https://calorstiches.vercel.app/sitemap.xml
+Sitemap: https://calor-stitches.vercel.app/sitemap.xml

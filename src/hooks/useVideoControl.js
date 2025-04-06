@@ -39,7 +39,7 @@ export const useVideoControl = () => {
     
     const handlePause = () => {
       setVideoControls(state => ({ ...state, currentControl: false }));
-      handleShowControl();
+      if(videoElement.currentTime !== videoElement.duration) handleShowControl();
     };
     
     const handleEnded = () => {

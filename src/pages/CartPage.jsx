@@ -8,7 +8,7 @@ import CartProductSection from "../components/cart/CartProductSection";
 import { useSumCartItems } from "../hooks/useSumCartItems";
 import CartAddressDiv from "../components/cart/CartAddressDiv";
 import CartCheckoutButton from "../components/cart/CartCheckoutButton";
-
+import PageSection from "../components/layout/PageSection";PageSection
 
 const CartPage = () => {
 
@@ -30,7 +30,7 @@ const CartPage = () => {
 
   return (
     <CartContext.Provider value={{ city, setCity, setShowCartInfo, setCartInfoArray }}>
-      <div className="otherPages" id="productReview">
+      <PageSection id={"productReview"}>
         <PageNavigationLinks pageLinks={pageLinkDetails} />
         <main className="productWishlistCartMain">
           <PageFeedback showInfo={showCartInfo} infoTextArray={cartInfoArray} border={"#F3F2ED"} />
@@ -45,7 +45,7 @@ const CartPage = () => {
             <CartCheckoutButton />
           </div>
         </main>
-      </div>
+      </PageSection>
     </CartContext.Provider>
   );
 }

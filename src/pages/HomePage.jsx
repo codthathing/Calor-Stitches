@@ -7,12 +7,17 @@ import HomeVideoDiv from "../components/home/HomeVideoDiv";
 import HomeService from "../components/home/HomeService";
 import PostSection from "../components/home/post/PostSection";
 import { usePageLoadEffects } from "../hooks/usePageLoadEffects";
+import { Helmet } from "react-helmet-async";
 
 const HomePage = () => {
   usePageLoadEffects({});
 
   return (
     <>
+      <Helmet>
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://calor-stitches.vercel.app/" />
+      </Helmet>
       <HomeText />
       <ProductSection />
       <HomeCollection />

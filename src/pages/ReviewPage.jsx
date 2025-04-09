@@ -8,6 +8,7 @@ import ReviewPictureDiv from "../components/review/ReviewPictureDiv";
 import ReviewSection from "../components/review/ReviewSection";
 import AboutSection from "../components/review/AboutSection";
 import { useProductShownEffect, Products, ProductPagination } from "../components/product/ProductDisplayComponents";
+import PageSection from "../components/layout/PageSection";
 
 const ReviewPage = () => {
   const [product, setProduct] = useState({});
@@ -41,7 +42,7 @@ const ReviewPage = () => {
 
   return (
     <ReviewContext.Provider value={{ id, products, setProducts, productAvailable, productNameText, productImage, productImages, cutOff, productPrice, averagePrice, priceOne, priceTwo, cartAmt, productDesc, productDetails, productColors, productSizes, wishlistStock, productInfo, displayPage, setDisplayPage, reviewSectionRef }}>
-      <div className="otherPages" id="productReview">
+      <PageSection id="productReview">
         <PageNavigationLinks pageLinks={pageLinkDetails} />
         <main id="productReviewMain" className="productMains">
           <ReviewPictureDiv />
@@ -53,7 +54,7 @@ const ReviewPage = () => {
           <Products products={relatedProduct} mapProducts={mapProducts} shownProducts={shownProducts} />
           <ProductPagination setMapProducts={setMapProducts} setPageNumbers={setPageNumbers} pageNumbers={pageNumbers} shownProducts={shownProducts} />
         </div>
-      </div>
+      </PageSection>
     </ReviewContext.Provider>
   );
 }

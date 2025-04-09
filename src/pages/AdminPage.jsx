@@ -5,6 +5,7 @@ import { usePageLoadEffects } from "../hooks/usePageLoadEffects";
 import AboutNavigationLinks from "../components/review/AboutNavigationLinks";
 import AdminProductSection from "../components/admin/AdminProductSection";
 import AdminBlogSection from "../components/admin/AdminBlogSection";
+import PageSection from "../components/layout/PageSection";
 
 const AdminPage = () => {
   const { setAccount } = useContext(NavigateContext);
@@ -25,14 +26,14 @@ const AdminPage = () => {
   ]);
 
   return (
-    <div className="otherPages">
+    <PageSection>
       <PageNavigationLinks pageLinks={pageLinkDetails} />
       <main id="admin-main">
         <AboutNavigationLinks page={presentPage} setPage={setPresentPage} array={linksArray} setArray={setLinksArray} />
         {presentPage === "PRODUCTS" && <AdminProductSection />}
         {presentPage === "POSTS" && <AdminBlogSection />}
       </main>
-    </div>
+    </PageSection>
   );
 };
 

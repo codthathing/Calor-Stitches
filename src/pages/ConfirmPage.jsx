@@ -4,6 +4,7 @@ import { NavigateContext } from "../services/contexts/NavigateContext";
 import { usePageLoadEffects } from "../hooks/usePageLoadEffects";
 import PageNavigationLinks from "../components/ui/PageNavigationLinks";
 import ConfirmOTPForm from "../components/confirm/ConfirmOTPForm";
+import PageSection from "../components/layout/PageSection";
 
 const ConfirmPage = () => {
   const { setAccount, setPresentRegister } = useContext(NavigateContext);
@@ -20,14 +21,14 @@ const ConfirmPage = () => {
   ];
 
   return (
-    <div className="otherPages">
+    <PageSection>
       <PageNavigationLinks pageLinks={pageLinkDetails} />
       <main id="confirm-main">
         <p id="confirm-head">{pageHead}</p>
         <p id="confirm-text">Hey {"John"},<br /> Thank you for choosing <span className="confirm-span">Calor Stiches</span>. Use the following OTP to complete the procedure to {pageText}. OTP is valid for only <span className="confirm-span">5 minutes</span>. Do not share this code with anyone.</p>
         <ConfirmOTPForm />
       </main>
-    </div>
+    </PageSection>
   );
 };
 

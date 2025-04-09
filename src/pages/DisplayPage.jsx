@@ -8,6 +8,7 @@ import { useProductFiltersArray } from "../hooks/useProductFiltersArray";
 import DisplayFilterSection from "../components/display/DisplayFilterSection";
 import { useProductShownEffect, Products, ProductPagination } from "../components/product/ProductDisplayComponents";
 import { FiFilter } from 'react-icons/fi';
+import PageSection from "../components/layout/PageSection";
 
 
 const DisplayPage = () => {
@@ -30,7 +31,7 @@ const DisplayPage = () => {
 
   return (
     <DisplayContext.Provider value={{ setShowFilterSection, filterOption, changeProductsTypes, productTypes, setProductTypes, handleMinChange, handleMaxChange,  changeProductsColors, productColors, setProductColors, changeProductsSize, productSize, setProductSize }}>
-      <div className="otherPages">
+      <PageSection>
         <PageNavigationLinks pageLinks={pageLinkDetails} />
         <main id="productAllMain" className="productMains">
           <div className="productShownDiv">
@@ -44,7 +45,7 @@ const DisplayPage = () => {
           <ProductPagination setMapProducts={setMapProducts} pageNumbers={pageNumbers} setPageNumbers={setPageNumbers} shownProducts={shownProducts} />
         </main>
         {showFilterSection && <DisplayFilterSection />}
-      </div>
+      </PageSection>
     </DisplayContext.Provider>
   );
 }

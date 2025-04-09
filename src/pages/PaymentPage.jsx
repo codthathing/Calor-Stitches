@@ -4,6 +4,7 @@ import FormFeedback from "../components/common/FormFeedback";
 import bank_card from "../assets/bank-card.jpg";
 import PaymentForm from "../components/payment/PaymentForm";
 import { usePageLoadEffects } from "../hooks/usePageLoadEffects";
+import PageSection from "../components/layout/PageSection";
 
 const PaymentPage = () => {
   const pageLinkDetails = [
@@ -16,7 +17,7 @@ const PaymentPage = () => {
   const [paymentInfo, setPaymentInfo] = useState("");
 
   return (
-    <div className="otherPages">
+    <PageSection>
       <PageNavigationLinks pageLinks={pageLinkDetails} />
       <main id="card-payment-main">
         <FormFeedback text={paymentInfo} showText={paymentInfo} />
@@ -27,7 +28,7 @@ const PaymentPage = () => {
           <PaymentForm setInfo={setPaymentInfo} />
         </section>
       </main>
-    </div>
+    </PageSection>
   );
 };
 

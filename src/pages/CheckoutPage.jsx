@@ -4,6 +4,7 @@ import { usePageLoadEffects } from "../hooks/usePageLoadEffects";
 import PageNavigationLinks from "../components/ui/PageNavigationLinks";
 import CheckoutLoginDiv from "../components/checkout/CheckoutLoginDiv";
 import CheckoutSection from "../components/checkout/CheckoutSection";
+import PageSection from "../components/layout/PageSection";
 
 const CheckoutPage = () => {
 
@@ -17,13 +18,13 @@ const CheckoutPage = () => {
   ]
 
   return (
-    <div className="otherPages" id="productReview">
+    <PageSection id={"productReview"}>
       <PageNavigationLinks pageLinks={pageLinkDetails} />
       <main id="checkoutMain">
         <CheckoutLoginDiv />
         <CheckoutSection />
       </main>
-    </div>
+    </PageSection>
   );
 }
 

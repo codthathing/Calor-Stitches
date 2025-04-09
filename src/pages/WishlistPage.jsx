@@ -4,6 +4,7 @@ import { usePageLoadEffects } from "../hooks/usePageLoadEffects";
 import PageNavigationLinks from "../components/ui/PageNavigationLinks";
 import WishlistProductSection from "../components/wishlist/WishlistProductSection";
 import WishlistHandle from "../components/wishlist/WishlistHandle";
+import PageSection from "../components/layout/PageSection";
 
 const WishlistPage = () => {
 
@@ -16,13 +17,13 @@ const WishlistPage = () => {
   ]
 
   return (
-    <div className="otherPages">
+    <PageSection>
       <PageNavigationLinks pageLinks={pageLinkDetails} />
       <main className="productWishlistCartMain">
         <WishlistProductSection />
         <WishlistHandle className={"desktop-center"} />
       </main>
-    </div>
+    </PageSection>
   );
 }
 

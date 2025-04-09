@@ -6,6 +6,7 @@ import PageNavigationLinks from "../components/ui/PageNavigationLinks";
 import { mockBlogPosts } from "../database/mockBlogPosts";
 import PostMainSection from "../components/post/PostMainSection";
 import PostOtherSection from "../components/post/PostOtherSection";
+import PageSection from "../components/layout/PageSection";
 
 const PostMainPage = () => {
   const { post_head } = useParams();
@@ -31,13 +32,13 @@ const PostMainPage = () => {
 
   return (
     <PostMainContext.Provider value={{ postState, setPostState, id, postImage, postAuthor, postTopic, postDetails, postParagraph }}>
-      <div className="otherPages">
+      <PageSection>
         <PageNavigationLinks pageLinks={pageLinkDetails} />
         <main className="post-main">
           <PostMainSection />
           <PostOtherSection />
         </main>
-      </div>
+      </PageSection>
     </PostMainContext.Provider>
   );
 };

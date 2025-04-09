@@ -4,6 +4,7 @@ import { usePageLoadEffects } from "../hooks/usePageLoadEffects";
 import PageNavigationLinks from "../components/ui/PageNavigationLinks";
 import ProductFilterDiv from "../components/product/ProductFilterDiv";
 import { useProductShownEffect, ProductShown, Products, ProductPagination } from "../components/product/ProductDisplayComponents";
+import PageSection from "../components/layout/PageSection";
 
 const ProductPage = () => {
 
@@ -18,7 +19,7 @@ const ProductPage = () => {
   const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers, productValue } = useProductShownEffect({products: products})
 
   return (
-    <div className="otherPages">
+    <PageSection>
       <PageNavigationLinks pageLinks={pageLinkDetails} />
       <main id="productAllMain" className="productMains">
         <div className="productShownDiv">
@@ -28,7 +29,7 @@ const ProductPage = () => {
         <Products products={products} mapProducts={mapProducts} shownProducts={shownProducts} />
         <ProductPagination setMapProducts={setMapProducts} setPageNumbers={setPageNumbers} pageNumbers={pageNumbers} shownProducts={shownProducts} />
       </main>
-    </div>
+    </PageSection>
   );
 }
 

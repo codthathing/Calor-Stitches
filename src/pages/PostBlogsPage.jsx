@@ -6,6 +6,7 @@ import PostBlogsSection from "../components/post/postBlogsSection";
 import PostOtherSection from "../components/post/PostOtherSection";
 import { mockBlogPosts } from "../database/mockBlogPosts";
 import { usePageLoadEffects } from "../hooks/usePageLoadEffects";
+import PageSection from "../components/layout/PageSection";
 
 const PostBlogsPage = () => {
   const { post_title } = useParams();
@@ -28,13 +29,13 @@ const PostBlogsPage = () => {
 
   return (
     <PostBlogsContext.Provider value={{ filteredPost }}>
-      <div className="otherPages">
+      <PageSection>
         <PageNavigationLinks pageLinks={pageLinkDetails} />
         <main className="post-main">
           <PostBlogsSection />
           <PostOtherSection />
         </main>
-      </div>
+      </PageSection>
     </PostBlogsContext.Provider>
   );
 };

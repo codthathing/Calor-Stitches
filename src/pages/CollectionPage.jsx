@@ -1,10 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { NavigateContext } from "../services/contexts/NavigateContext";
 import { usePageLoadEffects } from "../hooks/usePageLoadEffects";
 import PageNavigationLinks from "../components/ui/PageNavigationLinks";
 import ProductFilterDiv from "../components/product/ProductFilterDiv";
 import { useProductShownEffect, ProductShown, Products, ProductPagination } from "../components/product/ProductDisplayComponents";
+import PageSection from "../components/layout/PageSection";
 
 const CollectionPage = () => {
   const { collectionName } = useParams();
@@ -35,7 +36,7 @@ const CollectionPage = () => {
   ];
 
   return (
-    <div className="otherPages">
+    <PageSection>
       <PageNavigationLinks pageLinks={pageLinkDetails} />
       <main className="productMains">
         <div className="productShownDiv">
@@ -45,7 +46,7 @@ const CollectionPage = () => {
         <Products products={collection} mapProducts={mapProducts} shownProducts={shownProducts} />
         <ProductPagination setMapProducts={setMapProducts} setPageNumbers={setPageNumbers} pageNumbers={pageNumbers} shownProducts={shownProducts} />
       </main>
-    </div>
+    </PageSection>
   );
 }
 

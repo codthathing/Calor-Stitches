@@ -8,7 +8,7 @@ import CartProductSection from "../components/cart/CartProductSection";
 import { useSumCartItems } from "../hooks/useSumCartItems";
 import CartAddressDiv from "../components/cart/CartAddressDiv";
 import CartCheckoutButton from "../components/cart/CartCheckoutButton";
-import PageSection from "../components/layout/PageSection";PageSection
+import PageSection from "../components/layout/PageSection";
 
 const CartPage = () => {
 

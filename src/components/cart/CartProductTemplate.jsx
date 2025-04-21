@@ -14,7 +14,7 @@ const CartProductTemplate = () => {
             <div className="wishlistCartIconImageTextDiv">
               <CartDeleteIcon id={id} cancelClass={"wishlistCartDeleteIcon"} />
               <div className="wishlistCartImageNameDiv">
-                <img src={productImage} alt="" className="wishlistCartMainImage" />
+                <img src={productImage} alt={productName} loading="lazy" className="wishlistCartMainImage" />
                 <div className="wishlistCartNameDiv">
                   <p className="wishlistCartName">{productName}</p>
                   {cartColor && <p className="wishlistCartName">Color: <span style={{textTransform: "capitalize"}}>{cartColor}</span></p>}

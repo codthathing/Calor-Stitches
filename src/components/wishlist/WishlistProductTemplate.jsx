@@ -16,7 +16,7 @@ const WishlistProductTemplate = ({ wishlistProductArray }) => {
             <div className="wishlistCartIconImageTextDiv">
               <WishlistDeleteIcon id={id} cancelClass={"wishlistCartDeleteIcon"} />
               <div className="wishlistCartImageNameDiv">
-                <img src={productImage} alt="" className="wishlistCartMainImage" />
+                <img src={productImage} alt={productName} loading="lazy" className="wishlistCartMainImage" />
                 <div className="wishlistNameDateDiv">
                   <p className="wishlistCartName">{productName}</p>
                   <p className="wishlistDate">{wishlistDate}</p>

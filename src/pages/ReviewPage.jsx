@@ -25,8 +25,11 @@ const ReviewPage = () => {
     const presentProductCategory = presentProduct.productInfo.find(({ name }) => name === "CARTEGORIES")?.links.map(({ text }) => text);
     const relatedProducts = products.filter(({ productInfo, productName }) => (productName !== presentProduct.productName) && productInfo.find(({ name }) => name === "CARTEGORIES")?.links.some(({ text }) => presentProductCategory.includes(text)));
     setRelatedProduct(relatedProducts);
-    reviewSectionRef.current.scrollTo(0, 0);
   }, [products, productName]);
+
+  useEffect(() => {
+    reviewSectionRef.current.scrollTo(0, 0);
+  }, [productName])
 
   const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers } = useProductShownEffect({products: relatedProduct});
 

@@ -28,7 +28,8 @@ const ProductTemplate = ({ productArray }) => {
       {productArray.map(({ id, productAvailable, productImage, productName, cutOff, productPrice, priceOne, priceTwo, averagePrice, productDetails, wishlistStock }) => {
         return (
           <div className="productDiv" key={id}>
-            <div className="productInnerDiv" style={{ backgroundImage: `url(${productImage})` }}>
+            <div className="productInnerDiv">
+              <img src={productImage} loading="lazy" style={{ objectFit: "cover", width: "100%", height: "100%", position: "absolute", zIndex: "-1" }} alt={productName.toUpperCase()} />
               <Link to={`/product/${productName}`}>
                 <section className="orderOptions">
                   <ProductStockAlert productAvailable={productAvailable} wishlistStock={wishlistStock} cutOff={cutOff} />

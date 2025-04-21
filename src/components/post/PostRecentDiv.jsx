@@ -11,7 +11,7 @@ const PostRecentDiv = () => {
           return (
             <Link key={id} style={{ textDecoration: "none" }} to={`/blog/${postHead}`}>
               <div className="post-recent-inner-div">
-                <img src={postImage} alt="" className="post-recent-image" />
+                <img src={postImage} loading="lazy" alt={postHead} className="post-recent-image" />
                 <div className="post-recent-text-div">
                   {postDetails && <p className="post-recent-head">{postDetails[0].text}</p>}
                   <p className="post-recent-text">{postHead}</p>

@@ -23,7 +23,8 @@ const PostInstagramDiv = () => {
       <div id="post-instagram-div">
         {socialImages.map(({ id, image, display }) => {
           return (
-            <div key={id} onMouseEnter={() => changeSocialHover(id, true)} onMouseLeave={() => changeSocialHover(id, false)} style={{ backgroundImage: `url(${image})` }} className="post-instagram-inner-div">
+            <div key={id} onMouseEnter={() => changeSocialHover(id, true)} onMouseLeave={() => changeSocialHover(id, false)} className="post-instagram-inner-div">
+              <img src={image} loading="lazy" style={{ objectFit: "cover", height: "100%", width: "100%", position: "absolute", zIndex: "-1" }} alt="AUTHOR INSTAGRAM IMAGE" />
               {display && <FaInstagram className="post-instagram-icon" />}
             </div>
           );

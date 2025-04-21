@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 import { scrollToSection } from "../../utils/scrollToSection";
 import PageButtons from "../common/PageButtons";
+import background_image from "../../assets/background-images/background-2.jpg";
 
 const HomeText = () => {
   const { product_section, home_section } = useContext(NavigateContext);
@@ -29,6 +30,7 @@ const HomeText = () => {
 
   return (
     <section ref={home_section} id="frontPage">
+      <img src={background_image} alt="BACKGROUND IMAGE" loading="eager" fetchpriority ="high" style={{ objectFit: "cover", width: "100%", height: "100%", position: "absolute" }} />
       <div id="displayText">
         <p id="disParagraph" className="paragraphStyles">YOU CAN HAVE ANYTHING YOU WANT IF YOU DRESS FOR IT</p>
         <h1 id="disHead">{pageDetails.text}</h1>

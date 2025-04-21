@@ -14,7 +14,8 @@ const HomeCollection = () => {
     <section id="collectionSection">
       {collections.map(({ id, collectionImage, collectionName }) => {
         return (
-          <div key={id} style={{ backgroundImage: `url(${collectionImage})` }} className="mainCollection">
+          <div key={id} className="mainCollection">
+            <img src={collectionImage} loading="lazy" alt={`${collectionName.toUpperCase()} COLLECTION`} style={{ position: "absolute", objectFit: "cover", width: "100%", height: "100%", zIndex: "-1" }}/>
             <main className="collectionMain">
               <h1 className="collectionTopic">{collectionName}</h1>
               <Link to={`/product/collection/${collectionName}`} className="paragraphStyles collectionLink">VIEW COLLECTION</Link>

@@ -8,7 +8,7 @@ const PostAuthorDetails = () => {
   if(postAuthor) {
     return (
       <div id="post-shown-div">
-        <img src={postAuthor.profile_picture} alt="" id="post-shown-image" />
+        <img src={postAuthor.profile_picture} loading="lazy" alt={postAuthor.name} id="post-shown-image" />
         <div id="post-shown-inner-div">
           <p id="post-shown-head">{postAuthor.name}</p>
           <p id="post-shown-text">{postAuthor.description}</p>

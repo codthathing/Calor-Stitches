@@ -23,7 +23,7 @@ const PaymentPage = () => {
         <FormFeedback text={paymentInfo} showText={paymentInfo} />
         <section id="card-payment-section">
           <div id="card-payment-image-div">
-            <img src={bank_card} alt="bank_card" id="card-payment-image" />
+            <img src={bank_card} alt="bank_card" loading="eager" fetchpriority="high" id="card-payment-image" />
           </div>
           <PaymentForm setInfo={setPaymentInfo} />
         </section>

@@ -22,7 +22,7 @@ const WishlistProductTemplate = () => {
           <div key={id} className="wishListDiv">
             <div className="wishlist-icon-image-div">
               <WishlistDeleteIcon id={id} cancelClass={"delWishListIcon"} />
-              <img src={productImage} alt={productName} className="wishListImage" />
+              <img src={productImage} alt={productName} loading="lazy" className="wishListImage" />
             </div>
             <div className="wishListDetails">
               <h1 className="wishListName wishListTexts" onClick={() => navigateToView(productName)}>

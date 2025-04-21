@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, memo } from "react";
 import { ReviewContext } from "../../services/contexts/ReviewContext";
 import ReviewDetails from "./ReviewDetails";
 import WishlistStockAlert from "../../features/wishlist/WishlistStockAlert";
@@ -22,4 +22,4 @@ const ReviewSection = () => {
   );
 };
 
-export default ReviewSection;
+export default memo(ReviewSection);

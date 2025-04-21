@@ -67,7 +67,7 @@ const HeaderCurrencyDiv = ({ className }) => {
         </main>
         {currency && (
           <div onMouseEnter={() => setCurrency(true)} onMouseLeave={() => setCurrency(false)} onClick={changeCurrency} className={`display-currency ${className}`}>
-            <img src={curDetails.curFlag} alt={curDetails.curName} id="curFlag" />
+            <img src={curDetails.curFlag} loading="lazy" alt={curDetails.curName} id="curFlag" />
             <p id="curText">{curDetails.curName}</p>
           </div>
         )}

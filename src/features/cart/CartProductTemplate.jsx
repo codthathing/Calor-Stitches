@@ -11,7 +11,7 @@ const CartProductTemplate = ({ cartArray }) => {
       {cartArray.map(({ id, productImage, productName, productPrice, cartSize, cartColor, cartAmt }) => {
         return (
           <main key={id} className="cartProductMain">
-            <img src={productImage} alt={productName} className="cartProductImage" />
+            <img src={productImage} alt={productName} loading="lazy" className="cartProductImage" />
             <div className="cartProductDetails">
               <CartDeleteIcon id={id} cancelClass={"cartRemove"} />
               <section className="cartDetailsSection">

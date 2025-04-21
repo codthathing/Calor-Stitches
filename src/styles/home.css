@@ -34,9 +34,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 #frontPage {
-    background: url("../assets/background-images/background-2.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    position: relative;
+    height: 100vh;
+    width: 100%;
 }
 
 #header {
@@ -258,11 +258,13 @@ body::-webkit-scrollbar-thumb {
 
 
 #displayText {
+    position: absolute;
     width: 70%;
-    position: relative;
-    margin: 0 auto auto auto;
+    height: fit-content;
+    bottom: 0;
     left: 0;
     right: 0;
+    margin: auto;
     text-align: center;
 }
 
@@ -298,23 +300,20 @@ body::-webkit-scrollbar-thumb {
     border-bottom: 1px solid #FFFFFF;
 }
 
-#productSection {
+.product-section-para {
+    color: var(--282828);
     text-align: center;
 }
 
-.product-section-para {
-    color: var(--282828);
-}
-
 .product-section-head {
+    text-align: center;
     color: var(--1B1A1A);
     font-family: var(--Cormorant);
     font-weight: var(--500);
 }
 
 .productInnerDiv {
-    background-repeat: no-repeat;
-    background-size: cover;
+    position: relative;
 }
 
 .availDiv {
@@ -333,7 +332,7 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    align-self: flex-end;
+    /* align-self: flex-end; */
     width: 100%;
 }
 
@@ -417,6 +416,8 @@ body::-webkit-scrollbar-thumb {
 
 .view-button {
     border: var(--border_size) solid var(--222222);
+    display: block;
+    margin: 0 auto;
 }
 
 #productButtonText {
@@ -426,8 +427,7 @@ body::-webkit-scrollbar-thumb {
 .mainCollection {
     display: flex;
     justify-content: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    position: relative;
 }
 
 .collectionMain {
@@ -456,7 +456,6 @@ body::-webkit-scrollbar-thumb {
 
 #latestSection {
     border-bottom: var(--border_size) solid var(--F3F2ED);
-    text-align: center;
 }
 
 #navLatest {
@@ -1053,10 +1052,6 @@ body::-webkit-scrollbar-thumb {
         font-size: var(--16px);
     }
 
-    #frontPage {
-        padding: 12.5rem 0 3rem 0;
-    }
-
     #curLangHead {
         padding: 1rem 1.25rem
     }
@@ -1159,6 +1154,10 @@ body::-webkit-scrollbar-thumb {
         font-size: var(--12px);
     }
 
+    #displayText {
+        top: 5rem;
+    }
+
     .paragraphStyles {
         font-size: var(--12px);
     }
@@ -1166,12 +1165,12 @@ body::-webkit-scrollbar-thumb {
     #disHead {
         font-size: var(--48px);
         height: 15rem;
-        margin: 2.5rem 0;
+        margin: 2.5rem 0 5rem 0;
     }
 
     .shop-btn {
         padding: 1rem 1.5rem;
-        margin-bottom: 1.75rem;
+        margin-bottom: 5rem;
     }
 
     .dispay-number {
@@ -1500,10 +1499,6 @@ body::-webkit-scrollbar-thumb {
         font-size: var(--24px);
     }
 
-    #frontPage {
-        padding: 20rem 0 2.25rem 0;
-    }
-
     #curLangHead {
         padding: 1.1rem 1.75rem
     }
@@ -1537,14 +1532,27 @@ body::-webkit-scrollbar-thumb {
         gap: 0 2rem;
     }
 
+    #displayText {
+        top: 0;
+    }
+
+    #disParagraph {
+        font-size: 1.5rem;
+    }
+
     #disHead {
-        margin: 1.5rem 0;
-        height: 17.5rem;
-        font-size: var(--60px);
+        margin: 8.5rem 0;
+        height: 20rem;
+        font-size: 5rem;
     }
 
     .shop-btn {
-        margin-bottom: 4.5rem;
+        margin-bottom: 8.5rem;
+        font-size: 1.5rem;
+    }
+
+    .dispay-number {
+        font-size: 1.5rem;
     }
 
     #productSection {
@@ -1794,8 +1802,9 @@ body::-webkit-scrollbar-thumb {
         font-size: var(--20px);
     }
 
-    #frontPage {
-        height: 100vh;
+    #displayText {
+        width: 50%;
+        top: 5rem;
     }
 
     #curLangHead {
@@ -1840,15 +1849,6 @@ body::-webkit-scrollbar-thumb {
         gap: 0 2rem;
     }
 
-    #displayText {
-        width: 50%;
-        height: fit-content;
-        position: absolute;
-        top: 10rem;
-        bottom: 0;
-        margin: auto;
-    }
-
     #disHead {
         margin: 2rem 0;
         height: 20rem;
@@ -1875,7 +1875,6 @@ body::-webkit-scrollbar-thumb {
     #mainProduct {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-gap: 0 3.5rem;
     }
 
     .orderOptions {

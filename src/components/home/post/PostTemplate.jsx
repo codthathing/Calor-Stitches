@@ -10,7 +10,7 @@ const PostTemplate = ({ postArray, imageClass, buttonClass, type = "link", divCl
       {postArray.map(({ id, postImage, postDetails, postHead, postParagraph }) => {
         return (
           <div key={id} className={divClass}>
-            <img src={postImage} className={imageClass} alt="post_image" />
+            <img src={postImage} className={imageClass} loading="lazy" alt={`${postHead.toUpperCase()}`} />
             <PostDetails postDetails={postDetails.slice(0, 2)} divClass={"post-display-div"} textClass={"post-dislpay-text"} linkClass={"post-display-link"} />
             <h1 className="postHead">{postHead}</h1>
             <p className="postParagraph">{postParagraph}</p>

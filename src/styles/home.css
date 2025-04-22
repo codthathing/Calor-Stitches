@@ -1155,7 +1155,7 @@ body::-webkit-scrollbar-thumb {
     }
 
     #displayText {
-        top: 6.5rem;
+        top: 5rem;
     }
 
     .paragraphStyles {
@@ -1170,7 +1170,7 @@ body::-webkit-scrollbar-thumb {
 
     .shop-btn {
         padding: 1rem 1.5rem;
-        margin-bottom: 3,5rem;
+        margin-bottom: 3.5rem;
     }
 
     .dispay-number {

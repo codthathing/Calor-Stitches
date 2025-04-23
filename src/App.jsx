@@ -2,7 +2,7 @@ import { lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useUpdateProducts } from "./hooks/useUpdateProducts";
 import PageLayout from "./components/layout/PageLayout";
-const PageFeatures = lazy(() => import("./components/layout/PageFeatures"));
+import PageFeatures from "./components/layout/PageFeatures";
 const HomePage = lazy(() => import("./pages/HomePage"));
 const ReviewPage = lazy(() => import("./pages/ReviewPage"));
 const CollectionPage = lazy(() => import("./pages/CollectionPage"));

@@ -1,20 +1,21 @@
+import { lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useUpdateProducts } from "./hooks/useUpdateProducts";
-import PageFeatures from "./components/layout/PageFeatures";
 import PageLayout from "./components/layout/PageLayout";
-import HomePage from "./pages/HomePage";
-import ReviewPage from "./pages/ReviewPage";
-import CollectionPage from "./pages/CollectionPage";
-import ProductPage from "./pages/ProductPage";
-import DisplayPage from "./pages/DisplayPage";
-import WishlistPage from "./pages/WishlistPage";
-import CartPage from "./pages/CartPage";
-import CheckoutPage from "./pages/CheckoutPage";
-import ConfirmPage from "./pages/ConfirmPage";
-import PaymentPage from "./pages/PaymentPage";
-import PostMainPage from "./pages/PostMainPage";
-import PostBlogsPage from "./pages/PostBlogsPage";
-import AdminPage from "./pages/AdminPage";
+const PageFeatures = lazy(() => import("./components/layout/PageFeatures"));
+const HomePage = lazy(() => import("./pages/HomePage"));
+const ReviewPage = lazy(() => import("./pages/ReviewPage"));
+const CollectionPage = lazy(() => import("./pages/CollectionPage"));
+const ProductPage = lazy(() => import("./pages/ProductPage"));
+const DisplayPage = lazy(() => import("./pages/DisplayPage"));
+const WishlistPage = lazy(() => import("./pages/WishlistPage"));
+const CartPage = lazy(() => import("./pages/CartPage"));
+const CheckoutPage = lazy(() => import("./pages/CheckoutPage"));
+const ConfirmPage = lazy(() => import("./pages/ConfirmPage"));
+const PaymentPage = lazy(() => import("./pages/PaymentPage"));
+const PostMainPage = lazy(() => import("./pages/PostMainPage"));
+const PostBlogsPage = lazy(() => import("./pages/PostBlogsPage"));
+const AdminPage = lazy(() => import("./pages/AdminPage"));
 
 const App = () => {
   useUpdateProducts();

@@ -5,16 +5,15 @@ import Footer from "./Footer";
 import PageComponents from "./PageComponents";
 
 const PageLayout = () => {
-
   return (
     <>
       <Header />
       <Outlet />
       <NewsSection />
-      <Footer/>
+      <Footer />
       <PageComponents />
     </>
   );
-}
+};
 
 export default PageLayout;

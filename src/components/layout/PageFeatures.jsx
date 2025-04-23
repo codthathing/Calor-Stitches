@@ -1,11 +1,11 @@
-import { useContext } from "react";
+import { lazy, useContext } from "react";
 import { useLocation, Routes, Route } from "react-router-dom";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
-import SearchSection from "../../features/search/SearchSection";
-import ViewSection from "../../features/view/ViewSection";
-import WishlistSection from "../../features/wishlist/WishlistSection";
-import CartSection from "../../features/cart/CartSection";
-import SignInLayout from "../../features/(sign-in)/SignInLayout";
+const SearchSection = lazy(() => import("../../features/search/SearchSection"));
+const ViewSection = lazy(() => import("../../features/view/ViewSection"));
+const WishlistSection = lazy(() => import("../../features/wishlist/WishlistSection"));
+const CartSection = lazy(() => import("../../features/cart/CartSection"));
+const SignInLayout = lazy(() => import("../../features/(sign-in)/SignInLayout"));
 
 const PageFeatures = () => {
   const location = decodeURIComponent(useLocation().pathname);
@@ -30,7 +30,7 @@ const PageFeatures = () => {
         {cart && <Route path={location} element={<CartSection />} />}
       </Routes>
     );
-  };
+  }
 };
 
 export default PageFeatures;

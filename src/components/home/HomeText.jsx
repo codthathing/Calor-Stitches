@@ -33,7 +33,7 @@ const HomeText = () => {
     <section ref={home_section} id="frontPage">
       <picture style={{ width: "100%", height: "100%", position: "absolute", zIndex: "-1" }}>
         <source media="(max-width: 1023px)" srcSet={background_portrait} />
-        <img src={background_landscape} alt="BACKGROUND IMAGE" loading="eager" fetchpriority ="high" style={{ width: "100%", height: "100%" }} />
+        <img src={background_landscape} alt="BACKGROUND IMAGE" loading="eager" fetchpriority ="high" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       </picture>
       <div id="displayText">
         <p id="disParagraph" className="paragraphStyles">YOU CAN HAVE ANYTHING YOU WANT IF YOU DRESS FOR IT</p>

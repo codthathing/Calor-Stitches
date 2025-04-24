@@ -9,7 +9,7 @@ import PageSection from "../components/layout/PageSection";
 const WishlistPage = () => {
 
   const { setWishList, setSearch } = useContext(NavigateContext);
-  usePageLoadEffects({effectsArray: [{ effect: setWishList, value: false }, { effect: setSearch, value: false }]});
+  usePageLoadEffects({effectsArray: [{ effect: setSearch, value: false }]});
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },

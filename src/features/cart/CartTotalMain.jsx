@@ -5,7 +5,7 @@ import { useSumCartItems } from "../../hooks/useSumCartItems";
 import PageButtons from "../../components/common/PageButtons";
 
 const CartTotalMain = () => {
-  const { curSymbol, cartItems } = useContext(NavigateContext);
+  const { curSymbol, cartItems, setCart } = useContext(NavigateContext);
   const { total } = useSumCartItems(cartItems);
   const navigate = useNavigate();
 
@@ -21,8 +21,14 @@ const CartTotalMain = () => {
         </p>
       </div>
       <div id="cartButtonsDiv">
-        <PageButtons type={"button"} buttonType={"black-button"} buttonClass={"navBtn cartButtons"} buttonFunction={() => navigate("/shop/cart")} text={"view cart"} />
-        <PageButtons type={"button"} buttonType={"white-button"} buttonClass={"navBtn cartButtons"} buttonFunction={() => navigate("/shop/checkout")} text={"checkout"} />
+        <PageButtons type={"button"} buttonType={"black-button"} buttonClass={"navBtn cartButtons"} buttonFunction={() => {
+          navigate("/shop/cart");
+          setCart(false);
+        }} text={"view cart"} />
+        <PageButtons type={"button"} buttonType={"white-button"} buttonClass={"navBtn cartButtons"} buttonFunction={() => {
+          navigate("/shop/checkout");
+          setCart(false);
+        }} text={"checkout"} />
       </div>
     </main>
   );

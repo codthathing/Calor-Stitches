@@ -27,7 +27,10 @@ const WishlistSection = () => {
         </header>
         <WishlistProductDiv />
         <div className="wishListContainers wishlistInnerContainers" id="wishListLinkDiv">
-          <PageButtons type={"text"} buttonFunction={() => navigate("/shop/wishlist")} text={"open wishlist page"} />
+          <PageButtons type={"text"} buttonFunction={() => {
+            navigate("/shop/wishlist");
+            setWishList(false);
+          }} text={"open wishlist page"} />
           <PageButtons type={"text"} text={"continue shopping"}
             buttonFunction={() => {
               setWishList(false);

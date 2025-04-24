@@ -9,7 +9,7 @@ import PageSection from "../components/layout/PageSection";
 const CheckoutPage = () => {
 
   const { setCart } = useContext(NavigateContext);
-  usePageLoadEffects({effectsArray: [{ effect: setCart, value: false }]});
+  usePageLoadEffects({});
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },

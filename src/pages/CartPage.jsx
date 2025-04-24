@@ -18,7 +18,7 @@ const CartPage = () => {
   const [showCartInfo, setShowCartInfo] = useState(false);
   const [cartInfoArray, setCartInfoArray] = useState([]);
 
-  usePageLoadEffects({effectsArray: [{ effect: setCart, value: false }, { effect: setShowCartInfo, value: false }]});
+  usePageLoadEffects({effectsArray: [{ effect: setShowCartInfo, value: false }]});
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },

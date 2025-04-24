@@ -1,4 +1,4 @@
-import { lazy, useContext } from "react";
+import { lazy, Suspense, useContext } from "react";
 import { useLocation, Routes, Route } from "react-router-dom";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 const SearchSection = lazy(() => import("../../features/search/SearchSection"));
@@ -13,22 +13,24 @@ const PageFeatures = () => {
 
   if (view || search || wishlist || cart || account) {
     return (
-      <Routes>
-        {(view || search || wishlist) && (
-          <Route
-            path={location}
-            element={
-              <>
-                {search && <SearchSection />}
-                {view && <ViewSection />}
-                {wishlist && <WishlistSection />}
-              </>
-            }
-          />
-        )}
-        {account && <Route path={location} element={<SignInLayout />} />}
-        {cart && <Route path={location} element={<CartSection />} />}
-      </Routes>
+      <Suspense>
+        <Routes>
+          {(view || search || wishlist) && (
+            <Route
+              path={location}
+              element={
+                <>
+                  {search && <SearchSection />}
+                  {view && <ViewSection />}
+                  {wishlist && <WishlistSection />}
+                </>
+              }
+            />
+          )}
+          {account && <Route path={location} element={<SignInLayout />} />}
+          {cart && <Route path={location} element={<CartSection />} />}
+        </Routes>
+      </Suspense>
     );
   }
 };

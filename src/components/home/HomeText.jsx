@@ -38,7 +38,7 @@ const HomeText = () => {
   }, []);
 
   return (
-    <section ref={home_section} style={{ height: "100vh" }} id="front-page-div" >
+    <section ref={home_section} style={{ height: "100%" }} id="front-page-div" >
       {/* <div id="front-page-div"> */}
         <picture style={{ width: "100%", height: "100%", zIndex: "-1" }}>
           <source media="(max-width: 1023px)" srcSet={background_portrait} />

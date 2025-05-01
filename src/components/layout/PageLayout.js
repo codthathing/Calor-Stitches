@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-import { Suspense } from "react";
 import Header from "./Header";
 import NewsSection from "../news-letter/NewsSection";
 import Footer from "./Footer";
@@ -9,9 +8,7 @@ const PageLayout = () => {
   return (
     <>
       <Header />
-      <Suspense fallback={null}>
-        <Outlet />
-      </Suspense>
+      <Outlet />
       <NewsSection />
       <Footer />
       <PageComponents />

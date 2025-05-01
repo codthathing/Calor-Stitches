@@ -38,8 +38,8 @@ body::-webkit-scrollbar-thumb {
     /* display: flex; 
     justify-content: center; 
     align-items: center;  */
-    min-height: 100vh;
-    /* border: 1px solid red; */
+    height: 100dvh;
+    border: 1px solid red;
 }
 
 #header {

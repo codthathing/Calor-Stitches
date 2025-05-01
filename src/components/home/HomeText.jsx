@@ -38,9 +38,9 @@ const HomeText = () => {
   }, []);
 
   return (
-    <section ref={home_section} style={{ height: "100vh" }} >
-      <div id="front-page-div">
-        <picture style={{ position: "absolute", width: "100%", height: "100%", zIndex: "-1" }}>
+    <section ref={home_section} style={{ height: "100vh" }} id="front-page-div" >
+      {/* <div id="front-page-div"> */}
+        <picture style={{ width: "100%", height: "100%", zIndex: "-1" }}>
           <source media="(max-width: 1023px)" srcSet={background_portrait} />
           <img src={background_landscape} alt="BACKGROUND IMAGE" loading="eager" fetchpriority ="high" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </picture>
@@ -52,7 +52,7 @@ const HomeText = () => {
             {pageDetails.array.map(({ id, style }) => <span key={id} className={`dispay-number ${style ? "style-display-number" : ""}`}>{id}</span>)}
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </section>
   );
 }

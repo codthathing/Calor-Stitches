@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { startTransition, useContext, useState } from "react";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 import { FiHeart } from 'react-icons/fi';
 
@@ -20,7 +20,7 @@ const AddToWishList = ({ id, showText, showIcon }) => {
     };
 
     setTimeout(() => {
-      setWishList(true);
+      startTransition(() => setWishList(true));
       setTimeout(() => {
         dispatch({ display: "CLOSE" });
       }, 1250);

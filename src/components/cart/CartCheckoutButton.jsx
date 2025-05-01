@@ -1,15 +1,15 @@
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 import { CartContext } from "../../services/contexts/CartContext";
 import { useCartEffect } from "../../hooks/useCartEffect";
 import { useShowPreload } from "../../hooks/useShowPreload";
 import PageButtons from "../common/PageButtons";
+import { useNavigateToPage } from "../../hooks/useNavigateToPage";
 
 const CartCheckoutButton = () => {
   const { cartItems } = useContext(NavigateContext);
   const { city, setShowCartInfo } = useContext(CartContext);
-  const navigate = useNavigate();
+  const navigate = useNavigateToPage();
   const { checkCart, displayInfo } = useCartEffect();
   const { showPreload } = useShowPreload();
 

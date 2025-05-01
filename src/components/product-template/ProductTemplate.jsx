@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 import ProductStockAlert from "./ProductStockAlert";
 import ProductPrice from "./ProductPrice";
@@ -7,16 +6,17 @@ import AddToWishList from "./AddToWishlist";
 import ProductOptions from "./ProductOptions";
 import { useShowPreload } from "../../hooks/useShowPreload";
 import { FiEye } from "react-icons/fi";
+import { useNavigateToPage } from "../../hooks/useNavigateToPage";
 
 const ProductTemplate = ({ productArray }) => {
   const { products, setView } = useContext(NavigateContext);
   const [showViewText, setShowViewText] = useState(null);
-  const navigate = useNavigate();
   const { showPreload } = useShowPreload();
+  const navigate = useNavigateToPage();
 
   const navigateToView = (productName) => {
-    showPreload();
     setShowViewText(false);
+    showPreload();
     setTimeout(() => {
       navigate("", { state: productName });
       setView(true);
@@ -30,11 +30,9 @@ const ProductTemplate = ({ productArray }) => {
           <div className="productDiv" key={id}>
             <div className="productInnerDiv">
               <img src={productImage} loading="lazy" style={{ objectFit: "cover", width: "100%", height: "100%", position: "absolute", zIndex: "-1" }} alt={productName.toUpperCase()} />
-              <Link to={`/product/${productName}`}>
-                <section className="orderOptions">
-                  <ProductStockAlert productAvailable={productAvailable} wishlistStock={wishlistStock} cutOff={cutOff} />
-                </section>
-              </Link>
+              <section onClick={() => navigate(`/product/${productName}`)} className="orderOptions">
+                <ProductStockAlert productAvailable={productAvailable} wishlistStock={wishlistStock} cutOff={cutOff} />
+              </section>
               <div className="optionBtnsDiv">
                 <div className="optionDiv optionDivWishlist">
                   <AddToWishList id={id} showText={false} showIcon={true} />

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import dress_collection from "../../assets/collection-images/collection-dresses.jpg";
 import t_shirt_collection from "../../assets/collection-images/collection-t-shirts.jpg";
 import outerwear_collection from "../../assets/collection-images/collection-outerwear.jpg";
+import { useNavigateToPage } from "../../hooks/useNavigateToPage";
 
 const HomeCollection = () => {
   const collections = [
@@ -9,6 +10,8 @@ const HomeCollection = () => {
     { id: 1, collectionImage: t_shirt_collection, collectionName: "t-shirts" },
     { id: 2, collectionImage: outerwear_collection, collectionName: "outerwears" }
   ]
+
+  const navigate = useNavigateToPage();
 
   return (
     <section id="collectionSection">
@@ -18,7 +21,7 @@ const HomeCollection = () => {
             <img src={collectionImage} loading="lazy" alt={`${collectionName.toUpperCase()} COLLECTION`} style={{ position: "absolute", objectFit: "cover", width: "100%", height: "100%", zIndex: "-1" }}/>
             <main className="collectionMain">
               <h1 className="collectionTopic">{collectionName}</h1>
-              <Link to={`/product/collection/${collectionName}`} className="paragraphStyles collectionLink">VIEW COLLECTION</Link>
+              <p onClick={() => navigate(`/product/collection/${collectionName}`)} className="paragraphStyles collectionLink">VIEW COLLECTION</p>
             </main>
           </div>
         );

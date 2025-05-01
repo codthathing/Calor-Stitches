@@ -1,9 +1,9 @@
 import { Fragment } from "react";
-import { useNavigate } from "react-router-dom";
 import PageButtons from "../common/PageButtons";
+import { useNavigateToPage } from "../../hooks/useNavigateToPage";
 
 const ReviewProductDetails = ({productInfo}) => {
-  const navigate = useNavigate();
+  const navigate = useNavigateToPage();
 
   return (
     <div className="productDeliveryDetails">

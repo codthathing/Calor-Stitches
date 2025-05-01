@@ -309,6 +309,10 @@ body::-webkit-scrollbar-thumb {
     font-weight: var(--500);
 }
 
+.orderOptions {
+    cursor: pointer;
+}
+
 .productInnerDiv {
     position: relative;
 }
@@ -448,7 +452,7 @@ body::-webkit-scrollbar-thumb {
 .collectionLink {
     font-family: var(--Yantramanav);
     color: white;
-    text-decoration: none;
+    cursor: pointer;
 }
 
 #latestSection {
@@ -582,6 +586,7 @@ body::-webkit-scrollbar-thumb {
 .post-display-link {
     color: var(--222222);
     text-decoration: none;
+    cursor: pointer;
 }
 
 .postHead {
@@ -696,7 +701,7 @@ body::-webkit-scrollbar-thumb {
 .linkText {
     text-transform: uppercase;
     color: white;
-    text-decoration: none;
+    cursor: pointer;
     font-family: var(--Yantramanav);
 }
 

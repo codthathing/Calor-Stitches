@@ -2,9 +2,11 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 import CartDeleteIcon from "./CartDeleteIcon";
+import { useNavigateToPage } from "../../hooks/useNavigateToPage";
 
 const CartProductTemplate = ({ cartArray }) => {
   const { curSymbol } = useContext(NavigateContext);
+  const navigate = useNavigateToPage();
 
   return (
     <div id="cartProductInnerDiv">
@@ -15,25 +17,10 @@ const CartProductTemplate = ({ cartArray }) => {
             <div className="cartProductDetails">
               <CartDeleteIcon id={id} cancelClass={"cartRemove"} />
               <section className="cartDetailsSection">
-                <h1 className="cartProductName">
-                  <Link key={id} className="productNameText" to={`/product/${productName}`}>
-                    {productName}
-                  </Link>
-                </h1>
-                {cartColor && (
-                  <p className="cartProductText">
-                    Color: <span style={{ textTransform: "capitalize" }}>{cartColor}</span>
-                  </p>
-                )}
-                {cartSize && (
-                  <p className="cartProductText">
-                    Size: <span style={{ textTransform: "uppercase" }}>{cartSize}</span>
-                  </p>
-                )}
-                <p className="cartProductText">
-                  {cartAmt} * {curSymbol}
-                  {productPrice.toFixed(2)}
-                </p>
+                <h1 className="cartProductName" onClick={() => navigate(`/product/${productName}`)}>{productName}</h1>
+                {cartColor && <p className="cartProductText">Color: <span style={{ textTransform: "capitalize" }}>{cartColor}</span></p>}
+                {cartSize && <p className="cartProductText">Size: <span style={{ textTransform: "uppercase" }}>{cartSize}</span></p>}
+                <p className="cartProductText">{cartAmt} * {curSymbol}{productPrice.toFixed(2)}</p>
               </section>
             </div>
           </main>

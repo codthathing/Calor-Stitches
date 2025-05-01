@@ -7,14 +7,10 @@
 
 .productListItem {
   list-style: none;
-}
-
-.productLink {
   display: flex;
   align-items: center;
+  flex-wrap: nowrap;
   gap: 0 0.35rem;
-  color: black;
-  text-decoration: none;
 }
 
 .productLinkText {

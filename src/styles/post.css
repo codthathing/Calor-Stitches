@@ -20,6 +20,7 @@
 .post-details-link {
   color: var(--222222);
   text-decoration: none;
+  cursor: pointer;
 }
 
 #post-topic {
@@ -43,7 +44,7 @@
   font-family: var(--Roboto);
   text-transform: uppercase;
   color: var(--222222);
-  text-decoration: none;
+  cursor: pointer;
 }
 
 #post-shown-div {
@@ -113,7 +114,7 @@
   font-family: var(--Roboto);
   color: var(--222222);
   text-transform: uppercase;
-  text-decoration: none;
+  cursor: pointer;
 }
 
 #post-recent-div {
@@ -123,6 +124,7 @@
 
 .post-recent-inner-div {
   display: flex;
+  cursor: pointer;
 }
 
 .post-recent-text-div {

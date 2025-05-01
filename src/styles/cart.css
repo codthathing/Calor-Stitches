@@ -58,12 +58,10 @@
 
 .cartProductName {
   text-transform: capitalize;
-}
-
-.productNameText {
   text-decoration: none;
   color: var(--222222);
   font-family: var(--Yantramanav);
+  cursor: pointer;
 }
 
 .cartDefaultText {

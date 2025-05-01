@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { useNavigateToPage } from "../../hooks/useNavigateToPage";
 
 const PostGeneralCategories = ({ id, showComma, tag }) => {
+  const navigate = useNavigateToPage();
+
   const postCategoriesArray = [
     { id: 0, text: "denium", style: true },
     { id: 1, text: "lifestyle", style: true },
@@ -13,7 +15,7 @@ const PostGeneralCategories = ({ id, showComma, tag }) => {
   return (
     <div id={id}>
       {postCategoriesArray.map(({ id, text, style }) => {
-        return <Link key={id} to={`/blog/post/${tag}${text}`} className="post-categories-tag-text">{text}{(showComma && style) && ","} </Link>
+        return <span key={id} onClick={() => navigate(`/blog/post/${tag}${text}`)} className="post-categories-tag-text">{text}{(showComma && style) && ","} </span>
       })}
     </div>
   );

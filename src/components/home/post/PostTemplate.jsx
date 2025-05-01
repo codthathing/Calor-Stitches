@@ -1,9 +1,9 @@
-import { useNavigate } from "react-router-dom";
 import PostDetails from "../../post/PostDetails";
 import PageButtons from "../../common/PageButtons";
+import { useNavigateToPage } from "../../../hooks/useNavigateToPage";
 
 const PostTemplate = ({ postArray, imageClass, buttonClass, type = "link", divClass }) => {
-  const navigate = useNavigate();
+  const navigate = useNavigateToPage();
 
   return (
     <>

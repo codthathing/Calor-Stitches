@@ -26,7 +26,6 @@
 }
 
 .admin-add-text-div {
-  display: flex;
   align-items: center;
   border: 1px solid var(--222222);
 }
@@ -35,6 +34,11 @@
   font-family: var(--Roboto);
   border: none;
   box-shadow: 0 0 0px 1000px white inset;
+}
+
+.admin-add-span {
+  display: flex;
+  align-items: center;
 }
 
 .admin-group-div {

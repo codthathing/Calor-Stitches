@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 import { useInputFocus } from "../../hooks/useInputFocus";
+import { useNavigateToPage } from "../../hooks/useNavigateToPage";
 import AuthInput from "../../components/auth/AuthInput";
 import AuthPassowrdInput from "../../components/auth/AuthPasswordInput";
 import AuthButton from "../../components/auth/AuthButton";
@@ -9,7 +9,7 @@ import PageButtons from "../../components/common/PageButtons";
 
 const LoginForm = ({ setText }) => {
   const { inputFocus } = useInputFocus();
-  const navigate = useNavigate();
+  const navigate = useNavigateToPage();
 
   const { setPresentRegister } = useContext(NavigateContext);
   const [loginValue, setLoginValue] = useState({ email: "", password: "" });

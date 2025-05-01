@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { CheckoutContext } from "../../services/contexts/CheckoutContext";
 import { useShowPreload } from "../../hooks/useShowPreload";
+import { useNavigateToPage } from "../../hooks/useNavigateToPage";
 import PageButtons from "../common/PageButtons";
 
 const OrderButton = () => {
   const { showOptAddress, userFormArray, setShowCheckoutInfo, setCheckoutInfoArray, otherFormArray, seenTerms, confirmedMethod, setPageInfoBorder } = useContext(CheckoutContext);
-  const navigate = useNavigate();
+  const navigate = useNavigateToPage();
   const { showPreload } = useShowPreload();
 
   const handleOrder = () => {

@@ -1,9 +1,9 @@
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useNavigateToPage } from "./useNavigateToPage";
 
 export const useNavigateToConfirm = () => {
   const [confirm, setConfirm] = useState({ confirmPage: "", confirmHead: "", confirmText: "" });
-  const navigate = useNavigate();
+  const navigate = useNavigateToPage();
 
   useEffect(() => {
     if (confirm.confirmPage && confirm.confirmHead && confirm.confirmText) {

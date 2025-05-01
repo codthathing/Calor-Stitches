@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 import { useSectionScroll } from "../../hooks/useSectionScroll";
+import { useNavigateToPage } from "../../hooks/useNavigateToPage";
 import WishlistActionText from "./WishlistActionText";
 import WishlistProductDiv from "./WishlistProductDiv";
 import { scrollToSection } from "../../utils/scrollToSection";
@@ -11,7 +11,7 @@ import { FaTimes } from "react-icons/fa";
 const WishlistSection = () => {
   const { setWishList, wishlistItems, product_section } = useContext(NavigateContext);
   const { presentScroll } = useSectionScroll();
-  const navigate = useNavigate();
+  const navigate = useNavigateToPage();
 
   return (
     <section className="navSections">

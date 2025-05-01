@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect, startTransition } from "react";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 import { FiUser, FiSearch, FiHeart, FiShoppingBag, FiX, FiMenu } from "react-icons/fi";
 
@@ -25,7 +25,7 @@ const HeaderNavigationIcons = () => {
       <>
         {navigationIconsDetails.map(({ id, IconClass, showValue, value, setPage, text }) => {
           return (
-            <li className="icons" onClick={() => setPage(true)} key={id}>
+            <li className="icons" onClick={() => startTransition(() => setPage(true))} key={id}>
               { text ? <span className={IconClass}>{text}</span> : <><IconClass className="iconTag" />{showValue && <var className="icon-values" style={{backgroundColor: navbar ? "#222222" : "white", color: navbar ? "white" : "#222222"}}>{value}</var>}</> }
             </li>
           )
@@ -37,8 +37,8 @@ const HeaderNavigationIcons = () => {
   return (
     <ul id="navIcons">
       <NavigationIcons />
-      <li className="icons side-menu-icon-list">
-        { toggleSideMenu ? <FiX className="side-menu-icon" onClick={() => setToggleSideMenu(false)} /> : <FiMenu className="side-menu-icon" onClick={() => setToggleSideMenu(true)} /> }
+      <li className="icons side-menu-icon-list" onClick={() => startTransition(() => setToggleSideMenu(!toggleSideMenu))}>
+        { toggleSideMenu ? <FiX className="side-menu-icon" /> : <FiMenu className="side-menu-icon" /> }
       </li>
     </ul>
   );

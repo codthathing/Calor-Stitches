@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { ViewContext } from "../../services/contexts/ViewContext";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 import ReviewDetails from "../../components/review/ReviewDetails";
@@ -9,11 +8,12 @@ import ReviewSizeDiv from "../../components/review/ReviewSizeDiv";
 import ReviewFunctions from "../../components/review/ReviewFunctions";
 import ReviewProductDetails from "../../components/review/ReviewProductDetails";
 import PageButtons from "../../components/common/PageButtons";
+import { useNavigateToPage } from "../../hooks/useNavigateToPage";
 
 const ViewDetailsDiv = () => {
   const { setView } = useContext(NavigateContext);
   const { id, productNameText, productDesc, cutOff, productPrice, averagePrice, priceOne, priceTwo, wishlistStock, productDetails, productColors, productSizes, cartAmt, productInfo } = useContext(ViewContext);
-  const navigate = useNavigate();
+  const navigate = useNavigateToPage();
 
   return (
     <div id="productViewMainDiv">

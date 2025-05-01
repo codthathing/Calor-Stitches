@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const HomeArticle = () => {
 
@@ -10,22 +10,29 @@ const HomeArticle = () => {
     ]
   });
 
-  const [changeDetails, setChangeDetails] = useState(1);
+  const articleAnimation = useCallback(() => {
+    let changeDetails = 1;
 
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setChangeDetails(prevState => prevState < currentArticle.array.length ? prevState + 1 : 1);
+    const timeoutId = setInterval(() => {
+      changeDetails = changeDetails < currentArticle.array.length ? changeDetails + 1 : 1;
+      
+      setCurrentArticle(prevState => ({
+        ...prevState,
+        details: {
+          text: prevState.array.find(({ id }) => id === changeDetails).text,
+          author: prevState.array.find(({ id }) => id === changeDetails).author,
+        }
+      }));
     }, 5000);
-    setCurrentArticle(prevState => ({
-      ...prevState,
-      details: {
-        text: prevState.array.find(({ id }) => id === changeDetails).text,
-        author: prevState.array.find(({ id }) => id === changeDetails).author,
-      }
-    }));
+  
+    return () => clearInterval(timeoutId);
+  }, []);
+  
+  useEffect(() => {
+    const cleanup = articleAnimation();
 
-    return () => clearTimeout(timeoutId);
-  }, [changeDetails]);
+    return cleanup;
+  }, []);
 
   return (
     <article id="pageArticle">

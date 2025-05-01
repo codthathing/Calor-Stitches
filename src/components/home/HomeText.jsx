@@ -1,33 +1,42 @@
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 import { scrollToSection } from "../../utils/scrollToSection";
 import PageButtons from "../common/PageButtons";
 import background_landscape from "../../assets/background-images/background-landscape.webp";
 import background_portrait from "../../assets/background-images/background-portrait.webp";
+import { LuEthernetPort } from "react-icons/lu";
 
 const HomeText = () => {
   const { product_section, home_section } = useContext(NavigateContext);
 
   const [pageDetails, setPageDetails] = useState({
-    text: "Outrageous Fashion Always For You", array: [
+    text: "Outrageous Fashion Always For You", 
+    array: [
       { id: 1, head: "Outrageous Fashion Always For You", style: true },
       { id: 2, head: "Inspired By Nature & Crafted With Love", style: false }
     ]
   });
 
-  const [changeDetails, setChangeDetails] = useState(1);
+  const frontTextAnimation = useCallback(() => {
+    let changeDetails = 1;
 
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setChangeDetails(prevState => prevState < pageDetails.array.length ? prevState + 1 : 1);
+    const timeoutId = setInterval(() => {
+      changeDetails = changeDetails < pageDetails.array.length ? changeDetails + 1 : 1;
+      
+      setPageDetails(prevState => ({
+        text: prevState.array.find(({ id }) => id === changeDetails).head,
+        array: prevState.array.map((text) => ({ ...text, style: text.id === changeDetails }))
+      }));
     }, 5000);
-    setPageDetails(prevState => ({
-      text: prevState.array.find(({ id }) => id === changeDetails).head,
-      array: prevState.array.map((text) => ({ ...text, style: text.id === changeDetails }))
-    }));
+  
+    return () => clearInterval(timeoutId);
+  }, []);
+  
+  useEffect(() => {
+    const cleanup = frontTextAnimation();
 
-    return () => clearTimeout(timeoutId);
-  }, [changeDetails]);
+    return cleanup;
+  }, []);
 
   return (
     <section ref={home_section} id="frontPage">

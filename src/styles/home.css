@@ -33,10 +33,13 @@ body::-webkit-scrollbar-thumb {
     position: fixed;
 }
 
-#frontPage {
+#front-page-div {
     position: relative;
-    height: 100vh;
-    width: 100%;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100%; 
+    height: 100%;
 }
 
 #header {
@@ -258,12 +261,7 @@ body::-webkit-scrollbar-thumb {
 
 
 #displayText {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 70%;
-    height: fit-content;
     text-align: center;
 }
 
@@ -1159,7 +1157,7 @@ body::-webkit-scrollbar-thumb {
     }
 
     #displayText {
-        margin-top: 2.5rem;
+        margin-top: 5rem;
     }
 
     .paragraphStyles {
@@ -1804,7 +1802,7 @@ body::-webkit-scrollbar-thumb {
 
     #displayText {
         width: 50%;
-        margin-top: 2.5rem;
+        margin-top: 5rem;
     }
 
     #curLangHead {

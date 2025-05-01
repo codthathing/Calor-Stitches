@@ -38,17 +38,19 @@ const HomeText = () => {
   }, []);
 
   return (
-    <section ref={home_section} id="frontPage" >
-      <picture style={{ position: "absolute", width: "100%", height: "100%", zIndex: "-1" }}>
-        <source media="(max-width: 1023px)" srcSet={background_portrait} />
-        <img src={background_landscape} alt="BACKGROUND IMAGE" loading="eager" fetchpriority ="high" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-      </picture>
-      <div id="displayText">
-        <p id="disParagraph" className="paragraphStyles">YOU CAN HAVE ANYTHING YOU WANT IF YOU DRESS FOR IT</p>
-        <h1 id="disHead">{pageDetails.text}</h1>
-        <PageButtons type={"button"} text={"SHOP NOW"} buttonType={"white-button"} buttonClass={"shop-btn"} buttonFunction={() => scrollToSection(product_section)} />
-        <div id="disDiv">
-          {pageDetails.array.map(({ id, style }) => <span key={id} className={`dispay-number ${style ? "style-display-number" : ""}`}>{id}</span>)}
+    <section ref={home_section} style={{ height: "100vh" }} >
+      <div id="front-page-div">
+        <picture style={{ position: "absolute", width: "100%", height: "100%", zIndex: "-1" }}>
+          <source media="(max-width: 1023px)" srcSet={background_portrait} />
+          <img src={background_landscape} alt="BACKGROUND IMAGE" loading="eager" fetchpriority ="high" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        </picture>
+        <div id="displayText">
+          <p id="disParagraph" className="paragraphStyles">YOU CAN HAVE ANYTHING YOU WANT IF YOU DRESS FOR IT</p>
+          <h1 id="disHead">{pageDetails.text}</h1>
+          <PageButtons type={"button"} text={"SHOP NOW"} buttonType={"white-button"} buttonClass={"shop-btn"} buttonFunction={() => scrollToSection(product_section)} />
+          <div id="disDiv">
+            {pageDetails.array.map(({ id, style }) => <span key={id} className={`dispay-number ${style ? "style-display-number" : ""}`}>{id}</span>)}
+          </div>
         </div>
       </div>
     </section>

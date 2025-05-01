@@ -38,7 +38,7 @@ body::-webkit-scrollbar-thumb {
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    min-height: 100dvh;
+    min-height: 100vh;
     overflow: hidden;
 }
 
@@ -1157,7 +1157,7 @@ body::-webkit-scrollbar-thumb {
     }
 
     #displayText {
-        margin-top: 7rem;
+        margin-top: 5rem;
     }
 
     .paragraphStyles {

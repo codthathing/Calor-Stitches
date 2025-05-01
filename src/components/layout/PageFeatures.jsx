@@ -13,7 +13,7 @@ const PageFeatures = () => {
 
   if (view || search || wishlist || cart || account) {
     return (
-      <Suspense>
+      <Suspense fallback={null}>
         <Routes>
           {(view || search || wishlist) && (
             <Route

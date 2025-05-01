@@ -37,8 +37,17 @@ const HomeText = () => {
     return cleanup;
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      document.documentElement.style.setProperty('--dvh', `${window.innerHeight * 0.01}px`);
+    };
+    handleResize(); // Set initial height
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <section ref={home_section} id="front-page-div" >
+    <section ref={home_section} id="front-page-div" style={{ minHeight: "calc(var(--dvh, 1dvh) * 100)" }} >
       <picture style={{ position: "absolute", width: "100%", height: "100%", zIndex: "-1" }}>
         <source media="(max-width: 1023px)" srcSet={background_portrait} />
         <img src={background_landscape} alt="BACKGROUND IMAGE" loading="eager" fetchpriority ="high" style={{ width: "100%", height: "100%", objectFit: "cover" }} />

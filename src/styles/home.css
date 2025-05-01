@@ -38,7 +38,7 @@ body::-webkit-scrollbar-thumb {
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    min-height: 100dvh;
+    /* min-height: 100dvh; */
     overflow: hidden;
 }
 
@@ -1157,7 +1157,7 @@ body::-webkit-scrollbar-thumb {
     }
 
     #displayText {
-        margin-top: 5rem;
+        margin-top: 6rem;
     }
 
     .paragraphStyles {
@@ -1802,7 +1802,7 @@ body::-webkit-scrollbar-thumb {
 
     #displayText {
         width: 50%;
-        margin-top: 5rem;
+        margin-top: 6rem;
     }
 
     #curLangHead {

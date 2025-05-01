@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useUpdateProducts } from "./hooks/useUpdateProducts";
 import PageLayout from "./components/layout/PageLayout";
@@ -23,25 +23,23 @@ const App = () => {
   return (
     <BrowserRouter>
       <PageFeatures />
-      <Suspense fallback={null}>
-        <Routes>
-          <Route exact path="/" element={<PageLayout />}>
-            <Route index element={<HomePage />} />
-            <Route path="/product/:productName" element={<ReviewPage />} />
-            <Route path="/product/collection/:collectionName" element={<CollectionPage />} />
-            <Route path="/product" element={<ProductPage />} />
-            <Route path="/product/display-page" element={<DisplayPage />} />
-            <Route path="/shop/wishlist" element={<WishlistPage />} />
-            <Route path="/shop/cart" element={<CartPage />} />
-            <Route path="/shop/checkout" element={<CheckoutPage />} />
-            <Route path="/pages/confirm-page" element={<ConfirmPage />} />
-            <Route path="/pages/payment-page" element={<PaymentPage />} />
-            <Route path="/blog/:post_head" element={<PostMainPage />} />
-            <Route path="/blog/post/:post_title" element={<PostBlogsPage />} />
-            <Route path="/pages/admin-page" element={<AdminPage />} />
-          </Route>
-        </Routes>
-      </Suspense>
+      <Routes>
+        <Route exact path="/" element={<PageLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/product/:productName" element={<ReviewPage />} />
+          <Route path="/product/collection/:collectionName" element={<CollectionPage />} />
+          <Route path="/product" element={<ProductPage />} />
+          <Route path="/product/display-page" element={<DisplayPage />} />
+          <Route path="/shop/wishlist" element={<WishlistPage />} />
+          <Route path="/shop/cart" element={<CartPage />} />
+          <Route path="/shop/checkout" element={<CheckoutPage />} />
+          <Route path="/pages/confirm-page" element={<ConfirmPage />} />
+          <Route path="/pages/payment-page" element={<PaymentPage />} />
+          <Route path="/blog/:post_head" element={<PostMainPage />} />
+          <Route path="/blog/post/:post_title" element={<PostBlogsPage />} />
+          <Route path="/pages/admin-page" element={<AdminPage />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 };

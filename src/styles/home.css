@@ -35,11 +35,11 @@ body::-webkit-scrollbar-thumb {
 
 #front-page-div {
     position: relative;
-    /* display: flex; 
+    display: flex; 
     justify-content: center; 
-    align-items: center;  */
-    height: 100dvh;
-    border: 1px solid red;
+    align-items: center; 
+    min-height: 100dvh;
+    overflow: hidden;
 }
 
 #header {
@@ -261,14 +261,8 @@ body::-webkit-scrollbar-thumb {
 
 
 #displayText {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    margin: auto;
     width: 70%;
     text-align: center;
-    /* border: 1px solid red; */
 }
 
 #disParagraph {

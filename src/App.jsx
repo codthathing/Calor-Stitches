@@ -4,7 +4,6 @@ import { useUpdateProducts } from "./hooks/useUpdateProducts";
 import PageLayout from "./components/layout/PageLayout";
 import PageFeatures from "./components/layout/PageFeatures";
 import HomePage from "./pages/HomePage";
-// const HomePage = lazy(() => import("./pages/HomePage"));
 const ReviewPage = lazy(() => import("./pages/ReviewPage"));
 const CollectionPage = lazy(() => import("./pages/CollectionPage"));
 const ProductPage = lazy(() => import("./pages/ProductPage"));

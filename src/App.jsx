@@ -1,9 +1,10 @@
-import { lazy, Suspense } from "react";
+import { lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useUpdateProducts } from "./hooks/useUpdateProducts";
 import PageLayout from "./components/layout/PageLayout";
 import PageFeatures from "./components/layout/PageFeatures";
-const HomePage = lazy(() => import("./pages/HomePage"));
+import HomePage from "./pages/HomePage";
+// const HomePage = lazy(() => import("./pages/HomePage"));
 const ReviewPage = lazy(() => import("./pages/ReviewPage"));
 const CollectionPage = lazy(() => import("./pages/CollectionPage"));
 const ProductPage = lazy(() => import("./pages/ProductPage"));
@@ -23,7 +24,6 @@ const App = () => {
   return (
     <BrowserRouter>
       <PageFeatures />
-      <Suspense>
       <Routes>
         <Route exact path="/" element={<PageLayout />}>
           <Route index element={<HomePage />} />
@@ -41,7 +41,6 @@ const App = () => {
           <Route path="/pages/admin-page" element={<AdminPage />} />
         </Route>
       </Routes>
-      </Suspense>
     </BrowserRouter>
   );
 };

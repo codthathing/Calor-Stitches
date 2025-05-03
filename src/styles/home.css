@@ -88,6 +88,7 @@ body::-webkit-scrollbar-thumb {
 
 .curLangText {
     font-family: var(--Yantramanav);
+    user-select: none;
 }
 
 .display-currency {

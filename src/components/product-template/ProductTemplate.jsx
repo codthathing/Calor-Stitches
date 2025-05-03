@@ -6,13 +6,13 @@ import AddToWishList from "./AddToWishlist";
 import ProductOptions from "./ProductOptions";
 import { useShowPreload } from "../../hooks/useShowPreload";
 import { FiEye } from "react-icons/fi";
-import { useNavigateToPage } from "../../hooks/useNavigateToPage";
+import { useNavigate } from "react-router-dom";
 
 const ProductTemplate = ({ productArray }) => {
   const { products, setView } = useContext(NavigateContext);
   const [showViewText, setShowViewText] = useState(null);
   const { showPreload } = useShowPreload();
-  const navigate = useNavigateToPage();
+  const navigate = useNavigate();
 
   const navigateToView = (productName) => {
     setShowViewText(false);

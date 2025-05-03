@@ -27,7 +27,7 @@ const ReviewPictureDiv = () => {
       <picture id="productReviewImages">
         <ul id="productSideImages">
           {productImage.imagesArray.map(({ id, image, style }) => {
-            return <li key={id} className={`productSizeList imageSize ${style && "productSizeListStyle"}`}><img src={image} loading="lazy" alt={`${productNameText} ${id + 1}`} onClick={() => updateImage(id)} className="productSizeImage imageSize" /></li>
+            return <li key={id} className={`productSizeList imageSize ${style && "productSizeListStyle"}`}><img src={image} loading="lazy" fetchpriority="high" alt={`${productNameText} ${id + 1}`} onClick={() => updateImage(id)} className="productSizeImage imageSize" /></li>
           })}
         </ul>
         <div id="productMainImageDiv" className="imageSize">

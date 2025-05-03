@@ -17,6 +17,7 @@
   color: var(--282828);
   font-family: var(--Roboto);
   text-transform: capitalize;
+  user-select: none;
 }
 
 .productLinkIcon {
@@ -241,6 +242,7 @@
   color: var(--616161);
   font-family: var(--Roboto);
   cursor: pointer;
+  user-select: none;
 }
 
 #productAboutText {
@@ -399,6 +401,7 @@
 .productShownText {
   color: var(--282828);
   font-family: var(--Roboto);
+  user-select: none;
 }
 
 .productIcons {
@@ -409,6 +412,7 @@
 .productTexts {
   color: var(--222222);
   font-family: var(--Roboto);
+  user-select: none;
 }
 
 .productInnerDivs {
@@ -425,6 +429,7 @@
   color: var(--222222);
   font-family: var(--Roboto);
   cursor: pointer;
+  user-select: none;
 }
 
 .product-shown-default-text {
@@ -443,6 +448,7 @@
   color: var(--222222);
   font-family: var(--Roboto);
   cursor: pointer;
+  user-select: none;
 }
 
 .navigation-text {
@@ -528,6 +534,7 @@
   font-family: var(--Roboto);
   color: var(--222222);
   display: flex;
+  user-select: none;
 }
 
 #filter-text-type {

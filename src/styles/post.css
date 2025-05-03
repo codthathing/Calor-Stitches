@@ -45,6 +45,7 @@
   text-transform: uppercase;
   color: var(--222222);
   cursor: pointer;
+  user-select: none;
 }
 
 #post-shown-div {
@@ -83,6 +84,7 @@
   text-transform: uppercase;
   border-bottom: 1px solid var(--222222);
   cursor: pointer;
+  user-select: none;
 }
 
 #post-input-div {
@@ -115,6 +117,7 @@
   color: var(--222222);
   text-transform: uppercase;
   cursor: pointer;
+  user-select: none;
 }
 
 #post-recent-div {
@@ -137,11 +140,13 @@
   color: var(--282828);
   font-family: var(--Roboto);
   text-transform: uppercase;
+  user-select: none;
 }
 
 .post-recent-text {
   color: var(--282828);
   font-family: var(--1B1A1A);
+  user-select: none;
 }
 
 #post-instagram-div {

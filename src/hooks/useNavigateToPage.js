@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 export const useNavigateToPage = () => {
   const navigateToPage = useNavigate();
 
-  const navigate = (page, object) => {
+  const navigate = (page) => {
     startTransition(() => {
-      navigateToPage(page, object);
+      navigateToPage(page);
     });
   };
 

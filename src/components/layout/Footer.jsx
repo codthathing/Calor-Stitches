@@ -19,7 +19,7 @@ const Footer = () => {
         <div id="curencyLangDiv">
           <HeaderCurrencyDiv className={"display-currency-bottom"} />
         </div>
-        <p id="copyText">©2024 Pheezy, All Rights Reserved. With Love by CalorStiches</p>
+        <p id="copyText">©2024 Codthathing, All Rights Reserved. With Love by CalorStiches</p>
       </section>
     </footer>
   );

@@ -76,6 +76,7 @@ body::-webkit-scrollbar-thumb {
 
 #curLangInerText {
     font-family: var(--Yantramanav);
+    user-select: none;
 }
 
 .curLangMain {
@@ -165,6 +166,14 @@ body::-webkit-scrollbar-thumb {
     font-weight: 600;
 }
 
+#logoMob {
+    user-select: none;
+}
+
+#logoDesk {
+    user-select: none;
+}
+
 #navIcons {
     display: flex;
     align-items: center;
@@ -203,6 +212,7 @@ body::-webkit-scrollbar-thumb {
     position: absolute;
     border-radius: 50%;
     font-style: normal;
+    user-select: none;
 }
 
 .page-button {
@@ -227,6 +237,7 @@ body::-webkit-scrollbar-thumb {
     position: relative;
     text-transform: uppercase;
     cursor: pointer;
+    user-select: none;
 }
 
 .page-button-text::after {
@@ -371,6 +382,7 @@ body::-webkit-scrollbar-thumb {
 .selectOption {
     color: var(--222222);
     cursor: pointer;
+    user-select: none;
 }
 
 .viewOptionText {
@@ -453,6 +465,7 @@ body::-webkit-scrollbar-thumb {
     font-family: var(--Yantramanav);
     color: white;
     cursor: pointer;
+    user-select: none;
 }
 
 #latestSection {
@@ -465,6 +478,7 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
     border-bottom: 1px solid #F3F2ED;
     margin-bottom: 3rem;
+    user-select: none;
 }
 
 .latestItem {
@@ -535,6 +549,7 @@ body::-webkit-scrollbar-thumb {
 
 .videoCursor {
     cursor: pointer;
+    user-select: none;
 }
 
 .videoWidthIcon {
@@ -577,6 +592,10 @@ body::-webkit-scrollbar-thumb {
     width: 100%;
 }
 
+.post-home-button {
+    user-select: none;
+}
+
 .post-dislpay-text {
     color: var(--282828);
     text-transform: uppercase;
@@ -587,6 +606,7 @@ body::-webkit-scrollbar-thumb {
     color: var(--222222);
     text-decoration: none;
     cursor: pointer;
+    user-select: none;
 }
 
 .postHead {
@@ -702,6 +722,7 @@ body::-webkit-scrollbar-thumb {
     text-transform: uppercase;
     color: white;
     cursor: pointer;
+    user-select: none;
     font-family: var(--Yantramanav);
 }
 
@@ -1534,18 +1555,22 @@ body::-webkit-scrollbar-thumb {
         gap: 0 2rem;
     }
 
+    #displayText {
+        margin-top: 8.5rem;
+    }
+
     #disParagraph {
         font-size: 1.5rem;
     }
 
     #disHead {
-        margin: 8.5rem 0;
+        margin: 3.5rem 0;
         height: 20rem;
         font-size: 5rem;
     }
 
     .shop-btn {
-        margin-bottom: 8.5rem;
+        margin-bottom: 3.5rem;
         font-size: 1.5rem;
     }
 

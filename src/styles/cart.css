@@ -58,10 +58,10 @@
 
 .cartProductName {
   text-transform: capitalize;
-  text-decoration: none;
   color: var(--222222);
   font-family: var(--Yantramanav);
   cursor: pointer;
+  user-select: none;
 }
 
 .cartDefaultText {
@@ -195,6 +195,7 @@
 .checkoutLoginTexts {
   font-family: var(--Cormorant);
   color: var(--1B1A1A);
+  user-select: none;
 }
 
 .checkoutLoginTexts:nth-child(2) {

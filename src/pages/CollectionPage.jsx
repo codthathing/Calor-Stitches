@@ -11,12 +11,12 @@ const CollectionPage = () => {
   const { collectionName } = useParams();
   const { products, setView, setSearch, collection, setCollection } = useContext(NavigateContext);
 
-  usePageLoadEffects({effectsArray: [{effect: setView, value: false}, {effect: setSearch, value: false}]});
+  usePageLoadEffects({effectsArray: [{effect: setView, value: false}, {effect: setSearch, value: false}], dependency: collectionName});
 
   useEffect(() => {
     const presentCollections = products.filter(({ productInfo }) => productInfo.find(({ name }) => name === "CARTEGORIES").links.find(({ text }) => text === collectionName));
     setCollection(presentCollections);
-  }, [products]);
+  }, [products, collectionName]);
 
   const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers, productValue } = useProductShownEffect({ products: collection });
 

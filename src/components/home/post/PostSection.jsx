@@ -9,7 +9,7 @@ const PostSection = () => {
         <p className="product-section-head">Check Out Our Latest Posts</p>
       </div>
       <main id="mainPost">
-        <PostTemplate postArray={mockBlogPosts.slice(0, 3)} imageClass={"postImage"} divClass={"mainPostDiv"} />
+        <PostTemplate postArray={mockBlogPosts.slice(0, 3)} imageClass={"postImage"} buttonClass={"post-home-button"} divClass={"mainPostDiv"} />
       </main>
     </section>
   );

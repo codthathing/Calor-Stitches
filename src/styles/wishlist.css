@@ -194,6 +194,7 @@
 .wishlistHandleText {
   color: var(--222222);
   font-family: var(--Roboto);
+  user-select: none;
 }
 
 

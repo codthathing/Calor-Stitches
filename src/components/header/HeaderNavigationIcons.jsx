@@ -32,7 +32,7 @@ const HeaderNavigationIcons = () => {
                 <>
                   <IconClass className="iconTag" />
                   {showValue && (
-                    <motion.var className="icon-values" initial={{ ...(navbar ? { backgroundColor: "white", color: "#222222" } : { backgroundColor: "#222222", color: "white" }) }} animate={{ ...(navbar ? { backgroundColor: "#222222", color: "white" } : { backgroundColor: "white", color: "#222222" }) }} transition={{ type: "tween", duration: 0.5, ease: "linear" }} key={navbar}>
+                    <motion.var className="icon-values" initial={{ ...(navbar ? { backgroundColor: "rgb(255, 255, 255)", color: "rgb(34, 34, 34)" } : { backgroundColor: "rgb(34, 34, 34)", color: "rgb(255, 255, 255)" }) }} animate={{ ...(navbar ? { backgroundColor: "rgb(34, 34, 34)", color: "rgb(255, 255, 255)" } : { backgroundColor: "rgb(255, 255, 255)", color: "rgb(34, 34, 34)" }) }} transition={{ type: "tween", duration: 0.5, ease: "linear" }} key={navbar}>
                       {value}
                     </motion.var>
                   )}
@@ -49,9 +49,9 @@ const HeaderNavigationIcons = () => {
     return (
       <MotionConfig transition={{ duration: 0.5, ease: "easeInOut" }}>
         <motion.button onClick={toggle} animate={isOpen ? "open" : "close"} id="side-menu-hamburger-button">
-          <motion.div initial={{ backgroundColor: navbar ? "black" : "white" }} variants={{ open: { rotate: ["0deg", "0deg", "45deg"], top: ["25%", "50%", "50%"] }, close: { rotate: ["45deg", "0deg", "0deg"], top: ["50%", "50%", "25%"] } }} style={{ x: "-50%", left: "50%", y: "-50%", top: "25%" }} className="side-menu-hamburger-div" />
-          <motion.div initial={{ backgroundColor: navbar ? "black" : "white" }} variants={{ open: { rotate: ["0deg", "0deg", "-45deg"] }, close: { rotate: ["-45deg", "0deg", "0deg"] } }} style={{ x: "-50%", left: "50%", y: "-50%", top: "50%" }} className="side-menu-hamburger-div" />
-          <motion.div initial={{ backgroundColor: navbar ? "black" : "white" }} variants={{ open: { rotate: ["0deg", "0deg", "45deg"], top: ["75%", "50%", "50%"] }, close: { rotate: ["45deg", "0deg", "0deg"], top: ["50%", "50%", "75%"] } }} style={{ x: "-50%", left: "50%", y: "-50%", top: "75%" }} className="side-menu-hamburger-div" />
+          <motion.div initial={{ backgroundColor: navbar ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)" }} variants={{ open: { rotate: ["0deg", "0deg", "45deg"], top: ["25%", "50%", "50%"] }, close: { rotate: ["45deg", "0deg", "0deg"], top: ["50%", "50%", "25%"] } }} style={{ x: "-50%", left: "50%", y: "-50%", top: "25%" }} className="side-menu-hamburger-div" />
+          <motion.div initial={{ backgroundColor: navbar ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)" }} variants={{ open: { rotate: ["0deg", "0deg", "-45deg"] }, close: { rotate: ["-45deg", "0deg", "0deg"] } }} style={{ x: "-50%", left: "50%", y: "-50%", top: "50%" }} className="side-menu-hamburger-div" />
+          <motion.div initial={{ backgroundColor: navbar ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)" }} variants={{ open: { rotate: ["0deg", "0deg", "45deg"], top: ["75%", "50%", "50%"] }, close: { rotate: ["45deg", "0deg", "0deg"], top: ["50%", "50%", "75%"] } }} style={{ x: "-50%", left: "50%", y: "-50%", top: "75%" }} className="side-menu-hamburger-div" />
         </motion.button>
       </MotionConfig>
     );

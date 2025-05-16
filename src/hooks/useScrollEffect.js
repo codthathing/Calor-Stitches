@@ -43,7 +43,7 @@ export const useScrollEffect = () => {
     return (
       <AnimatePresence>
         {showNavToTop && (
-          <motion.div key="scroll-to-top-button" initial={{ y: 100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 100, opacity: 0 }} transition={{ type: "tween", duration: 0.5, ease: "linear" }} id="page-top-div" onClick={() => scrollToSection(home_section)}>
+          <motion.div id="page-top-div" key="scroll-to-top-button" initial={{ y: 100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 100, opacity: 0 }} transition={{ type: "tween", duration: 0.5, ease: "linear" }} onClick={() => scrollToSection(home_section)}>
             <FaArrowUp className="page-top-icon" />
           </motion.div>
         )}

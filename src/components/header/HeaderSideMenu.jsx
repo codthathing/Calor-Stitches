@@ -28,7 +28,7 @@ const HeaderSideMenu = () => {
   }, [pathLink]);
 
   return (
-    <motion.aside initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }} transition={{ duration: 0.5, type: "tween", ease: "linear" }} id="sidemenuList">
+    <motion.aside initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.5, type: "tween", ease: "linear" }} id="sidemenuList">
       {currentSideMenu.map(({ id, link, menuText, borderStyle }) => {
         return (
           <Link key={id} {...(link && { to: link })} className="sideMenuItem" style={borderStyle}>

@@ -102,16 +102,11 @@ body::-webkit-scrollbar-thumb {
   word-break: keep-all;
 }
 
-#headerNav {
-  position: relative;
-}
-
 #sidemenuList {
   position: absolute;
   top: 100%;
   width: 100%;
   z-index: 100;
-  display: block;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -119,11 +114,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .sideMenuItem {
-  list-style: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: all ease-in-out;
   padding-bottom: 0.75rem;
   color: black;
   text-decoration: none;

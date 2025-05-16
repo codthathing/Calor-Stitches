@@ -47,7 +47,7 @@ const HeaderNavigationIcons = () => {
 
   const HamburgerButton = ({ isOpen, toggle }) => {
     return (
-      <MotionConfig transition={{ duration: 0.35, ease: "easeInOut" }}>
+      <MotionConfig transition={{ duration: 0.5, ease: "easeInOut" }}>
         <motion.button onClick={toggle} animate={isOpen ? "open" : "close"} id="side-menu-hamburger-button">
           <motion.div initial={{ backgroundColor: navbar ? "black" : "white" }} variants={{ open: { rotate: ["0deg", "0deg", "45deg"], top: ["25%", "50%", "50%"] }, close: { rotate: ["45deg", "0deg", "0deg"], top: ["50%", "50%", "25%"] } }} style={{ x: "-50%", left: "50%", y: "-50%", top: "25%" }} className="side-menu-hamburger-div" />
           <motion.div initial={{ backgroundColor: navbar ? "black" : "white" }} variants={{ open: { rotate: ["0deg", "0deg", "-45deg"] }, close: { rotate: ["-45deg", "0deg", "0deg"] } }} style={{ x: "-50%", left: "50%", y: "-50%", top: "50%" }} className="side-menu-hamburger-div" />

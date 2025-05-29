@@ -10,16 +10,15 @@ const HeaderSideMenu = () => {
     { id: 2, menuText: "products", path: "/product", borderStyle: { borderBottom: "" } },
     { id: 3, menuText: "pages", path: "/page", borderStyle: { borderBottom: "" } },
     { id: 4, menuText: "blog", path: "/blog", borderStyle: { borderBottom: "" } },
-    // { id: 5, menuText: "features", link: "", path: "/feature", borderStyle: { borderBottom: "" } },
   ]);
 
   const pathLink = useLocation().pathname;
   useEffect(() => {
     const presentPath = currentSideMenu.map((path) => {
       if (!path.path && pathLink === "/") {
-        return { ...path, borderStyle: { border: "1px solid #222222" } };
+        return { ...path, borderStyle: { borderBottom: "1px solid #222222" } };
       } else if (pathLink.includes(path.path)) {
-        return { ...path, borderStyle: { border: "1px solid #222222" } };
+        return { ...path, borderStyle: { borderBottom: "1px solid #222222" } };
       } else {
         return path;
       }

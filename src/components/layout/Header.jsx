@@ -36,7 +36,7 @@ const Header = () => {
             <HeaderCurrencyDiv className={"display-currency-top"} />
           </div>
           <HeaderNav navbar={navbar} mount={hasMounted.current} />
-          <AnimatePresence>{true && <HeaderSideMenu />}</AnimatePresence>
+          <AnimatePresence>{toggleSideMenu && <HeaderSideMenu />}</AnimatePresence>
         </motion.header>
       )}
     </AnimatePresence>

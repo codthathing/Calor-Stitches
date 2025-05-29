@@ -28,6 +28,6 @@ const HomePage = () => {
       <PostSection />
     </>
   );
-}
+};
 
 export default HomePage;

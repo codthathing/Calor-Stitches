@@ -108,9 +108,12 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
   z-index: 100;
   background-color: white;
+  overflow: hidden;
+}
+
+#side-menu-div {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 .sideMenuItem {
@@ -120,6 +123,10 @@ body::-webkit-scrollbar-thumb {
   padding-bottom: 0.75rem;
   color: black;
   text-decoration: none;
+}
+
+.sideMenuItem:hover {
+  border-bottom: 1px solid black;
 }
 
 .sideMenuText {
@@ -847,7 +854,7 @@ body::-webkit-scrollbar-thumb {
     right: -0.75rem;
   }
 
-  #sidemenuList {
+  #side-menu-div {
     gap: 0.75rem 0;
   }
 
@@ -1086,13 +1093,9 @@ body::-webkit-scrollbar-thumb {
     font-size: var(--12px);
   }
 
-  #sidemenuList {
+  #side-menu-div {
     gap: 1rem 0;
     padding: 2rem 1.5rem;
-  }
-
-  .sideMenuItem:hover {
-    border-bottom: 2px solid black;
   }
 
   .presentMenu {
@@ -1507,12 +1510,8 @@ body::-webkit-scrollbar-thumb {
     height: 2rem;
   }
 
-  #sidemenuList {
+  #side-menu-div {
     padding: 2.5rem 1.75rem;
-  }
-
-  .sideMenuItem:hover {
-    border-bottom: 3px solid black;
   }
 
   .sideMenuIcon {
@@ -1820,12 +1819,8 @@ body::-webkit-scrollbar-thumb {
     height: 1rem;
   }
 
-  #sidemenuList {
+  #side-menu-div {
     padding: 2rem 3rem;
-  }
-
-  .sideMenuItem:hover {
-    border-bottom: 1px solid black;
   }
 
   .sideMenuIcon {

@@ -165,7 +165,7 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
 }
 
-.loginText {
+#loginText {
   font-family: var(--Roboto);
   font-style: normal;
 }
@@ -828,7 +828,11 @@ body::-webkit-scrollbar-thumb {
     display: none !important;
   }
 
-  .loginText {
+  #mobile-login-icon {
+    display: none;
+  }
+
+  #loginText {
     font-size: var(--17px);
     font-weight: var(--500);
   }
@@ -1125,6 +1129,10 @@ body::-webkit-scrollbar-thumb {
 
   #navIcons {
     gap: 0 1rem;
+  }
+
+  #desktop-login-icon {
+    display: none;
   }
 
   .iconTag {

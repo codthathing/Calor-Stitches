@@ -11,7 +11,7 @@ if (APP_VERSION !== CURRENT_VERSION) {
   localStorage.removeItem("wishlistItems");
   localStorage.removeItem("cartItems");
   localStorage.setItem("APP_VERSION", CURRENT_VERSION);
-};
+}
 
 export const NavigateContext = createContext();
 

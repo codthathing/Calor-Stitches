@@ -27,11 +27,16 @@ export const useScrollEffect = () => {
   const path = useLocation().pathname;
 
   useEffect(() => {
-    {
-      window.scrollY > 120 || path.includes("/product") || path.includes("/shop") || path.includes("/pages") || path.includes("/blog") ? setNavbar(true) : setNavbar(false);
+    if (window.scrollY > 120 || path.includes("/product") || path.includes("/shop") || path.includes("/pages") || path.includes("/blog")) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
     }
+  }, [window.scrollY]);
 
+  useEffect(() => {
     let lastScrollY = 120;
+
     const changeHeader = () => {
       const presentScrollY = window.scrollY;
       if (presentScrollY > lastScrollY) {
@@ -40,12 +45,19 @@ export const useScrollEffect = () => {
       } else {
         setHeader(false);
       }
-      {
-        presentScrollY < lastScrollY && presentScrollY >= 120 && path === "/" ? setShowNavToTop(true) : setShowNavToTop(false);
+
+      if (presentScrollY < lastScrollY && presentScrollY >= 120 && path === "/") {
+        setShowNavToTop(true);
+      } else {
+        setShowNavToTop(false);
       }
+
       if (presentScrollY > 120) lastScrollY = presentScrollY;
-      {
-        path === "/" && presentScrollY <= 120 ? setNavbar(false) : setNavbar(true);
+
+      if (path === "/" && presentScrollY <= 120) {
+        setNavbar(false);
+      } else {
+        setNavbar(true);
       }
     };
 

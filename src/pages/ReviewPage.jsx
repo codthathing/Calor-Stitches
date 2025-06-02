@@ -17,28 +17,35 @@ const ReviewPage = () => {
   const [relatedProduct, setRelatedProduct] = useState([]);
   const reviewSectionRef = useRef(null);
 
-  usePageLoadEffects({effectsArray: [{ effect: setSearch, value: false }, { effect: setCart, value: false }, { effect: setWishList, value: false }], dependency: productName});
+  usePageLoadEffects({
+    effectsArray: [
+      { effect: setSearch, value: false },
+      { effect: setCart, value: false },
+      { effect: setWishList, value: false },
+    ],
+    dependency: productName,
+  });
 
   useEffect(() => {
     const presentProduct = products.find((product) => product.productName === productName);
     setProduct(presentProduct);
     const presentProductCategory = presentProduct.productInfo.find(({ name }) => name === "CARTEGORIES")?.links.map(({ text }) => text);
-    const relatedProducts = products.filter(({ productInfo, productName }) => (productName !== presentProduct.productName) && productInfo.find(({ name }) => name === "CARTEGORIES")?.links.some(({ text }) => presentProductCategory.includes(text)));
+    const relatedProducts = products.filter(({ productInfo, productName }) => productName !== presentProduct.productName && productInfo.find(({ name }) => name === "CARTEGORIES")?.links.some(({ text }) => presentProductCategory.includes(text)));
     setRelatedProduct(relatedProducts);
   }, [products, productName]);
 
   useEffect(() => {
     reviewSectionRef.current.scrollTo(0, 0);
-  }, [productName])
+  }, [productName]);
 
-  const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers } = useProductShownEffect({products: relatedProduct});
+  const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers } = useProductShownEffect({ products: relatedProduct });
 
   const { id, productImage, productImages, productName: productNameText, cutOff, productPrice, averagePrice, priceOne, priceTwo, productDesc, wishlistStock, cartAmt, productDetails, productColors, productAvailable, productSizes, productInfo } = product;
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },
     { id: 1, linkDirect: "/product", linkText: "Product", linkArrow: true },
-    { id: 2, linkDirect: "", linkText: product.productName, linkArrow: false }
+    { id: 2, linkDirect: "", linkText: product.productName, linkArrow: false },
   ];
 
   const [displayPage, setDisplayPage] = useState("DESCRIPTION");
@@ -50,7 +57,7 @@ const ReviewPage = () => {
         <main id="productReviewMain" className="productMains">
           <ReviewPictureDiv />
           <ReviewSection />
-        </main >
+        </main>
         <AboutSection />
         <div id="productRelatedDiv">
           <p id="productRelatedText">Related products</p>
@@ -60,6 +67,6 @@ const ReviewPage = () => {
       </PageSection>
     </ReviewContext.Provider>
   );
-}
+};
 
 export default ReviewPage;

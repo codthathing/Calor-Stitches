@@ -1,4 +1,5 @@
 import { useContext, useEffect, useRef, memo } from "react";
+import { useLocation } from "react-router-dom";
 import { useScrollEffect } from "../../hooks/useScrollEffect";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 import HeaderCurrencyDiv from "../header/HeaderCurrencyDiv";
@@ -20,12 +21,16 @@ const HeaderNav = memo(({ navbar, mount }) => {
 
 const Header = () => {
   const { header } = useScrollEffect();
-  const { toggleSideMenu, navbar } = useContext(NavigateContext);
+  const { toggleSideMenu, navbar, setToggleSideMenu } = useContext(NavigateContext);
+  const location = useLocation().pathname;
   const hasMounted = useRef(false);
 
   useEffect(() => {
     hasMounted.current = true;
-  }, []);
+    setToggleSideMenu(false);
+
+    return () => (hasMounted.current = false);
+  }, [location]);
 
   return (
     <AnimatePresence>

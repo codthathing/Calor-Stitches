@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaChevronDown } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -43,4 +43,4 @@ const HeaderSideMenu = () => {
   );
 };
 
-export default HeaderSideMenu;
+export default memo(HeaderSideMenu);

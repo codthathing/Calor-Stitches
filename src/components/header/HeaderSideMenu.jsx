@@ -12,19 +12,20 @@ const HeaderSideMenu = () => {
     { id: 4, menuText: "blog", path: "/blog", borderStyle: { borderBottom: "" } },
   ]);
 
-  const pathLink = useLocation().pathname;
+  const location = useLocation().pathname;
   useEffect(() => {
-    const presentPath = currentSideMenu.map((path) => {
-      if (!path.path && pathLink === "/") {
-        return { ...path, borderStyle: { borderBottom: "1px solid #222222" } };
-      } else if (pathLink.includes(path.path)) {
-        return { ...path, borderStyle: { borderBottom: "1px solid #222222" } };
-      } else {
-        return path;
-      }
-    });
-    setCurrentSideMenu(presentPath);
-  }, [pathLink]);
+    setCurrentSideMenu((prevState) =>
+      prevState.map((path) => {
+        if (!path.path && location === "/") {
+          return { ...path, borderStyle: { borderBottom: "1px solid #222222" } };
+        } else if (location.includes(path.path)) {
+          return { ...path, borderStyle: { borderBottom: "1px solid #222222" } };
+        } else {
+          return path;
+        }
+      })
+    );
+  }, [location]);
 
   return (
     <motion.aside initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }} transition={{ duration: 0.35, type: "tween", ease: "linear" }} id="sidemenuList">

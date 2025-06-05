@@ -1,4 +1,4 @@
-import { startTransition, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
 import ProductStockAlert from "./ProductStockAlert";
 import ProductPrice from "./ProductPrice";
@@ -15,14 +15,12 @@ const ProductTemplate = ({ productArray }) => {
   const navigate = useNavigate();
 
   const navigateToView = (productName) => {
-    startTransition(() => {
-      setShowViewText(false);
-      showPreload();
-      setTimeout(() => {
-        navigate("", { state: productName });
-        setView(true);
-      }, 2000);
-    });
+    setShowViewText(false);
+    showPreload();
+    setTimeout(() => {
+      navigate("", { state: productName });
+      setView(true);
+    }, 2000);
   };
 
   return (

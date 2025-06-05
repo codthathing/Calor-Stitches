@@ -1,8 +1,8 @@
 import { lazy, Suspense, useContext } from "react";
 import { useLocation, Routes, Route } from "react-router-dom";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
+import ViewSection from "../../features/view/ViewSection";
 const SearchSection = lazy(() => import("../../features/search/SearchSection"));
-const ViewSection = lazy(() => import("../../features/view/ViewSection"));
 const WishlistSection = lazy(() => import("../../features/wishlist/WishlistSection"));
 const CartSection = lazy(() => import("../../features/cart/CartSection"));
 const SignInLayout = lazy(() => import("../../features/(sign-in)/SignInLayout"));

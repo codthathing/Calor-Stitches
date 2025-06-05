@@ -1,14 +1,15 @@
 import { useContext } from "react";
 import { NavigateContext } from "../../services/contexts/NavigateContext";
-import { useNavigateToPage } from "../../hooks/useNavigateToPage";
 import WishlistDeleteIcon from "./WishlistDeleteIcon";
 import ProductPrice from "../../components/product-template/ProductPrice";
 import WishlistStockAlert from "./WishlistStockAlert";
 import ProductOptions from "../../components/product-template/ProductOptions";
+import { useNavigate } from "react-router-dom";
 
 const WishlistProductTemplate = () => {
   const { setWishList, wishlistItems, setView } = useContext(NavigateContext);
-  const navigate = useNavigateToPage();
+  const navigate = useNavigate();
+
   const navigateToView = (productName) => {
     navigate("", { state: productName });
     setWishList(false);

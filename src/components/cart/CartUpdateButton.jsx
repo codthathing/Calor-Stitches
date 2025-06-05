@@ -3,13 +3,11 @@ import { NavigateContext } from "../../services/contexts/NavigateContext";
 import { CartContext } from "../../services/contexts/CartContext";
 import { useCartEffect } from "../../hooks/useCartEffect";
 import PageButtons from "../common/PageButtons";
-import { useShowPreload } from "../../hooks/useShowPreload";
 
 const CartUpdateButton = () => {
   const { cloneCart, setCartItems, cartItems } = useContext(NavigateContext);
   const { setShowCartInfo } = useContext(CartContext);
   const { checkCart, displayInfo } = useCartEffect();
-  const { showPreload } = useShowPreload();
 
   const updateCart = () => {
     setShowCartInfo(false);
@@ -17,7 +15,6 @@ const CartUpdateButton = () => {
     checkCart(cartInfos);
 
     if (JSON.stringify(cloneCart) !== JSON.stringify(cartItems) && cartInfos.length === 0) {
-      showPreload();
       setTimeout(() => {
         setCartItems(cloneCart);
       }, 2000);
@@ -26,7 +23,7 @@ const CartUpdateButton = () => {
       setTimeout(() => {
         setShowCartInfo(false);
       }, 1000);
-    };
+    }
 
     displayInfo(cartInfos);
   };

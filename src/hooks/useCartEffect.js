@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { NavigateContext } from "../services/contexts/NavigateContext";
 import { CartContext } from "../services/contexts/CartContext";
+import { useShowPreload } from "./useShowPreload";
 
 export const useCartEffect = () => {
   const { cloneCart, products } = useContext(NavigateContext);
   const { setCartInfoArray, setShowCartInfo } = useContext(CartContext);
+  const { showPreload } = useShowPreload();
 
   const checkCart = (info) => {
     cloneCart.map(({ productName, cartAmt }) => {
@@ -20,6 +22,7 @@ export const useCartEffect = () => {
   const displayInfo = (info) => {
     if (info.length > 0) {
       setCartInfoArray(info);
+      showPreload();
       setTimeout(() => {
         setShowCartInfo(true);
         window.scrollTo({ top: 0, left: 0, behavior: "smooth" });

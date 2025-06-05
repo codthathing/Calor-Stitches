@@ -1,8 +1,10 @@
-import { createContext, useState, useRef } from "react";
+import { createContext, useState, useRef, useEffect } from "react";
 import { mockProducts } from "../../database/mockProducts";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import { WishlistReducer } from "../reducers/wishlistReducer";
 import america_flag from "../../assets/currency-flags/america-flag.png";
+import nigeria_flag from "../../assets/currency-flags/nigeria-flag.png";
+import { changeCurrencyToDollar, changeCurrencyToNaira } from "../../utils/convertCurrency";
 
 const CURRENT_VERSION = "1.0.1";
 
@@ -38,8 +40,34 @@ const NavigateProvider = ({ children }) => {
   const [view, setView] = useState(false);
   const [showPreload, setShowPreload] = useState(false);
   const { state, dispatch } = WishlistReducer();
+  const [defaultCurrency, setDefaultCurrency] = useState(false);
+  useEffect(() => {
+    if (presentCurrency === "USD") {
+      setCurDetails({ preNation: "United states (USD $)", preCur: "(USD $)", curFlag: nigeria_flag, curName: "Naira ₦" });
+      changeCurrencyToDollar([
+        { array: products, setArray: setProducts },
+        { array: collection, setArray: setCollection },
+        { array: presentFilterProducts, setArray: setPresentFilterProducts },
+      ]);
+      setProductShipValue({ shipFee: productShipValue.shipFee / 1000, min: productShipValue.min / 1000, max: productShipValue.max / 1000, minValue: productShipValue.minValue / 1000, maxValue: productShipValue.maxValue / 1000 });
+      setCurSymbol("$");
+    } else if (presentCurrency === "NGN") {
+      setCurDetails({ preNation: "Nigeria (Naira ₦)", preCur: "(Naira ₦)", curFlag: america_flag, curName: "USD $" });
+      if (defaultCurrency) {
+        changeCurrencyToNaira([
+          { array: products, setArray: setProducts },
+          { array: collection, setArray: setCollection },
+          { array: presentFilterProducts, setArray: setPresentFilterProducts },
+        ]);
+        setProductShipValue({ shipFee: productShipValue.shipFee * 1000, min: productShipValue.min * 1000, max: productShipValue.max * 1000, minValue: productShipValue.minValue * 1000, maxValue: productShipValue.maxValue * 1000 });
+      }
+      setCurSymbol("₦");
+    }
 
-  return <NavigateContext.Provider value={{ account, setAccount, presentRegister, setPresentRegister, wishList, setWishList, cart, setCart, search, setSearch, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, curDetails, setCurDetails, productShipValue, setProductShipValue, presentCurrency, setPresentCurrency, cloneCart, setCloneCart, product_section, home_section, showPreload, setShowPreload, view, setView, collection, setCollection, presentFilterProducts, setPresentFilterProducts }}>{children}</NavigateContext.Provider>;
+    return () => setDefaultCurrency(false);
+  }, [presentCurrency]);
+
+  return <NavigateContext.Provider value={{ account, setAccount, presentRegister, setDefaultCurrency, setPresentRegister, wishList, setWishList, cart, setCart, search, setSearch, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, curDetails, setCurDetails, productShipValue, setProductShipValue, presentCurrency, setPresentCurrency, cloneCart, setCloneCart, product_section, home_section, showPreload, setShowPreload, view, setView, collection, setCollection, presentFilterProducts, setPresentFilterProducts }}>{children}</NavigateContext.Provider>;
 };
 
 export default NavigateProvider;

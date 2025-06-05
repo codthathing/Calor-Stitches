@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import ProductTemplate from "../product-template/ProductTemplate";
 
 export const useProductShownEffect = ({ products, startPosition = 0, shownProducts = 4 }) => {
@@ -19,19 +19,19 @@ export const useProductShownEffect = ({ products, startPosition = 0, shownProduc
   return { mapProducts, setMapProducts, pageNumbers, setPageNumbers, productValue, shownProducts };
 };
 
-export const ProductShown = ({ mapProducts, productValue, products }) => {
+export const ProductShown = memo(({ mapProducts, productValue, products }) => {
   return (
     <p className="productShownText">
       Showing {mapProducts + 1} - {productValue} of {products.length} products
     </p>
   );
-};
+});
 
-export const Products = ({ products, mapProducts, shownProducts }) => {
+export const Products = memo(({ products, mapProducts, shownProducts }) => {
   return <>{products.length > 0 ? <ProductTemplate productArray={products.slice(mapProducts, mapProducts + shownProducts)} /> : <p className="product-shown-default-text">Sorry, no products match your search criteria at the moment.</p>}</>;
-};
+});
 
-export const ProductPagination = ({ setMapProducts, setPageNumbers, pageNumbers, shownProducts }) => {
+export const ProductPagination = memo(({ setMapProducts, setPageNumbers, pageNumbers, shownProducts }) => {
   const changePage = (id) => {
     setMapProducts(shownProducts * id);
     setPageNumbers((prevState) => prevState.map((page) => ({ ...page, style: page.id === id })));
@@ -47,4 +47,4 @@ export const ProductPagination = ({ setMapProducts, setPageNumbers, pageNumbers,
       })}
     </div>
   );
-};
+});

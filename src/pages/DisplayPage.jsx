@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { DisplayContext } from "../services/contexts/DisplayContext";
 import { usePageLoadEffects } from "../hooks/usePageLoadEffects";
 import PageNavigationLinks from "../components/ui/PageNavigationLinks";
@@ -7,14 +7,13 @@ import { useProductOptionsFilters } from "../hooks/useProductOptionsFilters";
 import { useProductFiltersArray } from "../hooks/useProductFiltersArray";
 import DisplayFilterSection from "../components/display/DisplayFilterSection";
 import { useProductShownEffect, Products, ProductPagination } from "../components/product/ProductDisplayComponents";
-import { FiFilter } from 'react-icons/fi';
+import { FiFilter } from "react-icons/fi";
 import PageSection from "../components/layout/PageSection";
 
-
 const DisplayPage = () => {
-  const { presentFilterProducts, filterOption, changeProductsTypes, handleMinChange, handleMaxChange,  changeProductsColors, changeProductsSize } = useProductOptionsFilters();
+  const { presentFilterProducts, filterOption, changeProductsTypes, handleMinChange, handleMaxChange, changeProductsColors, changeProductsSize } = useProductOptionsFilters();
 
-  const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers } = useProductShownEffect({products: presentFilterProducts});
+  const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers } = useProductShownEffect({ products: presentFilterProducts });
 
   const { productTypes, setProductTypes, productColors, setProductColors, productSize, setProductSize } = useProductFiltersArray();
 
@@ -24,13 +23,12 @@ const DisplayPage = () => {
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },
     { id: 1, linkDirect: "", linkText: "Product", linkArrow: true },
     { id: 2, linkDirect: "", linkText: "latest items", linkArrow: false },
-  ]
+  ];
 
   const [showFilterSection, setShowFilterSection] = useState(false);
 
-
   return (
-    <DisplayContext.Provider value={{ setShowFilterSection, filterOption, changeProductsTypes, productTypes, setProductTypes, handleMinChange, handleMaxChange,  changeProductsColors, productColors, setProductColors, changeProductsSize, productSize, setProductSize }}>
+    <DisplayContext.Provider value={{ setShowFilterSection, filterOption, changeProductsTypes, productTypes, setProductTypes, handleMinChange, handleMaxChange, changeProductsColors, productColors, setProductColors, changeProductsSize, productSize, setProductSize }}>
       <PageSection>
         <PageNavigationLinks pageLinks={pageLinkDetails} />
         <main id="productAllMain" className="productMains">
@@ -48,6 +46,6 @@ const DisplayPage = () => {
       </PageSection>
     </DisplayContext.Provider>
   );
-}
+};
 
-export default DisplayPage;
+export default memo(DisplayPage);

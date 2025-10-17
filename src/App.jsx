@@ -24,7 +24,7 @@ const App = () => {
     <BrowserRouter>
       <PageFeatures />
       <Routes>
-        <Route exact path="/" element={<PageLayout />}>
+        <Route exact path="/" element={<PageLayout />}>  
           <Route index element={<HomePage />} />
           <Route path="/product/:productName" element={<ReviewPage />} />
           <Route path="/product/collection/:collectionName" element={<CollectionPage />} />

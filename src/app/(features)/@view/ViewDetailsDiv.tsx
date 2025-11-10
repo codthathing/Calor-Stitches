@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { ViewContext } from "../../../store/providers/ViewContext";
 import { NavigateContext } from "../../../store/providers/NavigateContext";
-import ReviewDetails from "../../review/ReviewDetails";
+import ReviewDetails from "../../(main)/review/ReviewDetails";
 import WishlistStockAlert from "../@wishlist/WishlistStockAlert";
-import ReviewColorDiv from "../../review/ReviewColorDiv";
-import ReviewSizeDiv from "../../review/ReviewSizeDiv";
-import ReviewFunctions from "../../review/ReviewFunctions";
-import ReviewProductDetails from "../../review/ReviewProductDetails";
+import ReviewColorDiv from "../../(main)/review/ReviewColorDiv";
+import ReviewSizeDiv from "../../(main)/review/ReviewSizeDiv";
+import ReviewFunctions from "../../(main)/review/ReviewFunctions";
+import ReviewProductDetails from "../../(main)/review/ReviewProductDetails";
 import PageButtons from "../../common/PageButtons";
 import { useNavigateToPage } from "../../../hooks/useNavigateToPage";
 

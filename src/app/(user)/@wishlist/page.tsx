@@ -4,7 +4,7 @@ import { useSectionScroll } from "../../../hooks/useSectionScroll";
 import { useNavigateToPage } from "../../../hooks/useNavigateToPage";
 import WishlistActionText from "./WishlistActionText";
 import WishlistProductDiv from "./WishlistProductDiv";
-import { scrollToSection } from "../../../utils/scrollToSection";
+import { scrollToSection } from "../../../lib/utils/scrollToSection";
 import PageButtons from "../../common/PageButtons";
 import { FaTimes } from "react-icons/fa";
 

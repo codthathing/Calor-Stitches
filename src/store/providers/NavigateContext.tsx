@@ -1,10 +1,10 @@
 import { createContext, useState, useRef, useEffect } from "react";
-import { mockProducts } from "../../database/mockProducts";
+import { mockProducts } from "../../lib/data/mockProducts";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import { WishlistReducer } from "../reducers/wishlistReducer";
 import america_flag from "../../assets/currency-flags/america-flag.png";
 import nigeria_flag from "../../assets/currency-flags/nigeria-flag.png";
-import { changeCurrencyToDollar, changeCurrencyToNaira } from "../../utils/convertCurrency";
+import { changeCurrencyToDollar, changeCurrencyToNaira } from "../../lib/utils/convertCurrency";
 
 const CURRENT_VERSION = "1.0.1";
 

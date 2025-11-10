@@ -1,4 +1,4 @@
-import { mockBlogPosts } from "../../database/mockBlogPosts";
+import { mockBlogPosts } from "../../lib/data/mockBlogPosts";
 import PostText from "./PostText";
 import { useNavigateToPage } from "../../hooks/useNavigateToPage";
 

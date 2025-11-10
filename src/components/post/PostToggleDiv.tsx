@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { PostMainContext } from "../../store/providers/PostMainContext";
-import { mockBlogPosts } from "../../database/mockBlogPosts";
+import { mockBlogPosts } from "../../lib/data/mockBlogPosts";
 
 const PostToggleDiv = () => {
   let { id, postState, setPostState } = useContext(PostMainContext);

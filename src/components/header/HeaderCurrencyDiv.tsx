@@ -1,6 +1,6 @@
 import { memo, useContext, useState } from "react";
 import { NavigateContext } from "../../store/providers/NavigateContext";
-import { changeCurrencyToDollar, changeCurrencyToNaira } from "../../utils/convertCurrency";
+import { changeCurrencyToDollar, changeCurrencyToNaira } from "../../lib/utils/convertCurrency";
 import { useShowPreload } from "../../hooks/useShowPreload";
 import { FaChevronDown } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";

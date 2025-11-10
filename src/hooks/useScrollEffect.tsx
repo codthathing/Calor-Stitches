@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext, memo } from "react";
 import { useLocation } from "react-router-dom";
 import { NavigateContext } from "../store/providers/NavigateContext";
-import { scrollToSection } from "../utils/scrollToSection";
+import { scrollToSection } from "../lib/utils/scrollToSection";
 import { FaArrowUp } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 

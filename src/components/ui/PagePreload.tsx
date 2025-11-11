@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavigateContext } from "../../store/providers/NavigateContext";
+import { NavigateContext } from "../../store/providers/NavigateProvider";
 import pre_load from "../../assets/pre-load.gif";
 
 const PagePreload = () => {

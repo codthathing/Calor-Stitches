@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavigateContext } from "../../store/providers/NavigateContext";
+import { NavigateContext } from "../../store/providers/NavigateProvider";
 
 const ProductPrice = ({ priceMainClass, priceDivClass, productPriceClass, priceClass, cutOff, productPrice, averagePrice, priceOne, priceTwo }) => {
   const { curSymbol } = useContext(NavigateContext);

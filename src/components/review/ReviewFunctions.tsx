@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavigateContext } from "../../store/providers/NavigateContext";
+import { NavigateContext } from "../../store/providers/NavigateProvider";
 import CartItemAmt from "../cart/CartItemAmt";
 import AddToCart from "../product-template/AddToCart";
 import AddToWishList from "../product-template/AddToWishlist";

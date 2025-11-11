@@ -1,6 +1,10 @@
-const changeCurrencyToDollar = (productsArray = [{}]) => {
-  for (let i = 0; i < productsArray.length; i++) {
-    const updatedValues = productsArray[i].array.map((details) => {
+"use client";
+import { ProductType } from "@/types/productType";
+import { Dispatch, SetStateAction } from "react";
+
+const changeCurrencyToDollar = (productsArray: { array: ProductType[]; setArray: Dispatch<SetStateAction<ProductType[]>> }[]) => {
+  productsArray.forEach(({ array, setArray }) => {
+    const updatedValues = array.map((details): ProductType => {
       return {
         ...details,
         priceOne: details?.priceOne ? details.priceOne / 1000 : 0,
@@ -9,13 +13,14 @@ const changeCurrencyToDollar = (productsArray = [{}]) => {
         productPrice: details?.productPrice ? details.productPrice / 1000 : 0,
       };
     });
-    productsArray[i].setArray(updatedValues);
-  }
+
+    setArray(updatedValues);
+  });
 };
 
-const changeCurrencyToNaira = (productsArray = [{}]) => {
-  for (let i = 0; i < productsArray.length; i++) {
-    const updatedValues = productsArray[i].array.map((details) => {
+const changeCurrencyToNaira = (productsArray: { array: ProductType[]; setArray: Dispatch<SetStateAction<ProductType[]>> }[]) => {
+  productsArray.forEach(({ array, setArray }) => {
+    const updatedValues = array.map((details): ProductType => {
       return {
         ...details,
         priceOne: details?.priceOne ? details.priceOne * 1000 : 0,
@@ -24,8 +29,9 @@ const changeCurrencyToNaira = (productsArray = [{}]) => {
         productPrice: details?.productPrice ? details.productPrice * 1000 : 0,
       };
     });
-    productsArray[i].setArray(updatedValues);
-  }
+
+    setArray(updatedValues);
+  });
 };
 
 export { changeCurrencyToDollar, changeCurrencyToNaira };

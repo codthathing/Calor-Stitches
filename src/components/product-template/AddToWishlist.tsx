@@ -1,5 +1,5 @@
 import { startTransition, useContext, useState } from "react";
-import { NavigateContext } from "../../store/providers/NavigateContext";
+import { NavigateContext } from "../../store/providers/NavigateProvider";
 import { FiHeart } from 'react-icons/fi';
 
 const AddToWishList = ({ id, showText, showIcon }) => {

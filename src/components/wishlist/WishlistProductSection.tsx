@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavigateContext } from "../../store/providers/NavigateContext";
+import { NavigateContext } from "../../store/providers/NavigateProvider";
 import ProductTopics from "../ui/ProductTopics";
 import WishlistProductTemplate from "./WishlistProductTemplate";
 import DefaultText from "../common/DefaultText";

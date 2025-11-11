@@ -1,5 +1,5 @@
 import { useContext, useMemo } from "react";
-import { NavigateContext } from "../store/providers/NavigateContext";
+import { NavigateContext } from "../store/providers/NavigateProvider";
 
 export const useSumCartItems = (cart) => {
   const { presentCurrency } = useContext(NavigateContext);

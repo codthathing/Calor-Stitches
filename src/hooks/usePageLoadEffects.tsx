@@ -1,13 +1,17 @@
-import { useEffect } from "react";
+"use client";
+import { Dispatch, SetStateAction, useEffect } from "react";
 
-export const usePageLoadEffects = ({ effectsArray, dependency }) => {
+type PageLoadType = {
+  effectsArray: { effect: Dispatch<SetStateAction<boolean | number | string>>; value: boolean | number | string }[];
+  dependency: boolean | number | string | Dispatch<SetStateAction<boolean | number | string>>;
+};
+
+export const usePageLoadEffects = (input: PageLoadType | null) => {
   useEffect(() => {
     const timeout = setTimeout(() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" }), 200);
 
-    for (let i = 0; i < effectsArray?.length; i++) {
-      effectsArray[i]?.effect(effectsArray[i]?.value);
-    }
+    input?.effectsArray.forEach(({ effect, value }) => effect(value));
 
     return () => clearTimeout(timeout);
-  }, [dependency]);
+  }, [input?.dependency]);
 };

@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { NavigateContext } from "../store/providers/NavigateContext";
+import { NavigateContext } from "../store/providers/NavigateProvider";
 
 export const useReviewEffect = (productId, type, text, array) => {
   const [details, setDetails] = useState({ text, array });

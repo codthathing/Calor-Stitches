@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { useInputFocus } from "../../../hooks/useInputFocus";
-import { NavigateContext } from "../../../store/providers/NavigateContext";
+import { NavigateContext } from "../../../store/providers/NavigateProvider";
 import { useProductShownEffect, Products, ProductPagination } from "../../product/ProductDisplayComponents";
 import { FaSearch } from "react-icons/fa";
 

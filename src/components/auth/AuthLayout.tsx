@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavigateContext } from "../../store/providers/NavigateContext";
+import { NavigateContext } from "../../store/providers/NavigateProvider";
 import LoginSection from "../features/(sign-in)/LoginSection";
 import CreateAccountSection from "../features/(sign-in)/CreateAccountSection";
 import ForgotPasswordSection from "../features/(sign-in)/ForgotPasswordSection";

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavigateContext } from "../../store/providers/NavigateContext";
+import { NavigateContext } from "../../store/providers/NavigateProvider";
 
 const DisplayFilterOptionDiv = ({ filterText, productFunction, productArray, setProductArray, textLengthId, showColorDiv, showFirstInput, showSecondInput, showTypeLength, showSizeLength, showColorLength }) => {
   const { products } = useContext(NavigateContext);

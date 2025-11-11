@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 
-export const CartReducer = () => {
+export const cartReducer = () => {
   const cartAction = (state, action) => {
     switch (action.display) {
       case "ADD":

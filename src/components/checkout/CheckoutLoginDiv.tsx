@@ -1,5 +1,5 @@
 import { startTransition, useContext } from "react";
-import { NavigateContext } from "../../store/providers/NavigateContext";
+import { NavigateContext } from "../../store/providers/NavigateProvider";
 
 const CheckoutLoginDiv = () => {
   const { setAccount } = useContext(NavigateContext);

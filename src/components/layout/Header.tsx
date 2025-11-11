@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, memo } from "react";
 import { useLocation } from "react-router-dom";
 import { useScrollEffect } from "../../hooks/useScrollEffect";
-import { NavigateContext } from "../../store/providers/NavigateContext";
+import { NavigateContext } from "../../store/providers/NavigateProvider";
 import HeaderCurrencyDiv from "../header/HeaderCurrencyDiv";
 import HeaderSideMenu from "../header/HeaderSideMenu";
 import HeaderNavigationIcons from "../header/HeaderNavigationIcons";

@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { NavigateContext } from "../../../store/providers/NavigateContext";
+import { NavigateContext } from "../../../store/providers/NavigateProvider";
 import { useInputFocus } from "../../../hooks/useInputFocus";
 import { useNavigateToPage } from "../../../hooks/useNavigateToPage";
 import AuthInput from "../../auth/AuthInput";

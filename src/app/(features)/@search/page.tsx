@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { NavigateContext } from "../../../store/providers/NavigateContext";
+import { NavigateContext } from "../../../store/providers/NavigateProvider";
 import { useSectionScroll } from "../../../hooks/useSectionScroll";
 import SearchMain from "./SearchMain";
 import { FaTimes } from "react-icons/fa";

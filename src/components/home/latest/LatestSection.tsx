@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavigateContext } from "../../../store/providers/NavigateContext";
+import { NavigateContext } from "../../../store/providers/NavigateProvider";
 import { LatestContext } from "../../../store/providers/LatestContext";
 import LatestNavigationLinks from "./LatestNavigationLinks";
 import ProductButton from "../product/ProductButton";

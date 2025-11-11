@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { NavigateContext } from "../../store/providers/NavigateContext";
+import { NavigateContext } from "../../store/providers/NavigateProvider";
 import ProductStockAlert from "./ProductStockAlert";
 import ProductPrice from "./ProductPrice";
 import AddToWishList from "./AddToWishlist";

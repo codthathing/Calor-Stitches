@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Cormorant_Infant, Roboto, Yantramanav } from "next/font/google";
 import "./globals.css";
 import { useUpdateProducts } from "@/hooks/useUpdateProducts";
-import NavigateProvider from "@/store/providers/NavigateContext";
+import NavigateProvider from "@/store/providers/NavigateProvider";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 const cormorantInfant = Cormorant_Infant({
   subsets: ["latin"],
@@ -35,7 +37,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <NavigateProvider>
-        <body className={`${cormorantInfant.variable} ${roboto.variable} ${yantramanav.variable}`}>{children}</body>
+        <body className={`${cormorantInfant.variable} ${roboto.variable} ${yantramanav.variable}`}>
+          <Header />
+          {children}
+          <Footer />
+        </body>
       </NavigateProvider>
     </html>
   );

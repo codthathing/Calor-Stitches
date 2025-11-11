@@ -1,5 +1,5 @@
 import { memo, useContext, useState } from "react";
-import { NavigateContext } from "../../store/providers/NavigateContext";
+import { NavigateContext } from "../../store/providers/NavigateProvider";
 import { changeCurrencyToDollar, changeCurrencyToNaira } from "../../lib/utils/convertCurrency";
 import { useShowPreload } from "../../hooks/useShowPreload";
 import { FaChevronDown } from "react-icons/fa";

@@ -1,5 +1,5 @@
 import { useCallback, useContext, useEffect, useState } from "react";
-import { NavigateContext } from "../../store/providers/NavigateContext";
+import { NavigateContext } from "../../store/providers/NavigateProvider";
 import { scrollToSection } from "../../lib/utils/scrollToSection";
 import PageButtons from "../common/PageButtons";
 import background_landscape from "../../assets/background-images/background-landscape.webp";

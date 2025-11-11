@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavigateContext } from "../../../store/providers/NavigateContext";
+import { NavigateContext } from "../../../store/providers/NavigateProvider";
 import { useSumCartItems } from "../../../hooks/useSumCartItems";
 import PageButtons from "../../common/PageButtons";
 import { useNavigateToPage } from "../../../hooks/useNavigateToPage";

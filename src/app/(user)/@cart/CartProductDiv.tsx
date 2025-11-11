@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavigateContext } from "../../../store/providers/NavigateContext";
+import { NavigateContext } from "../../../store/providers/NavigateProvider";
 import CartProductTemplate from "./CartProductTemplate";
 import CartTotalMain from "./CartTotalMain";
 import DefaultText from "../../common/DefaultText";

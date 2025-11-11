@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ViewContext } from "../../../store/providers/ViewContext";
-import { NavigateContext } from "../../../store/providers/NavigateContext";
+import { NavigateContext } from "../../../store/providers/NavigateProvider";
 import ReviewDetails from "../../(main)/review/ReviewDetails";
 import WishlistStockAlert from "../@wishlist/WishlistStockAlert";
 import ReviewColorDiv from "../../(main)/review/ReviewColorDiv";

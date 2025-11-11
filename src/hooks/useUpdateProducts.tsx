@@ -1,46 +1,36 @@
-import { useContext, useEffect } from "react";
-import { NavigateContext } from "../store/providers/NavigateContext";
+"use client";
+import { useEffect } from "react";
+import { useNavigateContext } from "../store/providers/NavigateProvider";
+import { CartProductType, WishlistProductType } from "@/types/productType";
 
 export const useUpdateProducts = () => {
-  const { cartItems, products, setCartItems, wishlistItems, setWishlistItems, setCloneCart } = useContext(NavigateContext);
+  const { cartItems, products, setCartItems, wishlistItems, setWishlistItems, setCloneCart } = useNavigateContext();
 
   useEffect(() => {
-
     const updatedCart = cartItems.map(({ productName, cartSize, cartColor, ...rest }) => {
       const product = products.find(({ productName: name }) => name === productName);
-      if (product) {
-        const { wishlistStock, productSizes, productColors } = product;
-        if (wishlistStock === 0) {
-          return null;
-        } else if (productSizes && !productSizes.some(({ text }) => text === cartSize)) {
-          return null;
-        } else if (productColors && !productColors.some(({ text }) => text === cartColor)) {
-          return null;
-        } else {
-          return { productName, wishlistStock, cartSize, cartColor, ...rest }
-        }
-      } else {
-        return null;
-      };
-    }).filter(Boolean);
 
-    if (JSON.stringify(updatedCart) !== JSON.stringify(cartItems)) {
-      setCartItems(updatedCart);
-    };
+      if (!product) return;
 
-    
+      const { wishlistStock, productSizes, productColors } = product;
+      if (wishlistStock === 0 || (productSizes && productSizes.some(({ text }) => text === cartSize)) || (productColors && productColors.some(({ text }) => text === cartColor))) return;
+      
+      return { ...rest, productName, cartSize, cartColor, wishlistStock };
+    }).filter((item): item is CartProductType => item !== null);
+
+    if (JSON.stringify(updatedCart) !== JSON.stringify(cartItems)) setCartItems(updatedCart);
+
     const updatedWishlist = wishlistItems.map(({ productName, ...rest }) => {
-      const product = products.find(({ productName: name }) => name === productName);
-      if (product) {
-        const { wishlistStock } = product;
-        return { ...rest, productName, wishlistStock };
-      }
-      return null;
-    }).filter(Boolean);
+        const product = products.find(({ productName: name }) => name === productName);
 
-    if (JSON.stringify(updatedWishlist) !== JSON.stringify(wishlistItems)) {
-      setWishlistItems(updatedWishlist);
-    };
+        if (!product) return;
+
+        const { wishlistStock } = product;
+
+        return { ...rest, productName, wishlistStock };
+    }).filter((item): item is WishlistProductType => item !== null);
+
+    if (JSON.stringify(updatedWishlist) !== JSON.stringify(wishlistItems)) setWishlistItems(updatedWishlist);
 
     setCloneCart(cartItems);
   }, [cartItems, wishlistItems]);

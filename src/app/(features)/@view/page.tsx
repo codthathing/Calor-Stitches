@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { NavigateContext } from "../../../store/providers/NavigateContext";
+import { NavigateContext } from "../../../store/providers/NavigateProvider";
 import { ViewContext } from "../../../store/providers/ViewContext";
 import { useSectionScroll } from "../../../hooks/useSectionScroll";
 import ViewImageDiv from "./ViewImageDiv";

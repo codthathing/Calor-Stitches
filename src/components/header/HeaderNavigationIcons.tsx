@@ -1,5 +1,5 @@
 import { useContext, startTransition, memo, useCallback } from "react";
-import { NavigateContext } from "../../store/providers/NavigateContext";
+import { NavigateContext } from "../../store/providers/NavigateProvider";
 import { FiUser, FiSearch, FiHeart, FiShoppingBag } from "react-icons/fi";
 import { motion, MotionConfig } from "framer-motion";
 

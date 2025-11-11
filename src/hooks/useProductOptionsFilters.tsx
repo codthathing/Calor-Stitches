@@ -1,5 +1,5 @@
 import { useContext, useEffect, useMemo, useState } from "react";
-import { NavigateContext } from "../store/providers/NavigateContext";
+import { NavigateContext } from "../store/providers/NavigateProvider";
 
 export const useProductOptionsFilters = () => {
   const { products, productShipValue, presentFilterProducts, setPresentFilterProducts } = useContext(NavigateContext);

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavigateContext } from "../../../store/providers/NavigateContext";
+import { NavigateContext } from "../../../store/providers/NavigateProvider";
 import { useSectionScroll } from "../../../hooks/useSectionScroll";
 import { useNavigateToPage } from "../../../hooks/useNavigateToPage";
 import WishlistActionText from "./WishlistActionText";

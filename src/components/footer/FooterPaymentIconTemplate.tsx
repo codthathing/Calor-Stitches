@@ -3,6 +3,7 @@ import master_card from "../../assets/payment-icons/master-card.webp";
 import american_express from "../../assets/payment-icons/american-express.webp";
 import dinner_club from "../../assets/payment-icons/dinner-club.webp";
 import discover from "../../assets/payment-icons/discover.webp";
+import Image from "next/image";
 
 const FooterPaymentIconTemplate = () => {
   const paymentIcons = [
@@ -15,7 +16,7 @@ const FooterPaymentIconTemplate = () => {
   return (
     <aside id="payAside">
       {paymentIcons.map(({ id, paymentIcon, paymentAlt }) => {
-        return <img key={id} loading="lazy" src={paymentIcon} alt={paymentAlt} className="payImage" />;
+        return <Image key={id} loading="lazy" src={paymentIcon} alt={paymentAlt} className="payImage" />;
       })}
     </aside>
   );

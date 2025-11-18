@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export type ProductType = {
   priceOne?: number;
   priceTwo?: number;
@@ -6,24 +8,22 @@ export type ProductType = {
   [key: string]: any;
 };
 
-export type GeneralProductType = {
+type UserProductType = {
   productName: string;
   wishlistStock: number;
+  [key: string]: any;
+};
+
+export type SetState<T> = Dispatch<SetStateAction<T>>;
+
+export type GeneralProductType = UserProductType & {
   productSizes?: { id: number; text: string; style: boolean }[];
   productColors?: { id: number; color: string; text: string; style: boolean }[];
-  [key: string]: any;
 };
 
-export type CartProductType = {
-  productName: string;
+export type CartProductType = UserProductType & ProductType & {
   cartSize: string;
   cartColor: string;
-  wishlistStock: number;
-  [key: string]: any;
 };
 
-export type WishlistProductType = {
-  productName: string;
-  wishlistStock: number;
-  [key: string]: any;
-};
+export type WishlistProductType = UserProductType & ProductType;

@@ -1,8 +1,9 @@
-import { startTransition, useContext } from "react";
-import { NavigateContext } from "../store/providers/NavigateProvider";
+"use client";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
+import { startTransition } from "react";
 
 export const useShowPreload = () => {
-  const { setShowPreload } = useContext(NavigateContext);
+  const { setShowPreload } = useNavigateContext();
 
   const showPreload = () => {
     startTransition(() => {

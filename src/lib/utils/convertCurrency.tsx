@@ -1,10 +1,9 @@
 "use client";
-import { ProductType } from "@/types/productType";
-import { Dispatch, SetStateAction } from "react";
+import { CartProductType, ProductType, SetState, WishlistProductType } from "@/types/productType";
 
-const changeCurrencyToDollar = (productsArray: { array: ProductType[]; setArray: Dispatch<SetStateAction<ProductType[]>> }[]) => {
+const changeCurrencyToDollar = <T extends ProductType>(productsArray: { array: T[]; setArray: SetState<T[]> }[]) => {
   productsArray.forEach(({ array, setArray }) => {
-    const updatedValues = array.map((details): ProductType => {
+    const updatedValues = array.map((details): T => {
       return {
         ...details,
         priceOne: details?.priceOne ? details.priceOne / 1000 : 0,
@@ -18,9 +17,9 @@ const changeCurrencyToDollar = (productsArray: { array: ProductType[]; setArray:
   });
 };
 
-const changeCurrencyToNaira = (productsArray: { array: ProductType[]; setArray: Dispatch<SetStateAction<ProductType[]>> }[]) => {
+const changeCurrencyToNaira = <T extends ProductType>(productsArray: { array: T[]; setArray: SetState<T[]> }[]) => {
   productsArray.forEach(({ array, setArray }) => {
-    const updatedValues = array.map((details): ProductType => {
+    const updatedValues = array.map((details): T => {
       return {
         ...details,
         priceOne: details?.priceOne ? details.priceOne * 1000 : 0,

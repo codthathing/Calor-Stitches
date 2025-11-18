@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useState, useRef, ReactNode, useContext, Dispatch, SetStateAction, RefObject, ActionDispatch } from "react";
+import { createContext, useState, useRef, ReactNode, useContext, RefObject, ActionDispatch } from "react";
 import america_flag from "../../assets/currency-flags/america-flag.png";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { mockProducts } from "@/lib/data/mockProducts";
@@ -7,7 +7,7 @@ import { wishlistReducer } from "../reducers/wishlistReducer";
 import { StaticImageData } from "next/image";
 import { WishlistActionType, WishlistStateType } from "@/types/wishlistType";
 import { useCheckCurrency } from "@/hooks/useCheckCurrency";
-import { CartProductType, GeneralProductType, WishlistProductType } from "@/types/productType";
+import { CartProductType, GeneralProductType, WishlistProductType, SetState } from "@/types/productType";
 
 const CURRENT_VERSION = "1.0.1";
 
@@ -17,8 +17,6 @@ if (APP_VERSION !== CURRENT_VERSION) {
   localStorage.removeItem("cartItems");
   localStorage.setItem("APP_VERSION", CURRENT_VERSION);
 }
-
-type SetState<T> = Dispatch<SetStateAction<T>>;
 
 interface NavigateInterface {
   wishlistItems: WishlistProductType[];

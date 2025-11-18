@@ -1,5 +1,4 @@
-import { Fragment } from "react";
-import { useNavigateToPage } from "../../hooks/useNavigateToPage";
+import FooterLinks from "./FooterLinks";
 
 const FooterLinkTemplate = () => {
   const linkMain = [
@@ -8,23 +7,13 @@ const FooterLinkTemplate = () => {
     { id: 2, linkHead: "Help", type: "text", linkTexts: [{ id: 0, text: "PRIVACY POLICY" }, { id: 1, text: "REFUND POLICY" }, { id: 2, text: "ORDER STATUS" }, { id: 3, text: "GIFT CARDS" }, { id: 4, text: "SIZE GUIDE" }] }
   ]
 
-  const navigate = useNavigateToPage();
-
   return (
     <div id="linksDiv">
       {linkMain.map(({ id, linkHead, type, linkTexts }) => {
         return (
           <main key={id} className="linkMain">
             <h1 className="linkHead">{linkHead}</h1>
-            <nav className="linkNav">
-              {linkTexts.map(({ id, text }) => {
-                return (
-                  <Fragment key={id}>
-                    {(type === "link") ? <span onClick={() => navigate(`/product/collection/${text}`)} className="linkText">{text}</span> : <p key={id} className="linkText">{text}</p>}
-                  </Fragment>
-                );
-              })}
-            </nav>
+            <FooterLinks type={type} linkTexts={linkTexts} />
           </main>
         );
       })}

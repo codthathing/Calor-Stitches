@@ -1,33 +1,33 @@
-import { memo, useContext, useState } from "react";
-import { NavigateContext } from "../../store/providers/NavigateProvider";
-import { changeCurrencyToDollar, changeCurrencyToNaira } from "../../lib/utils/convertCurrency";
-import { useShowPreload } from "../../hooks/useShowPreload";
+"use client";
+import { memo, useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
+import { changeCurrencyToDollar, changeCurrencyToNaira } from "@/lib/utils/convertCurrency";
+import { useShowPreload } from "@/hooks/useShowPreload";
+import Image from "next/image";
 
-const HeaderCurrencyDiv = ({ className }) => {
-  const [currency, setCurrency] = useState(false);
-  const { presentCurrency, setPresentCurrency, setDefaultCurrency, wishlistItems, setWishlistItems, cartItems, setCartItems, curDetails } = useContext(NavigateContext);
+const HeaderCurrencyDiv = ({ className }: { className: string }) => {
+  const [currency, setCurrency] = useState<boolean>(false);
+  const { presentCurrency, setPresentCurrency, setDefaultCurrency, wishlistItems, setWishlistItems, cartItems, setCartItems, curDetails } = useNavigateContext();
   const { showPreload } = useShowPreload();
 
   const changeCurrency = () => {
     showPreload();
+
     setTimeout(() => {
       if (presentCurrency === "NGN") {
-        changeCurrencyToDollar([
-          { array: wishlistItems, setArray: setWishlistItems },
-          { array: cartItems, setArray: setCartItems },
-        ]);
+        changeCurrencyToDollar([{ array: wishlistItems, setArray: setWishlistItems }]);
+        changeCurrencyToDollar([{ array: cartItems, setArray: setCartItems }]);
         setPresentCurrency("USD");
       } else if (presentCurrency === "USD") {
-        changeCurrencyToNaira([
-          { array: wishlistItems, setArray: setWishlistItems },
-          { array: cartItems, setArray: setCartItems },
-        ]);
+        changeCurrencyToNaira([{ array: wishlistItems, setArray: setWishlistItems }]);
+        changeCurrencyToNaira([{ array: cartItems, setArray: setCartItems }]);
         setDefaultCurrency(true);
         setPresentCurrency("NGN");
       }
     }, 2000);
+    
     setCurrency(false);
   };
 
@@ -42,7 +42,7 @@ const HeaderCurrencyDiv = ({ className }) => {
         <AnimatePresence>
           {currency && (
             <motion.div initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -30, opacity: 0, transition: { delay: 0.2 } }} transition={{ type: "tween", duration: 0.35, ease: "linear" }} onMouseEnter={() => setCurrency(true)} onMouseLeave={() => setCurrency(false)} onClick={changeCurrency} className={`display-currency ${className}`}>
-              <img src={curDetails.curFlag} loading="lazy" alt={curDetails.curName} id="curFlag" />
+              <Image src={curDetails.curFlag} loading="lazy" alt={curDetails.curName} id="curFlag" />
               <p id="curText">{curDetails.curName}</p>
             </motion.div>
           )}

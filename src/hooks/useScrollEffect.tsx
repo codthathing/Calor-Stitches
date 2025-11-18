@@ -1,12 +1,13 @@
-import { useState, useEffect, useContext, memo } from "react";
-import { useLocation } from "react-router-dom";
-import { NavigateContext } from "../store/providers/NavigateProvider";
-import { scrollToSection } from "../lib/utils/scrollToSection";
+"use client";
+import { useState, useEffect, memo } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
+import { scrollToSection } from "@/lib/utils/scrollToSection";
 
-export const PageScrollToTop = memo(({ showIcon }) => {
-  const { home_section } = useContext(NavigateContext);
+export const PageScrollToTop = memo(({ showIcon }: { showIcon: boolean }) => {
+  const { home_section } = useNavigateContext();
 
   return (
     <AnimatePresence>
@@ -20,11 +21,11 @@ export const PageScrollToTop = memo(({ showIcon }) => {
 });
 
 export const useScrollEffect = () => {
-  const { setNavbar, setToggleSideMenu } = useContext(NavigateContext);
-  const [header, setHeader] = useState(false);
-  const [showNavToTop, setShowNavToTop] = useState(false);
+  const { setNavbar, setToggleSideMenu } = useNavigateContext();
+  const [header, setHeader] = useState<boolean>(false);
+  const [showNavToTop, setShowNavToTop] = useState<boolean>(false);
 
-  const path = useLocation().pathname;
+  const path = usePathname();
 
   useEffect(() => {
     if (window.scrollY > 120 || path.includes("/product") || path.includes("/shop") || path.includes("/pages") || path.includes("/blog")) {
@@ -62,7 +63,9 @@ export const useScrollEffect = () => {
     };
 
     window.addEventListener("scroll", changeHeader);
-    return () => window.removeEventListener("scroll", changeHeader);
+    return () => {
+      window.removeEventListener("scroll", changeHeader);
+    };
   }, [path]);
 
   return { header, showNavToTop };

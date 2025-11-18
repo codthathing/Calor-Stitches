@@ -1,12 +1,12 @@
+import { useRouter } from "next/navigation";
 import { startTransition } from "react";
-import { useNavigate } from "react-router-dom";
 
 export const useNavigateToPage = () => {
-  const navigateToPage = useNavigate();
+  const router = useRouter();
 
-  const navigate = (page) => {
+  const navigate = (page: string) => {
     startTransition(() => {
-      navigateToPage(page);
+      router.push(page);
     });
   };
 

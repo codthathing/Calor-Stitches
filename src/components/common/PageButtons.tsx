@@ -1,4 +1,6 @@
-const PageButtons = ({ type, buttonType, buttonClass, text, buttonFunction, textClass }) => {
+"use client";
+
+export default function PageButtons({ type, buttonType, buttonClass, text, buttonFunction, textClass }: { type: string, buttonType: string, buttonClass: string, text: string, buttonFunction: () => void, textClass?: string }) {
   return (
     <>
       {(type === "button" || type === "submit") && <button onClick={buttonFunction} type={type} className={`${buttonClass} ${buttonType === "black-button" ? "page-black-button" : "page-white-button"} page-button`}>
@@ -8,5 +10,3 @@ const PageButtons = ({ type, buttonType, buttonClass, text, buttonFunction, text
     </>
   );
 };
-
-export default PageButtons;

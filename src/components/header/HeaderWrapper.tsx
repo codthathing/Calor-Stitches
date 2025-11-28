@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { ReactNode, useEffect, useRef } from "react";
 import HeaderNavigationIcons from "./HeaderNavigationIcons";
 
-export default function HeaderContainer({ children }: { children: ReactNode }) {
+export default function HeaderWrapper({ children }: { children: ReactNode }) {
   const { setToggleSideMenu, navbar } = useNavigateContext();
   const location = usePathname();
   const { header } = useScrollEffect();

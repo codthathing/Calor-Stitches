@@ -1,5 +1,5 @@
 "use client";
-import { CartProductType, ProductType, SetState, WishlistProductType } from "@/types/productType";
+import { ProductType, SetState } from "@/types/productType";
 
 const changeCurrencyToDollar = <T extends ProductType>(productsArray: { array: T[]; setArray: SetState<T[]> }[]) => {
   productsArray.forEach(({ array, setArray }) => {

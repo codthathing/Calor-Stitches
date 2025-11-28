@@ -1,22 +1,12 @@
-import { useContext } from "react";
-import { NavigateContext } from "../../../store/providers/NavigateProvider";
-import ProductButton from "./ProductButton";
-import { useProductShownEffect, Products } from "../../product/ProductDisplayComponents";
+import ProductSectionWrapper from "@/components/layout/product-section/ProductSectionWrapper";
 
-const ProductSection = () => {
-  const { products, product_section } = useContext(NavigateContext);
-  const { mapProducts, shownProducts } = useProductShownEffect({ products: products, shownProducts: 8 });
-
+export default function ProductSection() {
   return (
-    <section id="productSection" ref={product_section}>
+    <ProductSectionWrapper>
       <div id="productTopicDiv">
         <p className="product-section-para paragraphStyles">NEW AND EXTRAORDINARY</p>
         <h1 className="product-section-head">Featured Products</h1>
       </div>
-      <Products products={products} mapProducts={mapProducts} shownProducts={shownProducts} />
-      <ProductButton linkTo={"/product"} />
-    </section>
+    </ProductSectionWrapper>
   );
 };
-
-export default ProductSection;

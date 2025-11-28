@@ -1,12 +1,15 @@
-import { useContext, startTransition, memo, useCallback } from "react";
-import { NavigateContext } from "../../store/providers/NavigateProvider";
+"use client";
+import { startTransition, memo, useCallback } from "react";
 import { FiUser, FiSearch, FiHeart, FiShoppingBag } from "react-icons/fi";
 import { motion, MotionConfig } from "framer-motion";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
+import { IconType } from "react-icons";
+import { SetState } from "@/types/productType";
 
-const NavigationIcons = memo(({ mount }) => {
-  const { setAccount, setSearch, setWishList, setCart, cartItems, wishlistItems, navbar } = useContext(NavigateContext);
+const NavigationIcons = memo(({ mount }: { mount: boolean }) => {
+  const { setAccount, setSearch, setWishList, setCart, cartItems, wishlistItems, navbar } = useNavigateContext();
 
-  const navigationIconsDetails = [
+  const navigationIconsDetails: { id: number; Icon?: IconType; text?: string; listId?: string; listIconId?: string; value?: number; showValue?: boolean; setPage: SetState<boolean> }[] = [
     { id: 0, Icon: FiUser, listId: "mobile-login-icon", setPage: setAccount },
     { id: 1, text: "LOGIN", listIconId: "loginText", listId: "desktop-login-icon", setPage: setAccount },
     { id: 2, Icon: FiSearch, setPage: setSearch },
@@ -19,9 +22,8 @@ const NavigationIcons = memo(({ mount }) => {
       {navigationIconsDetails.map(({ id, Icon, listId, listIconId, showValue, value, setPage, text }) => {
         return (
           <li className="icons" id={listId} onClick={() => startTransition(() => setPage(true))} key={id}>
-            {text ? (
-              <span id={listIconId}>{text}</span>
-            ) : (
+            {text && <span id={listIconId}>{text}</span>}
+            {Icon && (
               <>
                 <Icon className="iconTag" />
                 {showValue && (
@@ -38,8 +40,8 @@ const NavigationIcons = memo(({ mount }) => {
   );
 });
 
-const HamburgerButton = memo(({ isOpen, toggle }) => {
-  const { navbar } = useContext(NavigateContext);
+const HamburgerButton = memo(({ isOpen, toggle }: { isOpen: boolean, toggle: () => void }) => {
+  const { navbar } = useNavigateContext();
 
   return (
     <MotionConfig transition={{ duration: 0.35, ease: "easeInOut" }}>
@@ -52,8 +54,8 @@ const HamburgerButton = memo(({ isOpen, toggle }) => {
   );
 });
 
-const HeaderNavigationIcons = ({ mount }) => {
-  const { toggleSideMenu, setToggleSideMenu } = useContext(NavigateContext);
+export default function HeaderNavigationIcons({ mount }: { mount: boolean }) {
+  const { toggleSideMenu, setToggleSideMenu } = useNavigateContext();
 
   const toggle = useCallback(() => startTransition(() => setToggleSideMenu((prevState) => !prevState)), []);
 
@@ -64,5 +66,3 @@ const HeaderNavigationIcons = ({ mount }) => {
     </ul>
   );
 };
-
-export default HeaderNavigationIcons;

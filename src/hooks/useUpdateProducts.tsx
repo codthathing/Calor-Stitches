@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
-import { useNavigateContext } from "../store/providers/NavigateProvider";
 import { CartProductType, WishlistProductType } from "@/types/productType";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
 
 export const useUpdateProducts = () => {
   const { cartItems, products, setCartItems, wishlistItems, setWishlistItems, setCloneCart } = useNavigateContext();

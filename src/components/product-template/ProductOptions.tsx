@@ -1,8 +1,10 @@
+"use client";
+import { GeneralProductType } from "@/types/productType";
 import PageButtons from "../common/PageButtons";
+import { useNavigateToPage } from "@/hooks/useNavigateToPage";
 import AddToCart from "./AddToCart";
-import { useNavigateToPage } from "../../hooks/useNavigateToPage";
 
-const ProductOptions = ({ id, productDetails, productName, textClass, buttonClass, itemsArray }) => {
+const ProductOptions = ({ id, productDetails, productName, textClass, buttonClass, itemsArray }: { id: number, productDetails?: { cartSize?: string, cartColor?: string }, productName: string, textClass: string, buttonClass?: string, itemsArray: GeneralProductType[] }) => {
   const navigate = useNavigateToPage();
   
   return (

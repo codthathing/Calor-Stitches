@@ -27,10 +27,10 @@ interface NavigateInterface {
   setProducts: SetState<GeneralProductType[]>;
   cloneCart: object[];
   setCloneCart: SetState<object[]>;
-  collection: object[];
-  setCollection: SetState<object[]>;
-  presentFilterProducts: object[];
-  setPresentFilterProducts: SetState<object[]>;
+  collection: GeneralProductType[];
+  setCollection: SetState<GeneralProductType[]>;
+  presentFilterProducts: GeneralProductType[];
+  setPresentFilterProducts: SetState<GeneralProductType[]>;
 
   presentCurrency: string;
   setPresentCurrency: SetState<string>;
@@ -77,8 +77,8 @@ export default function NavigateProvider({ children }: { children: ReactNode }) 
   const [cartItems, setCartItems] = useLocalStorage<CartProductType[]>("cartItems", []);
   const [products, setProducts] = useState<GeneralProductType[]>(mockProducts);
   const [cloneCart, setCloneCart] = useState<object[]>([]);
-  const [collection, setCollection] = useState<object[]>([]);
-  const [presentFilterProducts, setPresentFilterProducts] = useState<object[]>([]);
+  const [collection, setCollection] = useState<GeneralProductType[]>([]);
+  const [presentFilterProducts, setPresentFilterProducts] = useState<GeneralProductType[]>([]);
   const [presentCurrency, setPresentCurrency] = useLocalStorage<string>("PRESENT_CURRENCY", "NGN");
   const [curSymbol, setCurSymbol] = useState<string>("₦");
   const [presentRegister, setPresentRegister] = useState<string>("LOGIN");

@@ -1,15 +1,15 @@
 import HeaderCurrencyDiv from "../header/HeaderCurrencyDiv";
 import HeaderSideMenu from "../header/HeaderSideMenu";
-import HeaderContainer from "../header/HeaderContainer";
+import HeaderWrapper from "../header/HeaderWrapper";
 
 export default function Header() {
   return (
-    <HeaderContainer>
+    <HeaderWrapper>
       <div id="curLangHead">
         <p id="curLangOuterText">Delivery time 2-3 working days</p>
         <HeaderCurrencyDiv className={"display-currency-top"} />
       </div>
       <HeaderSideMenu />
-    </HeaderContainer>
+    </HeaderWrapper>
   );
 }

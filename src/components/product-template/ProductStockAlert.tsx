@@ -1,8 +1,10 @@
+"use client";
 import { useEffect, useState } from "react";
 
-const ProductStockAlert = ({ productAvailable, wishlistStock, cutOff }) => {
-  const [productAvail, setProductAvail] = useState({});
-  const [doubleAvail, setDoubleAvail] = useState({});
+const ProductStockAlert = ({ productAvailable, wishlistStock, cutOff }: { productAvailable?: string, wishlistStock: number, cutOff?: number }) => {
+  const [productAvail, setProductAvail] = useState<{ color: string, text: string }>({ color: "", text: "" });
+  const [doubleAvail, setDoubleAvail] = useState<{ color: string, text: string }>({ color: "", text: "" });
+
   useEffect(() => {
     if (wishlistStock === 0 && productAvailable) {
       setProductAvail({ color: "#C2272D", text: "SOLD OUT" });
@@ -23,9 +25,7 @@ const ProductStockAlert = ({ productAvailable, wishlistStock, cutOff }) => {
       }
     };
 
-    if(cutOff) {
-      setDoubleAvail({color: "#FF0000", text: `${cutOff}% OFF`});
-    };
+    if(cutOff) setDoubleAvail({color: "#FF0000", text: `${cutOff}% OFF`});
   }, [productAvailable, wishlistStock, cutOff]);
 
   return (

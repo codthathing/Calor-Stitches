@@ -1,28 +1,29 @@
-import { startTransition, useContext, useState } from "react";
-import { NavigateContext } from "../../store/providers/NavigateProvider";
+"use client";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
+import { startTransition, useState } from "react";
 import { FiHeart } from 'react-icons/fi';
 
-const AddToWishList = ({ id, showText, showIcon }) => {
-  const { products, wishlistItems, setWishlistItems, setWishList, dispatch } = useContext(NavigateContext);
-  const [showWishlistText, setShowWishlistText] = useState(false);
+export default function AddToWishList({ id, showText, showIcon }: { id: number, showText: boolean, showIcon: boolean }) {
+  const { products, wishlistItems, setWishlistItems, setWishList, dispatch } = useNavigateContext();
+  const [showWishlistText, setShowWishlistText] = useState<boolean>(false);
 
-  const addToWishlistFunction = (id) => {
-    const selectedItem = products.find((item) => item.id === id);
+  const addToWishlistFunction = (id: number) => {
+    const selectedItem = products.find((item) => item.id === id)!;
     const { productImage, productName, cartAmt, wishlistDate, wishlistStock } = selectedItem;
     const [cutOff, productPrice, averagePrice, priceOne, priceTwo, productDetails] = [selectedItem?.cutOff, selectedItem?.productPrice, selectedItem?.averagePrice, selectedItem?.priceOne, selectedItem?.priceTwo, selectedItem?.productDetails];
 
     if (!wishlistItems.some(item => item.productName === selectedItem.productName)) {
       let newWishlist = { id: Date.now(), productImage, productName, cartAmt, ...(averagePrice && { averagePrice, priceOne, priceTwo }), ...(cutOff && { cutOff }), ...(productPrice && { productPrice }), wishlistDate, wishlistStock, productDetails };
       setWishlistItems([...wishlistItems, newWishlist]);
-      dispatch({ display: "ADD" });
+      dispatch({ type: "ADD" });
     } else {
-      dispatch({ display: "NOACTION" });
+      dispatch({ type: "NOACTION" });
     };
 
     setTimeout(() => {
       startTransition(() => setWishList(true));
       setTimeout(() => {
-        dispatch({ display: "CLOSE" });
+        dispatch({ type: "CLOSE" });
       }, 1250);
     }, 500);
   };
@@ -40,5 +41,3 @@ const AddToWishList = ({ id, showText, showIcon }) => {
     </div>
   );
 };
-
-export default AddToWishList;

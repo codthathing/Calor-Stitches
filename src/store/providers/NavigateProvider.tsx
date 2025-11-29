@@ -1,10 +1,8 @@
 "use client";
 import { createContext, useState, useRef, ReactNode, useContext, RefObject, ActionDispatch } from "react";
-import america_flag from "../../assets/currency-flags/america-flag.png";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { mockProducts } from "@/lib/data/mockProducts";
 import { wishlistReducer } from "../reducers/wishlistReducer";
-import { StaticImageData } from "next/image";
 import { WishlistActionType, WishlistStateType } from "@/types/wishlistType";
 import { useCheckCurrency } from "@/hooks/useCheckCurrency";
 import { CartProductType, GeneralProductType, WishlistProductType, SetState } from "@/types/productType";
@@ -39,11 +37,11 @@ interface NavigateInterface {
   presentRegister: string;
   setPresentRegister: SetState<string>;
 
-  product_section: RefObject<null>;
-  home_section: RefObject<null>;
+  product_section: RefObject<HTMLElement | null>;
+  home_section: RefObject<HTMLElement | null>;
 
-  curDetails: { preNation: string; preCur: string; curFlag: StaticImageData; curName: string };
-  setCurDetails: SetState<{ preNation: string; preCur: string; curFlag: StaticImageData; curName: string }>;
+  curDetails: { preNation: string; preCur: string; curFlag: string; curName: string };
+  setCurDetails: SetState<{ preNation: string; preCur: string; curFlag: string; curName: string }>;
   productShipValue: { shipFee: number; min: number; max: number; minValue: number; maxValue: number };
   setProductShipValue: SetState<{ shipFee: number; min: number; max: number; minValue: number; maxValue: number }>;
 
@@ -82,9 +80,9 @@ export default function NavigateProvider({ children }: { children: ReactNode }) 
   const [presentCurrency, setPresentCurrency] = useLocalStorage<string>("PRESENT_CURRENCY", "NGN");
   const [curSymbol, setCurSymbol] = useState<string>("₦");
   const [presentRegister, setPresentRegister] = useState<string>("LOGIN");
-  const product_section = useRef<null>(null);
-  const home_section = useRef<null>(null);
-  const [curDetails, setCurDetails] = useState({ preNation: "Nigeria (Naira ₦)", preCur: "(Naira ₦)", curFlag: america_flag, curName: "USD $" });
+  const product_section = useRef<HTMLElement | null>(null);
+  const home_section = useRef<HTMLElement | null>(null);
+  const [curDetails, setCurDetails] = useState({ preNation: "Nigeria (Naira ₦)", preCur: "(Naira ₦)", curFlag: "/assets/currency-flags/america-flag.png", curName: "USD $" });
   const [productShipValue, setProductShipValue] = useState({ shipFee: 10000, min: 20, max: 5020, minValue: 20, maxValue: 5020 });
   const [account, setAccount] = useState<boolean>(false);
   const [search, setSearch] = useState<boolean>(false);

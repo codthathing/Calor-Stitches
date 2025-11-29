@@ -1,13 +1,12 @@
-import { useContext } from "react";
-import { NavigateContext } from "../../../store/providers/NavigateProvider";
-import { LatestContext } from "../../../store/providers/LatestContext";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
+import { Products, useProductShownEffect } from "@/components/product/ProductDisplayComponents";
+import { LatestContext } from "@/store/providers/LatestContext";
 import LatestNavigationLinks from "./LatestNavigationLinks";
 import ProductButton from "../product/ProductButton";
-import { useProductShownEffect, Products } from "../../product/ProductDisplayComponents";
 
 
 const LatestSection = () => {
-  const { products } = useContext(NavigateContext);
+  const { products } = useNavigateContext();
   const { setMapProducts, mapProducts, shownProducts } = useProductShownEffect({ products: products, startPosition: 4 });
 
   return (

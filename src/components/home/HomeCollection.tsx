@@ -1,27 +1,22 @@
-import { Link } from "react-router-dom";
-import dress_collection from "../../assets/collection-images/collection-dresses.jpg";
-import t_shirt_collection from "../../assets/collection-images/collection-t-shirts.jpg";
-import outerwear_collection from "../../assets/collection-images/collection-outerwear.jpg";
-import { useNavigateToPage } from "../../hooks/useNavigateToPage";
+import Image from "next/image";
+import HomeCollectionLink from "../layout/home-collection/HomeCollectionLink";
 
 const HomeCollection = () => {
   const collections = [
-    { id: 0, collectionImage: dress_collection, collectionName: "dresses" },
-    { id: 1, collectionImage: t_shirt_collection, collectionName: "t-shirts" },
-    { id: 2, collectionImage: outerwear_collection, collectionName: "outerwears" }
+    { id: 0, collectionImage: "/assets/collection-images/collection-dresses.jpg", collectionName: "dresses" },
+    { id: 1, collectionImage: "/assets/collection-images/collection-t-shirts.jpg", collectionName: "t-shirts" },
+    { id: 2, collectionImage: "/assets/collection-images/collection-outerwear.jpg", collectionName: "outerwears" }
   ]
-
-  const navigate = useNavigateToPage();
 
   return (
     <section id="collectionSection">
       {collections.map(({ id, collectionImage, collectionName }) => {
         return (
           <div key={id} className="mainCollection">
-            <img src={collectionImage} loading="lazy" alt={`${collectionName.toUpperCase()} COLLECTION`} style={{ position: "absolute", objectFit: "cover", width: "100%", height: "100%", zIndex: "-1" }}/>
+            <Image src={collectionImage} loading="lazy" alt={`${collectionName.toUpperCase()} COLLECTION`} style={{ position: "absolute", objectFit: "cover", width: "100%", height: "100%", zIndex: "-1" }}/>
             <main className="collectionMain">
               <h1 className="collectionTopic">{collectionName}</h1>
-              <p onClick={() => navigate(`/product/collection/${collectionName}`)} className="paragraphStyles collectionLink">VIEW COLLECTION</p>
+              <HomeCollectionLink collectionName={collectionName} />
             </main>
           </div>
         );

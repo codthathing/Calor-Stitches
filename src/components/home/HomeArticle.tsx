@@ -1,7 +1,7 @@
+"use client";
 import { useState, useEffect, useCallback } from "react";
 
-const HomeArticle = () => {
-
+export default function HomeArticle() {
   const [currentArticle, setCurrentArticle] = useState({
     details: { text: "Love it! It's knitted from extra fine mulesing free Merino wool and really has kept its shape over time. Can't wait to buy some more colours and new awesome styles!", author: "LOLA DARK" },
     array: [
@@ -19,8 +19,8 @@ const HomeArticle = () => {
       setCurrentArticle(prevState => ({
         ...prevState,
         details: {
-          text: prevState.array.find(({ id }) => id === changeDetails).text,
-          author: prevState.array.find(({ id }) => id === changeDetails).author,
+          text: prevState.array.find(({ id }) => id === changeDetails)!.text,
+          author: prevState.array.find(({ id }) => id === changeDetails)!.author,
         }
       }));
     }, 5000);
@@ -41,5 +41,3 @@ const HomeArticle = () => {
     </article>
   );
 }
-
-export default HomeArticle;

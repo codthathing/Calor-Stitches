@@ -1,7 +1,8 @@
+"use client";
 import { useRef, useEffect } from "react";
 
 export const useSectionScroll = () => {
-  const presentScroll = useRef(null);
+  const presentScroll = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (presentScroll.current) {

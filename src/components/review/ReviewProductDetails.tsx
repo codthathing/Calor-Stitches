@@ -1,10 +1,6 @@
-import { Fragment } from "react";
-import PageButtons from "../common/PageButtons";
-import { useNavigateToPage } from "../../hooks/useNavigateToPage";
+import ReviewProductDetailsLink from "../layout/review-page/ReviewProductDetailsLink";
 
-const ReviewProductDetails = ({productInfo}) => {
-  const navigate = useNavigateToPage();
-
+export default function ReviewProductDetails({ productInfo }: { productInfo: { id: number; name: string; type: string; links: { id: number; text: string; style?: boolean }[] }[] }) {
   return (
     <div className="productDeliveryDetails">
       {productInfo.map(({ id, name, type, links }) => {
@@ -12,15 +8,7 @@ const ReviewProductDetails = ({productInfo}) => {
           return (
             <div key={id} className="productDeliveryDetailsTexts">
               <p>{name}:</p>
-              {links.map(({ id, text, style = true }) => {
-                return (
-                  <Fragment key={id}>
-                    {type === "link" ?
-                      <PageButtons type={"text"} textClass={""} buttonFunction={() => navigate(`/product/collection/${text}`)} text={style ? `${text},` : `${text}`} /> :
-                      <span className="productDeliveryDetailsInnerText">{text}</span>}
-                  </Fragment>
-                )
-              })}
+              <ReviewProductDetailsLink type={type} links={links} />
             </div>
           );
         }
@@ -28,5 +16,3 @@ const ReviewProductDetails = ({productInfo}) => {
     </div>
   );
 };
-
-export default ReviewProductDetails;

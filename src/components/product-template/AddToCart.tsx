@@ -1,14 +1,15 @@
-import { useContext } from "react";
-import { NavigateContext } from "../../store/providers/NavigateProvider";
-import { CartReducer } from "../../store/reducers/cartReducer";
+"use client";
+import { GeneralProductType } from "@/types/productType";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
+import { cartReducer } from "@/store/reducers/cartReducer";
 import PageButtons from "../common/PageButtons";
 
-const AddToCart = ({ id, buttonClass, textClass, itemsArray }) => {
-  const { cartItems, setCartItems } = useContext(NavigateContext);
-  const { state, dispatch } = CartReducer();
+export default function AddToCart({ id, buttonClass, textClass, itemsArray }: { id: number; buttonClass?: string; textClass?: string; itemsArray: GeneralProductType[] }) {
+  const { cartItems, setCartItems } = useNavigateContext();
+  const { state, dispatch } = cartReducer();
 
-  const addToCartFunction = (id) => {
-    const selectedItem = itemsArray.find((item) => item.id === id);
+  const addToCartFunction = (id: number) => {
+    const selectedItem = itemsArray.find((item) => item.id === id)!;
     const { productImage, productName, cutOff, productPrice: price, averagePrice, cartAmt, wishlistStock } = selectedItem;
     const cartSize = selectedItem?.productDetails?.cartSize;
     const cartColor = selectedItem?.productDetails?.cartColor;
@@ -29,11 +30,11 @@ const AddToCart = ({ id, buttonClass, textClass, itemsArray }) => {
 
       setCartItems(updatedCart);
     } else {
-      const productPrice = averagePrice || (cutOff ? price - (cutOff / 100) * price : price);
+      const productPrice = averagePrice || (price && (cutOff ? price - (cutOff / 100) * price : price));
 
       if (wishlistStock === 0) {
         return;
-      } else if (cartAmt > wishlistStock) {
+      } else if (cartAmt && cartAmt > wishlistStock) {
         dispatch({ display: "NOT_ENOUGH" });
       } else {
         dispatch({ display: "ADD" });
@@ -54,5 +55,3 @@ const AddToCart = ({ id, buttonClass, textClass, itemsArray }) => {
     </>
   );
 };
-
-export default AddToCart;

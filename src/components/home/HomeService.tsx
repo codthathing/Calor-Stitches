@@ -1,7 +1,6 @@
 import { FaTruck, FaUndo, FaCreditCard, FaHandHoldingUsd } from "react-icons/fa";
 
-const HomeService = () => {
-
+export default function HomeService() {
   const services = [
     { id: 0, ServiceIcon: FaTruck, serviceHead: "Free Shipping", serviceParagraph: "A free trackable two days delivery service on all orders over $90." },
     { id: 1, ServiceIcon: FaHandHoldingUsd, serviceHead: "Money Back Guarantee", serviceParagraph: "We offer customers 100% money back guarantee on everything we sell." },
@@ -23,5 +22,3 @@ const HomeService = () => {
     </section>
   );
 }
-
-export default HomeService;

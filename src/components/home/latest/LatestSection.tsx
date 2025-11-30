@@ -1,23 +1,16 @@
-import { useNavigateContext } from "@/store/providers/NavigateProvider";
-import { Products, useProductShownEffect } from "@/components/product/ProductDisplayComponents";
-import { LatestContext } from "@/store/providers/LatestContext";
+import LatestProvider from "@/store/providers/LatestProvider";
 import LatestNavigationLinks from "./LatestNavigationLinks";
 import ProductButton from "../product/ProductButton";
+import LatestSectionProducts from "@/components/layout/latest-section/LatestSectionProducts";
 
-
-const LatestSection = () => {
-  const { products } = useNavigateContext();
-  const { setMapProducts, mapProducts, shownProducts } = useProductShownEffect({ products: products, startPosition: 4 });
-
+export default function LatestSection() {
   return (
-    <LatestContext.Provider value={{ setMapProducts }}>
+    <LatestProvider>
       <section id="latestSection">
         <LatestNavigationLinks />
-        <Products products={products} mapProducts={mapProducts} shownProducts={shownProducts} />
+        <LatestSectionProducts />
         <ProductButton linkTo={"/product/display-page"} />
       </section>
-    </LatestContext.Provider>
+    </LatestProvider>
   );
 };
-
-export default LatestSection;

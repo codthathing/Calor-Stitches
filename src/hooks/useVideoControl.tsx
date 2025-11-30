@@ -1,9 +1,10 @@
+"use client";
 import { useState, useRef, useEffect } from "react";
 
 export const useVideoControl = () => {
   const [videoControls, setVideoControls] = useState({ showAside: true, showPlayer: false, showControl: false, currentControl: false });
   const { showAside, showPlayer, showControl, currentControl } = videoControls;
-  const videoContainer = useRef();
+  const videoContainer = useRef<HTMLVideoElement | null>(null);
 
   const handleShowControl = () => {
     setVideoControls(state => ({ ...state, showControl: true }));
@@ -13,16 +14,16 @@ export const useVideoControl = () => {
   };
 
   const playVideo = () => {
-    videoContainer.current.play();
+    if (videoContainer.current) videoContainer.current.play();
     setVideoControls(state => ({ ...state, showAside: false }));
     handleShowControl();
   };
 
   const controlVideo = () => {
     if (currentControl) {
-      videoContainer.current.pause();
+      if (videoContainer.current) videoContainer.current.pause();
     } else {
-      videoContainer.current.play();
+      if (videoContainer.current) videoContainer.current.play();
     };
     handleShowControl();
   };

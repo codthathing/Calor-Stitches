@@ -1,21 +1,13 @@
-import { useContext } from "react";
-import { NavigateContext } from "../../store/providers/NavigateProvider";
-import CartItemAmt from "../cart/CartItemAmt";
-import AddToCart from "../product-template/AddToCart";
 import AddToWishList from "../product-template/AddToWishlist";
+import ReviewFunctionsDiv from "../layout/review-page/ReviewFunctionsDiv";
 
-const ReviewFunctions = ({id, cartAmt, buttonFunction}) => {
-  const { products, setProducts } = useContext(NavigateContext);
-
+export default function ReviewFunctions({ id, cartAmt, buttonFunction }: { id: number; cartAmt?: number; buttonFunction: () => void }) {
   return (
     <div id="productFunctionsReview" className="productDivs">
-      <div className="productToCart">
-        <CartItemAmt id={id} cartAmt={cartAmt} itemsArray={products} setItemsArray={setProducts} />
-        <AddToCart id={id} buttonClass={"productToCartButton"} itemsArray={products} />
-      </div>
-      <span onClick={buttonFunction}><AddToWishList id={id} showText={true} showIcon={false} /></span>
+      <ReviewFunctionsDiv id={id} cartAmt={cartAmt} />
+      <span onClick={buttonFunction}>
+        <AddToWishList id={id} showText={true} showIcon={false} />
+      </span>
     </div>
   );
 };
-
-export default ReviewFunctions;

@@ -1,8 +1,10 @@
-const CartItemAmt = ({ id, cartAmt, itemsArray, setItemsArray }) => {
-  const increaseCart = (id) => {
+import { GeneralProductType, SetState } from "@/types/productType";
+
+const CartItemAmt = ({ id, cartAmt, itemsArray, setItemsArray }: { id: number; cartAmt?: number; itemsArray: GeneralProductType[]; setItemsArray: SetState<GeneralProductType[]> }) => {
+  const increaseCart = (id: number) => {
     const selectedItem = itemsArray.map(((item) => {
       if (item.id === id) {
-        return { ...item, cartAmt: item.cartAmt + 1 };
+        return { ...item, cartAmt: item.cartAmt && item.cartAmt + 1 };
       } else {
         return item;
       };
@@ -10,11 +12,11 @@ const CartItemAmt = ({ id, cartAmt, itemsArray, setItemsArray }) => {
     setItemsArray(selectedItem);
   };
 
-  const decreaseCart = (id) => {
-    if (cartAmt > 1) {
+  const decreaseCart = (id: number) => {
+    if (cartAmt && cartAmt > 1) {
       const selectedItem = itemsArray.map(((item) => {
         if (item.id === id) {
-          return { ...item, cartAmt: item.cartAmt - 1 };
+          return { ...item, cartAmt: item.cartAmt && item.cartAmt - 1 };
         } else {
           return item;
         };

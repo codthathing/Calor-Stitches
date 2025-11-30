@@ -1,7 +1,7 @@
-import { mockBlogPosts } from "../../../lib/data/mockBlogPosts";
+import { mockBlogPosts } from "@/lib/data/mockBlogPosts";
 import PostTemplate from "./PostTemplate";
 
-const PostSection = () => {
+export default function PostSection() {
   return (
     <section id="postSection">
       <div id="postHeadDiv">
@@ -14,5 +14,3 @@ const PostSection = () => {
     </section>
   );
 };
-
-export default PostSection;

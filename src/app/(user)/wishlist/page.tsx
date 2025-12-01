@@ -1,15 +1,15 @@
-import { useContext } from "react";
-import { NavigateContext } from "../../../store/providers/NavigateProvider";
-import { useSectionScroll } from "../../../hooks/useSectionScroll";
-import { useNavigateToPage } from "../../../hooks/useNavigateToPage";
-import WishlistActionText from "./WishlistActionText";
-import WishlistProductDiv from "./WishlistProductDiv";
-import { scrollToSection } from "../../../lib/utils/scrollToSection";
-import PageButtons from "../../common/PageButtons";
+"use client";
 import { FaTimes } from "react-icons/fa";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
+import { useSectionScroll } from "@/hooks/useSectionScroll";
+import { useNavigateToPage } from "@/hooks/useNavigateToPage";
+import { scrollToSection } from "@/lib/utils/scrollToSection";
+import PageButtons from "@/components/common/PageButtons";
+import WishlistActionText from "@/components/layout/user-wishlist/WishlistActionText";
+import WishlistProductDiv from "@/components/layout/user-wishlist/WishlistProductDiv";
 
 export default function WishlistPage() {
-  const { setWishList, wishlistItems, product_section } = useContext(NavigateContext);
+  const { setWishList, wishlistItems, product_section } = useNavigateContext();
   const { presentScroll } = useSectionScroll();
   const navigate = useNavigateToPage();
 

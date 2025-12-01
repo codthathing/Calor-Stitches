@@ -16,12 +16,12 @@ type UserProductType = {
   productImage: StaticImageData;
   productName: string;
   wishlistStock: number;
+  cartAmt: number;
   [key: string]: any;
 };
 
 export type GeneralProductType = UserProductType & ProductType & {
   productInfo?: { id: number; name: string; type: string; links: { id: number; text: string; style?: boolean }[] }[];
-  cartAmt?: number;
   productDesc?: string;
   wishlistDate?: string;
   productAvailable?: string;
@@ -34,6 +34,9 @@ export type GeneralProductType = UserProductType & ProductType & {
 export type CartProductType = UserProductType & ProductType & {
   cartSize?: string;
   cartColor?: string;
+  productPrice: number;
 };
 
-export type WishlistProductType = UserProductType & ProductType;
+export type WishlistProductType = UserProductType & ProductType & {
+  productDetails?: { cartSize?: string, cartColor?: string };
+};

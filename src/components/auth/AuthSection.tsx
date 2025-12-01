@@ -1,23 +1,20 @@
-import { useState } from "react";
-import AuthCancelIcon from "./AuthCancelIcon";
+import { ReactNode } from "react";
 import AuthHeadText from "./AuthHeadText";
-import FormFeedback from "../common/FormFeedback";
 import AuthNavigateText from "./AuthNavigateText";
 
-const AuthSection = ({ headText, RegisterForm, nextRegister, navText }) => {
-  const [infoText, setInfoText] = useState("");
+interface AuthSection {
+  headText: string;
+  RegisterForm: ReactNode;
+  nextRegister: "LOGIN" | "SIGNUP" | "FORGOTPASSWORD";
+  navText: string;
+}
 
+export default function AuthSection({ headText, RegisterForm, nextRegister, navText }: AuthSection) {
   return (
     <>
-      <AuthCancelIcon />
-      <div className="registerDiv">
-        <AuthHeadText headText={headText} />
-        <FormFeedback text={infoText} showText={infoText} />
-        <RegisterForm setText={setInfoText} />
-        <AuthNavigateText nextRegister={nextRegister} navText={navText} />
-      </div>
+      <AuthHeadText headText={headText} />
+      {RegisterForm}
+      <AuthNavigateText nextRegister={nextRegister} navText={navText} />
     </>
   );
-};
-
-export default AuthSection;
+}

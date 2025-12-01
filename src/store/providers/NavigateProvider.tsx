@@ -34,8 +34,8 @@ interface NavigateInterface {
   setPresentCurrency: SetState<string>;
   curSymbol: string;
   setCurSymbol: SetState<string>;
-  presentRegister: string;
-  setPresentRegister: SetState<string>;
+  presentAuthView: "LOGIN" | "SIGNUP" | "FORGOTPASSWORD";
+  setPresentAuthView: SetState<"LOGIN" | "SIGNUP" | "FORGOTPASSWORD">;
 
   product_section: RefObject<HTMLElement | null>;
   home_section: RefObject<HTMLElement | null>;
@@ -79,7 +79,7 @@ export default function NavigateProvider({ children }: { children: ReactNode }) 
   const [presentFilterProducts, setPresentFilterProducts] = useState<GeneralProductType[]>([]);
   const [presentCurrency, setPresentCurrency] = useLocalStorage<string>("PRESENT_CURRENCY", "NGN");
   const [curSymbol, setCurSymbol] = useState<string>("₦");
-  const [presentRegister, setPresentRegister] = useState<string>("LOGIN");
+  const [presentAuthView, setPresentAuthView] = useState<"LOGIN" | "SIGNUP" | "FORGOTPASSWORD">("LOGIN");
   const product_section = useRef<HTMLElement | null>(null);
   const home_section = useRef<HTMLElement | null>(null);
   const [curDetails, setCurDetails] = useState({ preNation: "Nigeria (Naira ₦)", preCur: "(Naira ₦)", curFlag: "/assets/currency-flags/america-flag.png", curName: "USD $" });
@@ -96,7 +96,7 @@ export default function NavigateProvider({ children }: { children: ReactNode }) 
   const [defaultCurrency, setDefaultCurrency] = useState<boolean>(false);
   useCheckCurrency();
 
-  return <NavigateContext.Provider value={{ account, setAccount, presentRegister, defaultCurrency, setDefaultCurrency, setPresentRegister, wishList, setWishList, cart, setCart, search, setSearch, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, curDetails, setCurDetails, productShipValue, setProductShipValue, presentCurrency, setPresentCurrency, cloneCart, setCloneCart, product_section, home_section, showPreload, setShowPreload, view, setView, collection, setCollection, presentFilterProducts, setPresentFilterProducts }}>{children}</NavigateContext.Provider>;
+  return <NavigateContext.Provider value={{ account, setAccount, presentAuthView, defaultCurrency, setDefaultCurrency, setPresentAuthView, wishList, setWishList, cart, setCart, search, setSearch, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, curDetails, setCurDetails, productShipValue, setProductShipValue, presentCurrency, setPresentCurrency, cloneCart, setCloneCart, product_section, home_section, showPreload, setShowPreload, view, setView, collection, setCollection, presentFilterProducts, setPresentFilterProducts }}>{children}</NavigateContext.Provider>;
 }
 
 export const useNavigateContext = () => {

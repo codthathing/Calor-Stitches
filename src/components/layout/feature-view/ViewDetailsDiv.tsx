@@ -1,5 +1,5 @@
 "use client";
-import WishlistStockAlert from "@/app/(user)/wishlist/WishlistStockAlert";
+import WishlistStockAlert from "@/components/layout/user-wishlist/WishlistStockAlert";
 import PageButtons from "@/components/common/PageButtons";
 import ReviewColorDiv from "@/components/review/ReviewColorDiv";
 import ReviewDetails from "@/components/review/ReviewDetails";

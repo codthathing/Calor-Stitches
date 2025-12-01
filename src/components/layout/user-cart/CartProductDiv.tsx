@@ -1,11 +1,11 @@
-import { useContext } from "react";
-import { NavigateContext } from "../../../store/providers/NavigateProvider";
+"use client";
 import CartProductTemplate from "./CartProductTemplate";
 import CartTotalMain from "./CartTotalMain";
-import DefaultText from "../../common/DefaultText";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
+import DefaultText from "@/components/common/DefaultText";
 
-const CartProductDiv = () => {
-  const { cartItems } = useContext(NavigateContext);
+export default function CartProductDiv() {
+  const { cartItems } = useNavigateContext();
 
   return (
     <div id="cartProductDiv">
@@ -20,5 +20,3 @@ const CartProductDiv = () => {
     </div>
   );
 };
-
-export default CartProductDiv;

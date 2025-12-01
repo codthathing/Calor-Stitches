@@ -1,21 +1,12 @@
-import { useContext } from "react";
-import { NavigateContext } from "../../../store/providers/NavigateProvider";
 import WishlistDeleteIcon from "./WishlistDeleteIcon";
-import ProductPrice from "../../product-template/ProductPrice";
 import WishlistStockAlert from "./WishlistStockAlert";
-import ProductOptions from "../../product-template/ProductOptions";
-import { useNavigate } from "react-router-dom";
+import ProductPrice from "@/components/product-template/ProductPrice";
+import Image from "next/image";
+import UserWishlistTemplateName from "@/components/layout/user-wishlist/UserWishlistTemplateName";
+import { WishlistProductType } from "@/types/productType";
+import UserWishlistTemplateOptions from "@/components/layout/user-wishlist/UserWishlistTemplateOptions";
 
-const WishlistProductTemplate = () => {
-  const { setWishList, wishlistItems, setView } = useContext(NavigateContext);
-  const navigate = useNavigate();
-
-  const navigateToView = (productName) => {
-    navigate("", { state: productName });
-    setWishList(false);
-    setView(true);
-  };
-
+export default function WishlistProductTemplate({ wishlistItems }: { wishlistItems: WishlistProductType[] }) {
   return (
     <>
       {wishlistItems.map(({ id, productImage, productName, cutOff, productPrice, priceOne, priceTwo, averagePrice, wishlistDate, wishlistStock, productDetails }) => {
@@ -23,18 +14,16 @@ const WishlistProductTemplate = () => {
           <div key={id} className="wishListDiv">
             <div className="wishlist-icon-image-div">
               <WishlistDeleteIcon id={id} cancelClass={"delWishListIcon"} />
-              <img src={productImage} alt={productName} loading="lazy" className="wishListImage" />
+              <Image src={productImage} alt={productName} loading="lazy" className="wishListImage" />
             </div>
             <div className="wishListDetails">
-              <h1 className="wishListName wishListTexts" onClick={() => navigateToView(productName)}>
-                {productName}
-              </h1>
+              <UserWishlistTemplateName productName={productName} />
               <ProductPrice priceDivClass={""} productPriceClass={"#222222"} priceClass={"wishListPrice wishListTexts"} cutOff={cutOff} productPrice={productPrice} averagePrice={averagePrice} priceOne={priceOne} priceTwo={priceTwo} />
               <p className="wishListDate wishListTexts">{wishlistDate}</p>
             </div>
             <div className="wishListAvailDiv">
               <WishlistStockAlert mainClass={"wishListAvailMain"} textClass={"wishListAvail wishListTexts"} barClass={"wishListAvailBar"} stockAmt={wishlistStock} showStockBar={true} />
-              <ProductOptions id={id} productDetails={productDetails} productName={productName} textClass={"wishlist-cart-btn"} itemsArray={wishlistItems} />
+              <UserWishlistTemplateOptions id={id} productName={productName} productDetails={productDetails} wishlistItems={wishlistItems} />
             </div>
           </div>
         );
@@ -42,5 +31,3 @@ const WishlistProductTemplate = () => {
     </>
   );
 };
-
-export default WishlistProductTemplate;

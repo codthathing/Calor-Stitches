@@ -1,15 +1,12 @@
-import { useContext } from "react";
-import { NavigateContext } from "../../store/providers/NavigateProvider";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import PageButtons from "../common/PageButtons";
 
-const AuthNavigateText = ({ nextRegister, navText }) => {
-  const { setPresentRegister } = useContext(NavigateContext);
+export default function AuthNavigateText({ nextRegister, navText }: { nextRegister: "LOGIN" | "SIGNUP" | "FORGOTPASSWORD"; navText: string }) {
+  const { setPresentAuthView } = useNavigateContext();
 
   return (
     <div className="register-nav-div">
-      <PageButtons type={"text"} buttonFunction={() => setPresentRegister(nextRegister)} text={navText} />
+      <PageButtons type={"text"} buttonFunction={() => setPresentAuthView(nextRegister)} text={navText} />
     </div>
   );
 };
-
-export default AuthNavigateText;

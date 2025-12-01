@@ -1,11 +1,11 @@
-import { useContext } from "react";
-import { NavigateContext } from "../../../store/providers/NavigateProvider";
-import { useSumCartItems } from "../../../hooks/useSumCartItems";
-import PageButtons from "../../common/PageButtons";
-import { useNavigateToPage } from "../../../hooks/useNavigateToPage";
+"use client";
+import PageButtons from "@/components/common/PageButtons";
+import { useNavigateToPage } from "@/hooks/useNavigateToPage";
+import { useSumCartItems } from "@/hooks/useSumCartItems";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
 
-const CartTotalMain = () => {
-  const { curSymbol, cartItems, setCart } = useContext(NavigateContext);
+export default function CartTotalMain() {
+  const { curSymbol, cartItems, setCart } = useNavigateContext();
   const { total } = useSumCartItems(cartItems);
   const navigate = useNavigateToPage();
 
@@ -28,5 +28,3 @@ const CartTotalMain = () => {
     </main>
   );
 };
-
-export default CartTotalMain;

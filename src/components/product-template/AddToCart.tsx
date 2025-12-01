@@ -30,7 +30,7 @@ export default function AddToCart({ id, buttonClass, textClass, itemsArray }: { 
 
       setCartItems(updatedCart);
     } else {
-      const productPrice = averagePrice || (price && (cutOff ? price - (cutOff / 100) * price : price));
+      const productPrice = averagePrice || (price && (cutOff ? price - (cutOff / 100) * price : price))!;
 
       if (wishlistStock === 0) {
         return;

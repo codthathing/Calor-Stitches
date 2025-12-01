@@ -1,7 +1,15 @@
-import { useState } from "react";
+"use client";
+import { ChangeEventHandler, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const AuthPasswordInput = ({ name, value, onChange, placeholder }) => {
+interface AuthPasswordInput {
+  name: string;
+  value: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+  placeholder: string;
+}
+
+export default function AuthPasswordInput({ name, value, onChange, placeholder }: AuthPasswordInput) {
   const [viewPassword, setViewPassword] = useState(false);
   
   return (
@@ -11,5 +19,3 @@ const AuthPasswordInput = ({ name, value, onChange, placeholder }) => {
     </div>
   );
 };
-
-export default AuthPasswordInput;

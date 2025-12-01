@@ -1,6 +1,6 @@
 import PageButtons from "../common/PageButtons";
 
-const UserButtons = () => {
+export default function UserButtons() {
   return (
     <div id="user-buttons-div">
       <PageButtons type={"button"} buttonClass={"user-buttons"} buttonType={"black-button"} text={"upload profile"} />
@@ -8,5 +8,3 @@ const UserButtons = () => {
     </div>
   );
 };
-
-export default UserButtons;

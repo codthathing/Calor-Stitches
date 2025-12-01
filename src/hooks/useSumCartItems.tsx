@@ -1,8 +1,10 @@
-import { useContext, useMemo } from "react";
-import { NavigateContext } from "../store/providers/NavigateProvider";
+"use client";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
+import { CartProductType } from "@/types/productType";
+import { useMemo } from "react";
 
-export const useSumCartItems = (cart) => {
-  const { presentCurrency } = useContext(NavigateContext);
+export const useSumCartItems = (cart: CartProductType[]) => {
+  const { presentCurrency } = useNavigateContext();
 
   const total = useMemo(() => {
     return cart.reduce((sum, {productPrice, cartAmt}) => sum + (productPrice * cartAmt), 0);

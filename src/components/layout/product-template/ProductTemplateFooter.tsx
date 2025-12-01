@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { FiEye } from "react-icons/fi";
 
-export default function ProductTemplateFooter({ id, productDetails, productName }: { id: number, productDetails?: { cartSize?: string, cartColor?: string }, productName: string }) {
+export default function ProductTemplateFooter({ id, productDetails, productName }: { id: number; productDetails?: { cartSize?: string; cartColor?: string }; productName: string }) {
   const { products, setView } = useNavigateContext();
   const [showViewText, setShowViewText] = useState<number | null>(null);
   const { showPreload } = useShowPreload();

@@ -1,4 +1,4 @@
-const UserDetails = ({ userName, userEmail }) => {
+export default function UserDetails({ userName, userEmail }: { userName: string; userEmail: string }) {
   return (
     <div id="user-details-div">
       <p className="user-details-text">Username: <span className="user-details-span">{userName}</span></p>
@@ -6,5 +6,3 @@ const UserDetails = ({ userName, userEmail }) => {
     </div>
   );
 };
-
-export default UserDetails;

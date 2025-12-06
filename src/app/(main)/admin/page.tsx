@@ -1,14 +1,14 @@
-import { useContext, useState } from "react";
-import { NavigateContext } from "../services/contexts/NavigateContext";
-import PageNavigationLinks from "../components/ui/PageNavigationLinks";
-import { usePageLoadEffects } from "../hooks/usePageLoadEffects";
-import AboutNavigationLinks from "../components/review/AboutNavigationLinks";
-import AdminProductSection from "../components/admin/AdminProductSection";
-import AdminBlogSection from "../components/admin/AdminBlogSection";
-import PageSection from "../components/layout/PageSection";
+import AdminBlogSection from "@/components/admin/AdminBlogSection";
+import AdminProductSection from "@/components/admin/AdminProductSection";
+import PageSection from "@/components/layout/PageSection";
+import AboutNavigationLinks from "@/components/review/AboutNavigationLinks";
+import PageNavigationLinks from "@/components/ui/PageNavigationLinks";
+import { usePageLoadEffects } from "@/hooks/usePageLoadEffects";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
+import { useState } from "react";
 
 export default function AdminPage() {
-  const { setAccount } = useContext(NavigateContext);
+  const { setAccount } = useNavigateContext();
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },

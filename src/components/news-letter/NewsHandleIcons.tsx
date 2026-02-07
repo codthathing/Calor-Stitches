@@ -1,12 +1,13 @@
 import { FaFacebook, FaTwitter, FaInstagram, FaTiktok } from 'react-icons/fa';
 
-const NewsHandleIcons = ({ id, className }) => {
+export default function NewsHandleIcons({ id, className }: { id: string; className?: string }) {
   const handleIcons = [
     { id: 0, HandleIcon: FaFacebook },
     { id: 1, HandleIcon: FaInstagram },
     { id: 2, HandleIcon: FaTiktok },
     { id: 3, HandleIcon: FaTwitter  },
   ];
+
   return (
     <aside id={id} className={className}>
       {handleIcons.map(({ id, HandleIcon }) => {
@@ -15,5 +16,3 @@ const NewsHandleIcons = ({ id, className }) => {
     </aside>
   );
 };
-
-export default NewsHandleIcons;

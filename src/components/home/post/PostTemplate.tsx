@@ -17,7 +17,7 @@ export default function PostTemplate({ postArray, imageClass, buttonClass, type 
       {postArray.map(({ id, postImage, postDetails, postHead, postParagraph }) => {
         return (
           <div key={id} className={divClass}>
-            <Image src={postImage} className={imageClass} loading="lazy" alt={`${postHead.toUpperCase()}`} />
+            <Image src={postImage} className={imageClass} width={85} height={100} loading="lazy" alt={`${postHead.toUpperCase()}`} />
             <PostDetails postDetails={postDetails.slice(0, 2)} divClass={"post-display-div"} textClass={"post-dislpay-text"} linkClass={"post-display-link"} />
             <h1 className="postHead">{postHead}</h1>
             <p className="postParagraph">{postParagraph}</p>

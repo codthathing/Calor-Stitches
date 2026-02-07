@@ -4,17 +4,8 @@ import useLocalStorage from "@/hooks/useLocalStorage";
 import { mockProducts } from "@/lib/data/mockProducts";
 import { wishlistReducer } from "../reducers/wishlistReducer";
 import { WishlistActionType, WishlistStateType } from "@/types/wishlistType";
-import { useCheckCurrency } from "@/hooks/useCheckCurrency";
 import { CartProductType, GeneralProductType, WishlistProductType, SetState } from "@/types/productType";
-
-const CURRENT_VERSION = "1.0.1";
-
-const APP_VERSION = localStorage.getItem("APP_VERSION");
-if (APP_VERSION !== CURRENT_VERSION) {
-  localStorage.removeItem("wishlistItems");
-  localStorage.removeItem("cartItems");
-  localStorage.setItem("APP_VERSION", CURRENT_VERSION);
-}
+import { useCheckAppVersion } from "@/hooks/useCheckAppVersion";
 
 interface NavigateInterface {
   wishlistItems: WishlistProductType[];
@@ -94,7 +85,7 @@ export default function NavigateProvider({ children }: { children: ReactNode }) 
   const [showPreload, setShowPreload] = useState<boolean>(false);
   const { state, dispatch } = wishlistReducer();
   const [defaultCurrency, setDefaultCurrency] = useState<boolean>(false);
-  useCheckCurrency();
+  useCheckAppVersion();
 
   return <NavigateContext.Provider value={{ account, setAccount, presentAuthView, defaultCurrency, setDefaultCurrency, setPresentAuthView, wishList, setWishList, cart, setCart, search, setSearch, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, curDetails, setCurDetails, productShipValue, setProductShipValue, presentCurrency, setPresentCurrency, cloneCart, setCloneCart, product_section, home_section, showPreload, setShowPreload, view, setView, collection, setCollection, presentFilterProducts, setPresentFilterProducts }}>{children}</NavigateContext.Provider>;
 }

@@ -1,17 +1,14 @@
-import { useContext } from "react";
-import { NavigateContext } from "../../store/providers/NavigateProvider";
-import pre_load from "../../assets/pre-load.gif";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
+import Image from "next/image";
 
-const PagePreload = () => {
-  const { showPreload } = useContext(NavigateContext);
+export default function PagePreload() {
+  const { showPreload } = useNavigateContext();
 
   if (showPreload) {
     return (
       <div id="pre-load-div">
-        <img src={pre_load} alt="" id="pre-load-image" />
+        <Image src={"/assets/pre-load.gif"} alt="Loading Icon" width={100} height={100} id="pre-load-image" />
       </div>
     );
   };
 };
-
-export default PagePreload;

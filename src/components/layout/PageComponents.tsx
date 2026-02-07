@@ -1,8 +1,10 @@
-import { useScrollEffect, PageScrollToTop } from "../../hooks/useScrollEffect";
+"use client";
+import { PageScrollToTop, useScrollEffect } from "@/hooks/useScrollEffect";
 import PagePreload from "../ui/PagePreload";
 
-const PageComponents = () => {
+export default function PageComponents() {
   const { showNavToTop } = useScrollEffect();
+
   return (
     <>
       <PageScrollToTop showIcon={showNavToTop} />
@@ -10,5 +12,3 @@ const PageComponents = () => {
     </>
   );
 };
-
-export default PageComponents;

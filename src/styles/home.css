@@ -43,7 +43,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 #header {
-  border-bottom: 0.15px solid var(--F3F2ED);
   position: fixed;
   width: 100%;
   top: 0;
@@ -1802,7 +1801,7 @@ body::-webkit-scrollbar-thumb {
 
   #displayText {
     width: 50%;
-    margin-top: 6rem;
+    margin-top: 9rem;
   }
 
   #curLangHead {

@@ -1,9 +1,15 @@
 "use client";
+import { SetState } from "@/types/productType";
 import { Dispatch, SetStateAction, useEffect } from "react";
 
+type PageLoadEffect<T extends boolean | number | string> = {
+  effect: SetState<T>;
+  value: T;
+};
+
 type PageLoadType = {
-  effectsArray: { effect: Dispatch<SetStateAction<boolean | number | string>>; value: boolean | number | string }[];
-  dependency: boolean | number | string | Dispatch<SetStateAction<boolean | number | string>>;
+  effectsArray: PageLoadEffect<any>[];
+  dependency?: boolean | number | string | Dispatch<SetStateAction<boolean | number | string>>;
 };
 
 export const usePageLoadEffects = (input: PageLoadType | null) => {

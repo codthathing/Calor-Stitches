@@ -1,3 +1,4 @@
+"use client";
 import { Products } from "@/components/product/ProductDisplayComponents";
 import { useLatestContext } from "@/store/providers/LatestProvider";
 

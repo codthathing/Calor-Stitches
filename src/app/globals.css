@@ -1,3 +1,13 @@
+@import url('../styles/home.css');
+@import url('../styles/product.css');
+@import url('../styles/account.css');
+@import url('../styles/search.css');
+@import url('../styles/wishlist.css');
+@import url('../styles/cart.css');
+@import url('../styles/collection.css');
+@import url('../styles/post.css');
+@import url('../styles/admin.css');
+
 * {
   padding: 0;
   margin: 0;
@@ -26,13 +36,3 @@
   --FFFF00: #FFFF00;
   --500: 500;
 }
-
-@import url('./styles/home.css');
-@import url('./styles/product.css');
-@import url('./styles/account.css');
-@import url('./styles/search.css');
-@import url('./styles/wishlist.css');
-@import url('./styles/cart.css');
-@import url('./styles/collection.css');
-@import url('./styles/post.css');
-@import url('./styles/admin.css');

@@ -11,7 +11,7 @@ const FooterPaymentIconTemplate = () => {
   return (
     <aside id="payAside">
       {paymentIcons.map(({ id, paymentIcon, paymentAlt }) => {
-        return <Image key={id} loading="lazy" src={paymentIcon} alt={paymentAlt} className="payImage" />;
+        return <Image key={id} loading="lazy" width={100} height={50} src={paymentIcon} alt={paymentAlt} className="payImage" />;
       })}
     </aside>
   );

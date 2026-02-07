@@ -13,7 +13,7 @@ const HomeCollection = () => {
       {collections.map(({ id, collectionImage, collectionName }) => {
         return (
           <div key={id} className="mainCollection">
-            <Image src={collectionImage} loading="lazy" alt={`${collectionName.toUpperCase()} COLLECTION`} style={{ position: "absolute", objectFit: "cover", width: "100%", height: "100%", zIndex: "-1" }}/>
+            <Image src={collectionImage} loading="lazy" width={75} height={100} alt={`${collectionName.toUpperCase()} COLLECTION`} style={{ position: "absolute", objectFit: "cover", width: "100%", height: "100%", zIndex: "-1" }}/>
             <main className="collectionMain">
               <h1 className="collectionTopic">{collectionName}</h1>
               <HomeCollectionLink collectionName={collectionName} />

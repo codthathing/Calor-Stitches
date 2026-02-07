@@ -1,6 +1,6 @@
 import PageButtons from "../common/PageButtons";
 
-const NewsSubscribeForm = () => {
+export default function NewsSubscribeForm() {
   return (
     <form id="subscribeForm">
       <input type="text" id="subscribeInput" title="Please fill out this field" placeholder="Your Email Address" />
@@ -8,5 +8,3 @@ const NewsSubscribeForm = () => {
     </form>
   );
 };
-
-export default NewsSubscribeForm;

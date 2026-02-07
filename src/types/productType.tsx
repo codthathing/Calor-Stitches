@@ -13,7 +13,7 @@ export type ProductType = {
 
 type UserProductType = {
   id: number;
-  productImage: StaticImageData;
+  productImage: string;
   productName: string;
   wishlistStock: number;
   cartAmt: number;

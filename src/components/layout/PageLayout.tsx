@@ -1,22 +1,11 @@
-import { Suspense } from "react";
-import { Outlet } from "react-router-dom";
-import Header from "./Header";
-import NewsSection from "../news-letter/NewsSection";
-import Footer from "./Footer";
-import PageComponents from "./PageComponents";
+"use client";
+import { useCheckCurrency } from "@/hooks/useCheckCurrency";
+import { useUpdateProducts } from "@/hooks/useUpdateProducts";
+import { ReactNode } from "react";
 
-const PageLayout = () => {
-  return (
-    <>
-      <Header />
-      <Suspense fallback={null}>
-        <Outlet />
-      </Suspense>
-      <NewsSection />
-      <Footer />
-      <PageComponents />
-    </>
-  );
-};
+export default function PageLayout({ children }: { children: ReactNode }) {
+  useCheckCurrency();
+  useUpdateProducts();
 
-export default PageLayout;
+  return <>{children}</>;
+}

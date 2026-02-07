@@ -7,14 +7,14 @@ import { usePageLoadEffects } from "@/hooks/usePageLoadEffects";
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import { useState } from "react";
 
+const pageLinkDetails = [
+  { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },
+  { id: 1, linkDirect: "", linkText: "page", linkArrow: true },
+  { id: 2, linkDirect: "", linkText: "admin page", linkArrow: false },
+];
+
 export default function AdminPage() {
   const { setAccount } = useNavigateContext();
-
-  const pageLinkDetails = [
-    { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },
-    { id: 1, linkDirect: "", linkText: "page", linkArrow: true },
-    { id: 2, linkDirect: "", linkText: "admin page", linkArrow: false },
-  ];
 
   usePageLoadEffects({ effectsArray: [{ effect: setAccount, value: false }] });
 

@@ -2,7 +2,7 @@ import NewsContactInfo from "./NewsContactInfo";
 import NewsSubscribeForm from "./NewsSubscribeForm";
 import NewsHandleIcons from "./NewsHandleIcons";
 
-const NewsSection = () => {
+export default function NewsSection() {
   return (
     <section id="newsSection">
       <NewsContactInfo />
@@ -15,5 +15,3 @@ const NewsSection = () => {
     </section>
   );
 };
-
-export default NewsSection;

@@ -2,7 +2,7 @@
 import ProductOptions from "@/components/product-template/ProductOptions";
 import { useShowPreload } from "@/hooks/useShowPreload";
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FiEye } from "react-icons/fi";
 
@@ -16,10 +16,11 @@ export default function ProductTemplateFooter({ id, productDetails, productName 
     setShowViewText(null);
     showPreload();
     setTimeout(() => {
-      router.push({
-        pathname: "",
-        query: { name: productName },
-      });
+      // router.push({
+      //   pathname: "",
+      //   query: { name: productName },
+      // });
+       router.push(`?name=${encodeURIComponent(productName)}`);
       setView(true);
     }, 2000);
   };

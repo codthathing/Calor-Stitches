@@ -42,7 +42,7 @@ const HeaderCurrencyDiv = ({ className }: { className: string }) => {
         <AnimatePresence>
           {currency && (
             <motion.div initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -30, opacity: 0, transition: { delay: 0.2 } }} transition={{ type: "tween", duration: 0.35, ease: "linear" }} onMouseEnter={() => setCurrency(true)} onMouseLeave={() => setCurrency(false)} onClick={changeCurrency} className={`display-currency ${className}`}>
-              <Image src={curDetails.curFlag} loading="lazy" alt={curDetails.curName} id="curFlag" />
+              <Image src={curDetails.curFlag} loading="lazy" width={100} height={75} alt={curDetails.curName} id="curFlag" />
               <p id="curText">{curDetails.curName}</p>
             </motion.div>
           )}

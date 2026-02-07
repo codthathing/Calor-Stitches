@@ -33,7 +33,7 @@ export const useScrollEffect = () => {
     } else {
       setNavbar(false);
     }
-  }, [window.scrollY, path]);
+  }, [path]);
 
   useEffect(() => {
     let lastScrollY = 120;

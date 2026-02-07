@@ -12,7 +12,7 @@ export default function ProductTemplate({ productArray }: { productArray: Genera
         return (
           <div className="productDiv" key={id}>
             <div className="productInnerDiv">
-              <Image src={productImage} loading="lazy" style={{ objectFit: "cover", width: "100%", height: "100%", position: "absolute", zIndex: "-1" }} alt={productName.toUpperCase()} />
+              <Image src={productImage} loading="lazy" width={100} height={75} style={{ objectFit: "cover", width: "100%", height: "100%", position: "absolute", zIndex: "-1" }} alt={productName.toUpperCase()} />
               <ProductStockAlertWrapper productName={productName} productAvailable={productAvailable} wishlistStock={wishlistStock} cutOff={cutOff} />
               <div className="optionBtnsDiv">
                 <div className="optionDiv optionDivWishlist">

@@ -1,15 +1,9 @@
-import { Helmet } from "react-helmet-async";
+import { ReactNode } from "react";
 
-const PageSection = ({ id, children }) => {
+export default function PageSection({ id, children }: { id?: string, children: ReactNode }) {
   return (
     <section className="otherPages" id={id}>
-      <Helmet>
-        <meta name="robots" content="noindex, nofollow" />
-        <link rel="canonical" href="https://calor-stitches.vercel.app/" />
-      </Helmet>
       {children}
     </section>
   );
 };
-
-export default PageSection;

@@ -4,6 +4,7 @@
   --222222: #222222;
   --9B9B9B: #9B9B9B;
   --Yantramanav: 'Yantramanav', sans-serif;
+  --Cormorant: "Cormorant Infant", sans-serif;
 }
 
 #cartSection {
@@ -127,7 +128,7 @@
 }
 
 #cartTotalText {
-  font-family: var(-Cormorant);
+  font-family: var(--Cormorant);
   color: var(--1B1A1A);
 }
 
@@ -387,7 +388,8 @@
   outline: none;
 }
 
-.card-payment-input::-webkit-inner-spin-button, .card-payment-input::-webkit-inner-spin-button {
+.card-payment-input::-webkit-inner-spin-button,
+.card-payment-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }

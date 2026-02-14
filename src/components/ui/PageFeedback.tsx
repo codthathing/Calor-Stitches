@@ -1,4 +1,4 @@
-const PageFeedback = ({ border, showInfo, infoTextArray }) => {
+export default function PageFeedback({ border, showInfo, infoTextArray }: { border: string; showInfo: boolean; infoTextArray: string[] }) {
 
   if (showInfo) {
     return (
@@ -10,5 +10,3 @@ const PageFeedback = ({ border, showInfo, infoTextArray }) => {
     );
   };
 };
-
-export default PageFeedback;

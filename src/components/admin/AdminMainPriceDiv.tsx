@@ -1,9 +1,13 @@
-import { useContext } from "react";
-import { AdminContext } from "../../store/providers/AdminContext";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
 
-const AdminMainPriceDiv = () => {
-  const { checkCutOff, setCheckCutOff, adminProductValues, handleAdminProduct } = useContext(AdminContext);
+type AdminMainPriceType = {
+  checkCutOff: boolean;
+  setCheckCutOff: Dispatch<SetStateAction<boolean>>;
+  adminProductValues: { product_name: string; product_price: string; cut_off: string; price_one: string; price_two: string; average_price: string; product_desc: string; product_status: string; product_unit: string; product_sku: string };
+  handleAdminProduct: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+}
 
+export default function AdminMainPriceDiv({ checkCutOff, setCheckCutOff, adminProductValues, handleAdminProduct }: AdminMainPriceType) {
   return (
     <div className="admin-price-inner-div">
       <input type="number" name="product_price" value={adminProductValues.product_price} onChange={handleAdminProduct} placeholder="Product price" className="admin-input admin-main-price-input" />
@@ -15,5 +19,3 @@ const AdminMainPriceDiv = () => {
     </div>
   );
 };
-
-export default AdminMainPriceDiv;

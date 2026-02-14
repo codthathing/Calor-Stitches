@@ -245,6 +245,10 @@
   user-select: none;
 }
 
+.productAboutMainTexts:hover {
+  border-bottom: 1px solid #222222;
+}
+
 #productAboutText {
   color: var(--282828);
   font-family: var(--Roboto);

@@ -1,7 +1,8 @@
+"use client";
+import { useNavigateToPage } from "@/hooks/useNavigateToPage";
 import { FaChevronRight } from "react-icons/fa";
-import { useNavigateToPage } from "../../hooks/useNavigateToPage"
 
-const PageNavigationLinks = ({ pageLinks }) => {
+export default function PageNavigationLinks({ pageLinks }: { pageLinks: { id: number; linkDirect: string; linkText: string; linkArrow: boolean }[] }) {
   const navigate = useNavigateToPage();
 
   return (
@@ -17,5 +18,3 @@ const PageNavigationLinks = ({ pageLinks }) => {
     </ul>
   );
 }
-
-export default PageNavigationLinks;

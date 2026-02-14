@@ -1,9 +1,11 @@
-import { useContext } from "react";
-import { AdminContext } from "../../store/providers/AdminContext";
+import { ChangeEvent } from "react";
 
-const AdminAveragePriceDiv = () => {
-  const { adminProductValues, handleAdminProduct } = useContext(AdminContext);
+type AdminAveragePriceType = {
+  adminProductValues: { product_name: string; product_price: string; cut_off: string; price_one: string; price_two: string; average_price: string; product_desc: string; product_status: string; product_unit: string; product_sku: string };
+  handleAdminProduct: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+}
 
+export default function AdminAveragePriceDiv({ adminProductValues, handleAdminProduct }: AdminAveragePriceType) {
   return (
     <div className="admin-price-inner-div">
       <div id="admin-price-average-div">
@@ -14,5 +16,3 @@ const AdminAveragePriceDiv = () => {
     </div>
   );
 };
-
-export default AdminAveragePriceDiv;

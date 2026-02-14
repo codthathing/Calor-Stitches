@@ -1,13 +1,13 @@
-import { useState } from "react";
-import AdminGroupInput from "./AdminGroupInput";
-import PageButtons from "../common/PageButtons";
-import PageFeedback from "../ui/PageFeedback";
-import { useShowPreload } from "../../hooks/useShowPreload";
+"use client";
+import AdminGroupInput from "@/components/admin/AdminGroupInput";
+import PageButtons from "@/components/common/PageButtons";
+import PageFeedback from "@/components/ui/PageFeedback";
+import { useShowPreload } from "@/hooks/useShowPreload";
+import { ChangeEvent, useState } from "react";
 
-const AdminBlogSection = () => {
-
-  const [adminBlogValues, setAdminBlogValues] = useState({ author_name: "", author_desc: "", post_topic: "", post_paragraph: "" });
-  const handleBlogValues = (e) => {
+export default function page() {
+  const [adminBlogValues, setAdminBlogValues] = useState<{ author_name:string; author_desc:string; post_topic:string; post_paragraph:string; }>({ author_name: "", author_desc: "", post_topic: "", post_paragraph: "" });
+  const handleBlogValues = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const name = e.target.name;
     const value = e.target.value;
     setAdminBlogValues({ ...adminBlogValues, [name]: value });
@@ -15,13 +15,13 @@ const AdminBlogSection = () => {
 
   const { showPreload } = useShowPreload();
 
-  const [blogImage, setBlogImage] = useState([]);
+  const [blogImage, setBlogImage] = useState<{ id: number; image?: string; }[]>([]);
 
-  const [blogCategory, setBlogCategory] = useState([]);
+  const [blogCategory, setBlogCategory] = useState<{ id: number; text?: string; style?: boolean }[]>([]);
 
-  const [authorImage, setAuthorImage] = useState([]);
+  const [authorImage, setAuthorImage] = useState<{ id: number; image?: string; }[]>([]);
 
-  const AdminBlogResponse = [
+  const AdminBlogResponse: { check: boolean; response: string }[] = [
     { check: blogImage.length === 0, response: "Kindly update the image of the post" },
     { check: blogCategory.length === 0, response: "Atleast one blog category is required" },
     { check: !adminBlogValues.post_topic, response: "The post topic is required" },
@@ -31,16 +31,19 @@ const AdminBlogSection = () => {
     { check: !adminBlogValues.author_desc, response: "Kindly give a brief description of the author" },
   ];
 
-  const [adminInfo, setAdminInfo] = useState({ infoBorder: "#FF0000", showInfo: false, infoArray: [] });
+  const [adminInfo, setAdminInfo] = useState<{ infoBorder: string; showInfo: boolean; infoArray: string[] }>({ infoBorder: "#FF0000", showInfo: false, infoArray: [] });
+  
   const handleAdminInfo = () => {
-    const updatedInfoArray = AdminBlogResponse.filter(({ check }) => check).map(({ response }) => response);
+    const updatedInfoArray: string[] = AdminBlogResponse.filter(({ check }) => check).map(({ response }) => response);
     setAdminInfo((prevState) => ({ ...prevState, infoArray: updatedInfoArray }));
     showPreload();
+
     setTimeout(() => {
       if (updatedInfoArray.length > 0) {
         setAdminInfo((prevState) => ({ ...prevState, showInfo: true }));
       } else {
-        var options = { year: "numeric", month: "long", day: "numeric" };
+        var options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" };
+
         const newBlog = {
           id: Date.now(),
           postImage: blogImage[0].image,
@@ -53,6 +56,7 @@ const AdminBlogSection = () => {
           postHead: adminBlogValues.post_topic,
           postParagraph: adminBlogValues.post_paragraph,
         };
+
         setAdminInfo((prevState) => ({ ...prevState, infoBorder: "green", showInfo: true, infoArray: ["New blog uploaded"] }));
       }
       window.scrollTo(0, 0);
@@ -79,5 +83,3 @@ const AdminBlogSection = () => {
     </div>
   );
 };
-
-export default AdminBlogSection;

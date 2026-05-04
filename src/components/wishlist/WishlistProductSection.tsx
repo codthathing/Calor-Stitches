@@ -1,24 +1,9 @@
-import { useContext } from "react";
-import { NavigateContext } from "../../store/providers/NavigateProvider";
 import ProductTopics from "../ui/ProductTopics";
-import WishlistProductTemplate from "./WishlistProductTemplate";
 import DefaultText from "../common/DefaultText";
+import WishlistWrapper from "./WishlistWrapper";
 
-const WishlistProductSection = () => {
-  const { wishlistItems } = useContext(NavigateContext);
+export default function WishlistProductSection() {
   const wishlistTopics = ["Products", "Price", "Stock Status"];
 
-  return (
-    <>
-      {wishlistItems.length > 0 ?
-        <section className="productWishlistCartSection">
-          <ProductTopics productTopicsArray={wishlistTopics} />
-          <WishlistProductTemplate wishlistProductArray={wishlistItems} />
-        </section>
-        : <DefaultText textStyle={"center"} text={"There are no products on the Wishlist!"} />
-      }
-    </>
-  );
+  return <WishlistWrapper ElementOne={<ProductTopics productTopicsArray={wishlistTopics} />} ElementTwo={<DefaultText textStyle={"center"} text={"There are no products on the Wishlist!"} />} />
 };
-
-export default WishlistProductSection;

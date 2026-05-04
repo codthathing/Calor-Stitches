@@ -1,9 +1,9 @@
-import { useContext } from "react";
-import { PostMainContext } from "../../store/providers/PostMainContext";
+"use client";
+import { useBlogContext } from "@/store/providers/BlogProvider";
 import PostDetails from "./PostDetails";
 
-const PostDetailsMain = () => {
-  const { postImage, postTopic, postDetails, postParagraph } = useContext(PostMainContext);
+export default function PostDetailsMain() {
+  const { postImage, postTopic, postDetails, postParagraph } = useBlogContext();
 
   return (
     <div id="post-section-div">
@@ -14,5 +14,3 @@ const PostDetailsMain = () => {
     </div>
   );
 };
-
-export default PostDetailsMain;

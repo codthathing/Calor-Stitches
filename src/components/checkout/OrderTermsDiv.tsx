@@ -1,15 +1,10 @@
-import { useContext } from "react";
-import { CheckoutContext } from "../../store/providers/CheckoutContext";
+import OrderTermsInput from "./OrderTermsInput";
 
-const OrderTermsDiv = () => {
-  const { seenTerms, setSeenTerms } = useContext(CheckoutContext);
-
+export default function OrderTermsDiv() {
   return (
     <div id="termsDiv">
-      <input type="checkbox" id="termsCheckbox" onClick={() => setSeenTerms(!seenTerms)} />
+      <OrderTermsInput />
       <p id="termsText">I have read and agree to the website terms and conditions *</p>
     </div>
   );
 };
-
-export default OrderTermsDiv;

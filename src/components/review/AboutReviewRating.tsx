@@ -1,7 +1,8 @@
+"use client";
 import { useState } from "react";
 import { FaStar, FaRegStar } from "react-icons/fa";
 
-const AboutReviewRating = () => {
+export default function AboutReviewRating() {
   const [ratings, setRatings] = useState([
     { id: 0, style: false },
     { id: 1, style: false },
@@ -15,7 +16,7 @@ const AboutReviewRating = () => {
   //   setRatings(updatedRating);
   // };
 
-  const changeRating = (id) => {
+  const changeRating = (id: number) => {
     const updatedRating = ratings.map((rating) => ({ ...rating, style: rating.id <= id }));
     setRatings(updatedRating);
   }
@@ -31,5 +32,3 @@ const AboutReviewRating = () => {
     </section>
   );
 };
-
-export default AboutReviewRating;

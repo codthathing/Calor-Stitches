@@ -170,7 +170,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .icons {
-  list-style: none;
   cursor: pointer;
   position: relative;
 }
@@ -462,6 +461,7 @@ body::-webkit-scrollbar-thumb {
   color: white;
   cursor: pointer;
   user-select: none;
+  text-decoration: none;
 }
 
 #latestSection {
@@ -788,6 +788,7 @@ body::-webkit-scrollbar-thumb {
 
   #pre-load-image {
     height: 4rem;
+    width: 4rem;
   }
 
   .curLangIcon {
@@ -1049,6 +1050,7 @@ body::-webkit-scrollbar-thumb {
 
   #pre-load-image {
     height: 2rem;
+    width: 2rem;
   }
 
   #page-top-div {

@@ -2,10 +2,10 @@ import PostText from "./PostText";
 import PostGeneralCategories from "./PostGeneralCategories";
 import PostRecentDiv from "./PostRecentDiv";
 import PostInstagramDiv from "./PostInstagramDiv";
-import NewsHandleIcons from "../news-letter/NewsHandleIcons";
 import { FiSearch } from "react-icons/fi";
+import NewsHandleIcons from "../news-letter/NewsHandleIcons";
 
-const PostOtherSection = () => {
+export default function PostOtherSection() {
   return (
     <section id="post-other-section">
       <div className="post-inner-div" id="post-input-div">
@@ -29,5 +29,3 @@ const PostOtherSection = () => {
     </section>
   );
 };
-
-export default PostOtherSection;

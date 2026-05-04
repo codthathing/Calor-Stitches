@@ -1,8 +1,9 @@
-import { useContext, useState } from "react";
-import { CheckoutContext } from "../../store/providers/CheckoutContext";
+"use client";
+import { useCheckoutContext } from "@/store/providers/CheckoutProvider";
+import { useState } from "react";
 
-const OrderPaymentMethodForm = () => {
-  const { setConfirmedMethod } = useContext(CheckoutContext);
+export default function OrderPaymentMethodForm() {
+  const { setConfirmedMethod } = useCheckoutContext();
 
   const [paymentArray, setPaymentArray] = useState([
     {
@@ -19,9 +20,9 @@ const OrderPaymentMethodForm = () => {
     }
   ]);
 
-  const [selectedPaymentId, setSelectedPaymentId] = useState(0);
+  const [selectedPaymentId, setSelectedPaymentId] = useState<number>(0);
 
-  const togglePayment = (id) => {
+  const togglePayment = (id: number) => {
     const updatedPayment = paymentArray.map((payMethod) => {
       if (payMethod.id === id) {
         setConfirmedMethod({ payHead: payMethod.payHead });
@@ -50,5 +51,3 @@ const OrderPaymentMethodForm = () => {
     </form>
   );
 };
-
-export default OrderPaymentMethodForm;

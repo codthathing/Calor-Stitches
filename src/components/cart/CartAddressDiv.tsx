@@ -1,16 +1,17 @@
-import { useContext, useState } from "react";
-import { CartContext } from "../../store/providers/CartContext";
-import FormFeedback from "../common/FormFeedback";
+"use client";
+import { ChangeEventHandler, FormEvent, useState } from "react";
+import { useCartContext } from "@/store/providers/CartProvider";
+import { useShowPreload } from "@/hooks/useShowPreload";
 import PageButtons from "../common/PageButtons";
-import { useShowPreload } from "../../hooks/useShowPreload";
+import FormFeedback from "../common/FormFeedback";
 
-const CartAddressDiv = () => {
-  const { city, setCity, setShowCartInfo, setCartInfoArray } = useContext(CartContext);
+export default function CartAddressDiv() {
+  const { city, setCity, setShowCartInfo, setCartInfoArray } = useCartContext();
 
   const [showUpdateAddress, setShowUpdateAddress] = useState(false);
   const [address, setAddress] = useState({ country: "Nigeria", state: "", city: "" });
 
-  const handleAddress = (e) => {
+  const handleAddress:ChangeEventHandler<HTMLInputElement> = (e) => {
     const value = e.target.value;
     const name = e.target.name;
     setAddress({ ...address, [name]: value });
@@ -19,7 +20,7 @@ const CartAddressDiv = () => {
   const { showPreload } = useShowPreload();
 
   const [addressText, setAddressText] = useState("");
-  const submitAddress = (e) => {
+  const submitAddress = (e: FormEvent<HTMLFormElement>) => {
     setShowCartInfo(false);
     e.preventDefault();
     if (!address.country) {
@@ -29,7 +30,7 @@ const CartAddressDiv = () => {
     } else if (!address.city) {
       setAddressText("Enter shipping city");
     } else {
-      setAddressText(false);
+      setAddressText("");
       setCartInfoArray(["Shipping address updated."]);
       showPreload();
       setTimeout(() => {
@@ -45,14 +46,12 @@ const CartAddressDiv = () => {
   return (
     <div id="cartShippingAddressDiv">
       <div id="cartShippingDiv">
-        <p id="cartShippingText">
-          Shipping to <span id="cartShippingSpan">{city}</span>
-        </p>
+        <p id="cartShippingText">Shipping to <span id="cartShippingSpan">{city}</span></p>
         <PageButtons type={"text"} buttonFunction={() => setShowUpdateAddress(!showUpdateAddress)} text={"change address"} />
       </div>
       {showUpdateAddress && (
         <form id="cartAddressDiv" onSubmit={submitAddress}>
-          <FormFeedback showText={addressText} text={addressText} />
+          <FormFeedback showText={Boolean(addressText)} text={addressText} />
           <input type="text" name="country" value={address.country} onChange={handleAddress} readOnly className="cartAddressInputs" />
           <input type="text" name="state" value={address.state} onChange={handleAddress} placeholder="State" className="cartAddressInputs" />
           <input type="text" name="city" value={address.city} onChange={handleAddress} placeholder="Town / City" className="cartAddressInputs" />
@@ -62,5 +61,3 @@ const CartAddressDiv = () => {
     </div>
   );
 };
-
-export default CartAddressDiv;

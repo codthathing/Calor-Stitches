@@ -8,7 +8,7 @@ interface PostTemplate {
   imageClass: string;
   buttonClass: string;
   type?: string;
-  divClass: string;
+  divClass?: string;
 }
 
 export default function PostTemplate({ postArray, imageClass, buttonClass, type = "link", divClass }: PostTemplate) {

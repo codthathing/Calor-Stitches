@@ -1,29 +1,17 @@
-"use client";
 import PageButtons from "@/components/common/PageButtons";
-import { useNavigateToPage } from "@/hooks/useNavigateToPage";
-import { useSumCartItems } from "@/hooks/useSumCartItems";
-import { useNavigateContext } from "@/store/providers/NavigateProvider";
+import Link from "next/link";
+import CartTotalText from "./CartTotalText";
 
 export default function CartTotalMain() {
-  const { curSymbol, cartItems, setCart } = useNavigateContext();
-  const { total } = useSumCartItems(cartItems);
-  const navigate = useNavigateToPage();
-
   return (
     <main id="cartTotalPriceMain">
       <div id="totalPriceDiv">
         <p className="totalPrice" id="totalPriceText">Subtotal:</p>
-        <p className="totalPrice" id="totalPriceValue">{curSymbol}{total.toFixed(2)}</p>
+        <CartTotalText />
       </div>
       <div id="cartButtonsDiv">
-        <PageButtons type={"button"} buttonType={"black-button"} buttonClass={"navBtn cartButtons"} buttonFunction={() => {
-          navigate("/shop/cart");
-          setCart(false);
-        }} text={"view cart"} />
-        <PageButtons type={"button"} buttonType={"white-button"} buttonClass={"navBtn cartButtons"} buttonFunction={() => {
-          navigate("/shop/checkout");
-          setCart(false);
-        }} text={"checkout"} />
+        <Link href={"/cart"} style={{ textDecoration: "none" }}><PageButtons type={"button"} buttonType={"black-button"} buttonClass={"navBtn cartButtons"} text={"view cart"} /></Link>
+        <Link href={"/checkout"} style={{ textDecoration: "none" }}><PageButtons type={"button"} buttonType={"white-button"} buttonClass={"navBtn cartButtons"} text={"checkout"} /></Link>
       </div>
     </main>
   );

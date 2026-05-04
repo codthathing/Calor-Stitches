@@ -1,10 +1,10 @@
-import { useContext } from "react";
-import { ReviewContext } from "../../store/providers/ReviewContext";
+"use client";
+import { useReviewContext } from "@/store/providers/ReviewProvider";
 import AboutDescription from "./AboutDescription";
 import AboutReview from "./AboutReview";
 
-const AboutLayout = () => {
-  const { displayPage } = useContext(ReviewContext);
+export default function AboutLayout() {
+  const { displayPage } = useReviewContext();
 
   if(displayPage === "DESCRIPTION") {
     return <AboutDescription />;
@@ -12,5 +12,3 @@ const AboutLayout = () => {
     return <AboutReview reviewText={"Add A Review"} reviewPlaceholder={"Your Review *"} reviewButton={"SUBMIT"} />;
   };
 };
-
-export default AboutLayout;

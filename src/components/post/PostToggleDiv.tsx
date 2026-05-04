@@ -1,18 +1,21 @@
-import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { PostMainContext } from "../../store/providers/PostMainContext";
-import { mockBlogPosts } from "../../lib/data/mockBlogPosts";
+"use client";
+import { useNavigateToPage } from "@/hooks/useNavigateToPage";
+import { mockBlogPosts } from "@/lib/data/mockBlogPosts";
+import { useBlogContext } from "@/store/providers/BlogProvider";
 
-const PostToggleDiv = () => {
-  let { id, postState, setPostState } = useContext(PostMainContext);
-  const navigate = useNavigate();
+export default function PostToggleDiv() {
+  let { id, postTopic, setPostTopic } = useBlogContext();
+  const navigate = useNavigateToPage();
 
 
-  const changePost = (toggle) => {
+  const changePost = (toggle: string) => {
     { (id > 0 && toggle === "PREV") ? id -= 1 : (id < (mockBlogPosts.length - 1) && toggle === "NEXT") && (id += 1) };
     const newPost = mockBlogPosts.find(({ id: post_id }) => post_id === id);
-    if (postState !== newPost?.postHead) {
-      setPostState(newPost.postHead);
+
+    if (!newPost) return;
+
+    if (postTopic !== newPost.postHead) {
+      setPostTopic(newPost.postHead);
       navigate(`/blog/${newPost.postHead}`);
     }
   };
@@ -24,5 +27,3 @@ const PostToggleDiv = () => {
     </div>
   );
 };
-
-export default PostToggleDiv;

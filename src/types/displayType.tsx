@@ -1,0 +1,1 @@
+export type ProductFiltersType = { id: number; text: string; color?: string; option: boolean; style: boolean }[];

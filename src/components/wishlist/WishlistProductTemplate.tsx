@@ -1,13 +1,11 @@
-import { useContext } from "react";
-import { NavigateContext } from "../../store/providers/NavigateProvider";
-import WishlistDeleteIcon from "../features/wishlist/WishlistDeleteIcon"
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
+import WishlistDeleteIcon from "../layout/user-wishlist/WishlistDeleteIcon";
+import WishlistStockAlert from "../layout/user-wishlist/WishlistStockAlert";
 import ProductPrice from "../product-template/ProductPrice";
-import WishlistStockAlert from "../features/wishlist/WishlistStockAlert";
-import ProductOptions from "../product-template/ProductOptions";
+import { WishlistProductType } from "@/types/productType";
+import WishlistProductOptions from "./WishlistProductOptions";
 
-const WishlistProductTemplate = ({ wishlistProductArray }) => {
-  const { wishlistItems } = useContext(NavigateContext);
-
+export default function WishlistProductTemplate({ wishlistProductArray } : { wishlistProductArray: WishlistProductType[] }) {
   return (
     <>
       {wishlistProductArray.map(({ id, productImage, productName, wishlistDate, cutOff, productPrice, averagePrice, priceOne, priceTwo, wishlistStock, productDetails }) => {
@@ -31,14 +29,10 @@ const WishlistProductTemplate = ({ wishlistProductArray }) => {
               <p className="wishlistStatusText">Stock Status</p>
               <WishlistStockAlert mainClass={""} textClass={"wishlistStatus"} showStock={false} showStockBar={false} stockAmt={wishlistStock} stockZero="No unit present" stockNine={`${wishlistStock} units left`} stockMore="In stock" />
             </div>
-            <div className="wishlistToCartDiv">
-              <ProductOptions id={id} productDetails={productDetails} productName={productName} buttonClass={"wishlistToCartBtn"} itemsArray={wishlistItems} />
-            </div>
+            <WishlistProductOptions id={id} productDetails={productDetails} productName={productName} />
           </div>
         );
       })}
     </>
   );
 };
-
-export default WishlistProductTemplate;

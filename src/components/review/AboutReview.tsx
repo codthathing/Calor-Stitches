@@ -1,7 +1,16 @@
 import AboutReviewRating from "./AboutReviewRating";
 import PageButtons from "../common/PageButtons";
 
-const AboutReview = ({id, showReviewText = true, reviewText, showRating = true, reviewPlaceholder, reviewButton}) => {
+interface AboutReview {
+  id?: string;
+  showReviewText?: boolean;
+  reviewText: string;
+  showRating?: boolean;
+  reviewPlaceholder: string;
+  reviewButton: string;
+}
+
+export default function AboutReview({id, showReviewText = true, reviewText, showRating = true, reviewPlaceholder, reviewButton}: AboutReview) {
   return (
     <div className="productAboutDivs">
       {showReviewText && <main className="product-about-main">
@@ -17,7 +26,7 @@ const AboutReview = ({id, showReviewText = true, reviewText, showRating = true, 
           {showRating && <AboutReviewRating />}
           <form id="about-rating-form">
             <div id="rating-input-div">
-              <textarea type="text" placeholder={reviewPlaceholder} className="rating-input" />
+              <textarea placeholder={reviewPlaceholder} className="rating-input" />
               <input type="text" placeholder="Your Name *" className="rating-input" />
               <input type="text" placeholder="Your Email *" className="rating-input" />
             </div>
@@ -32,5 +41,3 @@ const AboutReview = ({id, showReviewText = true, reviewText, showRating = true, 
     </div>
   );
 };
-
-export default AboutReview;

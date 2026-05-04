@@ -1,17 +1,17 @@
-import { useContext } from "react";
-import { NavigateContext } from "../../store/providers/NavigateProvider";
-import { CartContext } from "../../store/providers/CartContext";
-import { useCartEffect } from "../../hooks/useCartEffect";
+"use client";
+import { useCartEffect } from "@/hooks/useCartEffect";
+import { useCartContext } from "@/store/providers/CartProvider";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import PageButtons from "../common/PageButtons";
 
-const CartUpdateButton = () => {
-  const { cloneCart, setCartItems, cartItems } = useContext(NavigateContext);
-  const { setShowCartInfo } = useContext(CartContext);
+export default function CartUpdateButton() {
+  const { cloneCart, setCartItems, cartItems } = useNavigateContext();
+  const { setShowCartInfo } = useCartContext();
   const { checkCart, displayInfo } = useCartEffect();
 
   const updateCart = () => {
     setShowCartInfo(false);
-    const cartInfos = [];
+    const cartInfos: string[] = [];
     checkCart(cartInfos);
 
     if (JSON.stringify(cloneCart) !== JSON.stringify(cartItems) && cartInfos.length === 0) {
@@ -34,5 +34,3 @@ const CartUpdateButton = () => {
     </div>
   );
 };
-
-export default CartUpdateButton;

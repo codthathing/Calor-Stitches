@@ -1,8 +1,6 @@
-import { useNavigateToPage } from "../../hooks/useNavigateToPage";
+import Link from "next/link";
 
-const PostGeneralCategories = ({ id, showComma, tag }) => {
-  const navigate = useNavigateToPage();
-
+export default function PostGeneralCategories({ id, showComma, tag }: { id: string; showComma: boolean; tag: string }) {
   const postCategoriesArray = [
     { id: 0, text: "denium", style: true },
     { id: 1, text: "lifestyle", style: true },
@@ -15,10 +13,8 @@ const PostGeneralCategories = ({ id, showComma, tag }) => {
   return (
     <div id={id}>
       {postCategoriesArray.map(({ id, text, style }) => {
-        return <span key={id} onClick={() => navigate(`/blog/post/${tag}${text}`)} className="post-categories-tag-text">{text}{(showComma && style) && ","} </span>
+        return <Link key={id} href={`/blog/post/${tag}${text}`} className="post-categories-tag-text">{text}{(showComma && style) && ","} </Link>
       })}
     </div>
   );
 };
-
-export default PostGeneralCategories;

@@ -1,4 +1,6 @@
-export const mockBlogPosts = [
+import { BlogType } from "@/types/blogType";
+
+export const mockBlogPosts: BlogType[] = [
   {
     id: 0,
     postImage: "/assets/post-images/posts/post-image-1.jpg",

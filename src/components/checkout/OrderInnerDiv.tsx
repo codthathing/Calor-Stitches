@@ -1,6 +1,6 @@
 import OrderProductTemplate from "./OrderProductTemplate";
 
-const OrderInnerDiv = () => {
+export default function OrderInnerDiv() {
   return (
     <div id="oderInnerDiv">
       <div id="orderOptionDiv">
@@ -11,5 +11,3 @@ const OrderInnerDiv = () => {
     </div>
   );
 };
-
-export default OrderInnerDiv;

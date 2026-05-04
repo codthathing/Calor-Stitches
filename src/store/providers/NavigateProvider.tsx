@@ -14,8 +14,8 @@ interface NavigateInterface {
   setCartItems: SetState<CartProductType[]>;
   products: GeneralProductType[];
   setProducts: SetState<GeneralProductType[]>;
-  cloneCart: object[];
-  setCloneCart: SetState<object[]>;
+  cloneCart: CartProductType[];
+  setCloneCart: SetState<CartProductType[]>;
   collection: GeneralProductType[];
   setCollection: SetState<GeneralProductType[]>;
   presentFilterProducts: GeneralProductType[];
@@ -25,8 +25,6 @@ interface NavigateInterface {
   setPresentCurrency: SetState<string>;
   curSymbol: string;
   setCurSymbol: SetState<string>;
-  presentAuthView: "LOGIN" | "SIGNUP" | "FORGOTPASSWORD";
-  setPresentAuthView: SetState<"LOGIN" | "SIGNUP" | "FORGOTPASSWORD">;
 
   product_section: RefObject<HTMLElement | null>;
   home_section: RefObject<HTMLElement | null>;
@@ -35,15 +33,9 @@ interface NavigateInterface {
   setCurDetails: SetState<{ preNation: string; preCur: string; curFlag: string; curName: string }>;
   productShipValue: { shipFee: number; min: number; max: number; minValue: number; maxValue: number };
   setProductShipValue: SetState<{ shipFee: number; min: number; max: number; minValue: number; maxValue: number }>;
+  userDetails: { userImage: string, userName: string, userEmail: string };
+  setUserDetails: SetState<{ userImage: string, userName: string, userEmail: string }>;
 
-  account: boolean;
-  setAccount: SetState<boolean>;
-  search: boolean;
-  setSearch: SetState<boolean>;
-  wishList: boolean;
-  setWishList: SetState<boolean>;
-  cart: boolean;
-  setCart: SetState<boolean>;
   toggleSideMenu: boolean;
   setToggleSideMenu: SetState<boolean>;
   navbar: boolean;
@@ -65,20 +57,16 @@ export default function NavigateProvider({ children }: { children: ReactNode }) 
   const [wishlistItems, setWishlistItems] = useLocalStorage<WishlistProductType[]>("wishlistItems", []);
   const [cartItems, setCartItems] = useLocalStorage<CartProductType[]>("cartItems", []);
   const [products, setProducts] = useState<GeneralProductType[]>(mockProducts);
-  const [cloneCart, setCloneCart] = useState<object[]>([]);
+  const [cloneCart, setCloneCart] = useState<CartProductType[]>([]);
   const [collection, setCollection] = useState<GeneralProductType[]>([]);
   const [presentFilterProducts, setPresentFilterProducts] = useState<GeneralProductType[]>([]);
   const [presentCurrency, setPresentCurrency] = useLocalStorage<string>("PRESENT_CURRENCY", "NGN");
   const [curSymbol, setCurSymbol] = useState<string>("₦");
-  const [presentAuthView, setPresentAuthView] = useState<"LOGIN" | "SIGNUP" | "FORGOTPASSWORD">("LOGIN");
   const product_section = useRef<HTMLElement | null>(null);
   const home_section = useRef<HTMLElement | null>(null);
+  const [userDetails, setUserDetails] = useState({ userImage: "/assets/user-profile.png", userName: "John Doe", userEmail: "johndoe@gmail.com" });
   const [curDetails, setCurDetails] = useState({ preNation: "Nigeria (Naira ₦)", preCur: "(Naira ₦)", curFlag: "/assets/currency-flags/america-flag.png", curName: "USD $" });
   const [productShipValue, setProductShipValue] = useState({ shipFee: 10000, min: 20, max: 5020, minValue: 20, maxValue: 5020 });
-  const [account, setAccount] = useState<boolean>(false);
-  const [search, setSearch] = useState<boolean>(false);
-  const [wishList, setWishList] = useState<boolean>(false);
-  const [cart, setCart] = useState<boolean>(false);
   const [toggleSideMenu, setToggleSideMenu] = useState<boolean>(false);
   const [navbar, setNavbar] = useState<boolean>(false);
   const [view, setView] = useState<boolean>(false);
@@ -87,7 +75,7 @@ export default function NavigateProvider({ children }: { children: ReactNode }) 
   const [defaultCurrency, setDefaultCurrency] = useState<boolean>(false);
   useCheckAppVersion();
 
-  return <NavigateContext.Provider value={{ account, setAccount, presentAuthView, defaultCurrency, setDefaultCurrency, setPresentAuthView, wishList, setWishList, cart, setCart, search, setSearch, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, curDetails, setCurDetails, productShipValue, setProductShipValue, presentCurrency, setPresentCurrency, cloneCart, setCloneCart, product_section, home_section, showPreload, setShowPreload, view, setView, collection, setCollection, presentFilterProducts, setPresentFilterProducts }}>{children}</NavigateContext.Provider>;
+  return <NavigateContext.Provider value={{ userDetails, setUserDetails, defaultCurrency, setDefaultCurrency, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, curDetails, setCurDetails, productShipValue, setProductShipValue, presentCurrency, setPresentCurrency, cloneCart, setCloneCart, product_section, home_section, showPreload, setShowPreload, view, setView, collection, setCollection, presentFilterProducts, setPresentFilterProducts }}>{children}</NavigateContext.Provider>;
 }
 
 export const useNavigateContext = () => {

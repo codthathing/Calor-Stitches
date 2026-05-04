@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import PageLayout from "@/components/layout/PageLayout";
 import NewsSection from "@/components/news-letter/NewsSection";
 import PageComponents from "@/components/layout/PageComponents";
+import { ReactNode } from "react";
 
 const cormorantInfant = Cormorant_Infant({
   subsets: ["latin"],
@@ -31,8 +32,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  auth_modal,
+  user_modal
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
+  auth_modal: ReactNode;
+  user_modal: ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -41,6 +46,8 @@ export default function RootLayout({
           <PageLayout>
             <Header />
             {children}
+            {auth_modal}
+            {user_modal}
             <NewsSection />
             <PageComponents />
             <Footer />

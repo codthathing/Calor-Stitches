@@ -3,7 +3,7 @@ import BillUserForm from "./BillUserForm";
 import BillOtherAddressDiv from "./BillOtherAddressDiv";
 import BillOptNoteDiv from "./BillOptNoteDiv";
 
-const BillSection = () => {
+export default function BillSection() {
   return (
     <div className="billOrderDiv">
       <CheckoutMainText text={"Billings"} />
@@ -13,5 +13,3 @@ const BillSection = () => {
     </div>
   );
 };
-
-export default BillSection;

@@ -5,7 +5,7 @@ import AuthNavigateText from "./AuthNavigateText";
 interface AuthSection {
   headText: string;
   RegisterForm: ReactNode;
-  nextRegister: "LOGIN" | "SIGNUP" | "FORGOTPASSWORD";
+  nextRegister: "/auth/sign-up" | "/auth/login" | "/auth/forgot-password";
   navText: string;
 }
 

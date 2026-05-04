@@ -1,16 +1,17 @@
-import { useContext } from "react";
-import { NavigateContext } from "../store/providers/NavigateProvider";
-import { CartContext } from "../store/providers/CartContext";
+"use client";
+import { useCartContext } from "@/store/providers/CartProvider";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import { useShowPreload } from "./useShowPreload";
+import { GeneralProductType } from "@/types/productType";
 
 export const useCartEffect = () => {
-  const { cloneCart, products } = useContext(NavigateContext);
-  const { setCartInfoArray, setShowCartInfo } = useContext(CartContext);
+  const { cloneCart, products } = useNavigateContext();
+  const { setCartInfoArray, setShowCartInfo } = useCartContext();
   const { showPreload } = useShowPreload();
 
-  const checkCart = (info) => {
+  const checkCart = (info: string[]) => {
     cloneCart.map(({ productName, cartAmt }) => {
-      const product = products.find((product) => product.productName === productName);
+      const product = products.find((product) => product.productName === productName) as GeneralProductType;
       const { wishlistStock } = product;
 
       if (cartAmt > wishlistStock) {
@@ -19,7 +20,7 @@ export const useCartEffect = () => {
     });
   };
 
-  const displayInfo = (info) => {
+  const displayInfo = (info: string[]) => {
     if (info.length > 0) {
       setCartInfoArray(info);
       showPreload();

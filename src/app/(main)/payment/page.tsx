@@ -1,10 +1,14 @@
-import { useState } from "react";
-import PageNavigationLinks from "../components/ui/PageNavigationLinks";
-import FormFeedback from "../components/common/FormFeedback";
-import bank_card from "../assets/bank-card.jpg";
-import PaymentForm from "../components/payment/PaymentForm";
-import { usePageLoadEffects } from "../hooks/usePageLoadEffects";
-import PageSection from "../components/layout/PageSection";
+import PageSection from "@/components/layout/PageSection";
+import PaymentForm from "@/components/payment/PaymentForm";
+import PaymentProvider from "@/store/providers/PaymentProvider";
+import PageNavigationLinks from "@/components/ui/PageNavigationLinks";
+import Image from "next/image";
+import PaymentFormFeedback from "@/components/payment/PaymentFormFeedback";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Payment Page"
+}
 
 export default function PaymentPage() {
   const pageLinkDetails = [
@@ -12,22 +16,21 @@ export default function PaymentPage() {
     { id: 1, linkDirect: "", linkText: "Page", linkArrow: true },
     { id: 2, linkDirect: "", linkText: "Payment", linkArrow: false },
   ];
-  usePageLoadEffects({});
-
-  const [paymentInfo, setPaymentInfo] = useState("");
 
   return (
-    <PageSection>
-      <PageNavigationLinks pageLinks={pageLinkDetails} />
-      <main id="card-payment-main">
-        <FormFeedback text={paymentInfo} showText={paymentInfo} />
-        <section id="card-payment-section">
-          <div id="card-payment-image-div">
-            <img src={bank_card} alt="bank_card" loading="eager" fetchpriority="high" id="card-payment-image" />
-          </div>
-          <PaymentForm setInfo={setPaymentInfo} />
-        </section>
-      </main>
-    </PageSection>
+    <PaymentProvider>
+      <PageSection>
+        <PageNavigationLinks pageLinks={pageLinkDetails} />
+        <main id="card-payment-main">
+          <PaymentFormFeedback />
+          <section id="card-payment-section">
+            <div id="card-payment-image-div">
+              <Image src={"/assets/bank-card.jpg"} width={100} height={50} alt="bank_card" loading="eager" fetchPriority="high" id="card-payment-image" />
+            </div>
+            <PaymentForm />
+          </section>
+        </main>
+      </PageSection>
+    </PaymentProvider>
   );
 }

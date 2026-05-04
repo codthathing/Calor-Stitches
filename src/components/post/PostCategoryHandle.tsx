@@ -1,24 +1,11 @@
-import { useContext } from "react";
-import { PostMainContext } from "../../store/providers/PostMainContext";
 import WishlistHandle from "../wishlist/WishlistHandle";
-import { useNavigateToPage } from "../../hooks/useNavigateToPage";
+import PostCategoryDetails from "./PostCategoryDetails";
 
-const PostCategoryHandle = () => {
-  const { postDetails } = useContext(PostMainContext);
-  const navigate = useNavigateToPage();
-
+export default function PostCategoryHandle() {
   return (
     <div id="post-category-handle-div">
-      {postDetails && postDetails.filter(({ inner_text }) => inner_text).map(({ id, inner_text }) => {
-        return (
-          <div id="post-category-div" key={id}>
-            {inner_text && inner_text.map(({ id, text, style }) => <span onClick={() => navigate(`/blog/post/${text}`)} className="post-category-text" key={id}>{text}{style && ","} </span>)}
-          </div>
-        );
-      })}
+      <PostCategoryDetails />
       <WishlistHandle />
     </div>
   );
 };
-
-export default PostCategoryHandle;

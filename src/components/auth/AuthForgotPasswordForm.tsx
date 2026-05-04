@@ -1,3 +1,4 @@
+"use client";
 import { ChangeEventHandler, MouseEvent, useState } from "react";
 import FormFeedback from "@/components/common/FormFeedback";
 import { useInputFocus } from "@/hooks/useInputFocus";

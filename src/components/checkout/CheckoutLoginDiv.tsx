@@ -1,15 +1,10 @@
-import { startTransition, useContext } from "react";
-import { NavigateContext } from "../../store/providers/NavigateProvider";
+import Link from "next/link";
 
-const CheckoutLoginDiv = () => {
-  const { setAccount } = useContext(NavigateContext);
-
+export default function CheckoutLoginDiv() {
   return (
     <div id="checkoutLoginDiv">
       <p className="checkoutLoginTexts">Returning customer?</p>
-      <p className="checkoutLoginTexts" onClick={() => startTransition(() => setAccount(true))}>Click here to login</p>
+      <Link className="checkoutLoginTexts" href={"/auth/login"}>Click here to login</Link>
     </div>
   );
 };
-
-export default CheckoutLoginDiv;

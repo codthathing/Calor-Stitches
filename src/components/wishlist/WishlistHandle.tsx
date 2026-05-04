@@ -1,9 +1,9 @@
 import { FaFacebook, FaTwitter } from "react-icons/fa";
 
-const WishlistHandle = ({className}) => {
+export default function WishlistHandle({ className }: { className?: string }) {
   const wishlistHandles = [
-    { id: 0, HandleIcon: FaFacebook , handleText: "SHARE" },
-    { id: 1, HandleIcon: FaTwitter, handleText: "TWEET" }
+    { id: 0, HandleIcon: FaFacebook, handleText: "SHARE" },
+    { id: 1, HandleIcon: FaTwitter, handleText: "TWEET" },
   ];
 
   return (
@@ -18,6 +18,4 @@ const WishlistHandle = ({className}) => {
       })}
     </div>
   );
-};
-
-export default WishlistHandle;
+}

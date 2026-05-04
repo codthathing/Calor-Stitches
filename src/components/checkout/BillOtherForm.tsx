@@ -1,17 +1,16 @@
-import { useContext } from "react";
-import { CheckoutContext } from "../../store/providers/CheckoutContext";
+"use client";
+import { useCheckoutContext } from "@/store/providers/CheckoutProvider";
 import BillForm from "./BillForm";
+import { ChangeEvent } from "react";
 
-const BillOtherForm = () => {
-  const { otherForm, setOtherForm, otherFormArray } = useContext(CheckoutContext);
+export default function BillOtherForm() {
+  const { otherForm, setOtherForm, otherFormArray } = useCheckoutContext();
   
-  const handleOtherForm = (e) => {
+  const handleOtherForm = (e: ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
     const value = e.target.value;
     setOtherForm({ ...otherForm, [name]: value });
   };
 
-  return <BillForm formArray={otherFormArray} HandleInput={handleOtherForm} />
+  return <BillForm formArray={otherFormArray} handleInput={handleOtherForm} />
 };
-
-export default BillOtherForm

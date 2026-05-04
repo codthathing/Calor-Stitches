@@ -1,13 +1,16 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { FaTimes } from "react-icons/fa";
+import { FaChevronLeft } from "react-icons/fa6";
 
 export default function AuthCancelIcon() {
   const router = useRouter();
 
   return (
-    <span className="cancelBtn" onClick={() => router.back()}>
-      <FaTimes className="cancelIcon" />
-    </span>
+    <div className="cancel-icon-div">
+      <span className="cancelBtn" onClick={() => router.back()}>
+        <FaChevronLeft className="cancelIcon" />
+        <span className="cancel-text">Back</span>
+      </span>
+    </div>
   );
-};
+}

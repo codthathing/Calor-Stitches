@@ -1,6 +1,6 @@
 import { FaTruck, FaClock, FaBolt } from "react-icons/fa";
 
-const ReviewServiceDiv = () => {
+export default function ReviewServiceDiv() {
   const serviceArray = [
     { id: 0, ServiceImage: FaTruck, serviceText: "Free shipping on LAGOS orders ₦100, 000+" },
     { id: 1, ServiceImage: FaClock, serviceText: "Delivery time 2-3 working days" },
@@ -20,5 +20,3 @@ const ReviewServiceDiv = () => {
     </div>
   );
 };
-
-export default ReviewServiceDiv;

@@ -1,19 +1,20 @@
+"use client";
 import { useState } from "react";
-import post_image from "../../assets/post-images/post-authors/author-1.jpg";
 import PostText from "./PostText";
 import { FaInstagram } from 'react-icons/fa';
+import Image from "next/image";
 
-const PostInstagramDiv = () => {
+export default function PostInstagramDiv() {
   const [socialImages, setSocialImages] = useState([
-    { id: 0, image: post_image, display: false },
-    { id: 1, image: post_image, display: false },
-    { id: 2, image: post_image, display: false },
-    { id: 3, image: post_image, display: false },
-    { id: 4, image: post_image, display: false },
-    { id: 5, image: post_image, display: false }
+    { id: 0, image: "/assets/post-images/post-authors/author-1.jpg", display: false },
+    { id: 1, image: "/assets/post-images/post-authors/author-1.jpg", display: false },
+    { id: 2, image: "/assets/post-images/post-authors/author-1.jpg", display: false },
+    { id: 3, image: "/assets/post-images/post-authors/author-1.jpg", display: false },
+    { id: 4, image: "/assets/post-images/post-authors/author-1.jpg", display: false },
+    { id: 5, image: "/assets/post-images/post-authors/author-1.jpg", display: false }
   ]);
 
-  const changeSocialHover = (id, toggle) => {
+  const changeSocialHover = (id: number, toggle: boolean) => {
     setSocialImages(prevState => prevState.map((social) => ({...social, display: social.id === id ? toggle : false})));
   };
 
@@ -24,7 +25,7 @@ const PostInstagramDiv = () => {
         {socialImages.map(({ id, image, display }) => {
           return (
             <div key={id} onMouseEnter={() => changeSocialHover(id, true)} onMouseLeave={() => changeSocialHover(id, false)} className="post-instagram-inner-div">
-              <img src={image} loading="lazy" style={{ objectFit: "cover", height: "100%", width: "100%", position: "absolute", zIndex: "-1" }} alt="AUTHOR INSTAGRAM IMAGE" />
+              <Image src={image} height={100} width={100} loading="lazy" style={{ objectFit: "cover", height: "100%", width: "100%", position: "absolute", zIndex: "-1" }} alt="AUTHOR INSTAGRAM IMAGE" />
               {display && <FaInstagram className="post-instagram-icon" />}
             </div>
           );
@@ -33,5 +34,3 @@ const PostInstagramDiv = () => {
     </div>
   );
 };
-
-export default PostInstagramDiv;

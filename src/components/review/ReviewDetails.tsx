@@ -2,7 +2,7 @@ import ProductPrice from "../product-template/ProductPrice";
 
 interface ReviewDetails {
   productReview: boolean;
-  priceMainClass: string;
+  priceMainClass?: string;
   productName: string;
   cutOff?: number;
   productPrice?: number;

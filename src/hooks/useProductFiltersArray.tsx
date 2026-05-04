@@ -1,7 +1,9 @@
+"use client";
+import { ProductFiltersType } from "@/types/displayType";
 import { useState } from "react";
 
 export const useProductFiltersArray = () => {
-  const [productTypes, setProductTypes] = useState([
+  const [productTypes, setProductTypes] = useState<ProductFiltersType>([
     { id: 0, text: "t-shirts", option: true, style: false },
     { id: 1, text: "activewears", option: true, style: false },
     { id: 2, text: "jeans", option: true, style: false },
@@ -12,7 +14,7 @@ export const useProductFiltersArray = () => {
     { id: 7, text: "crop tops", option: true, style: false },
   ]);
 
-  const [productColors, setProductColors] = useState([
+  const [productColors, setProductColors] = useState<ProductFiltersType>([
     { id: 0, text: "olive green", color: "#808000", option: true, style: false },
     { id: 1, text: "army green", color: "#4B5320", option: true, style: false },
     { id: 2, text: "navy blue", color: "#000080", option: true, style: false },
@@ -24,7 +26,7 @@ export const useProductFiltersArray = () => {
     { id: 8, text: "deep sky blue", color: "#00BFFF", option: true, style: false },
   ]);
 
-  const [productSize, setProductSize] = useState([
+  const [productSize, setProductSize] = useState<ProductFiltersType>([
     { id: 0, text: "l", option: true, style: false },
     { id: 1, text: "xl", option: true, style: false },
     { id: 2, text: "xxl", option: true, style: false },

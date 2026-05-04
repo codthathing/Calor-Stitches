@@ -1,17 +1,17 @@
-import { useContext } from "react";
-import { CheckoutContext } from "../../store/providers/CheckoutContext";
-import { useShowPreload } from "../../hooks/useShowPreload";
-import { useNavigateToPage } from "../../hooks/useNavigateToPage";
+"use client";
+import { useNavigateToPage } from "@/hooks/useNavigateToPage";
+import { useShowPreload } from "@/hooks/useShowPreload";
+import { useCheckoutContext } from "@/store/providers/CheckoutProvider";
 import PageButtons from "../common/PageButtons";
 
-const OrderButton = () => {
-  const { showOptAddress, userFormArray, setShowCheckoutInfo, setCheckoutInfoArray, otherFormArray, seenTerms, confirmedMethod, setPageInfoBorder } = useContext(CheckoutContext);
+export default function OrderButton() {
+  const { showOptAddress, userFormArray, setShowCheckoutInfo, setCheckoutInfoArray, otherFormArray, seenTerms, confirmedMethod, setPageInfoBorder } = useCheckoutContext();
   const navigate = useNavigateToPage();
   const { showPreload } = useShowPreload();
 
   const handleOrder = () => {
     setShowCheckoutInfo(false);
-    const orderInfos = [];
+    const orderInfos: string[] = [];
     if (!showOptAddress) {
       userFormArray.map(({ label, value }) => {
         if (!value && label) {
@@ -40,7 +40,7 @@ const OrderButton = () => {
     } else {
       setTimeout(() => {
         if (confirmedMethod.payHead === "Direct bank transfer") {
-          navigate("/pages/payment-page");
+          navigate("/payment");
           setShowCheckoutInfo(false);
         } else {
           setCheckoutInfoArray(["Order placed and processing!"]);
@@ -54,5 +54,3 @@ const OrderButton = () => {
 
   return <PageButtons type={"button"} buttonType={"black-button"} buttonClass={"place-order-btn"} buttonFunction={handleOrder} text={"place order"} />;
 };
-
-export default OrderButton;

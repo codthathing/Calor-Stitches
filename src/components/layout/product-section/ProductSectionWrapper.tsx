@@ -12,7 +12,7 @@ export default function ProductSectionWrapper({ children }: { children: ReactNod
     <section id="productSection" ref={product_section}>
       {children}
       <Products products={products} mapProducts={mapProducts} shownProducts={shownProducts} />
-      <ProductButton linkTo={"/product"} />
+      <ProductButton linkTo={"/products"} />
     </section>
   );
 }

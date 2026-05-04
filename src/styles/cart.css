@@ -63,6 +63,7 @@
   font-family: var(--Yantramanav);
   cursor: pointer;
   user-select: none;
+  text-decoration: none;
 }
 
 .cartDefaultText {
@@ -197,6 +198,7 @@
   font-family: var(--Cormorant);
   color: var(--1B1A1A);
   user-select: none;
+  text-decoration: none;
 }
 
 .checkoutLoginTexts:nth-child(2) {

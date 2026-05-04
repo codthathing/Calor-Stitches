@@ -6,7 +6,7 @@ export default function ProductStockAlertWrapper({ productName, productAvailable
   const router = useRouter();
 
   return (
-    <section onClick={() => router.push(`/product/${productName}`)} className="orderOptions">
+    <section onClick={() => router.push(`/review/${productName}`)} className="orderOptions">
       <ProductStockAlert productAvailable={productAvailable} wishlistStock={wishlistStock} cutOff={cutOff} />
     </section>
   );

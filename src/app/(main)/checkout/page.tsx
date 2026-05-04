@@ -1,15 +1,14 @@
-import { useContext } from "react";
-import { NavigateContext } from "../services/contexts/NavigateContext";
-import { usePageLoadEffects } from "../hooks/usePageLoadEffects";
-import PageNavigationLinks from "../components/ui/PageNavigationLinks";
-import CheckoutLoginDiv from "../components/checkout/CheckoutLoginDiv";
-import CheckoutSection from "../components/checkout/CheckoutSection";
-import PageSection from "../components/layout/PageSection";
+import CheckoutLoginDiv from "@/components/checkout/CheckoutLoginDiv";
+import CheckoutSection from "@/components/checkout/CheckoutSection";
+import PageSection from "@/components/layout/PageSection";
+import PageNavigationLinks from "@/components/ui/PageNavigationLinks";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Checkout Page"
+}
 
 export default function CheckoutPage() {
-  const { setCart } = useContext(NavigateContext);
-  usePageLoadEffects({});
-
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },
     { id: 1, linkDirect: "", linkText: "shop", linkArrow: true },

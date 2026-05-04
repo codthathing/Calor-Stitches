@@ -1,9 +1,9 @@
-import { useContext } from "react";
-import { PostMainContext } from "../../store/providers/PostMainContext";
+"use client";
+import { useBlogContext } from "@/store/providers/BlogProvider";
 import NewsHandleIcons from "../news-letter/NewsHandleIcons";
 
-const PostAuthorDetails = () => {
-  const { postAuthor } = useContext(PostMainContext);
+export default function PostAuthorDetails() {
+  const { postAuthor } = useBlogContext();
 
   if(postAuthor) {
     return (
@@ -18,5 +18,3 @@ const PostAuthorDetails = () => {
     );
   }
 };
-
-export default PostAuthorDetails;

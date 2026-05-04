@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import { NavigateContext } from "../../store/providers/NavigateProvider";
+"use client";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
 
-const OrderProductTemplate = () => {
-  const { cartItems, curSymbol } = useContext(NavigateContext);
+export default function OrderProductTemplate() {
+  const { cartItems, curSymbol } = useNavigateContext();
 
   return (
     <main id="orderProductMain">
@@ -17,5 +17,3 @@ const OrderProductTemplate = () => {
     </main>
   );
 };
-
-export default OrderProductTemplate;

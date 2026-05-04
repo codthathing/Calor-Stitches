@@ -1,21 +1,15 @@
-import { useContext } from "react";
-import { ReviewContext } from "../../store/providers/ReviewContext";
 import ReviewServiceDiv from "./ReviewServiceDiv";
 import ReviewPaymentDiv from "./ReviewPaymentDiv";
-import ReviewProductDetails from "./ReviewProductDetails";
 import NewsHandleIcons from "../news-letter/NewsHandleIcons";
+import ReviewProductDetailsWrapper from "./ReviewProductDetailsWrapper";
 
-const ReviewDeliveryDiv = () => {
-  const { productInfo } = useContext(ReviewContext);
-
+export default function ReviewDeliveryDiv() {
   return (
     <div id="productDelivery">
       <ReviewServiceDiv />
       <ReviewPaymentDiv />
-      {productInfo && <ReviewProductDetails productInfo={productInfo} />}
+      <ReviewProductDetailsWrapper />
       <NewsHandleIcons id={"productHandles"} />
     </div>
   );
 };
-
-export default ReviewDeliveryDiv;

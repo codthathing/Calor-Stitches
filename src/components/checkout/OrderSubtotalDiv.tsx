@@ -1,9 +1,9 @@
-import { useContext } from "react";
-import { NavigateContext } from "../../store/providers/NavigateProvider";
-import { useSumCartItems } from "../../hooks/useSumCartItems";
+"use client";
+import { useSumCartItems } from "@/hooks/useSumCartItems";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
 
-const OrderSubtotalDiv = () => {
-  const { curSymbol, productShipValue, cartItems } = useContext(NavigateContext);
+export default function OrderSubtotalDiv() {
+  const { curSymbol, productShipValue, cartItems } = useNavigateContext();
   const { total } = useSumCartItems(cartItems);
 
   const subtotalArray = [
@@ -25,5 +25,3 @@ const OrderSubtotalDiv = () => {
     </>
   )
 };
-
-export default OrderSubtotalDiv;

@@ -4,24 +4,24 @@ import { FiUser, FiSearch, FiHeart, FiShoppingBag } from "react-icons/fi";
 import { motion, MotionConfig } from "framer-motion";
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import { IconType } from "react-icons";
-import { SetState } from "@/types/productType";
+import Link from "next/link";
 
-const NavigationIcons = memo(({ mount }: { mount: boolean }) => {
-  const { setAccount, setSearch, setWishList, setCart, cartItems, wishlistItems, navbar } = useNavigateContext();
+const NavigationIcons = memo(({ mount }: { mount: boolean; }) => {
+  const { cartItems, wishlistItems, navbar } = useNavigateContext();
 
-  const navigationIconsDetails: { id: number; Icon?: IconType; text?: string; listId?: string; listIconId?: string; value?: number; showValue?: boolean; setPage: SetState<boolean> }[] = [
-    { id: 0, Icon: FiUser, listId: "mobile-login-icon", setPage: setAccount },
-    { id: 1, text: "LOGIN", listIconId: "loginText", listId: "desktop-login-icon", setPage: setAccount },
-    { id: 2, Icon: FiSearch, setPage: setSearch },
-    { id: 3, Icon: FiHeart, showValue: wishlistItems.length > 0, value: wishlistItems.length, setPage: setWishList },
-    { id: 4, Icon: FiShoppingBag, showValue: cartItems.length > 0, value: cartItems.reduce((sum, { cartAmt }) => sum + cartAmt, 0), setPage: setCart },
+  const navigationIconsDetails: { id: number; Icon?: IconType; text?: string; listId?: string; listIconId?: string; value?: number; showValue?: boolean; pageLink: string }[] = [
+    { id: 0, Icon: FiUser, listId: "mobile-login-icon", pageLink: "" },
+    { id: 1, text: "LOGIN", listIconId: "loginText", listId: "desktop-login-icon", pageLink: "/auth/login" },
+    { id: 2, Icon: FiSearch, pageLink: "/search" },
+    { id: 3, Icon: FiHeart, showValue: wishlistItems.length > 0, value: wishlistItems.length, pageLink: "/user/wishlist" },
+    { id: 4, Icon: FiShoppingBag, showValue: cartItems.length > 0, value: cartItems.reduce((sum, { cartAmt }) => sum + cartAmt, 0), pageLink: "/user/cart" },
   ];
 
   return (
     <>
-      {navigationIconsDetails.map(({ id, Icon, listId, listIconId, showValue, value, setPage, text }) => {
+      {navigationIconsDetails.map(({ id, Icon, listId, listIconId, showValue, value, pageLink, text }) => {
         return (
-          <li className="icons" id={listId} onClick={() => startTransition(() => setPage(true))} key={id}>
+          <Link href={pageLink} className="icons" id={listId} key={id} scroll={false} style={{ textDecoration: "none", color: "inherit" }}>
             {text && <span id={listIconId}>{text}</span>}
             {Icon && (
               <>
@@ -33,14 +33,14 @@ const NavigationIcons = memo(({ mount }: { mount: boolean }) => {
                 )}
               </>
             )}
-          </li>
+          </Link>
         );
       })}
     </>
   );
 });
 
-const HamburgerButton = memo(({ isOpen, toggle }: { isOpen: boolean, toggle: () => void }) => {
+const HamburgerButton = memo(({ isOpen, toggle }: { isOpen: boolean; toggle: () => void }) => {
   const { navbar } = useNavigateContext();
 
   return (
@@ -60,9 +60,9 @@ export default function HeaderNavigationIcons({ mount }: { mount: boolean }) {
   const toggle = useCallback(() => startTransition(() => setToggleSideMenu((prevState) => !prevState)), []);
 
   return (
-    <ul id="navIcons">
+    <nav id="navIcons">
       <NavigationIcons mount={mount} />
       <HamburgerButton isOpen={toggleSideMenu} toggle={toggle} />
-    </ul>
+    </nav>
   );
-};
+}

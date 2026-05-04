@@ -2,6 +2,7 @@ import UserCartDetailsWrapper from "@/components/layout/user-cart/UserCartDetail
 import { CartProductType } from "@/types/productType";
 import Image from "next/image";
 import CartDeleteIcon from "./CartDeleteIcon";
+import Link from "next/link";
 
 export default function CartProductTemplate({ cartArray }: { cartArray: CartProductType[] }) {
   return (
@@ -9,10 +10,11 @@ export default function CartProductTemplate({ cartArray }: { cartArray: CartProd
       {cartArray.map(({ id, productImage, productName, productPrice, cartSize, cartColor, cartAmt }) => {
         return (
           <main key={id} className="cartProductMain">
-            <Image src={productImage} alt={productName} loading="lazy" className="cartProductImage" />
+            <Image src={productImage} alt={productName} width={75} height={100} loading="lazy" className="cartProductImage" />
             <div className="cartProductDetails">
               <CartDeleteIcon id={id} cancelClass={"cartRemove"} />
-              <UserCartDetailsWrapper productPrice={productPrice} cartAmt={cartAmt} productName={productName}>
+              <UserCartDetailsWrapper productPrice={productPrice} cartAmt={cartAmt}>
+                <Link className="cartProductName" href={`/product/${productName}`}>{productName}</Link>
                 {cartColor && <p className="cartProductText">Color: <span style={{ textTransform: "capitalize" }}>{cartColor}</span></p>}
                 {cartSize && <p className="cartProductText">Size: <span style={{ textTransform: "uppercase" }}>{cartSize}</span></p>}
               </UserCartDetailsWrapper>

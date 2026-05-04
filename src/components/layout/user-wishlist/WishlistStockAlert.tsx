@@ -1,7 +1,7 @@
 interface WishlistStock {
   mainClass: string;
   textClass: string;
-  barClass: string;
+  barClass?: string;
   showStock?: boolean;
   stockAmt: number;
   showStockBar: boolean;

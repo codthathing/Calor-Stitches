@@ -25,14 +25,26 @@
   transform: translate(-50%, -50%);
 }
 
+.cancel-icon-div {
+  display: flex;
+}
+
 .cancelBtn {
-  position: relative;
-  left: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
   cursor: pointer;
+  justify-self: flex-end;
 }
 
 .cancelIcon {
   color: var(--1B1A1A);
+}
+
+.cancel-text {
+  color: var(--1B1A1A);
+  font-family: var(--Roboto);
+  font-weight: bold;
 }
 
 .registerHead {
@@ -278,8 +290,16 @@
     padding: 1.5rem;
   }
 
+  .cancel-icon-div {
+    margin-bottom: 1rem;
+  }
+
   .cancelIcon {
     font-size: var(--16px);
+  }
+
+  .cancel-text {
+    font-size: var(--12px);
   }
 
   .registerHead {
@@ -392,8 +412,16 @@
     padding: 2.5rem;
   }
 
+  .cancel-icon-div {
+    margin-bottom: 2rem;
+  }
+
   .cancelIcon {
     font-size: var(--24px);
+  }
+
+  .cancel-text {
+    font-size: var(--20px);
   }
 
   .registerHead {
@@ -439,8 +467,16 @@
     padding: 4rem;
   }
 
+  .cancel-icon-div {
+    margin-bottom: 1.5rem;
+  }
+
   .cancelIcon {
-    font-size: var(--20px);
+    font-size: var(--16px);
+  }
+
+  .cancel-text {
+    font-size: var(--12px);
   }
 
   .registerHead {

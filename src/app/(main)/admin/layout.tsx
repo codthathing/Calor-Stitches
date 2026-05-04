@@ -1,6 +1,7 @@
+import AdminNavigationLinks from "@/components/admin/AdminNavigationLinks";
 import AdminPageSection from "@/components/admin/AdminPageSection";
-import AboutNavigationLinks from "@/components/review/AboutNavigationLinks";
 import PageNavigationLinks from "@/components/ui/PageNavigationLinks";
+import { Metadata } from "next";
 import { ReactNode } from "react";
 
 const pageLinkDetails = [
@@ -14,12 +15,16 @@ const linksArray = [
   { id: 1, text: "POSTS", path: "/admin/blog" },
 ];
 
+export const metadata: Metadata = {
+  title: "Admin Page"
+}
+
 export default function layout({ sections }: { children: ReactNode; sections: ReactNode }) {
   return (
     <AdminPageSection>
       <PageNavigationLinks pageLinks={pageLinkDetails} />
       <main id="admin-main">
-        <AboutNavigationLinks array={linksArray} />
+        <AdminNavigationLinks array={linksArray} />
         {sections}
       </main>
     </AdminPageSection>

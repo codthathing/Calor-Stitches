@@ -1,6 +1,7 @@
-import { GeneralProductType, SetState } from "@/types/productType";
+"use client";
+import { SetState, UserProductType } from "@/types/productType";
 
-const CartItemAmt = ({ id, cartAmt, itemsArray, setItemsArray }: { id: number; cartAmt?: number; itemsArray: GeneralProductType[]; setItemsArray: SetState<GeneralProductType[]> }) => {
+export default function CartItemAmt<T extends UserProductType>({ id, cartAmt, itemsArray, setItemsArray }: { id: number; cartAmt?: number; itemsArray: T[]; setItemsArray: SetState<T[]> }) {
   const increaseCart = (id: number) => {
     const selectedItem = itemsArray.map(((item) => {
       if (item.id === id) {
@@ -33,5 +34,3 @@ const CartItemAmt = ({ id, cartAmt, itemsArray, setItemsArray }: { id: number; c
     </div>
   );
 };
-
-export default CartItemAmt;

@@ -28,7 +28,7 @@ export const useScrollEffect = () => {
   const path = usePathname();
 
   useEffect(() => {
-    if (window.scrollY > 120 || path.includes("/product") || path.includes("/shop") || path.includes("/pages") || path.includes("/blog")) {
+    if (window.scrollY > 120 || path === "/product" || path ==="/wishlist" || path === "/cart" || path === "/checkout" || path === "/payment" || path === "/displays" || path.includes("/review") || path.includes("/collection") || path.includes("/blog") || path.includes("/posts")) {
       setNavbar(true);
     } else {
       setNavbar(false);

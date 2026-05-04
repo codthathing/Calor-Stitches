@@ -1,6 +1,6 @@
 // import service_icon from "../../assets/service-icons/iconmonstr-delivery-2-240.png";
 
-const AboutDescription = () => {
+export default function AboutDescription() {
   return (
     <div className="productAboutDivs">
       <p id="productAboutText">
@@ -28,5 +28,3 @@ const AboutDescription = () => {
     </div>
   );
 };
-
-export default AboutDescription;

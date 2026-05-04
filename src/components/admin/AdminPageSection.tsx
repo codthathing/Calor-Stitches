@@ -5,9 +5,9 @@ import PageSection from "../layout/PageSection";
 import { ReactNode } from "react";
 
 export default function AdminPageSection({ children }: { children: ReactNode }) {
-  const { setAccount } = useNavigateContext();
+  const { setUserDetails } = useNavigateContext();
 
-  usePageLoadEffects({ effectsArray: [{ effect: setAccount, value: false }] });
+  usePageLoadEffects({ effectsArray: [{ effect: setUserDetails, value: false }] });
 
   return <PageSection>{children}</PageSection>;
 }

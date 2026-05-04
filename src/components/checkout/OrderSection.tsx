@@ -5,7 +5,7 @@ import OrderPaymentMethodForm from "./OrderPaymentMethodForm";
 import OrderTermsDiv from "./OrderTermsDiv";
 import OrderButton from "./OrderButton";
 
-const OrderSection = () => {
+export default function OrderSection() {
   return (
     <div className="billOrderDiv">
       <CheckoutMainText text={"Your order"} />
@@ -18,5 +18,3 @@ const OrderSection = () => {
     </div>
   );
 };
-
-export default OrderSection;

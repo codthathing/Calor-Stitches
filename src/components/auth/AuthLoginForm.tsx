@@ -2,7 +2,6 @@
 import { ChangeEventHandler, MouseEvent, useState } from "react";
 import AuthPasswordInput from "@/components/auth/AuthPasswordInput";
 import FormFeedback from "@/components/common/FormFeedback";
-import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import { useInputFocus } from "@/hooks/useInputFocus";
 import { useNavigateToPage } from "@/hooks/useNavigateToPage";
 import AuthInput from "@/components/auth/AuthInput";
@@ -14,7 +13,6 @@ export default function AuthLoginForm() {
   const { inputFocus } = useInputFocus();
   const navigate = useNavigateToPage();
 
-  const { setPresentAuthView } = useNavigateContext();
   const [loginValue, setLoginValue] = useState({ email: "", password: "" });
 
   const handleLoginValue: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -47,7 +45,7 @@ export default function AuthLoginForm() {
         <div id="registerParagraph">
           <input type="checkbox" id="registerCheck" />
           <span>Remember Me</span>
-          <PageButtons type={"text"} buttonFunction={() => setPresentAuthView("FORGOTPASSWORD")} textClass={"forgot-btn"} text={"forgot password"} />
+          <PageButtons type={"text"} buttonFunction={() => navigate("/auth/forgot-password")} textClass={"forgot-btn"} text={"forgot password"} />
         </div>
         <AuthButton buttonFunction={handleLogin} buttonText={"LOGIN"} />
       </form>

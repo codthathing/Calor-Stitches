@@ -1,10 +1,9 @@
-import { useContext } from "react";
-import { NavigateContext } from "../../store/providers/NavigateProvider";
-import CartDeleteIcon from "../features/cart/CartDeleteIcon";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
+import CartDeleteIcon from "../layout/user-cart/CartDeleteIcon";
 import CartItemAmt from "./CartItemAmt";
 
-const CartProductTemplate = () => {
-  const { curSymbol, cloneCart, setCloneCart } = useContext(NavigateContext);
+export default function CartProductTemplate() {
+  const { curSymbol, cloneCart, setCloneCart } = useNavigateContext();
 
   return (
     <>
@@ -40,5 +39,3 @@ const CartProductTemplate = () => {
     </>
   );
 };
-
-export default CartProductTemplate;

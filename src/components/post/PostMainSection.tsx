@@ -4,7 +4,7 @@ import PostAuthorDetails from "./PostAuthorDetails";
 import PostToggleDiv from "./PostToggleDiv";
 import AboutReview from "../review/AboutReview";
 
-const PostMainSection = () => {
+export default function PostMainSection() {
   return (
     <section className="post-main-section">
       <PostDetailsMain />
@@ -15,5 +15,3 @@ const PostMainSection = () => {
     </section>
   );
 };
-
-export default PostMainSection;

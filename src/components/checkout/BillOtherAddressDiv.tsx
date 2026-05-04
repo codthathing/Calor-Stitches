@@ -1,9 +1,9 @@
-import { useContext } from "react";
-import { CheckoutContext } from "../../store/providers/CheckoutContext";
+"use client";
+import { useCheckoutContext } from "@/store/providers/CheckoutProvider";
 import BillOtherForm from "./BillOtherForm";
 
-const BillOtherAddressDiv = () => {
-  const { showOptAddress, setShowOptAddress } = useContext(CheckoutContext);
+export default function BillOtherAddressDiv() {
+  const { showOptAddress, setShowOptAddress } = useCheckoutContext();
 
   return (
     <div id="billOtherAddresssDiv">
@@ -15,5 +15,3 @@ const BillOtherAddressDiv = () => {
     </div>
   );
 };
-
-export default BillOtherAddressDiv;

@@ -14,7 +14,7 @@
 .post-details-text {
   text-transform: uppercase;
   color: var(--282828);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
 }
 
 .post-details-link {
@@ -24,12 +24,12 @@
 }
 
 #post-topic {
-  font-family: var(--Cormorant);
+  font-family: var(--font-cormorant-infant);
   color: var(--1B1A1A);
 }
 
 #post-paragraph {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--282828);
   white-space: pre-line;
 }
@@ -41,7 +41,7 @@
 }
 
 .post-category-text {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   text-transform: uppercase;
   color: var(--222222);
   cursor: pointer;
@@ -59,13 +59,13 @@
 }
 
 #post-shown-head {
-  font-family: var(--Cormorant);
+  font-family: var(--font-cormorant-infant);
   color: var(--1B1A1A);
 }
 
 #post-shown-text {
   color: var(--282828);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
 }
 
 .post-shown-handle {
@@ -80,7 +80,7 @@
 
 .post-toggle-text {
   color: var(--222222);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   text-transform: uppercase;
   border-bottom: 1px solid var(--222222);
   cursor: pointer;
@@ -97,14 +97,14 @@
 #post-input-field {
   border: none;
   outline: none;
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--222222);
 }
 
 .post-inner-text {
   text-transform: capitalize;
   color: var(--1B1A1A);
-  font-family: var(--Cormorant);
+  font-family: var(--font-cormorant-infant);
 }
 
 #post-categories-div {
@@ -113,7 +113,7 @@
 }
 
 .post-categories-tag-text {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--222222);
   text-transform: uppercase;
   cursor: pointer;
@@ -138,7 +138,7 @@
 
 .post-recent-head {
   color: var(--282828);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   text-transform: uppercase;
   user-select: none;
 }

@@ -1,12 +1,4 @@
 /* Styling for the wishlist page */
-:root {
-  --16px: 1rem;
-  --222222: #222222;
-  --9B9B9B: #9B9B9B;
-  --282828: #282828;
-  --Yantramanav: 'Yantramanav', sans-serif;
-}
-
 #wishListMain {
   background-color: white;
   height: fit-content;
@@ -51,7 +43,7 @@
 
 #wishListText {
   font-weight: bold;
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   color: white;
 }
 
@@ -62,7 +54,7 @@
 
 #wishlistInfoText {
   color: white;
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   text-align: center;
 }
 
@@ -105,7 +97,7 @@
 }
 
 .defaultText {
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   color: var(--222222);
 }
 
@@ -115,7 +107,7 @@
 }
 
 .wishListTexts {
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   color: var(--222222);
   word-break: keep-all;
 }
@@ -145,39 +137,39 @@
 
 .wishlistCartName {
   color: var(--222222);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   text-transform: capitalize;
 }
 
 .wishlistDate {
   color: var(--282828);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
 }
 
 .wishlistCartPriceText {
   color: var(--222222);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
 }
 
 .wishlistCartPriceValue {
   color: var(--282828);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
 }
 
 .wishlistStatusText {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--222222);
 }
 
 .wishlistStatus {
   color: var(--282828);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
 }
 
 .wishlistToCartBtn {
   background-color: var(--222222);
   color: #FFFFFF;
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   border: none;
   cursor: pointer;
 }
@@ -193,7 +185,7 @@
 
 .wishlistHandleText {
   color: var(--222222);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   user-select: none;
 }
 
@@ -578,7 +570,7 @@
 
   .wishlistCartTopicTexts {
     font-size: var(--16px);
-    font-family: var(--Roboto);
+    font-family: var(--font-roboto);
     color: var(--1B1A1A);
     justify-self: center;
   }

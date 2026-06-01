@@ -1,6 +1,7 @@
 "use client";
-import { PageScrollToTop, useScrollEffect } from "@/hooks/useScrollEffect";
+import { useScrollEffect } from "@/hooks/useScrollEffect";
 import PagePreload from "../ui/PagePreload";
+import PageScrollToTop from "../ui/PageScrollToTop";
 
 export default function PageComponents() {
   const { showNavToTop } = useScrollEffect();

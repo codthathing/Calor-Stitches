@@ -58,7 +58,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 #curLangOuterText {
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
 }
 
 #curInnerDiv {
@@ -68,7 +68,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 #curLangInerText {
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   user-select: none;
 }
 
@@ -80,7 +80,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .curLangText {
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   user-select: none;
 }
 
@@ -97,7 +97,7 @@ body::-webkit-scrollbar-thumb {
 
 #curText {
   color: var(--222222);
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   word-break: keep-all;
 }
 
@@ -131,7 +131,7 @@ body::-webkit-scrollbar-thumb {
 .sideMenuText {
   text-transform: uppercase;
   color: var(--222222);
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
 }
 
 .sideMenuIcon {
@@ -147,8 +147,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 #logo {
-  font-family: var(--Cormorant);
-  font-weight: 600;
+  font-family: var(--font-cormorant-infant);
+  font-weight: bold;
 }
 
 #logoMob {
@@ -165,7 +165,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 #loginText {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   font-style: normal;
 }
 
@@ -184,6 +184,7 @@ body::-webkit-scrollbar-thumb {
 .side-menu-hamburger-div {
   position: absolute;
   width: 100%;
+  transform-origin: center;
 }
 
 .iconTag {
@@ -207,7 +208,7 @@ body::-webkit-scrollbar-thumb {
 .page-button {
   border: none;
   outline: none;
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   cursor: pointer;
 }
 
@@ -253,7 +254,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .page-animate-text {
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   color: var(--222222);
 }
 
@@ -261,6 +262,7 @@ body::-webkit-scrollbar-thumb {
   from {
     right: 100%;
   }
+
   to {
     right: 0;
   }
@@ -276,12 +278,12 @@ body::-webkit-scrollbar-thumb {
 }
 
 .paragraphStyles {
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
 }
 
 #disHead {
-  font-family: var(--Cormorant);
-  font-weight: var(--500);
+  font-family: var(--font-cormorant-infant);
+  font-weight: 500;
   color: white;
   display: flex;
   align-items: center;
@@ -294,7 +296,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .dispay-number {
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   color: #ffffff;
 }
 
@@ -311,8 +313,8 @@ body::-webkit-scrollbar-thumb {
 .product-section-head {
   text-align: center;
   color: var(--1B1A1A);
-  font-family: var(--Cormorant);
-  font-weight: var(--500);
+  font-family: var(--font-cormorant-infant);
+  font-weight: 500;
 }
 
 .orderOptions {
@@ -357,7 +359,7 @@ body::-webkit-scrollbar-thumb {
   white-space: nowrap;
   background-color: var(--222222);
   color: white;
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   z-index: 100;
   border-radius: 0.5rem;
   padding: 0.75rem;
@@ -401,7 +403,7 @@ body::-webkit-scrollbar-thumb {
 
 .productName {
   text-transform: capitalize;
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   color: var(--1B1A1A);
   text-align: center;
 }
@@ -419,11 +421,11 @@ body::-webkit-scrollbar-thumb {
 
 .productPrice {
   white-space: pre;
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
 }
 
 .view-button {
-  border: var(--border_size) solid var(--222222);
+  border: 1px solid var(--222222);
   display: block;
   margin: 0 auto;
 }
@@ -449,15 +451,15 @@ body::-webkit-scrollbar-thumb {
 }
 
 .collectionTopic {
-  font-family: var(--Cormorant);
+  font-family: var(--font-cormorant-infant);
   text-transform: capitalize;
   font-style: italic;
   color: white;
-  font-weight: var(--500);
+  font-weight: 500;
 }
 
 .collectionLink {
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   color: white;
   cursor: pointer;
   user-select: none;
@@ -465,7 +467,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 #latestSection {
-  border-bottom: var(--border_size) solid var(--F3F2ED);
+  border-bottom: 1px solid var(--F3F2ED);
 }
 
 #navLatest {
@@ -479,7 +481,7 @@ body::-webkit-scrollbar-thumb {
 
 .latestItem {
   list-style: none;
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   cursor: pointer;
 }
 
@@ -495,16 +497,16 @@ body::-webkit-scrollbar-thumb {
 }
 
 #articleText {
-  font-family: var(--Cormorant);
+  font-family: var(--font-cormorant-infant);
   color: var(--1B1A1A);
-  font-weight: var(--500);
+  font-weight: 500;
   margin-bottom: 2rem;
 }
 
 #articleAuthor {
   color: var(--1B1A1A);
   font-style: normal;
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
 }
 
 #videoDiv {
@@ -540,7 +542,7 @@ body::-webkit-scrollbar-thumb {
 
 #videoPlay {
   color: white;
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
 }
 
 .videoCursor {
@@ -567,13 +569,13 @@ body::-webkit-scrollbar-thumb {
 
 .serviceHead {
   color: var(--1B1A1A);
-  font-family: var(--Yantramanav);
-  font-weight: var(--500);
+  font-family: var(--font-yantramanav);
+  font-weight: 500;
 }
 
 .serviceParagraph {
   color: var(--282828);
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
 }
 
 #postHeadDiv {
@@ -595,7 +597,7 @@ body::-webkit-scrollbar-thumb {
 .post-dislpay-text {
   color: var(--282828);
   text-transform: uppercase;
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
 }
 
 .post-display-link {
@@ -606,9 +608,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .postHead {
-  font-family: var(--Cormorant);
+  font-family: var(--font-cormorant-infant);
   color: var(--222222);
-  font-weight: var(--500);
+  font-weight: 500;
   text-decoration: none;
 }
 
@@ -617,13 +619,13 @@ body::-webkit-scrollbar-thumb {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   color: var(--282828);
 }
 
 #newsSection {
   display: grid;
-  border-top: var(--border_size) solid var(--F3F2ED);
+  border-top: 1px solid var(--F3F2ED);
 }
 
 .contactMain {
@@ -631,13 +633,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 .contactHead {
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   color: var(--1B1A1A);
-  font-weight: var(--500);
+  font-weight: 500;
 }
 
 .contactParagraph {
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   color: var(--222222);
 }
 
@@ -646,8 +648,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 #subscribeHead {
-  font-weight: var(--500);
-  font-family: var(--Cormorant);
+  font-weight: 500;
+  font-family: var(--font-cormorant-infant);
   color: var(--1B1A1A);
 }
 
@@ -660,12 +662,12 @@ body::-webkit-scrollbar-thumb {
 #subscribeInput {
   border: none;
   color: var(--222222);
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   outline: none;
 }
 
 #subscribeParagraph {
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   color: var(--616161);
   margin-bottom: 3rem;
 }
@@ -683,16 +685,16 @@ body::-webkit-scrollbar-thumb {
 }
 
 #storeSection {
-  border-bottom: var(--border_size) solid var(--F3F2ED);
+  border-bottom: 1px solid var(--F3F2ED);
 }
 
 #storeHead {
-  font-family: var(--Cormorant);
-  font-weight: var(--500);
+  font-family: var(--font-cormorant-infant);
+  font-weight: 500;
 }
 
 #storeParagraph {
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
 }
 
 #payAside {
@@ -705,8 +707,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .linkHead {
-  font-family: var(--Cormorant);
-  font-weight: var(--500);
+  font-family: var(--font-cormorant-infant);
+  font-weight: 500;
 }
 
 .linkNav {
@@ -719,7 +721,7 @@ body::-webkit-scrollbar-thumb {
   color: white;
   cursor: pointer;
   user-select: none;
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
 }
 
 #curencyLangDiv {
@@ -728,11 +730,11 @@ body::-webkit-scrollbar-thumb {
 }
 
 #currencyLangInerText {
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
 }
 
 #copyText {
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
 }
 
 /* Styling for mobile and tab */
@@ -834,16 +836,16 @@ body::-webkit-scrollbar-thumb {
 
   #loginText {
     font-size: var(--17px);
-    font-weight: var(--500);
+    font-weight: 500;
   }
 
   #side-menu-hamburger-button {
-    height: 2.25rem;
-    width: 2.25rem;
+    height: 2.75rem;
+    width: 1.75rem;
   }
 
   .side-menu-hamburger-div {
-    height: 2px;
+    height: 2.5px;
   }
 
   .iconTag {
@@ -1149,12 +1151,12 @@ body::-webkit-scrollbar-thumb {
   }
 
   #side-menu-hamburger-button {
-    height: 1.25rem;
-    width: 1.25rem;
+    height: 1.6rem;
+    width: 0.9rem;
   }
 
   .side-menu-hamburger-div {
-    height: 1px;
+    height: 1.35px;
   }
 
   .page-button {

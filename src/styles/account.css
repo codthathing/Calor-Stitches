@@ -1,12 +1,4 @@
 /* Styling for the register page */
-:root {
-  --16px: 1rem;
-  --1B1A1A: #1B1A1A;
-  --222222: #222222;
-  --Yantramanav: 'Yantramanav', sans-serif;
-  --Cormorant: 'Cormorant Infant', sans-serif;
-}
-
 .navSections {
   position: fixed;
   height: 100vh;
@@ -43,12 +35,12 @@
 
 .cancel-text {
   color: var(--1B1A1A);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   font-weight: bold;
 }
 
 .registerHead {
-  font-family: var(--Cormorant);
+  font-family: var(--font-cormorant-infant);
   color: var(--1B1A1A);
 }
 
@@ -63,7 +55,7 @@
 
 .registerInput {
   color: var(--222222);
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   outline: none;
   border: none;
   width: 100%;
@@ -76,7 +68,7 @@
 }
 
 #registerParagraph {
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   color: var(--1B1A1A);
 }
 
@@ -96,7 +88,7 @@
 
 #register-message {
   background-color: var(--FFFF00);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--222222);
   text-align: center;
 }
@@ -120,7 +112,7 @@
 
 .user-details-text {
   color: var(--222222);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
 }
 
 .user-details-span {
@@ -140,13 +132,13 @@
 
 #confirm-head {
   color: var(--222222);
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   font-weight: 600;
   text-align: center;
 }
 
 #confirm-text {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--282828);
   text-align: center;
 }

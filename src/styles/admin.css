@@ -6,7 +6,7 @@
 
 .admin-information-text {
   color: var(--222222);
-  font-family: var(--Cormorant);
+  font-family: var(--font-cormorant-infant);
 }
 
 .admin-form-div:first-child {
@@ -15,7 +15,7 @@
 
 .admin-input {
   border: 1px solid var(--222222);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--222222);
   box-shadow: 0 0 0px 1000px white inset;
 }
@@ -31,7 +31,7 @@
 }
 
 .admin-add-text {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   border: none;
   box-shadow: 0 0 0px 1000px white inset;
 }
@@ -57,7 +57,7 @@
 
 .admin-group-name {
   background-color: var(--F3F2ED);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   display: flex;
   align-items: baseline;
 }
@@ -92,7 +92,7 @@
 }
 
 .admin-price-text {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--222222);
   font-size: var(--16px);
 }

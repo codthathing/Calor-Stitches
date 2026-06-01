@@ -1,12 +1,4 @@
 /* Styling for the cart page */
-:root {
-  --16px: 1rem;
-  --222222: #222222;
-  --9B9B9B: #9B9B9B;
-  --Yantramanav: 'Yantramanav', sans-serif;
-  --Cormorant: "Cormorant Infant", sans-serif;
-}
-
 #cartSection {
   display: flex;
   flex-direction: column;
@@ -53,21 +45,21 @@
 }
 
 .cartProductText {
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   color: var(--222222);
 }
 
 .cartProductName {
   text-transform: capitalize;
   color: var(--222222);
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   cursor: pointer;
   user-select: none;
   text-decoration: none;
 }
 
 .cartDefaultText {
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   color: var(--222222);
 }
 
@@ -85,7 +77,7 @@
 }
 
 .totalPrice {
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   color: var(--222222);
 }
 
@@ -114,7 +106,7 @@
 }
 
 .cart-info-text {
-  font-family: var(--Cormorant);
+  font-family: var(--font-cormorant-infant);
   color: var(--1B1A1A);
 }
 
@@ -129,7 +121,7 @@
 }
 
 #cartTotalText {
-  font-family: var(--Cormorant);
+  font-family: var(--font-cormorant-infant);
   color: var(--1B1A1A);
 }
 
@@ -141,7 +133,7 @@
 
 .cartPriceText {
   color: var(--222222);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
 }
 
 #cartShippingAddressDiv {
@@ -154,7 +146,7 @@
 }
 
 #cartShippingText {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--282828);
 }
 
@@ -195,7 +187,7 @@
 }
 
 .checkoutLoginTexts {
-  font-family: var(--Cormorant);
+  font-family: var(--font-cormorant-infant);
   color: var(--1B1A1A);
   user-select: none;
   text-decoration: none;
@@ -207,7 +199,7 @@
 }
 
 .billOrderText {
-  font-family: var(--Cormorant);
+  font-family: var(--font-cormorant-infant);
   color: var(--1B1A1A);
 }
 
@@ -222,14 +214,14 @@
 }
 
 .billLabel {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--1B1A1A);
 }
 
 .billInput {
   border: 1px solid var(--222222);
   color: var(--222222);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   outline: none;
   box-shadow: 0 0 0px 1000px white inset;
 }
@@ -245,7 +237,7 @@
 }
 
 #billOtherText {
-  font-family: var(--Cormorant);
+  font-family: var(--font-cormorant-infant);
   color: var(--222222);
 }
 
@@ -255,13 +247,13 @@
 }
 
 #billOptText {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--1B1A1A);
 }
 
 #billOptTextArea {
   border: 1px solid var(--222222);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--222222);
   outline: none;
 }
@@ -274,7 +266,7 @@
 
 .orderOptionText {
   color: var(--1B1A1A);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
 }
 
 #orderProductMain {
@@ -292,11 +284,11 @@
 .orderProductNameAmt {
   text-transform: capitalize;
   color: var(--1B1A1A);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
 }
 
 .orderPriceValue {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--282828);
 }
 
@@ -308,12 +300,12 @@
 }
 
 .orderSubTotalText {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--222222);
 }
 
 .orderSubTotalValue {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--282828);
 }
 
@@ -332,19 +324,19 @@
 }
 
 .paymentText {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--1B1A1A);
 }
 
 .paymentMethodDetails {
   background-color: var(--F3F2ED);
   color: var(--282828);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
 }
 
 #personalInfoText {
   color: var(--282828);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
 }
 
 #termsDiv {
@@ -358,7 +350,7 @@
 
 #termsText {
   color: var(--1B1A1A);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
 }
 
 .place-order-btn {
@@ -385,7 +377,7 @@
 
 .card-payment-input {
   border: 1px solid var(--222222);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--222222);
   outline: none;
 }

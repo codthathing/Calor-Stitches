@@ -22,7 +22,7 @@ const roboto = Roboto({
 const yantramanav = Yantramanav({
   subsets: ["latin"],
   variable: "--font-yantramanav",
-  weight: "100",
+  weight: ["100", "300", "400", "500", "700", "900"],
 });
 
 export const metadata: Metadata = {
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
   auth_modal,
-  user_modal
+  user_modal,
 }: Readonly<{
   children: ReactNode;
   auth_modal: ReactNode;

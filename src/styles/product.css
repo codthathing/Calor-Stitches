@@ -15,7 +15,7 @@
 
 .productLinkText {
   color: var(--282828);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   text-transform: capitalize;
   user-select: none;
 }
@@ -56,24 +56,24 @@
 }
 
 .productDetailName {
-  font-family: var(--Cormorant);
+  font-family: var(--font-cormorant-infant);
   color: var(--1B1A1A);
   text-transform: capitalize;
 }
 
 .productDetailPrice {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--222222);
 }
 
 #productDetailReview {
   color: var(--222222);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
 }
 
 .productDetailDesc {
   color: var(--282828);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   margin-bottom: 1rem;
 }
 
@@ -82,13 +82,13 @@
 }
 
 .productPrepText {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--222222);
 }
 
 #productColorText {
   color: var(--1B1A1A);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   text-transform: capitalize;
 }
 
@@ -112,7 +112,7 @@
 }
 
 .productColorInnerText {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--1B1A1A);
   text-transform: capitalize;
 }
@@ -124,12 +124,12 @@
 }
 
 .productSizeText {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--222222);
 }
 
 .productSizeMainText {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--282828);
   text-transform: uppercase;
   width: fit-content;
@@ -171,7 +171,7 @@
 .productToCartButton {
   background-color: var(--222222);
   color: white;
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   cursor: pointer;
   border: none;
 }
@@ -183,7 +183,7 @@
 }
 
 .productWishlistText {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--222222);
 }
 
@@ -200,7 +200,7 @@
 
 .productDeliveryInfoTexts {
   color: var(--282828);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   text-align: center;
 }
 
@@ -209,7 +209,7 @@
 }
 
 #productDeliveryPaymentText {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--282828);
 }
 
@@ -219,7 +219,7 @@
 
 .productDeliveryDetailsTexts {
   color: var(--1B1A1A);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   display: flex;
   align-items: center;
 }
@@ -240,7 +240,7 @@
 
 .productAboutMainTexts {
   color: var(--616161);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   cursor: pointer;
   user-select: none;
   text-decoration: none;
@@ -252,7 +252,7 @@
 
 #productAboutText {
   color: var(--282828);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
 }
 
 #productAboutDiv {
@@ -270,12 +270,12 @@
 
 .productAboutInnerText {
   color: var(--1B1A1A);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
 }
 
 #productRelatedText {
   text-align: center;
-  font-family: var(--Cormorant);
+  font-family: var(--font-cormorant-infant);
   color: var(--1B1A1A);
 }
 
@@ -336,12 +336,12 @@
 
 .about-main-text {
   color: var(--1B1A1A);
-  font-family: var(--Cormorant);
+  font-family: var(--font-cormorant-infant);
 }
 
 .about-inner-text {
   color: var(--282828);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
 }
 
 #rating-icons-div {
@@ -354,7 +354,7 @@
 
 .rating-input {
   border: 1px solid var(--222222);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--222222);
 }
 
@@ -405,7 +405,7 @@
 
 .productShownText {
   color: var(--282828);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   user-select: none;
 }
 
@@ -416,7 +416,7 @@
 
 .productTexts {
   color: var(--222222);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   user-select: none;
 }
 
@@ -432,14 +432,14 @@
 
 .productFilterTexts {
   color: var(--222222);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   cursor: pointer;
   user-select: none;
 }
 
 .product-shown-default-text {
   color: var(--222222);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   text-align: center;
 }
 
@@ -451,7 +451,7 @@
 
 .productNavigationText {
   color: var(--222222);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   cursor: pointer;
   user-select: none;
 }
@@ -509,13 +509,13 @@
 }
 
 #filterHeaderText {
-  font-family: var(--Cormorant);
+  font-family: var(--font-cormorant-infant);
   color: var(--1B1A1A);
 }
 
 .productFilterText {
   color: var(--1B1A1A);
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
 }
 
 .productFilterSections {
@@ -536,7 +536,7 @@
 }
 
 .filterTextsLength {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--222222);
   display: flex;
   user-select: none;
@@ -598,7 +598,7 @@
 }
 
 .filterPriceValueTexts {
-  font-family: var(--Roboto);
+  font-family: var(--font-roboto);
   color: var(--282828);
 }
 

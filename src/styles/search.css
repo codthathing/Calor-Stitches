@@ -1,12 +1,4 @@
 /* Styling for the search page */
-:root {
-  --16px: 1rem;
-  --1B1A1A: #1B1A1A;
-  --222222: #222222;
-  --Cormorant: 'Cormorant Infant', sans-serif;
-  --Yantramanav: 'Yantramanav', sans-serif;
-}
-
 #searchSection {
   top: 0;
   left: 0;
@@ -48,7 +40,7 @@
 
 #searchInput {
   color: var(--222222);
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   outline: none;
   border: none;
   width: 100%;
@@ -60,7 +52,7 @@
 }
 
 .navHeadText {
-  font-family: var(--Cormorant);
+  font-family: var(--font-cormorant-infant);
   color: var(--1B1A1A);
 }
 
@@ -69,7 +61,7 @@
 }
 
 #absentText {
-  font-family: var(--Yantramanav);
+  font-family: var(--font-yantramanav);
   color: black;
   text-align: center;
   margin-top: 5rem;

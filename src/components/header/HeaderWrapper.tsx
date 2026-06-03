@@ -2,23 +2,12 @@
 import { useScrollEffect } from "@/hooks/useScrollEffect";
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import { AnimatePresence, motion } from "framer-motion";
-import { usePathname } from "next/navigation";
-import { ReactNode, useEffect, useRef } from "react";
+import { ReactNode } from "react";
 import HeaderNavigationIcons from "./HeaderNavigationIcons";
 
 export default function HeaderWrapper({ children }: { children: ReactNode }) {
-  const { setToggleSideMenu, navbar } = useNavigateContext();
-  const location = usePathname();
+  const { setToggleSideMenu, navbar, hasMounted } = useNavigateContext();
   const { header } = useScrollEffect();
-    const hasMounted = useRef<boolean>(false);
-
-  useEffect(() => {
-    hasMounted.current = true;
-
-    return () => {
-      hasMounted.current = false;
-    };
-  }, [location]);
 
   return (
     <AnimatePresence onExitComplete={() => setToggleSideMenu(false)}>
@@ -30,7 +19,7 @@ export default function HeaderWrapper({ children }: { children: ReactNode }) {
               <span id="logoMob">CS</span>
               <span id="logoDesk">Calor Stitches</span>
             </h1>
-            <HeaderNavigationIcons mount={hasMounted.current} />
+            <HeaderNavigationIcons />
           </motion.nav>
         </motion.header>
       )}

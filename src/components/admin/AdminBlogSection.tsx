@@ -5,7 +5,7 @@ import PageFeedback from "@/components/ui/PageFeedback";
 import { useShowPreload } from "@/hooks/useShowPreload";
 import { ChangeEvent, useState } from "react";
 
-export default function page() {
+export default function AdminBlogSection() {
   const [adminBlogValues, setAdminBlogValues] = useState<{ author_name:string; author_desc:string; post_topic:string; post_paragraph:string; }>({ author_name: "", author_desc: "", post_topic: "", post_paragraph: "" });
   const handleBlogValues = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const name = e.target.name;

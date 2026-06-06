@@ -25,8 +25,8 @@ interface ReviewContext {
   productAvailable?: string; 
   productSizes?: { id: number; text: string; style: boolean }[]; 
   productInfo?: { id: number; name: string; type: string; links: { id: number; text: string; style?: boolean }[] }[];
-  displayPage: string;
-  setDisplayPage: SetState<string>;
+  aboutNavigation: string;
+  setAboutNavigation: SetState<string>;
   mapProducts: number; 
   shownProducts: number; 
   setMapProducts: Dispatch<SetStateAction<number>>;
@@ -40,7 +40,7 @@ export default function ReviewProvider({ children, productName }: { children: Re
   const [product, setProduct] = useState<GeneralProductType | null>(null);
   const { products, setProducts } = useNavigateContext();
   const [relatedProduct, setRelatedProduct] = useState<GeneralProductType[]>([]);
-  const [displayPage, setDisplayPage] = useState<string>("DESCRIPTION");
+  const [aboutNavigation, setAboutNavigation] = useState<string>("DESCRIPTION");
   const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers } = useProductShownEffect({ products: relatedProduct });
 
   useEffect(() => {
@@ -55,7 +55,7 @@ export default function ReviewProvider({ children, productName }: { children: Re
 
   const { id, productImage, productImages, productName: productNameText, cutOff, productPrice, averagePrice, priceOne, priceTwo, productDesc, wishlistStock, cartAmt, productDetails, productColors, productAvailable, productSizes, productInfo } = product as GeneralProductType;
 
-  return <ReviewContext.Provider value={{ id, products, setProducts, relatedProduct, productAvailable, productNameText, productImage, productImages, cutOff, productPrice, averagePrice, priceOne, priceTwo, cartAmt, productDesc, productDetails, productColors, productSizes, wishlistStock, productInfo, displayPage, setDisplayPage, mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers }}>{children}</ReviewContext.Provider>;
+  return <ReviewContext.Provider value={{ id, products, setProducts, relatedProduct, productAvailable, productNameText, productImage, productImages, cutOff, productPrice, averagePrice, priceOne, priceTwo, cartAmt, productDesc, productDetails, productColors, productSizes, wishlistStock, productInfo, aboutNavigation, setAboutNavigation, mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers }}>{children}</ReviewContext.Provider>;
 }
 
 export const useReviewContext = () => {

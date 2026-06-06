@@ -74,7 +74,7 @@ export default function NavigateProvider({ children }: { children: ReactNode }) 
   const [showPreload, setShowPreload] = useState<boolean>(false);
   const { state, dispatch } = wishlistReducer();
   const [defaultCurrency, setDefaultCurrency] = useState<boolean>(false);
-    const hasMounted = useRef<boolean>(false);
+  const hasMounted = useRef<boolean>(false);
   useCheckAppVersion();
 
   return <NavigateContext.Provider value={{ userDetails, setUserDetails, defaultCurrency, setDefaultCurrency, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, curDetails, setCurDetails, productShipValue, setProductShipValue, presentCurrency, setPresentCurrency, cloneCart, setCloneCart, product_section, home_section, showPreload, setShowPreload, view, setView, collection, setCollection, presentFilterProducts, setPresentFilterProducts, hasMounted }}>{children}</NavigateContext.Provider>;

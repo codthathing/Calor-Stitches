@@ -1,13 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
+import { usePreviousPath } from "./usePreviousPath";
 
 export const useScrollEffect = () => {
   const { setNavbar, hasMounted } = useNavigateContext();
   const [header, setHeader] = useState<boolean>(false);
   const [showNavToTop, setShowNavToTop] = useState<boolean>(false);
-  const path = usePathname();
+  const path = usePreviousPath();
 
   useEffect(() => {
     hasMounted.current = true;
@@ -15,7 +15,7 @@ export const useScrollEffect = () => {
 
     let lastScrollY = 120;
 
-    if (window.scrollY > 120 || path === "/product" || path ==="/wishlist" || path === "/cart" || path === "/checkout" || path === "/payment" || path === "/displays" || path.includes("/review") || path.includes("/collection") || path.includes("/blog") || path.includes("/posts")) {
+    if (window.scrollY > 120 || path === "/product" || path === "/wishlist" || path === "/cart" || path === "/checkout" || path === "/payment" || path === "/displays" || path.includes("/review") || path.includes("/collection") || path.includes("/blog") || path.includes("/posts")) {
       setNavbar(true);
     } else {
       setNavbar(false);

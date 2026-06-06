@@ -1,11 +1,15 @@
-import Link from "next/link";
+"use client";
+import { useState } from "react";
+import TabNavigations from "../common/TabNavigations";
+import { useAdminContext } from "@/store/providers/AdminProvider";
 
-export default function AdminNavigationLinks({ array }: { array: { id: number; text: string; path: string }[] }) {
-  return (
-    <main id="productAboutMain">
-      {array.map(({ id, text, path }) => {
-        return <Link key={id} href={path} className="productAboutMainTexts">{text}</Link>
-      })}
-    </main>
-  );
-};
+export default function AdminNavigationLinks() {
+  const [adminNavigationArray, setAdminNavigationArray] = useState([
+    { id: 0, text: "PRODUCTS", style: true },
+    { id: 1, text: "BLOGS", style: false },
+  ]);
+
+  const { adminNavigation, setAdminNavigation } = useAdminContext()
+
+  return <TabNavigations array={adminNavigationArray} setArray={setAdminNavigationArray} tab={adminNavigation} setTab={setAdminNavigation} />;
+}

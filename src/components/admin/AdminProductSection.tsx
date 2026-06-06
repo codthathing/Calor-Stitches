@@ -7,7 +7,7 @@ import PageFeedback from "@/components/ui/PageFeedback";
 import { useShowPreload } from "@/hooks/useShowPreload";
 import { ChangeEvent, ReactElement, useState } from "react";
 
-export default function page() {
+export default function AdminProductSection() {
   const [adminProductValues, setAdminProductValues] = useState<{ product_name: string; product_price: string; cut_off: string; price_one: string; price_two: string; average_price: string; product_desc: string; product_status: string; product_unit: string; product_sku: string }>({ product_name: "", product_price: "", cut_off: "", price_one: "", price_two: "", average_price: "", product_desc: "", product_status: "", product_unit: "", product_sku: "" });
 
   const handleAdminProduct = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

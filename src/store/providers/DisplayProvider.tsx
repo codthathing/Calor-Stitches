@@ -45,7 +45,7 @@ export default function DisplayProvider({ children }: { children: ReactNode }) {
 
 export const useDisplayContext = () => {
   const context = useContext(DisplayContext);
-  if (!context) throw new Error("Make sure this component exists in the PaymentProvider tree");
+  if (!context) throw new Error("Make sure this component exists in the DisplayProvider tree");
 
   return context;
 };

@@ -10,7 +10,7 @@ interface ReviewContext {
   relatedProduct: GeneralProductType[];
   id: number;
   productImage: string; 
-  productImages: { id: number; style: boolean; image: string }[], 
+  productImages?: { id: number; style: boolean; image: string }[], 
   productNameText: string; 
   cutOff?: number; 
   productPrice?: number; 

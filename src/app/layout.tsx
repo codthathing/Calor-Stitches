@@ -34,10 +34,12 @@ export default function RootLayout({
   children,
   auth_modal,
   user_modal,
+  preview_modal,
 }: Readonly<{
   children: ReactNode;
   auth_modal: ReactNode;
   user_modal: ReactNode;
+  preview_modal: ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -48,6 +50,7 @@ export default function RootLayout({
             {children}
             {auth_modal}
             {user_modal}
+            {preview_modal}
             <NewsSection />
             <PageComponents />
             <Footer />

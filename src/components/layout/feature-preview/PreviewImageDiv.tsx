@@ -1,9 +1,9 @@
 "use client";
 import ProductStockAlert from "@/components/product-template/ProductStockAlert";
-import { useViewContext } from "@/store/providers/ViewProvider";
+import { usePreviewContext } from "@/store/providers/PreviewProvider";
 
-export default function ViewImageDiv() {
-  const { productImage, productAvailable, cutOff, wishlistStock } = useViewContext();
+export default function PreviewImageDiv() {
+  const { productImage, productAvailable, cutOff, wishlistStock } = usePreviewContext();
 
   return (
     <div id="productViewImageDiv" style={{ backgroundImage: `url(${productImage})` }}>

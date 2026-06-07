@@ -1,6 +1,11 @@
 import ConfirmOTPForm from "@/components/confirm/ConfirmOTPForm";
 import PageSection from "@/components/layout/PageSection";
 import PageNavigationLinks from "@/components/ui/PageNavigationLinks";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "OTP Confirmation Page",
+}
 
 export default async function ConfirmPage({ searchParams }: { searchParams: Promise<{ link: string; head: string; text: string }> }) {
   const { link, head, text } = await searchParams;

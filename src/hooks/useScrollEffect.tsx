@@ -15,33 +15,21 @@ export const useScrollEffect = () => {
 
     let lastScrollY = 120;
 
-    if (window.scrollY > 120 || path === "/product" || path === "/wishlist" || path === "/cart" || path === "/checkout" || path === "/payment" || path === "/displays" || path.includes("/review") || path.includes("/collection") || path.includes("/blog") || path.includes("/posts")) {
-      setNavbar(true);
-    } else {
-      setNavbar(false);
-    }
+    if (window.scrollY > 120 || path === "/products" || path === "/wishlist" || path === "/cart" || path === "/checkout" || path === "/payment" || path === "/displays" || path === "/confirm" || path === "/admin" || path.includes("/review") || path.includes("/collection") || path.includes("/blog") || path.includes("/posts")) setNavbar(true);
+    else setNavbar(false);
 
     const changeHeader = () => {
       const presentScrollY = window.scrollY;
-      if (presentScrollY > lastScrollY) {
-        setHeader(true);
-      } else {
-        setHeader(false);
-      }
+      if (presentScrollY > lastScrollY) setHeader(true);
+      else setHeader(false);
 
-      if (presentScrollY < lastScrollY && presentScrollY >= 120 && path === "/") {
-        setShowNavToTop(true);
-      } else {
-        setShowNavToTop(false);
-      }
+      if (presentScrollY < lastScrollY && presentScrollY >= 120 && path === "/") setShowNavToTop(true);
+      else setShowNavToTop(false);
 
       if (presentScrollY > 120) lastScrollY = presentScrollY;
 
-      if (path === "/" && presentScrollY <= 120) {
-        setNavbar(false);
-      } else {
-        setNavbar(true);
-      }
+      if (path === "/" && presentScrollY <= 120) setNavbar(false);
+      else setNavbar(true);
     };
 
     window.addEventListener("scroll", changeHeader);

@@ -28,7 +28,7 @@ export type GeneralProductType = UserProductType & ProductType & {
   productDetails?: { cartSize?: string, cartColor?: string };
   productSizes?: { id: number; text: string; style: boolean }[];
   productColors?: { id: number; color: string; text: string; style: boolean }[];
-  productImages: { id: number; style: boolean; image: string }[]
+  productImages?: { id: number; style: boolean; image: string }[]
 };
 
 export type CartProductType = UserProductType & ProductType & {

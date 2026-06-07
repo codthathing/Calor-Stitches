@@ -7,7 +7,7 @@ import { useState } from "react";
 import { FiEye } from "react-icons/fi";
 
 export default function ProductTemplateFooter({ id, productDetails, productName }: { id: number; productDetails?: { cartSize?: string; cartColor?: string }; productName: string }) {
-  const { products, setView } = useNavigateContext();
+  const { products } = useNavigateContext();
   const [showViewText, setShowViewText] = useState<number | null>(null);
   const { showPreload } = useShowPreload();
   const router = useRouter();
@@ -15,14 +15,7 @@ export default function ProductTemplateFooter({ id, productDetails, productName 
   const navigateToView = (productName: string) => {
     setShowViewText(null);
     showPreload();
-    setTimeout(() => {
-      // router.push({
-      //   pathname: "",
-      //   query: { name: productName },
-      // });
-       router.push(`?name=${encodeURIComponent(productName)}`);
-      setView(true);
-    }, 2000);
+    setTimeout(() => router.push(`/product-preview?name=${encodeURIComponent(productName)}`), 1500);
   };
 
   return (

@@ -6,14 +6,12 @@ import ReviewDetails from "@/components/review/ReviewDetails";
 import ReviewFunctions from "@/components/review/ReviewFunctions";
 import ReviewProductDetails from "@/components/review/ReviewProductDetails";
 import ReviewSizeDiv from "@/components/review/ReviewSizeDiv";
-import { useNavigateToPage } from "@/hooks/useNavigateToPage";
-import { useNavigateContext } from "@/store/providers/NavigateProvider";
-import { useViewContext } from "@/store/providers/ViewProvider";
+import { usePreviewContext } from "@/store/providers/PreviewProvider";
+import { useRouter } from "next/navigation";
 
 export default function ViewDetailsDiv() {
-  const { setView } = useNavigateContext();
-  const { id, productName, productDesc, cutOff, productPrice, averagePrice, priceOne, priceTwo, wishlistStock, productDetails, productColors, productSizes, cartAmt, productInfo } = useViewContext();
-  const navigate = useNavigateToPage();
+  const { id, productName, productDesc, cutOff, productPrice, averagePrice, priceOne, priceTwo, wishlistStock, productDetails, productColors, productSizes, cartAmt, productInfo } = usePreviewContext();
+  const router = useRouter();
 
   return (
     <div id="productViewMainDiv">
@@ -21,15 +19,13 @@ export default function ViewDetailsDiv() {
       {(wishlistStock || wishlistStock === 0) && <WishlistStockAlert mainClass={"productDivs"} textClass={"productPrepText"} barClass={"productPrepDiv"} stockAmt={wishlistStock} showStockBar={true} />}
       {productDetails && productColors && <ReviewColorDiv productId={id} colorText={productDetails.cartColor} colorArray={productColors} />}
       {productDetails && productSizes && <ReviewSizeDiv productId={id} sizeText={productDetails.cartSize} sizeArray={productSizes} />}
-      <ReviewFunctions id={id} cartAmt={cartAmt} buttonFunction={() => setView(false)} />
+      <ReviewFunctions id={id} cartAmt={cartAmt} buttonFunction={() => {
+        router.back();
+        router.refresh();
+      }} />
       {productInfo && <ReviewProductDetails productInfo={productInfo} />}
       <div id="productReviewLinkDiv">
-        <PageButtons type={"text"} textClass={"product-review-link"} text={"view product details"}
-          buttonFunction={() => {
-            setView(false);
-            navigate(`/product/${productName}`);
-          }}
-        />
+        <PageButtons type={"text"} textClass={"product-review-link"} text={"view product details"} buttonFunction={() => router.push(`/review/${productName}`)}/>
       </div>
     </div>
   );

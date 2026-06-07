@@ -6,10 +6,14 @@ export const getCookie = (name: string) => {
   return document.cookie.split("; ").find((row) => row.startsWith(`${name}=`))?.split("=")[1];
 };
 
+export const deleteCookie = (name: string) => {
+  document.cookie = `${name}=; Max-Age=0; path=/`;
+};
+
 export const usePreviousPath = () => {
   const pathname = usePathname();
 
-  if (pathname.includes("/auth")) return decodeURIComponent(getCookie("previousPath") ?? "/");
+  if (pathname.includes("/auth") || pathname.includes("/user") || pathname.includes("/product-preview")) return decodeURIComponent(getCookie("previousPath") ?? "/");
 
   return pathname;
 };

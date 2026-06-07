@@ -1,9 +1,18 @@
 "use client";
+import { getCookie } from "@/hooks/usePreviousPath";
 import { useRouter } from "next/navigation";
 import { FaTimes } from "react-icons/fa";
 
 export default function UserCartCancelIcon() {
   const router = useRouter();
 
-  return <FaTimes onClick={() => router.back()} className="navBackIcon" />;
+  return (
+    <FaTimes
+      onClick={() => {
+        router.back();
+        if (!decodeURIComponent(getCookie("previousPath") ?? "/").includes("/user")) router.refresh();
+      }}
+      className="navBackIcon"
+    />
+  );
 }

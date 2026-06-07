@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: "Admin Page",
 };
 
-export default function layout() {
+export default function page() {
   return (
     <AdminProvider>
       <PageSection>

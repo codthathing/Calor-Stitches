@@ -8,6 +8,7 @@ import WishlistActionText from "@/components/layout/user-wishlist/WishlistAction
 import WishlistProductDiv from "@/components/layout/user-wishlist/WishlistProductDiv";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { getCookie } from "@/hooks/usePreviousPath";
 
 export default function WishlistPage() {
   const { wishlistItems, product_section } = useNavigateContext();
@@ -19,7 +20,10 @@ export default function WishlistPage() {
       <header className="wishListContainers" id="wishListHeader">
         <div id="wishlistHeaderDiv" className="wishlistInnerContainers">
           <p id="wishListText">Wishlist ({wishlistItems.length})</p>
-          <span id="wishListCancel" onClick={() => router.back()}>
+          <span id="wishListCancel" onClick={() => {
+            router.back();
+            if (!decodeURIComponent(getCookie("previousPath") ?? "/").includes("/user")) router.refresh()
+          }}>
             <FaTimes id="wishListCanIcon" />
           </span>
         </div>
@@ -32,6 +36,8 @@ export default function WishlistPage() {
           type={"text"}
           text={"continue shopping"}
           buttonFunction={() => {
+            router.back();
+            router.refresh();
             scrollToSection(product_section);
           }}
         />

@@ -8,10 +8,7 @@ export const useShowPreload = () => {
   const showPreload = () => {
     startTransition(() => {
       setShowPreload(true);
-      const timeout = setTimeout(() => {
-        setShowPreload(false);
-        clearTimeout(timeout);
-      }, 2000);
+      setTimeout(() => setShowPreload(false), 2000);
     });
   };
 

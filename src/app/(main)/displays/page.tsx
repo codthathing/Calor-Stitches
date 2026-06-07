@@ -2,6 +2,11 @@ import DisplayMain from "@/components/displays/DisplayMain";
 import PageSection from "@/components/layout/PageSection";
 import PageNavigationLinks from "@/components/ui/PageNavigationLinks";
 import DisplayProvider from "@/store/providers/DisplayProvider";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Display Products"
+}
 
 export default function DisplayPage() {
   const pageLinkDetails = [

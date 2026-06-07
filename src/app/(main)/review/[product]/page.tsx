@@ -6,6 +6,13 @@ import ReviewRelatedProducts from "@/components/review/ReviewRelatedProducts";
 import ReviewSection from "@/components/review/ReviewSection";
 import ReviewProvider from "@/store/providers/ReviewProvider";
 
+export const generateMetadata = async ({ params }: { params: Promise<{ product: string }> }) => {
+  const { product } = await params;
+  const title = decodeURIComponent(product).split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(" ");
+
+  return { title };
+};
+
 export default async function ReviewPage({ params } : { params: Promise<{ product: string }> }) {
   const { product } = await params;
 

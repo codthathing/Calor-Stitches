@@ -14,12 +14,12 @@ export default function PostOtherSection() {
       </div>
       <div className="post-inner-div">  
         <PostText text={"categories"} />
-        <PostGeneralCategories id={"post-categories-div"} showComma={false} tag={""} />
+        <PostGeneralCategories id={"post-categories-div"} showComma={false} />
       </div>
       <PostRecentDiv />
       <div className="post-inner-div">
         <PostText text={"tags"} />
-        <PostGeneralCategories id={"post-tag-div"} showComma={true} tag={"tag: "} />
+        <PostGeneralCategories id={"post-tag-div"} showComma={true} />
       </div>
       <PostInstagramDiv />
       <div className="post-inner-div">

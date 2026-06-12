@@ -1,11 +1,11 @@
 "use client";
-import { useSectionScroll } from "@/hooks/useSectionScroll";
+// import { useSectionScroll } from "@/hooks/useSectionScroll";
 import { useRouter } from "next/navigation";
 import { ReactNode, useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 
 export default function FeatureSearchWrapper({ children }: { children: ReactNode }) {
-  const { presentScroll } = useSectionScroll();
+  // const { presentScroll } = useSectionScroll();
   const router = useRouter();
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function FeatureSearchWrapper({ children }: { children: ReactNode
   }, []);
 
   return (
-    <section ref={presentScroll} id="searchSection" className="whiteBackSections">
+    <section /* ref={presentScroll} */ id="searchSection" className="whiteBackSections">
       <div id="searchHeader" className="navBack">
         <FaTimes onClick={() => router.back()} className="navBackIcon" />
       </div>

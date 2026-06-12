@@ -2,16 +2,16 @@
 import { ChangeEventHandler, MouseEvent, useState } from "react";
 import AuthPasswordInput from "@/components/auth/AuthPasswordInput";
 import FormFeedback from "@/components/common/FormFeedback";
-import { useInputFocus } from "@/hooks/useInputFocus";
-import { useNavigateToPage } from "@/hooks/useNavigateToPage";
+// import { useInputFocus } from "@/hooks/useInputFocus";
 import AuthInput from "@/components/auth/AuthInput";
 import PageButtons from "@/components/common/PageButtons";
 import AuthButton from "@/components/auth/AuthButton";
+import { useRouter } from "next/navigation";
 
 export default function AuthLoginForm() {
   const [infoText, setInfoText] = useState<string>("");
-  const { inputFocus } = useInputFocus();
-  const navigate = useNavigateToPage();
+  // const { inputFocus } = useInputFocus();
+  const router = useRouter();
 
   const [loginValue, setLoginValue] = useState({ email: "", password: "" });
 
@@ -29,7 +29,7 @@ export default function AuthLoginForm() {
       setInfoText("Enter your password");
     } else {
       if (loginValue.email === "akinwunmibolu@gmail.com" && loginValue.password === "Esther2003") {
-        navigate("/pages/admin-page");
+        router.push("/pages/admin-page");
       } else {
         setInfoText("User cannot login");
       }
@@ -40,12 +40,12 @@ export default function AuthLoginForm() {
     <>
       <FormFeedback text={infoText} showText={Boolean(infoText)} />
       <form className="registerForm">
-        <AuthInput refFunction={inputFocus} type={"text"} name={"email"} value={loginValue.email} onChange={handleLoginValue} placeholder={"Email/User"} />
+        <AuthInput /* refFunction={inputFocus} */ type={"text"} name={"email"} value={loginValue.email} onChange={handleLoginValue} placeholder={"Email/User"} />
         <AuthPasswordInput name={"password"} value={loginValue.password} onChange={handleLoginValue} placeholder={"Password"} />
         <div id="registerParagraph">
           <input type="checkbox" id="registerCheck" />
           <span>Remember Me</span>
-          <PageButtons type={"text"} buttonFunction={() => navigate("/auth/forgot-password")} textClass={"forgot-btn"} text={"forgot password"} />
+          <PageButtons type={"text"} buttonFunction={() => router.replace("/auth/forgot-password")} textClass={"forgot-btn"} text={"forgot password"} />
         </div>
         <AuthButton buttonFunction={handleLogin} buttonText={"LOGIN"} />
       </form>

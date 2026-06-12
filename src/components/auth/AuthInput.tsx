@@ -12,7 +12,7 @@ interface AuthInput {
 export default function AuthInput({ refFunction, type, name, value, onChange, placeholder }: AuthInput) {
   return (
     <div className="register-input-div">
-      <input ref={refFunction} type={type} name={name} value={value} onChange={onChange} className="registerInput" placeholder={placeholder} required />
+      <input /* ref={refFunction} */ type={type} name={name} value={value} onChange={onChange} className="registerInput" placeholder={placeholder} required />
     </div>
   );
 };

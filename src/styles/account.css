@@ -33,12 +33,6 @@
   color: var(--1B1A1A);
 }
 
-.cancel-text {
-  color: var(--1B1A1A);
-  font-family: var(--font-roboto);
-  font-weight: bold;
-}
-
 .registerHead {
   font-family: var(--font-cormorant-infant);
   color: var(--1B1A1A);
@@ -290,10 +284,6 @@
     font-size: var(--16px);
   }
 
-  .cancel-text {
-    font-size: var(--12px);
-  }
-
   .registerHead {
     font-size: var(--20px);
     margin-bottom: 1rem;
@@ -412,10 +402,6 @@
     font-size: var(--24px);
   }
 
-  .cancel-text {
-    font-size: var(--20px);
-  }
-
   .registerHead {
     font-size: var(--32px);
   }
@@ -465,10 +451,6 @@
 
   .cancelIcon {
     font-size: var(--16px);
-  }
-
-  .cancel-text {
-    font-size: var(--12px);
   }
 
   .registerHead {

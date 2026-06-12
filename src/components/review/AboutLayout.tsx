@@ -4,11 +4,14 @@ import AboutDescription from "./AboutDescription";
 import AboutReview from "./AboutReview";
 
 export default function AboutLayout() {
-  const { displayPage } = useReviewContext();
+  const { aboutNavigation } = useReviewContext();
 
-  if(displayPage === "DESCRIPTION") {
-    return <AboutDescription />;
-  } else if (displayPage === "REVIEW") {
-    return <AboutReview reviewText={"Add A Review"} reviewPlaceholder={"Your Review *"} reviewButton={"SUBMIT"} />;
-  };
+  switch(aboutNavigation) {
+    case "DESCRIPTION":
+      return <AboutDescription />;
+    case "REVIEW":
+      return <AboutReview reviewText={"Add A Review"} reviewPlaceholder={"Your Review *"} reviewButton={"SUBMIT"} />;
+    default:
+      return null;
+  }
 };

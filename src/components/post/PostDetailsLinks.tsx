@@ -1,5 +1,5 @@
 "use client";
-import { useNavigateToPage } from "@/hooks/useNavigateToPage";
+import { useRouter } from "next/navigation";
 
 interface PostDetailsLink {
   inner_text?: { id: number; text: string; style: boolean }[];
@@ -7,14 +7,14 @@ interface PostDetailsLink {
 }
 
 export default function PostDetailsLinks({ inner_text, linkClass }: PostDetailsLink) {
-  const navigate = useNavigateToPage();
+  const router = useRouter();
 
   return (
     <>
       {inner_text && (
         <div>
           {inner_text.map(({ id, text, style }) => (
-            <span onClick={() => navigate(`/blog/post/${text}`)} className={linkClass} key={id}>
+            <span onClick={() => router.push(`/posts/${text}`)} className={linkClass} key={id}>
               {text}
               {style && ","}{" "}
             </span>

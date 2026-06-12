@@ -1,14 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useNavigateToPage } from "./useNavigateToPage";
+import { useRouter } from "next/navigation";
 
 export const useNavigateToConfirm = () => {
   const [confirm, setConfirm] = useState({ confirmPage: "", confirmHead: "", confirmText: "" });
-  const navigate = useNavigateToPage();
+  const router = useRouter();
 
   useEffect(() => {
     if (confirm.confirmPage && confirm.confirmHead && confirm.confirmText) {
-      navigate(`/pages/confirm-page?link=${confirm.confirmPage}&head=${confirm.confirmHead}&text=${confirm.confirmText}`);
+      router.push(`/pages/confirm-page?link=${confirm.confirmPage}&head=${confirm.confirmHead}&text=${confirm.confirmText}`);
     }
   }, [confirm]);
 

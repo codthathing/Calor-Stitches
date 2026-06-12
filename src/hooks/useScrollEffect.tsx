@@ -12,7 +12,7 @@ export const useScrollEffect = () => {
   useEffect(() => {
     hasMounted.current = true;
     window.scrollTo({ top: 0, behavior: "instant" });
-
+    
     let lastScrollY = 120;
 
     if (window.scrollY > 120 || path === "/products" || path === "/wishlist" || path === "/cart" || path === "/checkout" || path === "/payment" || path === "/displays" || path === "/confirm" || path === "/admin" || path.includes("/review") || path.includes("/collection") || path.includes("/blog") || path.includes("/posts")) setNavbar(true);

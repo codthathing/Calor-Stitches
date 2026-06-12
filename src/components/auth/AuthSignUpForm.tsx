@@ -1,7 +1,7 @@
 "use client";
 import { ChangeEventHandler, MouseEvent, useState } from "react";
 import FormFeedback from "@/components/common/FormFeedback";
-import { useInputFocus } from "@/hooks/useInputFocus";
+// import { useInputFocus } from "@/hooks/useInputFocus";
 import { useNavigateToConfirm } from "@/hooks/useNavigateToConfirm";
 import AuthPasswordInput from "@/components/auth/AuthPasswordInput";
 import AuthInput from "@/components/auth/AuthInput";
@@ -9,7 +9,7 @@ import AuthButton from "@/components/auth/AuthButton";
 
 export default function AuthSignUpForm() {
   const [infoText, setInfoText] = useState<string>("");
-  const { inputFocus } = useInputFocus();
+  // const { inputFocus } = useInputFocus();
   const { setConfirm } = useNavigateToConfirm();
 
   const [createAccountValue, setCreateAccountValue] = useState({ username: "", email: "", password: "" });
@@ -37,7 +37,7 @@ export default function AuthSignUpForm() {
     <>
       <FormFeedback text={infoText} showText={Boolean(infoText)} />
       <form className="registerForm">
-        <AuthInput refFunction={inputFocus} type={"text"} name={"username"} value={createAccountValue.username} onChange={handleCreateAccountValue} placeholder={"User Name"} />
+        <AuthInput /* refFunction={inputFocus} */ type={"text"} name={"username"} value={createAccountValue.username} onChange={handleCreateAccountValue} placeholder={"User Name"} />
         <AuthInput type={"email"} name={"email"} value={createAccountValue.email} onChange={handleCreateAccountValue} placeholder={"Email"} />
         <AuthPasswordInput name={"password"} value={createAccountValue.password} onChange={handleCreateAccountValue} placeholder={"Password"} />
         <AuthButton buttonFunction={handleCreateAccount} buttonText={"REGISTER"} />

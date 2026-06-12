@@ -9,7 +9,7 @@ import ReviewSizeDiv from "@/components/review/ReviewSizeDiv";
 import { usePreviewContext } from "@/store/providers/PreviewProvider";
 import { useRouter } from "next/navigation";
 
-export default function ViewDetailsDiv() {
+export default function PreviewDetailsDiv() {
   const { id, productName, productDesc, cutOff, productPrice, averagePrice, priceOne, priceTwo, wishlistStock, productDetails, productColors, productSizes, cartAmt, productInfo } = usePreviewContext();
   const router = useRouter();
 
@@ -19,13 +19,10 @@ export default function ViewDetailsDiv() {
       {(wishlistStock || wishlistStock === 0) && <WishlistStockAlert mainClass={"productDivs"} textClass={"productPrepText"} barClass={"productPrepDiv"} stockAmt={wishlistStock} showStockBar={true} />}
       {productDetails && productColors && <ReviewColorDiv productId={id} colorText={productDetails.cartColor} colorArray={productColors} />}
       {productDetails && productSizes && <ReviewSizeDiv productId={id} sizeText={productDetails.cartSize} sizeArray={productSizes} />}
-      <ReviewFunctions id={id} cartAmt={cartAmt} buttonFunction={() => {
-        router.back();
-        router.refresh();
-      }} />
+      <ReviewFunctions id={id} cartAmt={cartAmt} />
       {productInfo && <ReviewProductDetails productInfo={productInfo} />}
       <div id="productReviewLinkDiv">
-        <PageButtons type={"text"} textClass={"product-review-link"} text={"view product details"} buttonFunction={() => router.push(`/review/${productName}`)}/>
+        <PageButtons type={"text"} textClass={"product-review-link"} text={"view product details"} buttonFunction={() => router.replace(`/review/${productName}`)}/>
       </div>
     </div>
   );

@@ -1,20 +1,20 @@
-"use client";
-import { useRef, useEffect } from "react";
+// "use client";
+// import { useRef, useEffect } from "react";
 
-export const useSectionScroll = () => {
-  const presentScroll = useRef<HTMLElement | null>(null);
+// export const useSectionScroll = () => {
+//   const presentScroll = useRef<HTMLElement | null>(null);
 
-  useEffect(() => {
-    if (presentScroll.current) {
-      presentScroll.current.style.overflowY = "auto";
-    };
+//   useEffect(() => {
+//     if (presentScroll.current) {
+//       presentScroll.current.style.overflowY = "auto";
+//     };
 
-    return () => {
-      if (presentScroll.current) {
-        presentScroll.current.style.overflowY = "hidden";
-      };
-    };
-  }, []);
+//     return () => {
+//       if (presentScroll.current) {
+//         presentScroll.current.style.overflowY = "hidden";
+//       };
+//     };
+//   }, []);
 
-  return { presentScroll };
-};
+//   return { presentScroll };
+// };

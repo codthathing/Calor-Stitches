@@ -14,7 +14,7 @@ export default function WishlistProductTemplate({ wishlistItems }: { wishlistIte
           <div key={id} className="wishListDiv">
             <div className="wishlist-icon-image-div">
               <WishlistDeleteIcon id={id} cancelClass={"delWishListIcon"} />
-              <Image src={productImage} alt={productName} loading="lazy" className="wishListImage" />
+              <Image src={productImage} alt={productName} width={100} height={100} loading="lazy" className="wishListImage" />
             </div>
             <div className="wishListDetails">
               <UserWishlistTemplateName productName={productName} />

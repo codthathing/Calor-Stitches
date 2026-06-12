@@ -1,11 +1,11 @@
 "use client";
-import { useSectionScroll } from "@/hooks/useSectionScroll";
+// import { useSectionScroll } from "@/hooks/useSectionScroll";
 import { useRouter } from "next/navigation";
 import { ReactNode } from "react";
 import { FaTimes } from "react-icons/fa";
 
 export default function ViewMainWrapper({ children }: { children: ReactNode }) {
-  const { presentScroll } = useSectionScroll();
+  // const { presentScroll } = useSectionScroll();
   const router = useRouter();
 
   return (
@@ -16,7 +16,7 @@ export default function ViewMainWrapper({ children }: { children: ReactNode }) {
           router.refresh();
         }} id="productViewBackIcon" />
       </div>
-      <main id="productViewInnerMain" ref={presentScroll}>
+      <main id="productViewInnerMain" /* ref={presentScroll} */>
         {children}
       </main>
     </main>

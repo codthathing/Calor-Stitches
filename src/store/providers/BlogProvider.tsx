@@ -1,12 +1,9 @@
 "use client";
 import { mockBlogPosts } from "@/lib/data/mockBlogPosts";
-import { BlogType } from "@/types/blogType";
-import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useEffect, useState } from "react";
+import { createContext, ReactNode, useContext, useEffect } from "react";
 import { useArticleContext } from "./ArticleProvider";
 
 interface BlogContext {
-  postTopic: string;
-  setPostTopic: Dispatch<SetStateAction<string>>;
   id: number;
   postImage: string;
   postDetails: { id: number; text?: string | undefined; style?: boolean | undefined; inner_text?: { id: number; text: string; style: boolean }[] }[];
@@ -20,8 +17,7 @@ const BlogContext = createContext<BlogContext | null>(null);
 export default function BlogProvider({ children, title }: { children: ReactNode; title: string }) {
   const blog = mockBlogPosts.find((post) => post.postHead === title);
   const { setPageLinks } = useArticleContext();
-  const [postTopic, setPostTopic] = useState(title);
-
+  
   useEffect(() => {
     if (!blog) return;
     setPageLinks([
@@ -34,9 +30,9 @@ export default function BlogProvider({ children, title }: { children: ReactNode;
 
   if (!blog) return null;
 
-  const { id, postImage, postDetails, postAuthor, postHead, postParagraph } = blog;
+  const { id, postHead, postImage, postDetails, postAuthor, postParagraph } = blog;
 
-  return <BlogContext.Provider value={{ postTopic, setPostTopic, id, postImage, postAuthor, postHead, postDetails, postParagraph }}>{children}</BlogContext.Provider>;
+  return <BlogContext.Provider value={{ postHead, id, postImage, postAuthor, postDetails, postParagraph }}>{children}</BlogContext.Provider>;
 }
 
 export const useBlogContext = () => {

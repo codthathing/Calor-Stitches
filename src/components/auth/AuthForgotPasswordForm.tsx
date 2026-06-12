@@ -1,7 +1,7 @@
 "use client";
 import { ChangeEventHandler, MouseEvent, useState } from "react";
 import FormFeedback from "@/components/common/FormFeedback";
-import { useInputFocus } from "@/hooks/useInputFocus";
+// import { useInputFocus } from "@/hooks/useInputFocus";
 import { useNavigateToConfirm } from "@/hooks/useNavigateToConfirm";
 import AuthPasswordInput from "@/components/auth/AuthPasswordInput";
 import AuthInput from "@/components/auth/AuthInput";
@@ -9,7 +9,7 @@ import AuthButton from "@/components/auth/AuthButton";
 
 export default function AuthForgotpasswordForm() {
   const [infoText, setInfoText] = useState<string>("");
-  const { inputFocus } = useInputFocus();
+  // const { inputFocus } = useInputFocus();
   const { setConfirm } = useNavigateToConfirm();
 
   const [forgotPasswordValue, setForgotPasswordValue] = useState({ email: "", new_password: "", confirm_password: "" });
@@ -38,7 +38,7 @@ export default function AuthForgotpasswordForm() {
     <>
       <FormFeedback text={infoText} showText={Boolean(infoText)} />
       <form className="registerForm">
-        <AuthInput refFunction={inputFocus} type={"text"} name={"email"} value={forgotPasswordValue.email} onChange={handleForgotPasswordValue} placeholder={"Username or Email Address"} />
+        <AuthInput /* refFunction={inputFocus} */ type={"text"} name={"email"} value={forgotPasswordValue.email} onChange={handleForgotPasswordValue} placeholder={"Username or Email Address"} />
         <AuthPasswordInput name={"new_password"} value={forgotPasswordValue.new_password} onChange={handleForgotPasswordValue} placeholder={"New Password"} />
         <AuthPasswordInput name={"confirm_password"} value={forgotPasswordValue.confirm_password} onChange={handleForgotPasswordValue} placeholder={"Confirm Password"} />
         <AuthButton buttonFunction={handleForgotPassword} buttonText={"SET NEW PASSWORD"} />

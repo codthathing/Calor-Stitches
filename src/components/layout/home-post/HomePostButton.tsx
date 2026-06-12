@@ -1,9 +1,9 @@
 "use client";
 import PageButtons from "@/components/common/PageButtons";
-import { useNavigateToPage } from "@/hooks/useNavigateToPage";
+import { useRouter } from "next/navigation";
 
 export default function HomePostButton({ type, buttonClass, postHead: topic }: { type: string, buttonClass: string, postHead: string }) {
-  const navigate = useNavigateToPage();
+  const router = useRouter();
   
-  return <>{type === "link" ? <PageButtons type={"text"} textClass={buttonClass} buttonFunction={() => navigate(`/blog/${topic}`)} text={"read more"} /> : <PageButtons type={"button"} buttonType={"black-button"} buttonClass={buttonClass} buttonFunction={() => navigate(`/blog/${topic}`)} text={"read more"} />}</>;
+  return <>{type === "link" ? <PageButtons type={"text"} textClass={buttonClass} buttonFunction={() => router.push(`/blog/${topic}`)} text={"read more"} /> : <PageButtons type={"button"} buttonType={"black-button"} buttonClass={buttonClass} buttonFunction={() => router.push(`/blog/${topic}`)} text={"read more"} />}</>;
 }

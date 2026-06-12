@@ -24,7 +24,7 @@ export default function PostsProvider({ children, title }: { children: ReactNode
     setPageLinks([
       { id: 0, linkDirect: "/", linkText: "home", linkArrow: true },
       { id: 1, linkDirect: "", linkText: "blog standard", linkArrow: true },
-      { id: 2, linkDirect: "", linkText: title, linkArrow: false },
+      { id: 2, linkDirect: "", linkText: `Tag: ${title}`, linkArrow: false },
     ]);
   }, []);
 

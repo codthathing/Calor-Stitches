@@ -1,11 +1,14 @@
 "use client";
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
-import { startTransition, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
 import { FiHeart } from 'react-icons/fi';
 
 export default function AddToWishList({ id, showText, showIcon }: { id: number, showText: boolean, showIcon: boolean }) {
-  const { products, wishlistItems, setWishlistItems, setWishList, dispatch } = useNavigateContext();
+  const { products, wishlistItems, setWishlistItems, dispatch } = useNavigateContext();
   const [showWishlistText, setShowWishlistText] = useState<boolean>(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
   const addToWishlistFunction = (id: number) => {
     const selectedItem = products.find((item) => item.id === id)!;
@@ -20,12 +23,11 @@ export default function AddToWishList({ id, showText, showIcon }: { id: number, 
       dispatch({ type: "NOACTION" });
     };
 
+    if (pathname === "/product-preview") router.replace("/user/wishlist");
+    else router.push("/user/wishlist");
     setTimeout(() => {
-      startTransition(() => setWishList(true));
-      setTimeout(() => {
-        dispatch({ type: "CLOSE" });
-      }, 1250);
-    }, 500);
+      dispatch({ type: "CLOSE" });
+    }, 1750);
   };
 
   return (

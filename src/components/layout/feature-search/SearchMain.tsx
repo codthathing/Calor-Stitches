@@ -1,6 +1,6 @@
 "use client";
 import { ProductPagination, Products, useProductShownEffect } from "@/components/product/ProductDisplayComponents";
-import { useInputFocus } from "@/hooks/useInputFocus";
+// import { useInputFocus } from "@/hooks/useInputFocus";
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import { GeneralProductType } from "@/types/productType";
 import { useState, useEffect } from "react";
@@ -8,7 +8,7 @@ import { FaSearch } from "react-icons/fa";
 
 export default function SearchMain() {
   const { products } = useNavigateContext();
-  const { inputFocus } = useInputFocus();
+  // const { inputFocus } = useInputFocus();
   const [searchItems, setSearchItems] = useState<GeneralProductType[]>(products);
   const [searchInput, setSearchInput] = useState<string>("");
   const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers } = useProductShownEffect({ products: searchItems, shownProducts: 8 });
@@ -20,7 +20,7 @@ export default function SearchMain() {
   return (
     <main id="searchMain">
       <form id="searchForm">
-        <input ref={inputFocus} value={searchInput} onChange={(e) => setSearchInput(e.target.value)} type="text" id="searchInput" placeholder="What are you looking for?" />
+        <input /* ref={inputFocus} */ value={searchInput} onChange={(e) => setSearchInput(e.target.value)} type="text" id="searchInput" placeholder="What are you looking for?" />
         <FaSearch id="searchIcon" />
       </form>
       <div id="searchProductDiv">

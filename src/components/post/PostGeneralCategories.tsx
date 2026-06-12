@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function PostGeneralCategories({ id, showComma, tag }: { id: string; showComma: boolean; tag: string }) {
+export default function PostGeneralCategories({ id, showComma }: { id: string; showComma: boolean; }) {
   const postCategoriesArray = [
     { id: 0, text: "denium", style: true },
     { id: 1, text: "lifestyle", style: true },
@@ -13,7 +13,7 @@ export default function PostGeneralCategories({ id, showComma, tag }: { id: stri
   return (
     <div id={id}>
       {postCategoriesArray.map(({ id, text, style }) => {
-        return <Link key={id} href={`/blog/post/${tag}${text}`} className="post-categories-tag-text">{text}{(showComma && style) && ","} </Link>
+        return <Link key={id} href={`/posts/${text}`} className="post-categories-tag-text">{text}{(showComma && style) && ","} </Link>
       })}
     </div>
   );

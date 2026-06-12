@@ -1,9 +1,9 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { Fragment } from "react";
-import { useNavigateToPage } from "@/hooks/useNavigateToPage";
 
 export default function FooterLinks({ type, linkTexts }: { type: string; linkTexts: { id: number; text: string }[] }) {
-  const navigate = useNavigateToPage();
+  const router = useRouter();
 
   return (
     <nav className="linkNav">
@@ -11,7 +11,7 @@ export default function FooterLinks({ type, linkTexts }: { type: string; linkTex
         return (
           <Fragment key={id}>
             {type === "link" ? (
-              <span onClick={() => navigate(`/product/collection/${text}`)} className="linkText">
+              <span onClick={() => router.push(`/collection/${text}`)} className="linkText">
                 {text}
               </span>
             ) : (

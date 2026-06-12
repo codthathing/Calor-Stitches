@@ -1,13 +1,13 @@
 "use client";
+import { useRouter } from "next/navigation";
 import PageButtons from "../common/PageButtons";
-import { useNavigateToPage } from "@/hooks/useNavigateToPage";
 
 export default function AuthNavigateText({ nextRegister, navText }: { nextRegister: "/auth/sign-up" | "/auth/login" | "/auth/forgot-password"; navText: string }) {
-  const navigate = useNavigateToPage();
+  const router = useRouter();
 
   return (
     <div className="register-nav-div">
-      <PageButtons type={"text"} buttonFunction={() => navigate(nextRegister)} text={navText} />
+      <PageButtons type={"text"} buttonFunction={() => router.replace(nextRegister)} text={navText} />
     </div>
   );
 };

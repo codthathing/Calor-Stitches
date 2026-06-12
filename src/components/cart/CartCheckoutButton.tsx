@@ -1,15 +1,15 @@
 "use client";
 import { useCartEffect } from "@/hooks/useCartEffect";
-import { useNavigateToPage } from "@/hooks/useNavigateToPage";
 import { useShowPreload } from "@/hooks/useShowPreload";
 import { useCartContext } from "@/store/providers/CartProvider";
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import PageButtons from "../common/PageButtons";
+import { useRouter } from "next/navigation";
 
 export default function CartCheckoutButton() {
   const { cartItems } = useNavigateContext();
   const { city, setShowCartInfo } = useCartContext();
-  const navigate = useNavigateToPage();
+  const router = useRouter();
   const { checkCart, displayInfo } = useCartEffect();
   const { showPreload } = useShowPreload();
 
@@ -31,7 +31,7 @@ export default function CartCheckoutButton() {
     displayInfo(checkoutInfos);
     setTimeout(() => {
       if (checkoutInfos.length === 0) {
-        navigate("/checkout");
+        router.push("/checkout");
         setShowCartInfo(false);
       } else {
         window.scrollTo({ top: 0, left: 0, behavior: "smooth" });

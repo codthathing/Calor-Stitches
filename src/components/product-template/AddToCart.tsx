@@ -3,6 +3,7 @@ import { GeneralProductType } from "@/types/productType";
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import { cartReducer } from "@/store/reducers/cartReducer";
 import PageButtons from "../common/PageButtons";
+import { useEffect } from "react";
 
 export default function AddToCart({ id, buttonClass, textClass, itemsArray }: { id: number; buttonClass?: string; textClass?: string; itemsArray: GeneralProductType[] }) {
   const { cartItems, setCartItems } = useNavigateContext();
@@ -39,7 +40,7 @@ export default function AddToCart({ id, buttonClass, textClass, itemsArray }: { 
       } else {
         dispatch({ display: "ADD" });
         let newItem = { id: Date.now(), productImage, productName, productPrice, cartSize, cartColor, cartAmt, wishlistStock };
-        setCartItems([...cartItems, newItem]);
+        setCartItems((prev) => [...prev, newItem]);
       }
     }
 

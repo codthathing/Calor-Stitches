@@ -1,15 +1,15 @@
-"use client";
-import { useRouter } from "next/navigation";
-import { startTransition } from "react";
+// "use client";
+// import { useRouter } from "next/navigation";
+// import { startTransition } from "react";
 
-export const useNavigateToPage = () => {
-  const router = useRouter();
+// export const useNavigateToPage = () => {
+//   const router = useRouter();
 
-  const navigate = (page: string) => {
-    startTransition(() => {
-      router.push(page);
-    });
-  };
+//   const navigate = (page: string) => {
+//     startTransition(() => {
+//       router.push(page);
+//     });
+//   };
 
-  return navigate;
-};
+//   return navigate;
+// };

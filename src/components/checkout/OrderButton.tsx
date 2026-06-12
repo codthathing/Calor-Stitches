@@ -1,12 +1,12 @@
 "use client";
-import { useNavigateToPage } from "@/hooks/useNavigateToPage";
 import { useShowPreload } from "@/hooks/useShowPreload";
 import { useCheckoutContext } from "@/store/providers/CheckoutProvider";
 import PageButtons from "../common/PageButtons";
+import { useRouter } from "next/navigation";
 
 export default function OrderButton() {
   const { showOptAddress, userFormArray, setShowCheckoutInfo, setCheckoutInfoArray, otherFormArray, seenTerms, confirmedMethod, setPageInfoBorder } = useCheckoutContext();
-  const navigate = useNavigateToPage();
+  const router = useRouter();
   const { showPreload } = useShowPreload();
 
   const handleOrder = () => {
@@ -40,7 +40,7 @@ export default function OrderButton() {
     } else {
       setTimeout(() => {
         if (confirmedMethod.payHead === "Direct bank transfer") {
-          navigate("/payment");
+          router.push("/payment");
           setShowCheckoutInfo(false);
         } else {
           setCheckoutInfoArray(["Order placed and processing!"]);

@@ -348,6 +348,10 @@
   display: flex;
 }
 
+.rating-icon {
+  cursor: pointer;
+}
+
 #rating-input-div {
   display: grid;
 }

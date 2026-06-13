@@ -1,5 +1,4 @@
-"use client";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface PostDetailsLink {
   inner_text?: { id: number; text: string; style: boolean }[];
@@ -7,17 +6,15 @@ interface PostDetailsLink {
 }
 
 export default function PostDetailsLinks({ inner_text, linkClass }: PostDetailsLink) {
-  const router = useRouter();
-
   return (
     <>
       {inner_text && (
         <div>
           {inner_text.map(({ id, text, style }) => (
-            <span onClick={() => router.push(`/posts/${text}`)} className={linkClass} key={id}>
+            <Link style={{ textDecoration: "none" }} href={`/posts/${text}`} className={linkClass} key={id}>
               {text}
               {style && ","}{" "}
-            </span>
+            </Link>
           ))}
         </div>
       )}

@@ -1,13 +1,13 @@
 "use client";
-import { useShowPreload } from "@/hooks/useShowPreload";
 import { useCheckoutContext } from "@/store/providers/CheckoutProvider";
 import PageButtons from "../common/PageButtons";
 import { useRouter } from "next/navigation";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
 
 export default function OrderButton() {
   const { showOptAddress, userFormArray, setShowCheckoutInfo, setCheckoutInfoArray, otherFormArray, seenTerms, confirmedMethod, setPageInfoBorder } = useCheckoutContext();
   const router = useRouter();
-  const { showPreload } = useShowPreload();
+  const { showPreload } = useNavigateContext();
 
   const handleOrder = () => {
     setShowCheckoutInfo(false);

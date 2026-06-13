@@ -1,13 +1,11 @@
 "use client";
 import { useCartContext } from "@/store/providers/CartProvider";
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
-import { useShowPreload } from "./useShowPreload";
 import { GeneralProductType } from "@/types/productType";
 
 export const useCartEffect = () => {
-  const { cloneCart, products } = useNavigateContext();
+  const { cloneCart, products, showPreload } = useNavigateContext();
   const { setCartInfoArray, setShowCartInfo } = useCartContext();
-  const { showPreload } = useShowPreload();
 
   const checkCart = (info: string[]) => {
     cloneCart.map(({ productName, cartAmt }) => {

@@ -1,8 +1,6 @@
 "use client";
 import { FaTimes } from "react-icons/fa";
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
-// import { useSectionScroll } from "@/hooks/useSectionScroll";
-import { scrollToSection } from "@/lib/utils/scrollToSection";
 import PageButtons from "@/components/common/PageButtons";
 import WishlistActionText from "@/components/layout/user-wishlist/WishlistActionText";
 import WishlistProductDiv from "@/components/layout/user-wishlist/WishlistProductDiv";
@@ -11,12 +9,11 @@ import Link from "next/link";
 import { getCookie } from "@/hooks/usePreviousPath";
 
 export default function WishlistPage() {
-  const { wishlistItems, product_section } = useNavigateContext();
-  // const { presentScroll } = useSectionScroll();
+  const { wishlistItems } = useNavigateContext();
   const router = useRouter();
 
   return (
-    <main /* ref={presentScroll} */ id="wishListMain">
+    <main id="wishListMain">
       <header className="wishListContainers" id="wishListHeader">
         <div id="wishlistHeaderDiv" className="wishlistInnerContainers">
           <p id="wishListText">Wishlist ({wishlistItems.length})</p>
@@ -38,7 +35,6 @@ export default function WishlistPage() {
           buttonFunction={() => {
             router.back();
             router.refresh();
-            scrollToSection(product_section);
           }}
         />
       </div>

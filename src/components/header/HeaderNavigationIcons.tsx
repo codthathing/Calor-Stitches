@@ -13,8 +13,8 @@ const NavigationIcons = () => {
     { id: 0, Icon: FiUser, listId: "mobile-login-icon", pageLink: "" },
     { id: 1, text: "LOGIN", listIconId: "loginText", listId: "desktop-login-icon", pageLink: "/auth/login" },
     { id: 2, Icon: FiSearch, pageLink: "/search" },
-    { id: 3, Icon: FiHeart, showValue: wishlistItems.length > 0, value: wishlistItems.length, pageLink: "/user/wishlist" },
-    { id: 4, Icon: FiShoppingBag, showValue: cartItems.length > 0, value: cartItems.reduce((sum, { cartAmt }) => sum + cartAmt, 0), pageLink: "/user/cart" },
+    { id: 3, Icon: FiHeart, showValue: hasMounted && wishlistItems.length > 0, value: wishlistItems.length, pageLink: "/user/wishlist" },
+    { id: 4, Icon: FiShoppingBag, showValue: hasMounted && cartItems.length > 0, value: cartItems.reduce((sum, { cartAmt }) => sum + cartAmt, 0), pageLink: "/user/cart" },
   ];
 
   return (
@@ -27,7 +27,7 @@ const NavigationIcons = () => {
               <>
                 <Icon className="iconTag" />
                 {showValue && (
-                  <motion.var className="icon-values" initial={hasMounted.current && !navbar && { ...(navbar ? { backgroundColor: "rgb(255, 255, 255)", color: "rgb(34, 34, 34)" } : { backgroundColor: "rgb(34, 34, 34)", color: "rgb(255, 255, 255)" }) }} animate={{ ...(navbar ? { backgroundColor: "rgb(34, 34, 34)", color: "rgb(255, 255, 255)" } : { backgroundColor: "rgb(255, 255, 255)", color: "rgb(34, 34, 34)" }) }} transition={{ type: "tween", duration: 0.35, ease: "linear" }}>
+                  <motion.var className="icon-values" initial={hasMounted && !navbar && { ...(navbar ? { backgroundColor: "rgb(255, 255, 255)", color: "rgb(34, 34, 34)" } : { backgroundColor: "rgb(34, 34, 34)", color: "rgb(255, 255, 255)" }) }} animate={{ ...(navbar ? { backgroundColor: "rgb(34, 34, 34)", color: "rgb(255, 255, 255)" } : { backgroundColor: "rgb(255, 255, 255)", color: "rgb(34, 34, 34)" }) }} transition={{ type: "tween", duration: 0.35, ease: "linear" }}>
                     {value}
                   </motion.var>
                 )}

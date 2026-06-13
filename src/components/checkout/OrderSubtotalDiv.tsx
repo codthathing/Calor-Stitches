@@ -3,8 +3,10 @@ import { useSumCartItems } from "@/hooks/useSumCartItems";
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
 
 export default function OrderSubtotalDiv() {
-  const { curSymbol, productShipValue, cartItems } = useNavigateContext();
+  const { curSymbol, productShipValue, cartItems, hasMounted } = useNavigateContext();
   const { total } = useSumCartItems(cartItems);
+
+  if (!hasMounted) return null;
 
   const subtotalArray = [
     { id: 0, subText: "Subtotal", subValue: total },

@@ -2,8 +2,9 @@ import { GeneralProductType } from "@/types/productType";
 import Image from "next/image";
 import AddToWishList from "./AddToWishlist";
 import ProductPrice from "./ProductPrice";
-import ProductStockAlertWrapper from "../layout/product-template/ProductStockAlertWrapper";
 import ProductTemplateFooter from "../layout/product-template/ProductTemplateFooter";
+import ProductStockAlert from "./ProductStockAlert";
+import Link from "next/link";
 
 export default function ProductTemplate({ productArray }: { productArray: GeneralProductType[] }) {
   return (
@@ -13,7 +14,11 @@ export default function ProductTemplate({ productArray }: { productArray: Genera
           <div className="productDiv" key={id}>
             <div className="productInnerDiv">
               <Image src={productImage} loading="lazy" width={100} height={75} style={{ objectFit: "cover", width: "100%", height: "100%", position: "absolute", zIndex: "-1" }} alt={productName.toUpperCase()} />
-              <ProductStockAlertWrapper productName={productName} productAvailable={productAvailable} wishlistStock={wishlistStock} cutOff={cutOff} />
+              <Link href={`/review/${productName}`} style={{ textDecoration: "none" }}>
+                <section className="orderOptions">
+                  <ProductStockAlert productAvailable={productAvailable} wishlistStock={wishlistStock} cutOff={cutOff} />
+                </section>
+              </Link>
               <div className="optionBtnsDiv">
                 <div className="optionDiv optionDivWishlist">
                   <AddToWishList id={id} showText={false} showIcon={true} />

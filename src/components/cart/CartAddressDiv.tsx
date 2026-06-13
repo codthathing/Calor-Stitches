@@ -1,12 +1,13 @@
 "use client";
 import { ChangeEventHandler, FormEvent, useState } from "react";
 import { useCartContext } from "@/store/providers/CartProvider";
-import { useShowPreload } from "@/hooks/useShowPreload";
 import PageButtons from "../common/PageButtons";
 import FormFeedback from "../common/FormFeedback";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
 
 export default function CartAddressDiv() {
   const { city, setCity, setShowCartInfo, setCartInfoArray } = useCartContext();
+  const { showPreload } = useNavigateContext();
 
   const [showUpdateAddress, setShowUpdateAddress] = useState(false);
   const [address, setAddress] = useState({ country: "Nigeria", state: "", city: "" });
@@ -16,8 +17,6 @@ export default function CartAddressDiv() {
     const name = e.target.name;
     setAddress({ ...address, [name]: value });
   };
-
-  const { showPreload } = useShowPreload();
 
   const [addressText, setAddressText] = useState("");
   const submitAddress = (e: FormEvent<HTMLFormElement>) => {

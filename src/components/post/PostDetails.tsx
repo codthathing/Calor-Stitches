@@ -24,5 +24,3 @@ export default function PostDetails({ postDetails, defaultStyle, divClass, textC
     </div>
   );
 }
-
-PostDetails;

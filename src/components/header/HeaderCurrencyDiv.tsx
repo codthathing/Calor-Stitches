@@ -4,13 +4,11 @@ import { FaChevronDown } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import { changeCurrencyToDollar, changeCurrencyToNaira } from "@/lib/utils/convertCurrency";
-import { useShowPreload } from "@/hooks/useShowPreload";
 import Image from "next/image";
 
-const HeaderCurrencyDiv = ({ className }: { className: string }) => {
+export default memo(function HeaderCurrencyDiv({ className }: { className: string }) {
   const [currency, setCurrency] = useState<boolean>(false);
-  const { presentCurrency, setPresentCurrency, setDefaultCurrency, wishlistItems, setWishlistItems, cartItems, setCartItems, curDetails } = useNavigateContext();
-  const { showPreload } = useShowPreload();
+  const { showPreload, presentCurrency, setPresentCurrency, setDefaultCurrency, wishlistItems, setWishlistItems, cartItems, setCartItems, curDetails } = useNavigateContext();
 
   const changeCurrency = () => {
     showPreload();
@@ -50,6 +48,4 @@ const HeaderCurrencyDiv = ({ className }: { className: string }) => {
       </div>
     </div>
   );
-};
-
-export default memo(HeaderCurrencyDiv);
+});

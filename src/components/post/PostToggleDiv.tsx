@@ -1,11 +1,12 @@
 "use client";
 import { mockBlogPosts } from "@/lib/data/mockBlogPosts";
 import { useBlogContext } from "@/store/providers/BlogProvider";
-import { usePathname, useRouter } from "next/navigation";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
+import { usePathname } from "next/navigation";
 
 export default function PostToggleDiv() {
   let { id } = useBlogContext();
-  const router = useRouter();
+  const { navigateToPage } = useNavigateContext()
   const pathname = decodeURIComponent(usePathname().replace("/blog/", ""));
 
   const changePost = (toggle: string) => {
@@ -14,7 +15,7 @@ export default function PostToggleDiv() {
 
     if (!newPost) return;
     
-    if (pathname !== newPost.postHead) router.push(`/blog/${newPost.postHead}`);
+    if (pathname !== newPost.postHead) navigateToPage(`/blog/${newPost.postHead}`);
   };
 
   return (

@@ -1,6 +1,6 @@
 "use client";
 import { WishlistActionType, WishlistStateType } from "@/types/wishlistType";
-import { useReducer } from "react";
+import { useEffect, useReducer, useRef, useTransition } from "react";
 
 export const wishlistReducer = () => {
   const wishlistAction = (state: WishlistStateType, action: WishlistActionType): WishlistStateType => {

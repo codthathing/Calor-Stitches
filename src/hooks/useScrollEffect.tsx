@@ -4,13 +4,13 @@ import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import { usePreviousPath } from "./usePreviousPath";
 
 export const useScrollEffect = () => {
-  const { setNavbar, hasMounted } = useNavigateContext();
+  const { setNavbar, setHasMounted } = useNavigateContext();
   const [header, setHeader] = useState<boolean>(false);
   const [showNavToTop, setShowNavToTop] = useState<boolean>(false);
   const path = usePreviousPath();
 
   useEffect(() => {
-    hasMounted.current = true;
+    setHasMounted(true);
     window.scrollTo({ top: 0, behavior: "instant" });
     
     let lastScrollY = 120;
@@ -36,7 +36,7 @@ export const useScrollEffect = () => {
 
     return () => {
       window.removeEventListener("scroll", changeHeader);
-      hasMounted.current = false;
+      setHasMounted(false);
     };
   }, [path]);
 

@@ -1,11 +1,9 @@
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function CartProductName({ productName }: { productName: string }) {
-  const router = useRouter();
-
   return (
-    <p className="cartProductName" onClick={() => router.replace(`/review/${productName}`)}>
+    <Link className="cartProductName" style={{ textDecoration: "none" }} href={`/review/${productName}`}>
       {productName}
-    </p>
-  )
+    </Link>
+  );
 }

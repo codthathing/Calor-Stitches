@@ -1,9 +1,6 @@
-"use client";
 import PageButtons from "@/components/common/PageButtons";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
-export default function HomePostButton({ type, buttonClass, postHead: topic }: { type: string, buttonClass: string, postHead: string }) {
-  const router = useRouter();
-  
-  return <>{type === "link" ? <PageButtons type={"text"} textClass={buttonClass} buttonFunction={() => router.push(`/blog/${topic}`)} text={"read more"} /> : <PageButtons type={"button"} buttonType={"black-button"} buttonClass={buttonClass} buttonFunction={() => router.push(`/blog/${topic}`)} text={"read more"} />}</>;
+export default function HomePostButton({ type, buttonClass, postHead: topic }: { type: string, buttonClass: string, postHead: string }) {  
+  return <Link style={{ textDecoration: "none" }} href={`/blog/${topic}`}>{type === "link" ? <PageButtons type={"text"} textClass={buttonClass} text={"read more"} /> : <PageButtons type={"button"} buttonType={"black-button"} buttonClass={buttonClass} text={"read more"} />}</Link>;
 }

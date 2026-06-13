@@ -1,11 +1,12 @@
 "use client";
-import { createContext, useState, useRef, ReactNode, useContext, RefObject, ActionDispatch } from "react";
+import { createContext, useState, useRef, ReactNode, useContext, RefObject, ActionDispatch, TransitionStartFunction } from "react";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { mockProducts } from "@/lib/data/mockProducts";
 import { wishlistReducer } from "../reducers/wishlistReducer";
 import { WishlistActionType, WishlistStateType } from "@/types/wishlistType";
 import { CartProductType, GeneralProductType, WishlistProductType, SetState } from "@/types/productType";
 import { useCheckAppVersion } from "@/hooks/useCheckAppVersion";
+import { useShowPreload } from "@/hooks/useShowPreload";
 
 interface NavigateInterface {
   wishlistItems: WishlistProductType[];
@@ -28,7 +29,6 @@ interface NavigateInterface {
 
   product_section: RefObject<HTMLElement | null>;
   home_section: RefObject<HTMLElement | null>;
-  hasMounted: RefObject<boolean>;
 
   curDetails: { preNation: string; preCur: string; curFlag: string; curName: string };
   setCurDetails: SetState<{ preNation: string; preCur: string; curFlag: string; curName: string }>;
@@ -41,13 +41,18 @@ interface NavigateInterface {
   setToggleSideMenu: SetState<boolean>;
   navbar: boolean;
   setNavbar: SetState<boolean>;
-  showPreload: boolean;
-  setShowPreload: SetState<boolean>;
   defaultCurrency: boolean;
   setDefaultCurrency: SetState<boolean>;
+  hasMounted: boolean;
+  setHasMounted: SetState<boolean>;
 
   state: WishlistStateType;
   dispatch: ActionDispatch<[action: WishlistActionType]>;
+
+  preload: boolean;
+  showPreload: () => void;
+  navigateToPage: (page: string) => void;
+  wishlistStartTransition: (page: string, replace: boolean, currentPath: string) => void;
 }
 
 const NavigateContext = createContext<NavigateInterface | null>(null);
@@ -68,13 +73,13 @@ export default function NavigateProvider({ children }: { children: ReactNode }) 
   const [productShipValue, setProductShipValue] = useState({ shipFee: 10000, min: 20, max: 5020, minValue: 20, maxValue: 5020 });
   const [toggleSideMenu, setToggleSideMenu] = useState<boolean>(false);
   const [navbar, setNavbar] = useState<boolean>(false);
-  const [showPreload, setShowPreload] = useState<boolean>(false);
   const { state, dispatch } = wishlistReducer();
   const [defaultCurrency, setDefaultCurrency] = useState<boolean>(false);
-  const hasMounted = useRef<boolean>(false);
+  const [hasMounted, setHasMounted] = useState(false);
+  const { preload, showPreload, navigateToPage, wishlistStartTransition } = useShowPreload(dispatch);
   useCheckAppVersion();
 
-  return <NavigateContext.Provider value={{ userDetails, setUserDetails, defaultCurrency, setDefaultCurrency, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, curDetails, setCurDetails, productShipValue, setProductShipValue, presentCurrency, setPresentCurrency, cloneCart, setCloneCart, product_section, home_section, showPreload, setShowPreload, collection, setCollection, presentFilterProducts, setPresentFilterProducts, hasMounted }}>{children}</NavigateContext.Provider>;
+  return <NavigateContext.Provider value={{ userDetails, setUserDetails, defaultCurrency, setDefaultCurrency, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, wishlistStartTransition, curDetails, setCurDetails, productShipValue, setProductShipValue, presentCurrency, setPresentCurrency, cloneCart, setCloneCart, product_section, home_section, preload, collection, setCollection, presentFilterProducts, setPresentFilterProducts, hasMounted, setHasMounted, showPreload, navigateToPage }}>{children}</NavigateContext.Provider>;
 }
 
 export const useNavigateContext = () => {

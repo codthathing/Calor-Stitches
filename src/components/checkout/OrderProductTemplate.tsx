@@ -2,7 +2,9 @@
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
 
 export default function OrderProductTemplate() {
-  const { cartItems, curSymbol } = useNavigateContext();
+  const { cartItems, curSymbol, hasMounted } = useNavigateContext();
+
+  if (!hasMounted) return null;
 
   return (
     <main id="orderProductMain">

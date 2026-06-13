@@ -1,17 +1,13 @@
 "use client";
 import { useCartEffect } from "@/hooks/useCartEffect";
-import { useShowPreload } from "@/hooks/useShowPreload";
 import { useCartContext } from "@/store/providers/CartProvider";
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import PageButtons from "../common/PageButtons";
-import { useRouter } from "next/navigation";
 
 export default function CartCheckoutButton() {
-  const { cartItems } = useNavigateContext();
+  const { cartItems, showPreload, navigateToPage } = useNavigateContext();
   const { city, setShowCartInfo } = useCartContext();
-  const router = useRouter();
   const { checkCart, displayInfo } = useCartEffect();
-  const { showPreload } = useShowPreload();
 
   const handleCheckout = () => {
     setShowCartInfo(false);
@@ -27,16 +23,14 @@ export default function CartCheckoutButton() {
       checkCart(checkoutInfos);
     }
 
-    showPreload();
     displayInfo(checkoutInfos);
-    setTimeout(() => {
-      if (checkoutInfos.length === 0) {
-        router.push("/checkout");
-        setShowCartInfo(false);
-      } else {
-        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-      }
-    }, 2000);
+    if (checkoutInfos.length === 0) {
+      navigateToPage("/checkout");
+      setShowCartInfo(false);
+    } else {
+      showPreload();
+      setTimeout(() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" }), 2000);
+    }
   };
 
   return <PageButtons type={"button"} buttonType={"black-button"} buttonClass={"cart-checkout-button"} buttonFunction={handleCheckout} text={"proceed to checkout"} />;

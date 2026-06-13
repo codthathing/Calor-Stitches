@@ -1,9 +1,6 @@
-"use client";
 import PageButtons from "@/components/common/PageButtons";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function ProductButton({ linkTo }: { linkTo: string }) {
-  const router = useRouter();
-
-  return <PageButtons type={"button"} buttonType={"white-button"} buttonClass={"view-button"} buttonFunction={() => router.push(linkTo)} text={"view all"} />;
+  return <Link href={linkTo} style={{ textDecoration: "none" }}><PageButtons type={"button"} buttonType={"white-button"} buttonClass={"view-button"} text={"view all"} /></Link>;
 }

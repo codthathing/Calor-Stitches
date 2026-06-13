@@ -3,6 +3,9 @@
   top: 0;
   left: 0;
   z-index: 75;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 #searchSection::-webkit-scrollbar {
@@ -12,7 +15,6 @@
 .navBack {
   width: 100%;
   background-color: white;
-  position: fixed;
   z-index: 75;
   display: flex;
   flex-direction: column;
@@ -24,11 +26,24 @@
   cursor: pointer;
 }
 
+#searchMain {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+#searchMain::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+#searchMain::-webkit-scrollbar-thumb {
+  background-clip: content-box;
+  border-radius: 1rem;
+  background-color: var(--9B9B9B);
+}
+
 .navFooter {
   width: 100%;
   background-color: white;
-  position: fixed;
-  bottom: 0;
 }
 
 #searchForm {
@@ -77,6 +92,14 @@
     --24px: 1.5rem;
   }
 
+  #searchMain::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  #searchMain::-webkit-scrollbar-thumb {
+    border: 4px solid transparent;
+  }
+
   #searchForm {
     padding: 0.25rem 1.25rem;
     gap: 0 1.25rem;
@@ -92,7 +115,7 @@
   }
 
   #searchProductSection {
-    padding: 0 5rem 5rem 5rem;
+    padding: 0 5rem;
   }
 
   #absentText {
@@ -119,12 +142,12 @@
     font-size: var(--16px);
   }
 
-  #searchFooter {
-    padding: 1.5rem 0;
+  #searchMain::-webkit-scrollbar {
+    width: 8px;
   }
 
-  #searchMain {
-    margin-top: 4rem;
+  #searchMain::-webkit-scrollbar-thumb {
+    border: 2px solid transparent;
   }
 
   #searchForm {
@@ -155,11 +178,15 @@
   }
 
   #searchProductSection {
-    padding: 0 3rem 3rem 3rem;
+    padding: 0 3rem;
   }
 
   #absentText {
     font-size: var(--12px);
+  }
+
+  #searchFooter {
+    padding: 1.5rem 0;
   }
 }
 
@@ -181,14 +208,6 @@
     font-size: var(--24px);
   }
 
-  #searchFooter {
-    padding: 2.75rem 0;
-  }
-
-  #searchMain {
-    margin-top: 6.5rem;
-  }
-
   #searchForm {
     margin: 0 6.5rem;
   }
@@ -203,6 +222,10 @@
 
   #searchHead {
     margin-bottom: 3.5rem;
+  }
+
+  #searchFooter {
+    padding: 2.75rem 0;
   }
 }
 
@@ -224,14 +247,6 @@
     font-size: var(--20px);
   }
 
-  #searchFooter {
-    padding: 2rem 0;
-  }
-
-  #searchMain {
-    margin-top: 5rem;
-  }
-
   #searchForm {
     width: 50%;
     margin: 0 auto;
@@ -247,5 +262,9 @@
 
   #searchHead {
     margin-bottom: 2.5rem;
+  }
+
+  #searchFooter {
+    padding: 2rem 0;
   }
 }

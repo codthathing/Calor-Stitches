@@ -5,7 +5,9 @@ import { ReactNode } from "react";
 import CartUpdateButton from "./CartUpdateButton";
 
 export default function CartWrapper({ ElementOne, ElementTwo }: { ElementOne: ReactNode; ElementTwo: ReactNode }) {
-  const { cartItems } = useNavigateContext();
+  const { cartItems, hasMounted } = useNavigateContext();
+
+  if (!hasMounted) return null;
 
   if (cartItems.length > 0) {
     return (

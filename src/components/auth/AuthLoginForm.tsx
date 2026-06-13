@@ -2,7 +2,6 @@
 import { ChangeEventHandler, MouseEvent, useState } from "react";
 import AuthPasswordInput from "@/components/auth/AuthPasswordInput";
 import FormFeedback from "@/components/common/FormFeedback";
-// import { useInputFocus } from "@/hooks/useInputFocus";
 import AuthInput from "@/components/auth/AuthInput";
 import PageButtons from "@/components/common/PageButtons";
 import AuthButton from "@/components/auth/AuthButton";
@@ -10,7 +9,6 @@ import { useRouter } from "next/navigation";
 
 export default function AuthLoginForm() {
   const [infoText, setInfoText] = useState<string>("");
-  // const { inputFocus } = useInputFocus();
   const router = useRouter();
 
   const [loginValue, setLoginValue] = useState({ email: "", password: "" });
@@ -40,7 +38,7 @@ export default function AuthLoginForm() {
     <>
       <FormFeedback text={infoText} showText={Boolean(infoText)} />
       <form className="registerForm">
-        <AuthInput /* refFunction={inputFocus} */ type={"text"} name={"email"} value={loginValue.email} onChange={handleLoginValue} placeholder={"Email/User"} />
+        <AuthInput autoFocus={true} type={"text"} name={"email"} value={loginValue.email} onChange={handleLoginValue} placeholder={"Email/User"} />
         <AuthPasswordInput name={"password"} value={loginValue.password} onChange={handleLoginValue} placeholder={"Password"} />
         <div id="registerParagraph">
           <input type="checkbox" id="registerCheck" />

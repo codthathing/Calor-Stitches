@@ -1,5 +1,5 @@
 /* Styling for the cart page */
-#cartSection {
+.cart-section {
   display: flex;
   flex-direction: column;
 }
@@ -439,7 +439,7 @@
 
 /* Styling for tab and desktop */
 @media all and (min-width: 768px) {
-  #cartSection {
+  .cart-section {
     right: 0;
   }
 
@@ -963,7 +963,7 @@
     --24px: 1.5rem;
   }
 
-  #cartSection {
+  .cart-section {
     width: 55%;
   }
 
@@ -1065,7 +1065,7 @@
     --20px: 1.25rem;
   }
 
-  #cartSection {
+  .cart-section {
     width: 30%;
     right: 0;
   }

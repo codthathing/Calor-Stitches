@@ -1,9 +1,11 @@
 import CartProductDiv from "@/components/layout/user-cart/CartProductDiv";
 import UserCartCancelIcon from "@/components/layout/user-cart/UserCartCancelIcon";
 
-export default function CartPage() {
+export default async function CartPage() {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
   return (
-    <main id="cartSection" className="whiteBackSections">
+    <main className="cart-section whiteBackSections">
       <div className="cartEnds" id="cartHeader">
         <h1 className="navHeadText" id="cartHead">Shopping Cart</h1>
         <UserCartCancelIcon />

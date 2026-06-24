@@ -4,7 +4,9 @@ import { ReactNode } from "react";
 import CartProductTemplate from "./CartProductTemplate";
 
 export default function UserCartWrapper({ ElementOne, ElementTwo }: { ElementOne: ReactNode; ElementTwo: ReactNode }) {
-  const { cartItems } = useNavigateContext();
+  const { cartItems, hasMounted } = useNavigateContext();
+
+  if (!hasMounted) return null;
 
   return (
     <div id="cartProductDiv">

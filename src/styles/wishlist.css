@@ -1,14 +1,21 @@
 /* Styling for the wishlist page */
-#wishListMain {
+.wishlist-main {
   background-color: white;
-  height: fit-content;
-  max-height: 100vh;
   position: absolute;
   top: 0;
   bottom: 0;
   margin: auto;
   display: flex;
   flex-direction: column;
+}
+
+#wishlist-page-main {
+  max-height: 100vh;
+  height: fit-content;
+}
+
+#wishlist-loading-main {
+  height: 100vh;
 }
 
 .wishListContainers {
@@ -239,7 +246,7 @@
 
 /* Styling for tab and desktop */
 @media all and (min-width: 768px) {
-  #wishListMain {
+  .wishlist-main {
     left: 0;
     right: 0;
   }
@@ -349,7 +356,7 @@
     --16px: 1rem;
   }
 
-  #wishListMain {
+  .wishlist-main {
     width: 100%;
   }
 
@@ -493,7 +500,7 @@
     --24px: 1.5rem;
   }
 
-  #wishListMain {
+  .wishlist-main {
     width: 60%;
   }
 
@@ -547,7 +554,7 @@
     --20px: 1.5rem;
   }
 
-  #wishListMain {
+  .wishlist-main {
     width: 35%;
   }
 

@@ -3,7 +3,6 @@
   top: 0;
   left: 0;
   z-index: 75;
-  height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -21,9 +20,16 @@
 }
 
 .navBackIcon {
-  color: var(--1B1A1A);
   align-self: flex-end;
   cursor: pointer;
+}
+
+#search-cancel-icon {
+  color: var(--1B1A1A);
+}
+
+#search-loading-cancel-icon {
+  color: #f7f8fdff;
 }
 
 #searchMain {

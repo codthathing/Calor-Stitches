@@ -16,6 +16,10 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+body:has(#searchSection) {
+  overflow-y: hidden;
+}
+
 :root {
   --12px: 0.75rem;
   --8px: 0.5rem;

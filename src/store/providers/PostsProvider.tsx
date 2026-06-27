@@ -26,6 +26,10 @@ export default function PostsProvider({ children, title }: { children: ReactNode
       { id: 1, linkDirect: "", linkText: "blog standard", linkArrow: true },
       { id: 2, linkDirect: "", linkText: `Tag: ${title}`, linkArrow: false },
     ]);
+
+    return () => {
+      setPageLinks([]);
+    }
   }, []);
 
   const categoryPosts = getPosts();

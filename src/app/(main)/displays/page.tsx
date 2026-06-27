@@ -8,7 +8,9 @@ export const metadata: Metadata = {
   title: "Display Products"
 }
 
-export default function DisplayPage() {
+export default async function DisplayPage() {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },
     { id: 1, linkDirect: "", linkText: "Product", linkArrow: true },

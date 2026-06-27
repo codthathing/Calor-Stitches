@@ -9,6 +9,7 @@ export const generateMetadata = async ({ params } : { params: Promise<{ category
 }
 
 export default async function CollectionPage({ params }: { params: Promise<{ category: string }> }) {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   const { category } = await params;
 
   return (

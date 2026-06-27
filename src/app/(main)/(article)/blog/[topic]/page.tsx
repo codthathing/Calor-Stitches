@@ -9,6 +9,7 @@ export const generateMetadata = async ({ params }: { params: Promise<{ topic: st
 }
 
 export default async function BlogPage({ params }: { params: Promise<{ topic: string }> }) {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   const { topic } = await params;
 
   return (

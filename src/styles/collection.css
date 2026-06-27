@@ -2,6 +2,11 @@
   border: 1px solid var(--222222);
 }
 
+#collection-loading-filter-option {
+  height: 2.5rem;
+  width: 12.5rem;
+}
+
 
 
 

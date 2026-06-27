@@ -8,7 +8,9 @@ export const metadata: Metadata = {
   title: "Wishlist Page"
 }
 
-export default function WishlistPage() {
+export default async function WishlistPage() {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },
     { id: 1, linkDirect: "", linkText: "CS wishlist", linkArrow: false },

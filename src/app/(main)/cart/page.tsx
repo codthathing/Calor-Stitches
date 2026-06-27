@@ -12,7 +12,9 @@ export const metadata: Metadata = {
   title: "Cart Page"
 }
 
-export default function CartPage() {
+export default async function CartPage() {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },
     { id: 1, linkDirect: "", linkText: "shop", linkArrow: true },

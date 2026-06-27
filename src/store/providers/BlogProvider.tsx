@@ -26,6 +26,10 @@ export default function BlogProvider({ children, title }: { children: ReactNode;
       { id: 2, linkDirect: "", linkText: blog.postDetails.find(({ inner_text }) => inner_text)?.inner_text?.find(({ id }) => id === 0)?.text as string, linkArrow: true },
       { id: 3, linkDirect: "", linkText: title, linkArrow: false },
     ]);
+
+    return () => {
+      setPageLinks([]);
+    }
   }, []);
 
   if (!blog) return null;

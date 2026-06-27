@@ -1,3 +1,130 @@
+#blog-loading-image {
+  height: 75vh;
+}
+
+#blog-loading-details-section {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem 0;
+  border-bottom: 1px solid #EBEBEB;
+}
+
+#blog-loading-details-main {
+  display: flex;
+  gap: 0 1.5rem;
+}
+
+.blog-loading-details-text {
+  height: 1.25rem;
+  width: 8rem;
+}
+
+#blog-loading-details-topic {
+  height: 1.75rem;
+  width: 25rem;
+}
+
+#blog-loading-details-description {
+  height: 10rem;
+}
+
+#blog-loading-author-section {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem 0;
+}
+
+#blog-loading-author-handle-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#blog-loading-author-category {
+  height: 1.25rem;
+  width: 12rem;
+}
+
+#blog-loading-handle-section {
+  display: flex;
+  gap: 0 3rem;
+}
+
+#blog-loading-author-description {
+  height: 16.5rem;
+}
+
+.blog-loading-navigation-button {
+  height: 1.25rem;
+  width: 8rem;
+}
+
+#blog-loading-review-section {
+  padding: 2rem 0;
+  gap: 2rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#blog-loading-review-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem 0;
+}
+
+#blog-loading-review-topic {
+  height: 1.75rem;
+  width: 12rem;
+}
+
+#blog-loading-review-description {
+  height: 1rem;
+  width: 20rem;
+}
+
+#blog-loading-review-text {
+  height: 15rem;
+}
+
+#blog-loading-review-details-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 3rem;
+}
+
+.blog-loading-review-details {
+  height: 3.5rem;
+}
+
+#blog-loading-review-description {
+  height: 1.15rem;
+  width: 75%;
+}
+
+#blog-loading-review-button {
+  height: 3.5rem;
+  width: 10rem;
+}
+
+#posts-loading-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem 0;
+}
+
+#posts-loading-details-section {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem 0;
+}
+
+#posts-loading-details-description {
+  height: 6rem;
+}
+
 #post-image {
   height: 100%;
   width: 100%;

@@ -6,7 +6,7 @@ export default async function WishlistPage() {
   await new Promise((resolve) => setTimeout(resolve, 3000));
 
   return (
-    <main className="wishlist-main" id="wishlist-page-main">
+    <main className="wishlist-main">
       <UserWishlistHeader />
       <WishlistProductDiv />
       <UserWishlistFooter />

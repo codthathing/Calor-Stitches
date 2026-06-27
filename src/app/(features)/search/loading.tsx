@@ -1,10 +1,14 @@
 import FeatureSearchWrapper from "@/components/layout/feature-search/FeatureSearchWrapper";
-import { FaTimes } from "react-icons/fa";
+import ProductTemplateLoading from "@/components/product-template/ProductTemplateLoading";
 
 export default function Loading() {
   return (
-    <FeatureSearchWrapper CancelIcon={<FaTimes className="navBackIcon" id="search-loading-cancel-icon" />}>
-      hello world
+    <FeatureSearchWrapper className="search-loading-section" CancelIcon={<div id="search-loading-cancel-icon" className="loading-background-animation" />}>
+      <div id="search-loading-search" className="loading-background-animation" />
+      <main id="search-loading-main">
+        <div id="search-loading-topic" className="loading-background-animation" />
+        <ProductTemplateLoading length={4} />
+      </main>
     </FeatureSearchWrapper>
   )
 }

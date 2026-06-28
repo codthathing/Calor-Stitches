@@ -3,7 +3,7 @@ import UserWishlistHeader from "@/components/layout/user-wishlist/UserWishlistHe
 import UserWishlistFooter from "@/components/layout/user-wishlist/UserWishlistFooter";
 
 export default async function WishlistPage() {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
 
   return (
     <main className="wishlist-main">

@@ -9,6 +9,7 @@ export const useShowPreload = (dispatch: ActionDispatch<[action: WishlistActionT
   const hasTransitioned = useRef<boolean>(false);
   const showPreloadOnTransition = useRef<boolean>(false);
   const router = useRouter();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   useEffect(() => {
     if (!hasTransitioned.current) return;
@@ -18,15 +19,15 @@ export const useShowPreload = (dispatch: ActionDispatch<[action: WishlistActionT
     if (isPending) {
       if (showPreloadOnTransition.current) setPreload(true);
     } else {
+      const wasShowingPreload = showPreloadOnTransition.current;
       setPreload(false);
       hasTransitioned.current = false;
       showPreloadOnTransition.current = false;
-      timeout = setTimeout(() => dispatch({ type: "CLOSE" }), 1250);
+
+      timeoutRef.current = setTimeout(() => dispatch({ type: "CLOSE" }), wasShowingPreload ? 1250 : 2000);
     }
 
-    return () => {
-      clearTimeout(timeout);
-    };
+    return () => clearTimeout(timeoutRef.current);
   }, [isPending]);
 
   const showPreload = () => {
@@ -41,10 +42,18 @@ export const useShowPreload = (dispatch: ActionDispatch<[action: WishlistActionT
   };
 
   const wishlistStartTransition = (page: string, replace: boolean, currentPath: string) => {
+    clearTimeout(timeoutRef.current);
+
+    if (currentPath === page) {
+      timeoutRef.current = setTimeout(() => dispatch({ type: "CLOSE" }), 2000);
+      return;
+    }
+
     hasTransitioned.current = true;
     showPreloadOnTransition.current = false;
+
     startTransition(() => {
-      if (replace || currentPath === page) {
+      if (replace) {
         router.replace(page);
       } else {
         router.push(page);

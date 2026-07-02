@@ -2,11 +2,6 @@
   border: 1px solid var(--222222);
 }
 
-#collection-loading-filter-option {
-  height: 2.5rem;
-  width: 12.5rem;
-}
-
 
 
 
@@ -15,6 +10,11 @@
   #productSortTextIconDiv {
     gap: 0 5rem;
     padding: 0.5rem;
+  }
+
+  #collection-loading-filter-option {
+    height: 2.5rem;
+    width: 12.5rem;
   }
 }
 
@@ -26,5 +26,10 @@
   #productSortTextIconDiv {
     gap: 0 2.5rem;
     padding: 0.25rem;
+  }
+
+  #collection-loading-filter-option {
+    height: 1.75rem;
+    width: 8.5rem;
   }
 }

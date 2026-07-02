@@ -4,8 +4,8 @@ import SearchMain from "@/components/layout/feature-search/SearchMain";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Search Page"
-}
+  title: "Search Page",
+};
 
 export default async function SearchPage() {
   await new Promise((resolve) => setTimeout(resolve, 3000));

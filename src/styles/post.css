@@ -1,39 +1,16 @@
-#blog-loading-image {
-  height: 75vh;
-}
-
 #blog-loading-details-section {
-  padding: 2rem 0;
   display: flex;
   flex-direction: column;
-  gap: 2rem 0;
   border-bottom: 1px solid #EBEBEB;
 }
 
 #blog-loading-details-main {
   display: flex;
-  gap: 0 1.5rem;
-}
-
-.blog-loading-details-text {
-  height: 1.25rem;
-  width: 8rem;
-}
-
-#blog-loading-details-topic {
-  height: 1.75rem;
-  width: 25rem;
-}
-
-#blog-loading-details-description {
-  height: 10rem;
 }
 
 #blog-loading-author-section {
-  padding: 2rem 0;
   display: flex;
   flex-direction: column;
-  gap: 2rem 0;
 }
 
 #blog-loading-author-handle-section {
@@ -42,28 +19,11 @@
   align-items: center;
 }
 
-#blog-loading-author-category {
-  height: 1.25rem;
-  width: 12rem;
-}
-
 #blog-loading-handle-section {
   display: flex;
-  gap: 0 3rem;
-}
-
-#blog-loading-author-description {
-  height: 16.5rem;
-}
-
-.blog-loading-navigation-button {
-  height: 1.25rem;
-  width: 8rem;
 }
 
 #blog-loading-review-section {
-  padding: 2rem 0;
-  gap: 2rem 0;
   display: flex;
   flex-direction: column;
 }
@@ -71,58 +31,20 @@
 #blog-loading-review-main {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem 0;
-}
-
-#blog-loading-review-topic {
-  height: 1.75rem;
-  width: 12rem;
-}
-
-#blog-loading-review-description {
-  height: 1rem;
-  width: 20rem;
-}
-
-#blog-loading-review-text {
-  height: 15rem;
 }
 
 #blog-loading-review-details-section {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 3rem;
-}
-
-.blog-loading-review-details {
-  height: 3.5rem;
-}
-
-#blog-loading-review-description {
-  height: 1.15rem;
-  width: 75%;
-}
-
-#blog-loading-review-button {
-  height: 3.5rem;
-  width: 10rem;
 }
 
 #posts-loading-section {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem 0;
 }
 
 #posts-loading-details-section {
-  padding: 2rem 0;
   display: flex;
   flex-direction: column;
-  gap: 2rem 0;
-}
-
-#posts-loading-details-description {
-  height: 6rem;
 }
 
 #post-image {
@@ -412,6 +334,116 @@
 
 
 @media all and (max-width: 767px) {
+  #blog-loading-image {
+    height: 50vh;
+  }
+
+  #blog-loading-details-section {
+    gap: 1.35rem 0;
+    padding: 1rem 0;
+  }
+
+  #blog-loading-details-main {
+    gap: 0 1rem;
+  }
+
+  .blog-loading-details-text {
+    height: 1rem;
+    width: 6.5rem;
+  }
+
+  #blog-loading-details-topic {
+    height: 1.75rem;
+    width: 20rem;
+  }
+
+  #blog-loading-details-description {
+    height: 15rem;
+  }
+
+  #blog-loading-author-section {
+    padding: 1rem 0;
+    gap: 1rem 0;
+  }
+
+  #blog-loading-author-category {
+    height: 1rem;
+    width: 7rem;
+  }
+
+  #blog-loading-handle-section {
+    gap: 0 1.5rem;
+  }
+
+  #blog-loading-author-description {
+    height: 15rem;
+    margin-top: 1rem;
+  }
+
+  .blog-loading-navigation-button {
+    height: 1rem;
+    width: 6rem;
+  }
+
+  #blog-loading-review-section {
+    padding: 1.5rem 0;
+    gap: 1.25rem 0;
+  }
+
+  #blog-loading-review-main {
+    gap: 0.5rem 0;
+  }
+
+  #blog-loading-review-topic {
+    height: 1.75rem;
+    width: 8.5rem;
+  }
+
+  #blog-loading-review-description {
+    height: 1rem;
+    width: 22.5rem;
+  }
+
+  #blog-loading-review-text {
+    height: 10rem;
+  }
+
+  #blog-loading-review-details-section {
+    gap: 1rem 0;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .blog-loading-review-details {
+    height: 3.5rem;
+  }
+
+  .blog-loading-review-details:last-child {
+    width: 50%;
+  }
+
+  #blog-loading-review-description {
+    height: 1.15rem;
+    width: 90%;
+  }
+
+  #blog-loading-review-button {
+    height: 3.5rem;
+    width: 8.5rem;
+  }
+
+  #posts-loading-section {
+    gap: 1.25rem 0;
+  }
+
+  #posts-loading-details-section {
+    padding: 1rem 0;
+    gap: 1.25rem 0;
+  }
+
+  #posts-loading-details-description {
+    height: 2.5rem;
+  }
+
   .post-main {
     margin-top: 1.5rem;
   }
@@ -594,6 +626,111 @@
 
 
 @media all and (min-width: 768px) and (max-width: 1023px) {
+  #blog-loading-image {
+    height: 60vh;
+  }
+
+  #blog-loading-details-section {
+    gap: 2.5rem 0;
+    padding: 1.5rem 0;
+  }
+
+  #blog-loading-details-main {
+    gap: 0 2rem;
+  }
+
+  .blog-loading-details-text {
+    height: 1.5rem;
+    width: 10rem;
+  }
+
+  #blog-loading-details-topic {
+    height: 2.25rem;
+    width: 40rem;
+  }
+
+  #blog-loading-details-description {
+    height: 15rem;
+  }
+
+  #blog-loading-author-section {
+    padding: 2.5rem 0;
+    gap: 2.5rem 0;
+  }
+
+  #blog-loading-author-category {
+    height: 1.25rem;
+    width: 10rem;
+  }
+
+  #blog-loading-handle-section {
+    gap: 0 3.5rem;
+  }
+
+  #blog-loading-author-description {
+    height: 16rem;
+  }
+
+  .blog-loading-navigation-button {
+    height: 1.25rem;
+    width: 8rem;
+  }
+
+  #blog-loading-review-section {
+    padding: 2.5rem 0;
+    gap: 2rem 0;
+  }
+
+  #blog-loading-review-main {
+    gap: 0.75rem 0;
+  }
+
+  #blog-loading-review-topic {
+    height: 2.25rem;
+    width: 15rem;
+  }
+
+  #blog-loading-review-description {
+    height: 1rem;
+    width: 20rem;
+  }
+
+  #blog-loading-review-text {
+    height: 17.5rem;
+  }
+
+  #blog-loading-review-details-section {
+    gap: 0 2rem;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .blog-loading-review-details {
+    height: 4rem;
+  }
+
+  #blog-loading-review-description {
+    height: 1rem;
+    width: 75%;
+  }
+
+  #blog-loading-review-button {
+    height: 4rem;
+    width: 10rem;
+  }
+
+  #posts-loading-section {
+    gap: 3rem 0;
+  }
+
+  #posts-loading-details-section {
+    padding: 2rem 0;
+    gap: 2rem 0;
+  }
+
+  #posts-loading-details-description {
+    height: 6rem;
+  }
+
   .post-main {
     margin-top: 2.5rem;
   }
@@ -688,6 +825,111 @@
 
 
 @media all and (min-width: 1024px) {
+  #blog-loading-image {
+    height: 75vh;
+  }
+
+  #blog-loading-details-section {
+    gap: 2rem 0;
+    padding: 2rem 0;
+  }
+
+  #blog-loading-details-main {
+    gap: 0 1.5rem;
+  }
+
+  .blog-loading-details-text {
+    height: 1.25rem;
+    width: 8rem;
+  }
+
+  #blog-loading-details-topic {
+    height: 1.75rem;
+    width: 25rem;
+  }
+
+  #blog-loading-details-description {
+    height: 10rem;
+  }
+
+  #blog-loading-author-section {
+    padding: 2rem 0;
+    gap: 2rem 0;
+  }
+
+  #blog-loading-author-category {
+    height: 1.25rem;
+    width: 12rem;
+  }
+
+  #blog-loading-handle-section {
+    gap: 0 3rem;
+  }
+
+  #blog-loading-author-description {
+    height: 16.5rem;
+  }
+
+  .blog-loading-navigation-button {
+    height: 1.25rem;
+    width: 8rem;
+  }
+
+  #blog-loading-review-section {
+    padding: 2rem 0;
+    gap: 2rem 0;
+  }
+
+  #blog-loading-review-main {
+    gap: 0.5rem 0;
+  }
+
+  #blog-loading-review-topic {
+    height: 1.75rem;
+    width: 12rem;
+  }
+
+  #blog-loading-review-description {
+    height: 1rem;
+    width: 20rem;
+  }
+
+  #blog-loading-review-text {
+    height: 15rem;
+  }
+
+  #blog-loading-review-details-section {
+    gap: 0 3rem;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .blog-loading-review-details {
+    height: 3.5rem;
+  }
+
+  #blog-loading-review-description {
+    height: 1.15rem;
+    width: 75%;
+  }
+
+  #blog-loading-review-button {
+    height: 3.5rem;
+    width: 10rem;
+  }
+
+  #posts-loading-section {
+    gap: 2.5rem 0;
+  }
+
+  #posts-loading-details-section {
+    padding: 2rem 0;
+    gap: 2rem 0;
+  }
+
+  #posts-loading-details-description {
+    height: 6rem;
+  }
+
   .post-main {
     margin-top: 4rem;
     display: grid;

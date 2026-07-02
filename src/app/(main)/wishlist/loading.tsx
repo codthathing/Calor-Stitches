@@ -19,8 +19,14 @@ export default function Loading() {
                 <div className="wishlist-loading-table-item-image loading-background-animation" />
                 <div className="wishlist-loading-table-item-details loading-background-animation" />
               </td>
-              <td className="wishlist-loading-table-data"><div className="wishlist-loading-table-item-price loading-background-animation" /></td>
-              <td className="wishlist-loading-table-data"><div className="wishlist-loading-table-item-status loading-background-animation" /></td>
+              <td className="wishlist-loading-table-data wishlist-loading-table-data-price">
+                <div className="wishlist-loading-table-item-price-text loading-background-animation" />
+                <div className="wishlist-loading-table-item-price loading-background-animation" />
+              </td>
+              <td className="wishlist-loading-table-data wishlist-loading-table-data-status">
+                <div className="wishlist-loading-table-item-status-text loading-background-animation" />
+                <div className="wishlist-loading-table-item-status loading-background-animation" />
+              </td>
               <td className="wishlist-loading-table-data"><div className="wishlist-loading-table-item-button loading-background-animation" /></td>
             </tr>           
           ))}

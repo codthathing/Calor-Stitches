@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-export const middleware = (request: NextRequest) => {
+export const proxy = (request: NextRequest) => {
   const { pathname } = request.nextUrl;
   const response = NextResponse.next();
   const referer = request.headers.get("referer");

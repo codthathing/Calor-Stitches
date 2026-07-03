@@ -6,8 +6,8 @@ export default function DisplayFilterPriceDiv() {
   const { curSymbol, productShipValue } = useNavigateContext();
   const { handleMinChange, handleMaxChange, filterOption } = useDisplayContext();
 
-  let min = productShipValue.min;
-  let max = productShipValue.max;
+  const min = productShipValue.min;
+  const max = productShipValue.max;
 
   return (
     <div className="productFilterMainDivs">

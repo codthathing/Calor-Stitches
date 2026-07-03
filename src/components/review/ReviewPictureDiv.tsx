@@ -1,24 +1,26 @@
 "use client";
 import { useReviewContext } from "@/store/providers/ReviewProvider";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ProductStockAlert from "../product-template/ProductStockAlert";
 import Image from "next/image";
 
 export default function ReviewPictureDiv() {
   const { wishlistStock, cutOff, productAvailable, productImage: mainImage, productImages, productNameText } = useReviewContext();
 
-  const [productImage, setProductImage] = useState<{ mainImage: string; imagesArray: { id: number; style: boolean; image: string }[] }>({ mainImage: mainImage, imagesArray:productImages });
+  const [productImage, setProductImage] = useState<{ mainImage: string; imagesArray?: { id: number; style: boolean; image: string }[] }>({ mainImage: mainImage, imagesArray: productImages });
 
   const updateImage = (id: number) => {
-    const newImage = productImage.imagesArray.find((image) => image.id === id) as { id: number; style: boolean; image: string };
-    const newArray = productImage.imagesArray.map((images) => {
-      if (images.id === id) {
-        return { ...images, style: true };
-      } else {
-        return { ...images, style: false };
-      };
-    });
-    setProductImage({ mainImage: newImage.image, imagesArray: newArray });
+    if (productImage.imagesArray) {
+      const newImage = productImage.imagesArray.find((image) => image.id === id) as { id: number; style: boolean; image: string };
+      const newArray = productImage.imagesArray.map((images) => {
+        if (images.id === id) {
+          return { ...images, style: true };
+        } else {
+          return { ...images, style: false };
+        };
+      });
+      setProductImage({ mainImage: newImage.image, imagesArray: newArray });
+    }
   };
 
   if(productImage.imagesArray) {

@@ -1,6 +1,6 @@
 "use client";
 import { GeneralProductType, SetState } from "@/types/productType";
-import { createContext, Dispatch, ReactNode, RefObject, SetStateAction, useContext, useEffect, useRef, useState } from "react";
+import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useEffect, useState } from "react";
 import { useNavigateContext } from "./NavigateProvider";
 import { useProductShownEffect } from "@/components/product/ProductDisplayComponents";
 

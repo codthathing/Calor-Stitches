@@ -44,7 +44,7 @@ export default function ConfirmOTPForm() {
       return;
     }
 
-    const confirmCodeNumber = Number(confirmCode);
+    // const confirmCodeNumber = Number(confirmCode);
   };
 
   useEffect(() => {

@@ -1,7 +1,8 @@
+import { CartActionType, CartStateType } from "@/types/cartType";
 import { useReducer } from "react";
 
-export const cartReducer = () => {
-  const cartAction = (state, action) => {
+export const CartReducer = () => {
+  const cartAction = (state: CartStateType, action: CartActionType) => {
     switch (action.display) {
       case "ADD":
         return "ITEM ADDED";

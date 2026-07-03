@@ -6,7 +6,7 @@ export default function CartDeleteIcon({ id, cancelClass }: { id: number; cancel
   const { cartItems, setCartItems } = useNavigateContext();
 
   const removeCartItem = (id: number) => {
-    let remainderItems = cartItems.filter((items) => items.id !== id);
+    const remainderItems = cartItems.filter((items) => items.id !== id);
     setCartItems(remainderItems);
   };
 

@@ -2,7 +2,7 @@
 import { WishlistActionType, WishlistStateType } from "@/types/wishlistType";
 import { useReducer } from "react";
 
-export const wishlistReducer = () => {
+export const WishlistReducer = () => {
   const wishlistAction = (state: WishlistStateType, action: WishlistActionType): WishlistStateType => {
     switch (action.type) {
       case "ADD":

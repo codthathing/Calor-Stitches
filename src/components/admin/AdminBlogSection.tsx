@@ -2,7 +2,7 @@
 import AdminGroupInput from "@/components/admin/AdminGroupInput";
 import PageButtons from "@/components/common/PageButtons";
 import PageFeedback from "@/components/ui/PageFeedback";
-import { useShowPreload } from "@/hooks/useShowPreload";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import { ChangeEvent, useState } from "react";
 
 export default function AdminBlogSection() {
@@ -13,7 +13,7 @@ export default function AdminBlogSection() {
     setAdminBlogValues({ ...adminBlogValues, [name]: value });
   };
 
-  const { showPreload } = useShowPreload();
+  const { showPreload } = useNavigateContext();
 
   const [blogImage, setBlogImage] = useState<{ id: number; image?: string; }[]>([]);
 
@@ -42,20 +42,20 @@ export default function AdminBlogSection() {
       if (updatedInfoArray.length > 0) {
         setAdminInfo((prevState) => ({ ...prevState, showInfo: true }));
       } else {
-        var options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" };
+        // const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" };
 
-        const newBlog = {
-          id: Date.now(),
-          postImage: blogImage[0].image,
-          postDetails: [
-            { id: 0, text: new Intl.DateTimeFormat("en-US", options).format(new Date()), style: true },
-            { id: 1, inner_text: blogCategory },
-            { id: 2, text: `comment: ${0}`, style: false },
-          ],
-          postAuthor: { profile_picture: authorImage[0].image, name: adminBlogValues.author_name, description: adminBlogValues.author_desc },
-          postHead: adminBlogValues.post_topic,
-          postParagraph: adminBlogValues.post_paragraph,
-        };
+        // const newBlog = {
+        //   id: Date.now(),
+        //   postImage: blogImage[0].image,
+        //   postDetails: [
+        //     { id: 0, text: new Intl.DateTimeFormat("en-US", options).format(new Date()), style: true },
+        //     { id: 1, inner_text: blogCategory },
+        //     { id: 2, text: `comment: ${0}`, style: false },
+        //   ],
+        //   postAuthor: { profile_picture: authorImage[0].image, name: adminBlogValues.author_name, description: adminBlogValues.author_desc },
+        //   postHead: adminBlogValues.post_topic,
+        //   postParagraph: adminBlogValues.post_paragraph,
+        // };
 
         setAdminInfo((prevState) => ({ ...prevState, infoBorder: "green", showInfo: true, infoArray: ["New blog uploaded"] }));
       }

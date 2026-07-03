@@ -34,5 +34,5 @@ export const useUpdateProducts = () => {
     if (JSON.stringify(updatedWishlist) !== JSON.stringify(wishlistItems)) setWishlistItems(updatedWishlist);
 
     setCloneCart(cartItems);
-  }, [cartItems, wishlistItems, products]);
+  }, [cartItems, wishlistItems, products, setCartItems, setCloneCart, setWishlistItems]);
 };

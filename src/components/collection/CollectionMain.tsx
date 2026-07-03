@@ -11,7 +11,7 @@ export default function CollectionMain({ category } : { category: string }) {
   useEffect(() => {
     const presentCollections = products.filter(({ productInfo }) => productInfo?.find(({ name }) => name === "CARTEGORIES")?.links.find(({ text }) => text === category));
     setCollection(presentCollections);
-  }, [products, category]);
+  }, [products, category, setCollection]);
 
   const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers, productValue } = useProductShownEffect({ products: collection });
 

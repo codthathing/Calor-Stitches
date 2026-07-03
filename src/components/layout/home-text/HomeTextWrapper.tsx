@@ -27,13 +27,13 @@ export default function HomeTextWrapper({ children }: { children: ReactNode }) {
     }, 5000);
 
     return () => clearInterval(timeoutId);
-  }, []);
+  }, [pageDetails.array.length]);
 
   useEffect(() => {
     const cleanup = frontTextAnimation();
 
     return cleanup;
-  }, []);
+  }, [frontTextAnimation]);
 
   return (
     <section ref={home_section} id="front-page-div">

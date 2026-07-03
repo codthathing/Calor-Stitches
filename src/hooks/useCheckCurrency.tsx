@@ -27,5 +27,5 @@ export const useCheckCurrency = () => {
     }
 
     return () => setDefaultCurrency(false);
-  }, [presentCurrency]);
+  }, [presentCurrency, collection, defaultCurrency, presentFilterProducts, productShipValue.max, productShipValue.maxValue, productShipValue.min, productShipValue.minValue, productShipValue.shipFee, products, setCollection, setCurDetails, setCurSymbol, setDefaultCurrency, setPresentFilterProducts, setProductShipValue, setProducts]);
 };

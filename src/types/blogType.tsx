@@ -4,5 +4,5 @@ export type BlogType = {
   postDetails: { id: number, text?: string, style?: boolean; inner_text?: { id: number, text: string, style: boolean; }[] }[];
   postHead: string;
   postParagraph: string;
-  [key: string]: any;
+  postAuthor: { profile_picture: string; name: string; description: string; };
 }

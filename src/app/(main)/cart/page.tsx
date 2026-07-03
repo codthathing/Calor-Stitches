@@ -5,7 +5,6 @@ import CartPriceText from "@/components/cart/CartPriceText";
 import CartProductSection from "@/components/cart/CartProductSection";
 import PageSection from "@/components/layout/PageSection";
 import PageNavigationLinks from "@/components/ui/PageNavigationLinks";
-import PageNavigationLinksLoading from "@/components/ui/PageNavigationLinksLoading";
 import CartProvider from "@/store/providers/CartProvider";
 import { Metadata } from "next";
 

@@ -7,6 +7,7 @@ export const getCookie = (name: string) => {
 };
 
 export const deleteCookie = (name: string) => {
+  if (typeof document === "undefined") return undefined;
   document.cookie = `${name}=; Max-Age=0; path=/`;
 };
 

@@ -10,7 +10,11 @@ export default function PostToggleDiv() {
   const pathname = decodeURIComponent(usePathname().replace("/blog/", ""));
 
   const changePost = (toggle: string) => {
-    { (id > 0 && toggle === "PREV") ? id -= 1 : (id < (mockBlogPosts.length - 1) && toggle === "NEXT") && (id += 1) };
+    if (id > 0 && toggle === "PREV") {
+      id -= 1;
+    } else if (id < mockBlogPosts.length - 1 && toggle === "NEXT") {
+      id += 1;
+    }
     const newPost = mockBlogPosts.find(({ id: post_id }) => post_id === id);
 
     if (!newPost) return;

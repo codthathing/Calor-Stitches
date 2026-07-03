@@ -6,7 +6,7 @@ export default function WishlistDeleteIcon({ id, cancelClass }: { id: number; ca
   const { wishlistItems, setWishlistItems, dispatch } = useNavigateContext();
 
   const removeWishlistItem = (id: number) => {
-    let remainderItems = wishlistItems.filter((items) => items.id !== id);
+    const remainderItems = wishlistItems.filter((items) => items.id !== id);
     dispatch({ type: "REMOVE" });
     setWishlistItems(remainderItems);
     setTimeout(() => {

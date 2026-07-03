@@ -1,6 +1,7 @@
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import CartDeleteIcon from "../layout/user-cart/CartDeleteIcon";
 import CartItemAmt from "./CartItemAmt";
+import Image from "next/image";
 
 export default function CartProductTemplate() {
   const { curSymbol, cloneCart, setCloneCart } = useNavigateContext();
@@ -13,7 +14,7 @@ export default function CartProductTemplate() {
             <div className="wishlistCartIconImageTextDiv">
               <CartDeleteIcon id={id} cancelClass={"wishlistCartDeleteIcon"} />
               <div className="wishlistCartImageNameDiv">
-                <img src={productImage} alt={productName} loading="lazy" className="wishlistCartMainImage" />
+                <Image src={productImage} alt={productName} width={75} height={100} loading="lazy" className="wishlistCartMainImage" />
                 <div className="wishlistCartNameDiv">
                   <p className="wishlistCartName">{productName}</p>
                   {cartColor && <p className="wishlistCartName">Color: <span style={{textTransform: "capitalize"}}>{cartColor}</span></p>}

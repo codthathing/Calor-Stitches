@@ -1,9 +1,9 @@
-import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import WishlistDeleteIcon from "../layout/user-wishlist/WishlistDeleteIcon";
 import WishlistStockAlert from "../layout/user-wishlist/WishlistStockAlert";
 import ProductPrice from "../product-template/ProductPrice";
 import { WishlistProductType } from "@/types/productType";
 import WishlistProductOptions from "./WishlistProductOptions";
+import Image from "next/image";
 
 export default function WishlistProductTemplate({ wishlistProductArray } : { wishlistProductArray: WishlistProductType[] }) {
   return (
@@ -14,7 +14,7 @@ export default function WishlistProductTemplate({ wishlistProductArray } : { wis
             <div className="wishlistCartIconImageTextDiv">
               <WishlistDeleteIcon id={id} cancelClass={"wishlistCartDeleteIcon"} />
               <div className="wishlistCartImageNameDiv">
-                <img src={productImage} alt={productName} loading="lazy" className="wishlistCartMainImage" />
+                <Image height={100} width={75} src={productImage} alt={productName} loading="lazy" className="wishlistCartMainImage" />
                 <div className="wishlistNameDateDiv">
                   <p className="wishlistCartName">{productName}</p>
                   <p className="wishlistDate">{wishlistDate}</p>

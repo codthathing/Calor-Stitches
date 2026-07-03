@@ -12,16 +12,16 @@ export const useProductShownEffect = ({ products, startPosition = 0, shownProduc
     const totalPages = Math.ceil(products.length / shownProducts);
     setPageNumbers(Array.from({ length: totalPages }, (_, i) => ({ id: i, style: i === 0 })));
     setMapProducts(startPosition);
-  }, [products, shownProducts]);
+  }, [products, shownProducts, startPosition]);
 
   useEffect(() => {
     setProductValue(mapProducts + shownProducts > products.length ? products.length : mapProducts + shownProducts);
-  }, [mapProducts, products]);
+  }, [mapProducts, products, shownProducts]);
 
   return { mapProducts, setMapProducts, pageNumbers, setPageNumbers, productValue, shownProducts };
 };
 
-export const ProductShown = memo(({ mapProducts, productValue, products }: { mapProducts: number, productValue: number, products: GeneralProductType[] }) => {
+export const ProductShown = memo(function ProductShown({ mapProducts, productValue, products }: { mapProducts: number, productValue: number, products: GeneralProductType[] }) {
   return (
     <p className="productShownText">
       Showing {mapProducts + 1} - {productValue} of {products.length} products
@@ -29,11 +29,11 @@ export const ProductShown = memo(({ mapProducts, productValue, products }: { map
   );
 });
 
-export const Products = memo(({ products, mapProducts, shownProducts }: { products: GeneralProductType[], mapProducts: number, shownProducts: number }) => {
+export const Products = memo(function Products({ products, mapProducts, shownProducts }: { products: GeneralProductType[], mapProducts: number, shownProducts: number }) {
   return <>{products.length > 0 ? <ProductTemplate productArray={products.slice(mapProducts, mapProducts + shownProducts)} /> : <p className="product-shown-default-text">Sorry, no products match your search criteria at the moment.</p>}</>;
 });
 
-export const ProductPagination = memo(({ setMapProducts, setPageNumbers, pageNumbers, shownProducts }: { setMapProducts: SetState<number>, setPageNumbers: SetState<{ id: number, style: boolean }[]>, pageNumbers: { id: number, style: boolean }[], shownProducts: number }) => {
+export const ProductPagination = memo(function ProductPagination({ setMapProducts, setPageNumbers, pageNumbers, shownProducts }: { setMapProducts: SetState<number>, setPageNumbers: SetState<{ id: number, style: boolean }[]>, pageNumbers: { id: number, style: boolean }[], shownProducts: number }) {
   const changePage = (id: number) => {
     setMapProducts(shownProducts * id);
     setPageNumbers((prevState) => prevState.map((page) => ({ ...page, style: page.id === id })));

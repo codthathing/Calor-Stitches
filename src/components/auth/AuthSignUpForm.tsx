@@ -1,14 +1,14 @@
 "use client";
 import { ChangeEventHandler, MouseEvent, useState } from "react";
 import FormFeedback from "@/components/common/FormFeedback";
-import { useNavigateToConfirm } from "@/hooks/useNavigateToConfirm";
+// import { useNavigateToConfirm } from "@/hooks/useNavigateToConfirm";
 import AuthPasswordInput from "@/components/auth/AuthPasswordInput";
 import AuthInput from "@/components/auth/AuthInput";
 import AuthButton from "@/components/auth/AuthButton";
 
 export default function AuthSignUpForm() {
   const [infoText, setInfoText] = useState<string>("");
-  const { setConfirm } = useNavigateToConfirm();
+  // const { setConfirm } = useNavigateToConfirm();
 
   const [createAccountValue, setCreateAccountValue] = useState({ username: "", email: "", password: "" });
   const handleCreateAccountValue: ChangeEventHandler<HTMLInputElement> = (e) => {

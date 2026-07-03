@@ -3,8 +3,7 @@ import { useState, useEffect, memo } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const HeaderSideMenu = () => {
   const { toggleSideMenu } = useNavigateContext();
@@ -16,6 +15,7 @@ const HeaderSideMenu = () => {
     { id: 4, menuText: "blog", path: "/blog", borderStyle: { borderBottom: "" } },
   ]);
 
+  const router = useRouter();
   const location = usePathname();
 
   useEffect(() => {
@@ -39,10 +39,17 @@ const HeaderSideMenu = () => {
           <div id="side-menu-div">
             {currentSideMenu.map(({ id, link, menuText, borderStyle }) => {
               return (
-                <Link key={`${id}`} href={link || "#"} className="sideMenuItem" style={borderStyle}>
+                <span key={`${id}`} onClick={(e) => { 
+                  if (link) {
+                    router.push(link);
+                    router.refresh();
+                  } else {
+                    e.preventDefault() ;
+                  }
+                }} className="sideMenuItem" style={borderStyle}>
                   <p className="sideMenuText">{menuText}</p>
                   <FaChevronDown className="sideMenuIcon" />
-                </Link>
+                </span>
               );
             })}
           </div>

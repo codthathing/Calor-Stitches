@@ -18,7 +18,7 @@ export default function PostsProvider({ children, title }: { children: ReactNode
     const updatedPosts = mockBlogPosts.filter(({ postDetails }) => postDetails?.find(({ inner_text }) => inner_text?.some(({ text }) => text === updatedTitle)));
 
     return updatedPosts;
-  }, []);
+  }, [title]);
 
   useEffect(() => {
     setPageLinks([
@@ -30,7 +30,7 @@ export default function PostsProvider({ children, title }: { children: ReactNode
     return () => {
       setPageLinks([]);
     }
-  }, []);
+  }, [setPageLinks, title]);
 
   const categoryPosts = getPosts();
 

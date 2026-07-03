@@ -1,6 +1,7 @@
 "use client";
 import { useBlogContext } from "@/store/providers/BlogProvider";
 import NewsHandleIcons from "../news-letter/NewsHandleIcons";
+import Image from "next/image";
 
 export default function PostAuthorDetails() {
   const { postAuthor } = useBlogContext();
@@ -8,7 +9,7 @@ export default function PostAuthorDetails() {
   if(postAuthor) {
     return (
       <div id="post-shown-div">
-        <img src={postAuthor.profile_picture} loading="lazy" alt={postAuthor.name} id="post-shown-image" />
+        <Image src={postAuthor.profile_picture} width={50} height={100} loading="lazy" alt={postAuthor.name} id="post-shown-image" />
         <div id="post-shown-inner-div">
           <p id="post-shown-head">{postAuthor.name}</p>
           <p id="post-shown-text">{postAuthor.description}</p>

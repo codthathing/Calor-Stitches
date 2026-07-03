@@ -10,7 +10,7 @@ export const useNavigateToConfirm = () => {
     if (confirm.confirmPage && confirm.confirmHead && confirm.confirmText) {
       router.push(`/pages/confirm-page?link=${confirm.confirmPage}&head=${confirm.confirmHead}&text=${confirm.confirmText}`);
     }
-  }, [confirm]);
+  }, [confirm, router]);
 
   return { setConfirm };
 };

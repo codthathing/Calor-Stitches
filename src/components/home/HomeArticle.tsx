@@ -26,13 +26,13 @@ export default function HomeArticle() {
     }, 5000);
   
     return () => clearInterval(timeoutId);
-  }, []);
+  }, [currentArticle.array.length]);
   
   useEffect(() => {
     const cleanup = articleAnimation();
 
     return cleanup;
-  }, []);
+  }, [articleAnimation]);
 
   return (
     <article id="pageArticle">

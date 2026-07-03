@@ -8,7 +8,7 @@ interface BlogContext {
   postImage: string;
   postDetails: { id: number; text?: string | undefined; style?: boolean | undefined; inner_text?: { id: number; text: string; style: boolean }[] }[];
   postHead: string;
-  postAuthor: any;
+  postAuthor: { profile_picture: string; name: string; description: string };
   postParagraph: string;
 }
 
@@ -30,7 +30,7 @@ export default function BlogProvider({ children, title }: { children: ReactNode;
     return () => {
       setPageLinks([]);
     }
-  }, []);
+  }, [blog, setPageLinks, title]);
 
   if (!blog) return null;
 

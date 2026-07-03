@@ -4,7 +4,7 @@ import AdminGroupInput from "@/components/admin/AdminGroupInput";
 import AdminMainPriceDiv from "@/components/admin/AdminMainPriceDiv";
 import PageButtons from "@/components/common/PageButtons";
 import PageFeedback from "@/components/ui/PageFeedback";
-import { useShowPreload } from "@/hooks/useShowPreload";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import { ChangeEvent, ReactElement, useState } from "react";
 
 export default function AdminProductSection() {
@@ -16,7 +16,7 @@ export default function AdminProductSection() {
     setAdminProductValues({ ...adminProductValues, [name]: value });
   };
 
-  const { showPreload } = useShowPreload();
+  const { showPreload } = useNavigateContext();
 
   const [productImages, setProductImages] = useState<{ id: number; image?: string }[]>([]);
 
@@ -61,28 +61,28 @@ export default function AdminProductSection() {
       if (updatedInfoArray.length > 0) {
         setAdminInfo((prevState) => ({ ...prevState, showInfo: true }));
       } else {
-        var options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" };
+        // const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" };
 
-        const newProduct = {
-          id: Date.now(),
-          productImage: productImages[0].image,
-          productImages: productImages,
-          productName: adminProductValues.product_name,
-          ...(priceArray[0].showPriceDiv && { productPrice: Number(adminProductValues.product_price), ...(checkCutOff && { cutOff: Number(adminProductValues.cut_off) }) }),
-          ...(priceArray[1].showPriceDiv && { priceOne: Number(adminProductValues.price_one), priceTwo: Number(adminProductValues.price_two), averagePrice: Number(adminProductValues.average_price) }),
-          productDesc: adminProductValues.product_desc,
-          productAvailable: adminProductValues.product_status || "new in",
-          ...((productColors.length > 0 || productSizes.length > 0) && { productDetails: { ...(productColors.length > 0 && { cartColor: productColors[0].text }), ...(productSizes.length > 0 && { cartSize: productSizes[0].text }) } }),
-          ...(productColors.length > 0 && { productColors: productColors }),
-          ...(productSizes.length > 0 && { productSizes: productSizes }),
-          cartAmt: 1,
-          wishlistDate: new Intl.DateTimeFormat("en-US", options).format(new Date()),
-          wishlistStock: Number(adminProductValues.product_unit),
-          productInfo: [
-            { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: adminProductValues.product_sku }] },
-            { id: 1, name: "CARTEGORIES", type: "link", links: productCategory },
-          ],
-        };
+        // const newProduct = {
+        //   id: Date.now(),
+        //   productImage: productImages[0].image,
+        //   productImages: productImages,
+        //   productName: adminProductValues.product_name,
+        //   ...(priceArray[0].showPriceDiv && { productPrice: Number(adminProductValues.product_price), ...(checkCutOff && { cutOff: Number(adminProductValues.cut_off) }) }),
+        //   ...(priceArray[1].showPriceDiv && { priceOne: Number(adminProductValues.price_one), priceTwo: Number(adminProductValues.price_two), averagePrice: Number(adminProductValues.average_price) }),
+        //   productDesc: adminProductValues.product_desc,
+        //   productAvailable: adminProductValues.product_status || "new in",
+        //   ...((productColors.length > 0 || productSizes.length > 0) && { productDetails: { ...(productColors.length > 0 && { cartColor: productColors[0].text }), ...(productSizes.length > 0 && { cartSize: productSizes[0].text }) } }),
+        //   ...(productColors.length > 0 && { productColors: productColors }),
+        //   ...(productSizes.length > 0 && { productSizes: productSizes }),
+        //   cartAmt: 1,
+        //   wishlistDate: new Intl.DateTimeFormat("en-US", options).format(new Date()),
+        //   wishlistStock: Number(adminProductValues.product_unit),
+        //   productInfo: [
+        //     { id: 0, name: "SKU", type: "text", links: [{ id: 0, text: adminProductValues.product_sku }] },
+        //     { id: 1, name: "CARTEGORIES", type: "link", links: productCategory },
+        //   ],
+        // };
 
         setAdminInfo((prevState) => ({ ...prevState, infoBorder: "green", showInfo: true, infoArray: ["New product added"] }));
       }

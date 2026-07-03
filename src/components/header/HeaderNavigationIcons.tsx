@@ -1,5 +1,5 @@
 "use client";
-import { startTransition, memo } from "react";
+import { startTransition } from "react";
 import { FiUser, FiSearch, FiHeart, FiShoppingBag } from "react-icons/fi";
 import { motion, MotionConfig } from "framer-motion";
 import { useNavigateContext } from "@/store/providers/NavigateProvider";

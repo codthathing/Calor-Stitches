@@ -25,7 +25,7 @@ export const useProductOptionsFilters = () => {
     if (JSON.stringify(updatedProducts) !== JSON.stringify(presentFilterProducts)) {
       setPresentFilterProducts(updatedProducts);
     }
-  }, [filterOption, products]);
+  }, [filterOption, products, presentFilterProducts, setPresentFilterProducts]);
 
   const changeProductsTypes = (id: number, option: boolean, text: string, productTypes: ProductFiltersType, setProductTypes: Dispatch<SetStateAction<ProductFiltersType>>) => {
     const newProductTypes = productTypes.map((item) => {

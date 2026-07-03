@@ -14,8 +14,6 @@ export const useShowPreload = (dispatch: ActionDispatch<[action: WishlistActionT
   useEffect(() => {
     if (!hasTransitioned.current) return;
 
-    let timeout: ReturnType<typeof setTimeout>;
-
     if (isPending) {
       if (showPreloadOnTransition.current) setPreload(true);
     } else {
@@ -28,7 +26,7 @@ export const useShowPreload = (dispatch: ActionDispatch<[action: WishlistActionT
     }
 
     return () => clearTimeout(timeoutRef.current);
-  }, [isPending]);
+  }, [isPending, dispatch]);
 
   const showPreload = () => {
     setPreload(true);

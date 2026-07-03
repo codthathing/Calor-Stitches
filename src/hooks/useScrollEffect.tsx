@@ -38,7 +38,7 @@ export const useScrollEffect = () => {
       window.removeEventListener("scroll", changeHeader);
       setHasMounted(false);
     };
-  }, [path]);
+  }, [path, setHasMounted, setNavbar]);
 
   return { header, showNavToTop };
 };

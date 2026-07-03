@@ -1,12 +1,12 @@
 "use client";
-import { createContext, useState, useRef, ReactNode, useContext, RefObject, ActionDispatch, TransitionStartFunction } from "react";
+import { createContext, useState, useRef, ReactNode, useContext, RefObject, ActionDispatch } from "react";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { mockProducts } from "@/lib/data/mockProducts";
-import { wishlistReducer } from "../reducers/wishlistReducer";
 import { WishlistActionType, WishlistStateType } from "@/types/wishlistType";
 import { CartProductType, GeneralProductType, WishlistProductType, SetState } from "@/types/productType";
 import { useCheckAppVersion } from "@/hooks/useCheckAppVersion";
 import { useShowPreload } from "@/hooks/useShowPreload";
+import { WishlistReducer } from "../reducers/WishlistReducer";
 
 interface NavigateInterface {
   wishlistItems: WishlistProductType[];
@@ -73,7 +73,7 @@ export default function NavigateProvider({ children }: { children: ReactNode }) 
   const [productShipValue, setProductShipValue] = useState({ shipFee: 10000, min: 20, max: 5020, minValue: 20, maxValue: 5020 });
   const [toggleSideMenu, setToggleSideMenu] = useState<boolean>(false);
   const [navbar, setNavbar] = useState<boolean>(false);
-  const { state, dispatch } = wishlistReducer();
+  const { state, dispatch } = WishlistReducer();
   const [defaultCurrency, setDefaultCurrency] = useState<boolean>(false);
   const [hasMounted, setHasMounted] = useState(false);
   const { preload, showPreload, navigateToPage, wishlistStartTransition } = useShowPreload(dispatch);

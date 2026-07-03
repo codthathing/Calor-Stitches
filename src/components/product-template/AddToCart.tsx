@@ -1,12 +1,12 @@
 "use client";
 import { GeneralProductType } from "@/types/productType";
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
-import { cartReducer } from "@/store/reducers/cartReducer";
 import PageButtons from "../common/PageButtons";
+import { CartReducer } from "@/store/reducers/CartReducer";
 
 export default function AddToCart({ id, buttonClass, textClass, itemsArray }: { id: number; buttonClass?: string; textClass?: string; itemsArray: GeneralProductType[] }) {
   const { cartItems, setCartItems } = useNavigateContext();
-  const { state, dispatch } = cartReducer();
+  const { state, dispatch } =  CartReducer();
 
   const addToCartFunction = (id: number) => {
     const selectedItem = itemsArray.find((item) => item.id === id)!;
@@ -38,7 +38,7 @@ export default function AddToCart({ id, buttonClass, textClass, itemsArray }: { 
         dispatch({ display: "NOT_ENOUGH" });
       } else {
         dispatch({ display: "ADD" });
-        let newItem = { id: Date.now(), productImage, productName, productPrice, cartSize, cartColor, cartAmt, wishlistStock };
+        const newItem = { id: Date.now(), productImage, productName, productPrice, cartSize, cartColor, cartAmt, wishlistStock };
         setCartItems((prev) => [...prev, newItem]);
       }
     }

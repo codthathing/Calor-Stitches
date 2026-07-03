@@ -13,7 +13,7 @@ export default function SearchMain() {
 
   useEffect(() => {
     setSearchItems(products.filter((items) => items.productName.toLowerCase().includes(searchInput.toLowerCase())));
-  }, [searchInput]);
+  }, [searchInput, products]);
 
   return (
     <main id="searchMain">

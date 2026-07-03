@@ -9,7 +9,14 @@ export default function PageNavigationLinks({ pageLinks }: { pageLinks: { id: nu
     <ul className="productList">
       {pageLinks.map(({ id, linkDirect, linkText, linkArrow }) => {
         return (
-          <li className="productListItem" onClick={(e) => { linkDirect ? router.push(linkDirect) : e.preventDefault() }} style={{cursor: linkArrow ? "pointer" : "" }} key={id}>
+          <li className="productListItem" onClick={(e) => { 
+            if (linkDirect) {
+              router.push(linkDirect);
+              router.refresh();
+            } else {
+              e.preventDefault() ;
+            }
+          }} style={{cursor: linkArrow ? "pointer" : "" }} key={id}>
             <p className="productLinkText" style={{fontWeight: linkArrow ? "700" : "normal" }}>{linkText}</p>
             {linkArrow && <FaChevronRight className="productLinkIcon" />}
           </li>

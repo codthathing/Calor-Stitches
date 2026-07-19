@@ -15,17 +15,17 @@ export default memo(function HeaderCurrencyDiv({ className }: { className: strin
 
     setTimeout(() => {
       if (presentCurrency === "NGN") {
-        changeCurrencyToDollar([{ array: wishlistItems, setArray: setWishlistItems }]);
-        changeCurrencyToDollar([{ array: cartItems, setArray: setCartItems }]);
+        setWishlistItems((prev) => changeCurrencyToDollar(prev));
+        setCartItems((prev) => changeCurrencyToDollar(prev));
         setPresentCurrency("USD");
       } else if (presentCurrency === "USD") {
-        changeCurrencyToNaira([{ array: wishlistItems, setArray: setWishlistItems }]);
-        changeCurrencyToNaira([{ array: cartItems, setArray: setCartItems }]);
+        setWishlistItems((prev) => changeCurrencyToNaira(prev));
+        setCartItems((prev) => changeCurrencyToNaira(prev));
         setDefaultCurrency(true);
         setPresentCurrency("NGN");
       }
     }, 2000);
-    
+
     setCurrency(false);
   };
 

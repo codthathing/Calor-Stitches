@@ -1,8 +1,9 @@
 "use client";
 import { GeneralProductType, SetState } from "@/types/productType";
-import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useEffect, useState } from "react";
+import { createContext, Dispatch, ReactNode, RefObject, SetStateAction, useContext, useEffect, useRef, useState } from "react";
 import { useNavigateContext } from "./NavigateProvider";
 import { useProductShownEffect } from "@/components/product/ProductDisplayComponents";
+import { useScrollTrap } from "@/hooks/useScrollTrap";
 
 interface ReviewContext {
   products: GeneralProductType[];
@@ -32,6 +33,8 @@ interface ReviewContext {
   setMapProducts: Dispatch<SetStateAction<number>>;
   setPageNumbers: Dispatch<SetStateAction<{ id: number; style: boolean }[]>>; 
   pageNumbers: { id: number; style: boolean }[];
+  sectionRef: RefObject<HTMLElement | null>;
+  innerScrollRef: RefObject<HTMLDivElement | null>;
 }
 
 const ReviewContext = createContext<ReviewContext | null>(null);
@@ -42,6 +45,9 @@ export default function ReviewProvider({ children, productName }: { children: Re
   const [relatedProduct, setRelatedProduct] = useState<GeneralProductType[]>([]);
   const [aboutNavigation, setAboutNavigation] = useState<string>("DESCRIPTION");
   const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers } = useProductShownEffect({ products: relatedProduct });
+  const sectionRef = useRef<HTMLElement>(null);
+  const innerScrollRef = useRef<HTMLDivElement>(null);
+  useScrollTrap(sectionRef, innerScrollRef);
 
   useEffect(() => {
     const presentProduct = products.find((product) => product.productName === productName) as GeneralProductType;
@@ -55,7 +61,7 @@ export default function ReviewProvider({ children, productName }: { children: Re
 
   const { id, productImage, productImages, productName: productNameText, cutOff, productPrice, averagePrice, priceOne, priceTwo, productDesc, wishlistStock, cartAmt, productDetails, productColors, productAvailable, productSizes, productInfo } = product as GeneralProductType;
 
-  return <ReviewContext.Provider value={{ id, products, setProducts, relatedProduct, productAvailable, productNameText, productImage, productImages, cutOff, productPrice, averagePrice, priceOne, priceTwo, cartAmt, productDesc, productDetails, productColors, productSizes, wishlistStock, productInfo, aboutNavigation, setAboutNavigation, mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers }}>{children}</ReviewContext.Provider>;
+  return <ReviewContext.Provider value={{ id, products, setProducts, relatedProduct, productAvailable, productNameText, productImage, productImages, cutOff, productPrice, averagePrice, priceOne, priceTwo, cartAmt, productDesc, productDetails, productColors, productSizes, wishlistStock, productInfo, aboutNavigation, setAboutNavigation, mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers, sectionRef, innerScrollRef }}>{children}</ReviewContext.Provider>;
 }
 
 export const useReviewContext = () => {

@@ -5,27 +5,32 @@ import { useEffect } from "react";
 import { GeneralProductType } from "@/types/productType";
 
 export const useCheckCurrency = () => {
-  const { presentCurrency, setCurDetails, products, setProducts, collection, setCollection, presentFilterProducts, setPresentFilterProducts, setCurSymbol, productShipValue, setProductShipValue, defaultCurrency, setDefaultCurrency } = useNavigateContext();
+  const { presentCurrency, setCurDetails, setProducts, setCollection, setPresentFilterProducts, setCurSymbol, setProductShipValue, defaultCurrency, setDefaultCurrency } = useNavigateContext();
 
   useEffect(() => {
     if (presentCurrency === "USD") {
       setCurDetails({ preNation: "United states (USD $)", preCur: "(USD $)", curFlag: "/assets/currency-flags/nigeria-flag.png", curName: "Naira ₦" });
-      changeCurrencyToDollar<GeneralProductType>([{ array: products, setArray: setProducts }]);
-      changeCurrencyToDollar<GeneralProductType>([{ array: collection, setArray: setCollection }]);
-      changeCurrencyToDollar<GeneralProductType>([{ array: presentFilterProducts, setArray: setPresentFilterProducts }]);
-      setProductShipValue({ shipFee: productShipValue.shipFee / 1000, min: productShipValue.min / 1000, max: productShipValue.max / 1000, minValue: productShipValue.minValue / 1000, maxValue: productShipValue.maxValue / 1000 });
+
+      setProducts((prev) => changeCurrencyToDollar<GeneralProductType>(prev));
+      setCollection((prev) => changeCurrencyToDollar<GeneralProductType>(prev));
+      setPresentFilterProducts((prev) => changeCurrencyToDollar<GeneralProductType>(prev));
+
+      setProductShipValue((prev) => ({ shipFee: prev.shipFee / 1000, min: prev.min / 1000, max: prev.max / 1000, minValue: prev.minValue / 1000, maxValue: prev.maxValue / 1000 }));
+
       setCurSymbol("$");
     } else if (presentCurrency === "NGN") {
       setCurDetails({ preNation: "Nigeria (Naira ₦)", preCur: "(Naira ₦)", curFlag: "/assets/currency-flags/america-flag.png", curName: "USD $" });
+
       if (defaultCurrency) {
-        changeCurrencyToNaira<GeneralProductType>([{ array: products, setArray: setProducts }]);
-        changeCurrencyToNaira<GeneralProductType>([{ array: collection, setArray: setCollection }]);
-        changeCurrencyToNaira<GeneralProductType>([{ array: presentFilterProducts, setArray: setPresentFilterProducts }]);
-        setProductShipValue({ shipFee: productShipValue.shipFee * 1000, min: productShipValue.min * 1000, max: productShipValue.max * 1000, minValue: productShipValue.minValue * 1000, maxValue: productShipValue.maxValue * 1000 });
+        setProducts((prev) => changeCurrencyToNaira<GeneralProductType>(prev));
+        setCollection((prev) => changeCurrencyToNaira<GeneralProductType>(prev));
+        setPresentFilterProducts((prev) => changeCurrencyToNaira<GeneralProductType>(prev));
+
+        setProductShipValue((prev) => ({ shipFee: prev.shipFee * 1000, min: prev.min * 1000, max: prev.max * 1000, minValue: prev.minValue * 1000, maxValue: prev.maxValue * 1000 }));
       }
       setCurSymbol("₦");
     }
 
     return () => setDefaultCurrency(false);
-  }, [presentCurrency, collection, defaultCurrency, presentFilterProducts, productShipValue.max, productShipValue.maxValue, productShipValue.min, productShipValue.minValue, productShipValue.shipFee, products, setCollection, setCurDetails, setCurSymbol, setDefaultCurrency, setPresentFilterProducts, setProductShipValue, setProducts]);
+  }, [presentCurrency, defaultCurrency, setCollection, setCurDetails, setCurSymbol, setDefaultCurrency, setPresentFilterProducts, setProductShipValue, setProducts]);
 };

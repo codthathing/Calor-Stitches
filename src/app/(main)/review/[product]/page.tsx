@@ -4,6 +4,7 @@ import ReviewNavigationLinks from "@/components/review/ReviewNavigationLinks";
 import ReviewPictureDiv from "@/components/review/ReviewPictureDiv";
 import ReviewRelatedProducts from "@/components/review/ReviewRelatedProducts";
 import ReviewSection from "@/components/review/ReviewSection";
+import ReviewSectionWrapper from "@/components/review/ReviewSectionWrapper";
 import ReviewProvider from "@/store/providers/ReviewProvider";
 
 export const generateMetadata = async ({ params }: { params: Promise<{ product: string }> }) => {
@@ -19,7 +20,7 @@ export default async function ReviewPage({ params } : { params: Promise<{ produc
 
   return (
     <ReviewProvider productName={decodeURIComponent(product)}>
-      <PageSection id="productReview">
+      <ReviewSectionWrapper>
         <ReviewNavigationLinks />
         <main id="productReviewMain" className="productMains">
           <ReviewPictureDiv />
@@ -30,7 +31,7 @@ export default async function ReviewPage({ params } : { params: Promise<{ produc
           <p id="productRelatedText">Related products</p>
           <ReviewRelatedProducts />
         </div>
-      </PageSection>
+      </ReviewSectionWrapper>
     </ReviewProvider>
   );
 }

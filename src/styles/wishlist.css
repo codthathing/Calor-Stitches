@@ -147,6 +147,7 @@
 #wishListItemSection {
   flex-grow: 1;
   overflow-y: auto;
+  overscroll-behavior-y: contain;
 }
 
 #wishListItemSection::-webkit-scrollbar {

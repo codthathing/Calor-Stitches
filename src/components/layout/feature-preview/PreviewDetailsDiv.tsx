@@ -8,13 +8,17 @@ import ReviewProductDetails from "@/components/review/ReviewProductDetails";
 import ReviewSizeDiv from "@/components/review/ReviewSizeDiv";
 import { usePreviewContext } from "@/store/providers/PreviewProvider";
 import { useRouter } from "next/navigation";
+import { useRef } from "react";
+import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
 
 export default function PreviewDetailsDiv() {
   const { id, productName, productDesc, cutOff, productPrice, averagePrice, priceOne, priceTwo, wishlistStock, productDetails, productColors, productSizes, cartAmt, productInfo } = usePreviewContext();
   const router = useRouter();
+  const scrollableRef = useRef<HTMLDivElement>(null);
+  useLockBodyScroll(scrollableRef);
 
   return (
-    <div id="productViewMainDiv">
+    <div ref={scrollableRef} id="productViewMainDiv">
       <ReviewDetails productReview={false} priceMainClass={"product-view-price"} productName={productName} cutOff={cutOff} productPrice={productPrice} averagePrice={averagePrice} priceOne={priceOne} priceTwo={priceTwo} productDesc={productDesc} />
       {(wishlistStock || wishlistStock === 0) && <WishlistStockAlert mainClass={"productDivs"} textClass={"productPrepText"} barClass={"productPrepDiv"} stockAmt={wishlistStock} showStockBar={true} />}
       {productDetails && productColors && <ReviewColorDiv productId={id} colorText={productDetails.cartColor} colorArray={productColors} />}

@@ -2559,6 +2559,7 @@
   #productViewMainDiv {
     height: 55vh;
     overflow-y: auto;
+    overscroll-behavior-y: contain;
   }
 
   .product-view-price {

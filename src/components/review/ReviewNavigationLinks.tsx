@@ -7,7 +7,7 @@ export default function ReviewNavigationLinks() {
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },
-    { id: 1, linkDirect: "/product", linkText: "Product", linkArrow: true },
+    { id: 1, linkDirect: "/products", linkText: "Product", linkArrow: true },
     { id: 2, linkDirect: "", linkText: productNameText, linkArrow: false },
   ];
 

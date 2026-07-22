@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   title: "Search Page",
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function SearchPage() {
   await new Promise((resolve) => setTimeout(resolve, 3000));
 

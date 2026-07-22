@@ -3,6 +3,8 @@ import ProductMain from "@/components/product/ProductMain";
 import PageNavigationLinks from "@/components/ui/PageNavigationLinks";
 import { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Products"
 }

@@ -21,7 +21,7 @@ const NavigationIcons = () => {
     <>
       {navigationIconsDetails.map(({ id, Icon, listId, listIconId, showValue, value, pageLink, text }) => {
         return (
-          <Link href={pageLink} className="icons" id={listId} key={id} scroll={false} style={{ textDecoration: "none", color: "inherit" }}>
+          <Link href={pageLink} prefetch={false} className="icons" id={listId} key={id} scroll={false} style={{ textDecoration: "none", color: "inherit" }}>
             {text && <span id={listIconId}>{text}</span>}
             {Icon && (
               <>

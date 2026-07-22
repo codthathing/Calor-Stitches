@@ -1,6 +1,8 @@
 import CartProductDiv from "@/components/layout/user-cart/CartProductDiv";
 import UserCartCancelIcon from "@/components/layout/user-cart/UserCartCancelIcon";
 
+export const dynamic = "force-dynamic";
+
 export default async function CartPage() {
   await new Promise((resolve) => setTimeout(resolve, 3000));
 

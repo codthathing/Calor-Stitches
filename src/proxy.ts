@@ -18,9 +18,7 @@ export const proxy = (request: NextRequest) => {
     response.cookies.delete("navigatedInternally");
     return response;
   }
-
-  response.cookies.set("previousPath", pathname);
-  response.cookies.set("navigatedInternally", "true");
+  
   return response;
 };
 

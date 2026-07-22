@@ -4,6 +4,8 @@ import PageNavigationLinks from "@/components/ui/PageNavigationLinks";
 import DisplayProvider from "@/store/providers/DisplayProvider";
 import { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Display Products"
 }

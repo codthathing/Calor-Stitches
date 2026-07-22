@@ -8,6 +8,8 @@ import PageNavigationLinks from "@/components/ui/PageNavigationLinks";
 import CartProvider from "@/store/providers/CartProvider";
 import { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Cart Page"
 }

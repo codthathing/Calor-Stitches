@@ -4,6 +4,8 @@ import WishlistHandle from "@/components/wishlist/WishlistHandle";
 import WishlistProductSection from "@/components/wishlist/WishlistProductSection";
 import { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Wishlist Page"
 }

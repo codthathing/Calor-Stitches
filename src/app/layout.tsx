@@ -8,6 +8,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import NewsSection from "@/components/news-letter/NewsSection";
 import PageComponents from "@/components/layout/PageComponents";
 import { ReactNode } from "react";
+import PagePathTracker from "@/components/layout/PagePathTracker";
 
 const cormorantInfant = Cormorant_Infant({
   subsets: ["latin"],
@@ -45,6 +46,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${cormorantInfant.variable} ${roboto.variable} ${yantramanav.variable}`}>
         <NavigateProvider>
+          <PagePathTracker />
           <PageLayout>
             <Header />
             {children}

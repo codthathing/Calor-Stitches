@@ -1,18 +1,18 @@
 "use client";
 import { useEffect, RefObject } from "react";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 
-const MODAL_SEGMENTS = ["/auth", "/user", "/product-preview"];
+// const MODAL_SEGMENTS = ["/auth", "/user", "/product-preview"];
 
 export const useScrollTrap = (sectionRef: RefObject<HTMLElement | null>, innerScrollRef: RefObject<HTMLElement | null>) => {
-  const pathname = usePathname();
+  // const pathname = usePathname();
 
   useEffect(() => {
-    const modalOpen = MODAL_SEGMENTS.some(seg =>
-      pathname.startsWith(seg)
-    );
+  //   const modalOpen = MODAL_SEGMENTS.some(seg =>
+  //     pathname.startsWith(seg)
+  //   );
 
-    if (modalOpen) return;
+  //   if (modalOpen) return;
 
     const isSectionInView = () => {
       const section = sectionRef.current;
@@ -72,5 +72,5 @@ export const useScrollTrap = (sectionRef: RefObject<HTMLElement | null>, innerSc
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchmove", handleTouchMove);
     };
-  }, [pathname, sectionRef, innerScrollRef]);
+  }, [ sectionRef, innerScrollRef]);
 };

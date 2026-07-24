@@ -10,7 +10,7 @@ const NavigationIcons = () => {
   const { cartItems, wishlistItems, navbar, hasMounted } = useNavigateContext();
 
   const navigationIconsDetails: { id: number; Icon?: IconType; text?: string; listId?: string; listIconId?: string; value?: number; showValue?: boolean; pageLink: string }[] = [
-    { id: 0, Icon: FiUser, listId: "mobile-login-icon", pageLink: "" },
+    { id: 0, Icon: FiUser, listId: "mobile-login-icon", pageLink: "/auth/login" },
     { id: 1, text: "LOGIN", listIconId: "loginText", listId: "desktop-login-icon", pageLink: "/auth/login" },
     { id: 2, Icon: FiSearch, pageLink: "/search" },
     { id: 3, Icon: FiHeart, showValue: hasMounted && wishlistItems.length > 0, value: wishlistItems.length, pageLink: "/user/wishlist" },

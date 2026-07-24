@@ -54,6 +54,7 @@ export const useShowPreload = (dispatch: ActionDispatch<[action: WishlistActionT
       if (replace) {
         router.replace(page);
       } else {
+        document.cookie = "navigatedInternally=true; path=/";
         router.push(page);
       }
     });

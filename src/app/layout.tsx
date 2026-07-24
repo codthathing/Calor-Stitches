@@ -33,14 +33,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  auth_modal,
-  user_modal,
-  preview_modal,
+  modal,
 }: Readonly<{
   children: ReactNode;
-  auth_modal: ReactNode;
-  user_modal: ReactNode;
-  preview_modal: ReactNode;
+  modal: ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -50,9 +46,7 @@ export default function RootLayout({
           <PageLayout>
             <Header />
             {children}
-            {auth_modal}
-            {user_modal}
-            {preview_modal}
+            {modal}
             <NewsSection />
             <PageComponents />
             <Footer />

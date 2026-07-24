@@ -9,10 +9,7 @@ export default function ViewMainWrapper({ children }: { children: ReactNode }) {
   return (
     <main id="productViewMain">
       <div id="productViewBack">
-        <FaTimes id="productViewBackIcon" onClick={() => {
-          router.back();
-          router.refresh();
-        }}/>
+        <FaTimes id="productViewBackIcon" onClick={() => router.back()}/>
       </div>
       <main id="productViewInnerMain">{children}</main>
     </main>

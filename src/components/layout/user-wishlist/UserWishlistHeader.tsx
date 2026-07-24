@@ -1,5 +1,4 @@
 "use client";
-import { getCookie } from "@/hooks/usePreviousPath";
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import { useRouter } from "next/navigation";
 import { FaTimes } from "react-icons/fa";
@@ -13,10 +12,7 @@ export default function UserWishlistHeader() {
     <header className="wishListContainers" id="wishListHeader">
       <div id="wishlistHeaderDiv" className="wishlistInnerContainers">
         <p id="wishListText">Wishlist ({wishlistItems.length})</p>
-        <span id="wishListCancel" onClick={() => {
-          router.back();
-          if (!decodeURIComponent(getCookie("previousPath") ?? "/").includes("/user")) router.refresh();
-        }}>
+        <span id="wishListCancel" onClick={() => router.back()}>
           <FaTimes id="wishListCanIcon" />
         </span>
       </div>

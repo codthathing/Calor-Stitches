@@ -9,7 +9,7 @@ export default function ReviewProductDetailsLink({ links, type }: { links: { id:
   return (
     <>
       {links.map(({ id, text, style = true }) => {
-        return <Fragment key={id}>{type === "link" ? <PageButtons type={"text"} textClass={""} buttonFunction={() => router.push(`/collection/${text}`)} text={style ? `${text},` : `${text}`} /> : <span className="productDeliveryDetailsInnerText">{text}</span>}</Fragment>;
+        return <Fragment key={id}>{type === "link" ? <PageButtons type={"text"} textClass={""} buttonFunction={() => router.replace(`/collection/${text}`)} text={style ? `${text},` : `${text}`} /> : <span className="productDeliveryDetailsInnerText">{text}</span>}</Fragment>;
       })}
     </>
   );

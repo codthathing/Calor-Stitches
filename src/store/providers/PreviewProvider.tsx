@@ -17,6 +17,7 @@ export default function PreviewProvider({ children, productName }: { children: R
   }, [products, productName]);
 
   if (!product) return null;
+
   if (!pathname.includes("/product-preview")) return null;
 
   const { id, productImage, cutOff, wishlistStock, productAvailable, productPrice, averagePrice, priceOne, priceTwo, productDesc, productDetails, productColors, productSizes, cartAmt, productInfo } = product as GeneralProductType;
@@ -27,6 +28,6 @@ export default function PreviewProvider({ children, productName }: { children: R
 export const usePreviewContext = () => {
   const context = useContext(PreviewContext);
   if (!context) throw new Error("Make sure this component exists in the PreviewProvider tree");
-  
+
   return context;
 };

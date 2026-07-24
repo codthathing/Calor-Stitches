@@ -8,10 +8,7 @@ export default function UserCartCancelIcon() {
 
   return (
     <FaTimes
-      onClick={() => {
-        router.back();
-        if (!decodeURIComponent(getCookie("previousPath") ?? "/").includes("/user")) router.refresh();
-      }}
+      onClick={() => router.back()}
       className="navBackIcon"
     />
   );

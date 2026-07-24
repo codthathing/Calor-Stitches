@@ -12,7 +12,10 @@ export default function ProductTemplateFooter({ id, productDetails, productName 
     <>
       <ProductOptions id={id} productDetails={productDetails} productName={productName} textClass={"paragraphStyles selectOption"} itemsArray={products} />
       <div className="optionDiv">
-        <FiEye className="optionIcon" onClick={() => navigateToPage(`/product-preview?name=${encodeURIComponent(productName)}`)} onMouseEnter={() => setShowViewText(true)} onMouseLeave={() => setShowViewText(false)} />
+        <FiEye className="optionIcon" onClick={() => {
+            document.cookie = "navigatedInternally=true; path=/";
+            navigateToPage(`/product-preview?name=${encodeURIComponent(productName)}`)}
+          } onMouseEnter={() => setShowViewText(true)} onMouseLeave={() => setShowViewText(false)} />
         {showViewText && <div className="optionText viewOptionText">Quick View</div>}
       </div>
     </>

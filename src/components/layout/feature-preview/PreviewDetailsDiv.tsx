@@ -7,14 +7,14 @@ import ReviewFunctions from "@/components/review/ReviewFunctions";
 import ReviewProductDetails from "@/components/review/ReviewProductDetails";
 import ReviewSizeDiv from "@/components/review/ReviewSizeDiv";
 import { usePreviewContext } from "@/store/providers/PreviewProvider";
-import { useRouter } from "next/navigation";
 import { useRef } from "react";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
+import { useRouter } from "next/navigation";
 
 export default function PreviewDetailsDiv() {
   const { id, productName, productDesc, cutOff, productPrice, averagePrice, priceOne, priceTwo, wishlistStock, productDetails, productColors, productSizes, cartAmt, productInfo } = usePreviewContext();
-  const router = useRouter();
   const scrollableRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
   useLockBodyScroll(scrollableRef);
 
   return (

@@ -4,7 +4,7 @@ import { FiUser, FiSearch, FiHeart, FiShoppingBag } from "react-icons/fi";
 import { motion, MotionConfig } from "framer-motion";
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import { IconType } from "react-icons";
-import Link from "next/link";
+import PageModalLink from "../layout/PageModalLinks";
 
 const NavigationIcons = () => {
   const { cartItems, wishlistItems, navbar, hasMounted } = useNavigateContext();
@@ -21,7 +21,7 @@ const NavigationIcons = () => {
     <>
       {navigationIconsDetails.map(({ id, Icon, listId, listIconId, showValue, value, pageLink, text }) => {
         return (
-          <Link href={pageLink} prefetch={false} className="icons" id={listId} key={id} scroll={false} style={{ textDecoration: "none", color: "inherit" }}>
+          <PageModalLink href={pageLink} prefetch={false} className="icons" id={listId} key={id} scroll={false} style={{ textDecoration: "none", color: "inherit" }}>
             {text && <span id={listIconId}>{text}</span>}
             {Icon && (
               <>
@@ -33,7 +33,7 @@ const NavigationIcons = () => {
                 )}
               </>
             )}
-          </Link>
+          </PageModalLink>
         );
       })}
     </>

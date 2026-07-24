@@ -7,10 +7,7 @@ export default function AuthCancelIcon() {
 
   return (
     <div className="cancel-icon-div">
-      <span className="cancelBtn" onClick={() => {
-        router.back();
-        router.refresh();
-      }}>
+      <span className="cancelBtn" onClick={() => router.back()}>
         <FaX className="cancelIcon" />
       </span>
     </div>

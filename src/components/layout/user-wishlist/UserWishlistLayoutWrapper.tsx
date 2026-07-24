@@ -1,17 +1,13 @@
 "use client";
 import { deleteCookie, getCookie } from "@/hooks/usePreviousPath";
 import { usePathname } from "next/navigation";
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 
 export default function UserWishlistLayoutWrapper({ children }: { children: ReactNode }) {
-  const  pathname = usePathname();
+  const pathname = usePathname();
 
-  if (!pathname.includes("/user")) {
-    if (!getCookie("navigatedInternally")) deleteCookie("navigatedInternally");
-    return null;
-  };
-
-  return (
-    <section className="navSections">{children}</section>
-  )
+  if (!pathname.includes("/user")) return null;
+    // if (!getCookie("navigatedInternally")) deleteCookie("navigatedInternally");
+    
+  return <section className="navSections">{children}</section>;
 }

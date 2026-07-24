@@ -10,8 +10,8 @@ export default function PagePathTracker() {
 
   useEffect(() => {
     if (isModalPath) return;
+    
     document.cookie = `previousPath=${encodeURIComponent(pathname)}; path=/`;
-    document.cookie = `navigatedInternally=true; path=/`;
   }, [pathname, isModalPath]);
 
   return null;

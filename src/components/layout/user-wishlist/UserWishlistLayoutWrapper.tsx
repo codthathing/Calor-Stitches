@@ -7,7 +7,6 @@ export default function UserWishlistLayoutWrapper({ children }: { children: Reac
   const pathname = usePathname();
 
   if (!pathname.includes("/user")) return null;
-    // if (!getCookie("navigatedInternally")) deleteCookie("navigatedInternally");
     
   return <section className="navSections">{children}</section>;
 }

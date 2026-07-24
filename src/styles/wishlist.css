@@ -110,9 +110,9 @@
 .wishlist-main {
   background-color: white;
   position: absolute;
-  inset: 0;
+  top: 0;
+  bottom: 0;
   margin: auto;
-  width: fit-content;
   display: flex;
   flex-direction: column;
   max-height: 100dvh;

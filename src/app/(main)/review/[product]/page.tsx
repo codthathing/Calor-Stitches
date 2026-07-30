@@ -1,4 +1,3 @@
-import PageSection from "@/components/layout/PageSection";
 import AboutSection from "@/components/review/AboutSection";
 import ReviewNavigationLinks from "@/components/review/ReviewNavigationLinks";
 import ReviewPictureDiv from "@/components/review/ReviewPictureDiv";
@@ -6,6 +5,8 @@ import ReviewRelatedProducts from "@/components/review/ReviewRelatedProducts";
 import ReviewSection from "@/components/review/ReviewSection";
 import ReviewSectionWrapper from "@/components/review/ReviewSectionWrapper";
 import ReviewProvider from "@/store/providers/ReviewProvider";
+
+export const dynamic = 'force-dynamic';
 
 export const generateMetadata = async ({ params }: { params: Promise<{ product: string }> }) => {
   const { product } = await params;

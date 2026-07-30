@@ -14,7 +14,7 @@ export default function ProductTemplate({ productArray }: { productArray: Genera
           <div className="productDiv" key={id}>
             <div className="productInnerDiv">
               <Image src={productImage} loading="lazy" width={100} height={75} style={{ objectFit: "cover", width: "100%", height: "100%", position: "absolute", zIndex: "-1" }} alt={productName.toUpperCase()} />
-              <Link href={`/review/${productName}`} style={{ textDecoration: "none" }}>
+              <Link href={`/review/${productName}`} prefetch={false} style={{ textDecoration: "none" }}>
                 <section className="orderOptions">
                   <ProductStockAlert productAvailable={productAvailable} wishlistStock={wishlistStock} cutOff={cutOff} />
                 </section>

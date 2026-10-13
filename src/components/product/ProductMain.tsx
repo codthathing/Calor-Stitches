@@ -5,7 +5,7 @@ import ProductFilterDiv from "./ProductFilterDiv";
 
 export default function ProductMain() {
   const { products } = useNavigateContext();
-  const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers, productValue } = useProductShownEffect({products: products})
+  const { mapProducts, shownProducts, setMapProducts, pageNumbers, productValue } = useProductShownEffect({products: products})
   
   return (
     <main id="productAllMain" className="productMains">
@@ -14,7 +14,7 @@ export default function ProductMain() {
         <ProductFilterDiv textTwo={true} />
       </div>
       <Products products={products} mapProducts={mapProducts} shownProducts={shownProducts} />
-      <ProductPagination setMapProducts={setMapProducts} setPageNumbers={setPageNumbers} pageNumbers={pageNumbers} shownProducts={shownProducts} />
+      <ProductPagination setMapProducts={setMapProducts} pageNumbers={pageNumbers} shownProducts={shownProducts} />
     </main>
   );
 }

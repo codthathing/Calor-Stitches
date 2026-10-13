@@ -1,5 +1,6 @@
 import PostBlogsSection from "@/components/post/PostBlogsSection";
-import PostsProvider from "@/store/providers/PostsProvider";
+import { getBlogsPosts } from "@/lib/utils/getBlogsPosts";
+import PostsBlogsWrapper from "@/components/post/PostsBlogsWrapper";
 
 export const generateMetadata = async ({ params } : { params: Promise<{ category: string }> }) => {
   const { category } = await params;
@@ -9,12 +10,16 @@ export const generateMetadata = async ({ params } : { params: Promise<{ category
 }
 
 export default async function PostsPage({ params } : { params: Promise<{ category: string }> }) {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
   const { category } = await params;
 
+  const [categoryPosts] = await Promise.all([
+    getBlogsPosts(category),
+    new Promise((resolve) => setTimeout(resolve, 3000))
+  ]);
+
   return (
-    <PostsProvider title={category}>
-      <PostBlogsSection />
-    </PostsProvider>
+    <PostsBlogsWrapper title={category}>
+      <PostBlogsSection posts={categoryPosts} />
+    </PostsBlogsWrapper>
   );
 }

@@ -1,19 +1,11 @@
 "use client";
-import { useNavigateContext } from "@/store/providers/NavigateProvider";
-import { useEffect } from "react";
 import { ProductPagination, Products, ProductShown, useProductShownEffect } from "../product/ProductDisplayComponents";
 import PageNavigationLinks from "../ui/PageNavigationLinks";
 import ProductFilterDiv from "../product/ProductFilterDiv";
+import { GeneralProductType } from "@/types/productType";
 
-export default function CollectionMain({ category } : { category: string }) {
-  const { products, collection, setCollection } = useNavigateContext();
-
-  useEffect(() => {
-    const presentCollections = products.filter(({ productInfo }) => productInfo?.find(({ name }) => name === "CARTEGORIES")?.links.find(({ text }) => text === category));
-    setCollection(presentCollections);
-  }, [products, category, setCollection]);
-
-  const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers, productValue } = useProductShownEffect({ products: collection });
+export default function CollectionMain({ category, collections } : { category: string; collections: GeneralProductType[] }) {
+  const { mapProducts, shownProducts, setMapProducts, pageNumbers, productValue } = useProductShownEffect({ products: collections });
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },
@@ -35,11 +27,11 @@ export default function CollectionMain({ category } : { category: string }) {
       <PageNavigationLinks pageLinks={pageLinkDetails} />
       <main className="productMains">
         <div className="productShownDiv">
-          <ProductShown mapProducts={mapProducts} productValue={productValue} products={collection} />
+          <ProductShown mapProducts={mapProducts} productValue={productValue} products={collections} />
           <ProductFilterDiv id={"productSortTextIconDiv"} defaultText={"Sort by latest"} textOne={true} filterText={filterTexts} />
         </div>
-        <Products products={collection} mapProducts={mapProducts} shownProducts={shownProducts} />
-        <ProductPagination setMapProducts={setMapProducts} setPageNumbers={setPageNumbers} pageNumbers={pageNumbers} shownProducts={shownProducts} />
+        <Products products={collections} mapProducts={mapProducts} shownProducts={shownProducts} />
+        <ProductPagination setMapProducts={setMapProducts} pageNumbers={pageNumbers} shownProducts={shownProducts} />
       </main>
     </>
   );

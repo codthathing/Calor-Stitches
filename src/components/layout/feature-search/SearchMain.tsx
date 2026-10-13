@@ -9,7 +9,7 @@ export default function SearchMain() {
   const { products } = useNavigateContext();
   const [searchItems, setSearchItems] = useState<GeneralProductType[]>(products);
   const [searchInput, setSearchInput] = useState<string>("");
-  const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers } = useProductShownEffect({ products: searchItems, shownProducts: 8 });
+  const { mapProducts, shownProducts, setMapProducts, pageNumbers } = useProductShownEffect({ products: searchItems, shownProducts: 8 });
 
   useEffect(() => {
     setSearchItems(products.filter((items) => items.productName.toLowerCase().includes(searchInput.toLowerCase())));
@@ -28,7 +28,7 @@ export default function SearchMain() {
               Popular Product
             </h1>
             <Products products={searchItems} mapProducts={mapProducts} shownProducts={shownProducts} />
-            <ProductPagination shownProducts={shownProducts} pageNumbers={pageNumbers} setMapProducts={setMapProducts} setPageNumbers={setPageNumbers} />
+            <ProductPagination shownProducts={shownProducts} pageNumbers={pageNumbers} setMapProducts={setMapProducts} />
           </section>
         ) : (
           <p id="absentText">`{searchInput}` is not available.</p>

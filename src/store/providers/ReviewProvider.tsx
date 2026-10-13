@@ -1,14 +1,11 @@
 "use client";
 import { GeneralProductType, SetState } from "@/types/productType";
-import { createContext, Dispatch, ReactNode, RefObject, SetStateAction, useContext, useEffect, useRef, useState } from "react";
-import { useNavigateContext } from "./NavigateProvider";
+import { createContext, Dispatch, ReactNode, RefObject, SetStateAction, useContext, useRef, useState } from "react";
 import { useProductShownEffect } from "@/components/product/ProductDisplayComponents";
 import { useScrollTrap } from "@/hooks/useScrollTrap";
 
 interface ReviewContext {
-  products: GeneralProductType[];
-  setProducts: SetState<GeneralProductType[]>;
-  relatedProduct: GeneralProductType[];
+  relatedProducts: GeneralProductType[];
   id: number;
   productImage: string; 
   productImages?: { id: number; style: boolean; image: string }[], 
@@ -31,7 +28,6 @@ interface ReviewContext {
   mapProducts: number; 
   shownProducts: number; 
   setMapProducts: Dispatch<SetStateAction<number>>;
-  setPageNumbers: Dispatch<SetStateAction<{ id: number; style: boolean }[]>>; 
   pageNumbers: { id: number; style: boolean }[];
   sectionRef: RefObject<HTMLElement | null>;
   innerScrollRef: RefObject<HTMLDivElement | null>;
@@ -39,29 +35,16 @@ interface ReviewContext {
 
 const ReviewContext = createContext<ReviewContext | null>(null);
 
-export default function ReviewProvider({ children, productName }: { children: ReactNode; productName: string }) {
-  const [product, setProduct] = useState<GeneralProductType | null>(null);
-  const { products, setProducts } = useNavigateContext();
-  const [relatedProduct, setRelatedProduct] = useState<GeneralProductType[]>([]);
+export default function ReviewProvider({ children, product, relatedProducts }: { children: ReactNode; product: GeneralProductType; relatedProducts: GeneralProductType[] }) {
   const [aboutNavigation, setAboutNavigation] = useState<string>("DESCRIPTION");
-  const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers } = useProductShownEffect({ products: relatedProduct });
+  const { mapProducts, shownProducts, setMapProducts, pageNumbers } = useProductShownEffect({ products: relatedProducts });
   const sectionRef = useRef<HTMLElement>(null);
   const innerScrollRef = useRef<HTMLDivElement>(null);
   useScrollTrap(sectionRef, innerScrollRef);
 
-  useEffect(() => {
-    const presentProduct = products.find((product) => product.productName === productName) as GeneralProductType;
-    setProduct(presentProduct);
-    const presentProductCategory = presentProduct.productInfo?.find(({ name }) => name === "CARTEGORIES")?.links.map(({ text }) => text);
-    const relatedProducts = products.filter(({ productInfo, productName }) => productName !== presentProduct.productName && productInfo?.find(({ name }) => name === "CARTEGORIES")?.links.some(({ text }) => presentProductCategory?.includes(text))) as GeneralProductType[];
-    setRelatedProduct(relatedProducts);
-  }, [products, productName]);
-
-  if (!product) return null;
-
   const { id, productImage, productImages, productName: productNameText, cutOff, productPrice, averagePrice, priceOne, priceTwo, productDesc, wishlistStock, cartAmt, productDetails, productColors, productAvailable, productSizes, productInfo } = product as GeneralProductType;
 
-  return <ReviewContext.Provider value={{ id, products, setProducts, relatedProduct, productAvailable, productNameText, productImage, productImages, cutOff, productPrice, averagePrice, priceOne, priceTwo, cartAmt, productDesc, productDetails, productColors, productSizes, wishlistStock, productInfo, aboutNavigation, setAboutNavigation, mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers, sectionRef, innerScrollRef }}>{children}</ReviewContext.Provider>;
+  return <ReviewContext.Provider value={{ id, relatedProducts, productAvailable, productNameText, productImage, productImages, cutOff, productPrice, averagePrice, priceOne, priceTwo, cartAmt, productDesc, productDetails, productColors, productSizes, wishlistStock, productInfo, aboutNavigation, setAboutNavigation, mapProducts, shownProducts, setMapProducts, pageNumbers, sectionRef, innerScrollRef }}>{children}</ReviewContext.Provider>;
 }
 
 export const useReviewContext = () => {

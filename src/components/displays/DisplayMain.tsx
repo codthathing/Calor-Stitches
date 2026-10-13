@@ -1,12 +1,13 @@
 "use client";
 import { FiFilter } from "react-icons/fi";
 import ProductFilterDiv from "../product/ProductFilterDiv";
-import { ProductPagination, Products } from "../product/ProductDisplayComponents";
+import { ProductPagination, Products, useProductShownEffect } from "../product/ProductDisplayComponents";
 import DisplayFilterSection from "./DisplayFilterSection";
 import { useDisplayContext } from "@/store/providers/DisplayProvider";
 
 export default function DisplayMain() {
-  const { setShowFilterSection, presentFilterProducts, mapProducts, shownProducts, setMapProducts, pageNumbers, setPageNumbers, showFilterSection } = useDisplayContext();
+  const { presentFilterProducts, setShowFilterSection, showFilterSection } = useDisplayContext();
+  const { mapProducts, shownProducts, setMapProducts, pageNumbers } = useProductShownEffect({ products: presentFilterProducts });
 
   return (
     <>
@@ -19,7 +20,7 @@ export default function DisplayMain() {
           <ProductFilterDiv textTwo={true} />
         </div>
         <Products products={presentFilterProducts} mapProducts={mapProducts} shownProducts={shownProducts} />
-        <ProductPagination setMapProducts={setMapProducts} pageNumbers={pageNumbers} setPageNumbers={setPageNumbers} shownProducts={shownProducts} />
+        <ProductPagination setMapProducts={setMapProducts} pageNumbers={pageNumbers} shownProducts={shownProducts} />
       </main>
       {showFilterSection && <DisplayFilterSection />}
     </>

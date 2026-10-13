@@ -1,14 +1,14 @@
 "use client";
 import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import { ProductFiltersType } from "@/types/displayType";
-import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from "react";
+import { ChangeEvent, Dispatch, SetStateAction, useMemo, useState } from "react";
 
 export const useProductOptionsFilters = () => {
-  const { products, productShipValue, presentFilterProducts, setPresentFilterProducts } = useNavigateContext();
+  const { products, productShipValue } = useNavigateContext();
 
   const [filterOption, setFilterOption] = useState({ minPrice: productShipValue.minValue, maxPrice: productShipValue.maxValue, color: "", type: "", size: "" });
 
-  useEffect(() => {
+  const presentFilterProducts = useMemo(() => {
     let updatedProducts = products;
     if (filterOption.type) {
       updatedProducts = updatedProducts.filter(({ productInfo }) => productInfo?.find(({ name }) => name === "CARTEGORIES")?.links.find(({ text }) => text === filterOption.type));
@@ -22,10 +22,9 @@ export const useProductOptionsFilters = () => {
     if (filterOption.size) {
       updatedProducts = updatedProducts.filter(({ productSizes }) => productSizes?.find(({ text }) => text === filterOption.size));
     }
-    if (JSON.stringify(updatedProducts) !== JSON.stringify(presentFilterProducts)) {
-      setPresentFilterProducts(updatedProducts);
-    }
-  }, [filterOption, products, presentFilterProducts, setPresentFilterProducts]);
+
+    return updatedProducts;
+  }, [filterOption, products]);
 
   const changeProductsTypes = (id: number, option: boolean, text: string, productTypes: ProductFiltersType, setProductTypes: Dispatch<SetStateAction<ProductFiltersType>>) => {
     const newProductTypes = productTypes.map((item) => {

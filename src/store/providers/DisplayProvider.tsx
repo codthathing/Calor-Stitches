@@ -8,11 +8,6 @@ import { ChangeEvent, createContext, Dispatch, ReactNode, SetStateAction, useCon
 
 interface DisplayContext {
   presentFilterProducts: GeneralProductType[];
-  mapProducts: number;
-  shownProducts: number;
-  setMapProducts: Dispatch<SetStateAction<number>>;
-  setPageNumbers: Dispatch<SetStateAction<{ id: number; style: boolean }[]>>;
-  pageNumbers: { id: number; style: boolean }[];
   showFilterSection: boolean;
   setShowFilterSection: Dispatch<SetStateAction<boolean>>;
   productTypes: ProductFiltersType;
@@ -34,13 +29,11 @@ const DisplayContext = createContext<DisplayContext | null>(null);
 export default function DisplayProvider({ children }: { children: ReactNode }) {
   const { presentFilterProducts, filterOption, changeProductsTypes, handleMinChange, handleMaxChange, changeProductsColors, changeProductsSize } = useProductOptionsFilters();
 
-  const { mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers } = useProductShownEffect({ products: presentFilterProducts });
-
   const { productTypes, setProductTypes, productColors, setProductColors, productSize, setProductSize } = useProductFiltersArray();
 
   const [showFilterSection, setShowFilterSection] = useState<boolean>(false);
 
-  return <DisplayContext.Provider value={{ presentFilterProducts, mapProducts, shownProducts, setMapProducts, setPageNumbers, pageNumbers, showFilterSection, setShowFilterSection, filterOption, changeProductsTypes, productTypes, setProductTypes, handleMinChange, handleMaxChange, changeProductsColors, productColors, setProductColors, changeProductsSize, productSize, setProductSize }}>{children}</DisplayContext.Provider>;
+  return <DisplayContext.Provider value={{ presentFilterProducts, showFilterSection, setShowFilterSection, filterOption, changeProductsTypes, productTypes, setProductTypes, handleMinChange, handleMaxChange, changeProductsColors, productColors, setProductColors, changeProductsSize, productSize, setProductSize }}>{children}</DisplayContext.Provider>;
 }
 
 export const useDisplayContext = () => {

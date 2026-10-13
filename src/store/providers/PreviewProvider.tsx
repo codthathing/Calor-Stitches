@@ -1,5 +1,5 @@
 "use client";
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from "react";
 import { useNavigateContext } from "./NavigateProvider";
 import { GeneralProductType } from "@/types/productType";
 import { usePathname } from "next/navigation";
@@ -12,8 +12,7 @@ export default function PreviewProvider({ children, productName }: { children: R
   const [product, setProduct] = useState<GeneralProductType | null>(null);
 
   useEffect(() => {
-    const presentProduct = products.find((product) => product.productName === productName) as GeneralProductType;
-    setProduct(presentProduct);
+    setProduct(products.find((product) => product.productName === productName) as GeneralProductType);
   }, [products, productName]);
 
   if (!product) return null;

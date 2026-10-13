@@ -1,12 +1,12 @@
 "use client";
 import { createContext, useState, useRef, ReactNode, useContext, RefObject, ActionDispatch } from "react";
 import useLocalStorage from "@/hooks/useLocalStorage";
-import { mockProducts } from "@/lib/data/mockProducts";
 import { WishlistActionType, WishlistStateType } from "@/types/wishlistType";
 import { CartProductType, GeneralProductType, WishlistProductType, SetState } from "@/types/productType";
 import { useCheckAppVersion } from "@/hooks/useCheckAppVersion";
 import { useShowPreload } from "@/hooks/useShowPreload";
 import { WishlistReducer } from "../reducers/WishlistReducer";
+import { BlogType } from "@/types/blogType";
 
 interface NavigateInterface {
   wishlistItems: WishlistProductType[];
@@ -15,12 +15,10 @@ interface NavigateInterface {
   setCartItems: SetState<CartProductType[]>;
   products: GeneralProductType[];
   setProducts: SetState<GeneralProductType[]>;
+  posts: BlogType[];
+  setPosts: SetState<BlogType[]>;
   cloneCart: CartProductType[];
   setCloneCart: SetState<CartProductType[]>;
-  collection: GeneralProductType[];
-  setCollection: SetState<GeneralProductType[]>;
-  presentFilterProducts: GeneralProductType[];
-  setPresentFilterProducts: SetState<GeneralProductType[]>;
 
   presentCurrency: string;
   setPresentCurrency: SetState<string>;
@@ -57,13 +55,12 @@ interface NavigateInterface {
 
 const NavigateContext = createContext<NavigateInterface | null>(null);
 
-export default function NavigateProvider({ children }: { children: ReactNode }) {
+export default function NavigateProvider({ children, initialDetails }: { children: ReactNode; initialDetails: {products: GeneralProductType[]; posts: BlogType[]} }) {
   const [wishlistItems, setWishlistItems] = useLocalStorage<WishlistProductType[]>("wishlistItems", []);
   const [cartItems, setCartItems] = useLocalStorage<CartProductType[]>("cartItems", []);
-  const [products, setProducts] = useState<GeneralProductType[]>(mockProducts);
   const [cloneCart, setCloneCart] = useState<CartProductType[]>([]);
-  const [collection, setCollection] = useState<GeneralProductType[]>([]);
-  const [presentFilterProducts, setPresentFilterProducts] = useState<GeneralProductType[]>([]);
+  const [products, setProducts] = useState<GeneralProductType[]>(initialDetails.products);
+  const [posts, setPosts] = useState<BlogType[]>(initialDetails.posts);
   const [presentCurrency, setPresentCurrency] = useLocalStorage<string>("PRESENT_CURRENCY", "NGN");
   const [curSymbol, setCurSymbol] = useState<string>("₦");
   const product_section = useRef<HTMLElement | null>(null);
@@ -79,7 +76,7 @@ export default function NavigateProvider({ children }: { children: ReactNode }) 
   const { preload, showPreload, navigateToPage, wishlistStartTransition } = useShowPreload(dispatch);
   useCheckAppVersion();
 
-  return <NavigateContext.Provider value={{ userDetails, setUserDetails, defaultCurrency, setDefaultCurrency, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, wishlistStartTransition, curDetails, setCurDetails, productShipValue, setProductShipValue, presentCurrency, setPresentCurrency, cloneCart, setCloneCart, product_section, home_section, preload, collection, setCollection, presentFilterProducts, setPresentFilterProducts, hasMounted, setHasMounted, showPreload, navigateToPage }}>{children}</NavigateContext.Provider>;
+  return <NavigateContext.Provider value={{ userDetails, setUserDetails, posts, setPosts, defaultCurrency, setDefaultCurrency, toggleSideMenu, setToggleSideMenu, navbar, setNavbar, products, setProducts, curSymbol, setCurSymbol, wishlistItems, setWishlistItems, cartItems, setCartItems, state, dispatch, wishlistStartTransition, curDetails, setCurDetails, productShipValue, setProductShipValue, presentCurrency, setPresentCurrency, cloneCart, setCloneCart, product_section, home_section, preload, hasMounted, setHasMounted, showPreload, navigateToPage }}>{children}</NavigateContext.Provider>;
 }
 
 export const useNavigateContext = () => {

@@ -1,5 +1,4 @@
 "use client";
-import { getCookie } from "@/hooks/usePreviousPath";
 import { useRouter } from "next/navigation";
 import { FaTimes } from "react-icons/fa";
 

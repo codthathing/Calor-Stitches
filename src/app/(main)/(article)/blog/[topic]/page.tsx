@@ -1,4 +1,5 @@
 import PostMainSection from "@/components/post/PostMainSection";
+import { getPostDetails } from "@/lib/utils/getPostDetails";
 import BlogProvider from "@/store/providers/BlogProvider";
 
 export const generateMetadata = async ({ params }: { params: Promise<{ topic: string }> }) => {
@@ -9,11 +10,15 @@ export const generateMetadata = async ({ params }: { params: Promise<{ topic: st
 }
 
 export default async function BlogPage({ params }: { params: Promise<{ topic: string }> }) {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
   const { topic } = await params;
+  
+  const [post] = await Promise.all([
+    getPostDetails(decodeURIComponent(topic)),
+    new Promise((resolve) => setTimeout(resolve, 3000))
+  ])
 
   return (
-    <BlogProvider title={decodeURIComponent(topic)}>
+    <BlogProvider title={decodeURIComponent(topic)} post={post}>
       <PostMainSection />
     </BlogProvider>
   );

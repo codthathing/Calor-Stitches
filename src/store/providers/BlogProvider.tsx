@@ -2,6 +2,7 @@
 import { mockBlogPosts } from "@/lib/data/mockBlogPosts";
 import { createContext, ReactNode, useContext, useEffect } from "react";
 import { useArticleContext } from "./ArticleProvider";
+import { BlogType } from "@/types/blogType";
 
 interface BlogContext {
   id: number;
@@ -14,27 +15,25 @@ interface BlogContext {
 
 const BlogContext = createContext<BlogContext | null>(null);
 
-export default function BlogProvider({ children, title }: { children: ReactNode; title: string }) {
-  const blog = mockBlogPosts.find((post) => post.postHead === title);
+export default function BlogProvider({ children, post }: { children: ReactNode; title: string; post: BlogType | null }) {
   const { setPageLinks } = useArticleContext();
   
   useEffect(() => {
-    if (!blog) return;
+    if (!post) return;
+
     setPageLinks([
       { id: 0, linkDirect: "/", linkText: "home", linkArrow: true },
       { id: 1, linkDirect: "", linkText: "blog standard", linkArrow: true },
-      { id: 2, linkDirect: "", linkText: blog.postDetails.find(({ inner_text }) => inner_text)?.inner_text?.find(({ id }) => id === 0)?.text as string, linkArrow: true },
-      { id: 3, linkDirect: "", linkText: title, linkArrow: false },
+      { id: 2, linkDirect: "", linkText: post.postDetails.find(({ inner_text }) => inner_text)?.inner_text?.find(({ id }) => id === 0)?.text as string, linkArrow: true },
+      { id: 3, linkDirect: "", linkText: post["postHead"], linkArrow: false },
     ]);
 
-    return () => {
-      setPageLinks([]);
-    }
-  }, [blog, setPageLinks, title]);
+    return () => { setPageLinks([]); }
+  }, [post, setPageLinks]);
 
-  if (!blog) return null;
+  if (!post) return null;
 
-  const { id, postHead, postImage, postDetails, postAuthor, postParagraph } = blog;
+  const { id, postHead, postImage, postDetails, postAuthor, postParagraph } = post;
 
   return <BlogContext.Provider value={{ postHead, id, postImage, postAuthor, postDetails, postParagraph }}>{children}</BlogContext.Provider>;
 }

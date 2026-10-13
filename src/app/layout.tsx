@@ -9,6 +9,8 @@ import NewsSection from "@/components/news-letter/NewsSection";
 import PageComponents from "@/components/layout/PageComponents";
 import { ReactNode } from "react";
 import PagePathTracker from "@/components/layout/PagePathTracker";
+import { getProducts } from "@/lib/utils/getProducts";
+import { getPosts } from "@/lib/utils/getPosts";
 
 const cormorantInfant = Cormorant_Infant({
   subsets: ["latin"],
@@ -31,17 +33,20 @@ export const metadata: Metadata = {
   description: "Calor Stitches offers unique handmade clothing. Shop our latest collection of t-shirts, outerwears, activewears, jeans, dresses, sweaters, singlets, bags",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   modal,
 }: Readonly<{
   children: ReactNode;
   modal: ReactNode;
 }>) {
+  const products = await getProducts();
+  const posts = await getPosts();
+
   return (
     <html lang="en">
       <body className={`${cormorantInfant.variable} ${roboto.variable} ${yantramanav.variable}`}>
-        <NavigateProvider>
+        <NavigateProvider initialDetails={{products, posts}}>
           <PagePathTracker />
           <PageLayout>
             <Header />

@@ -5,15 +5,13 @@ import { useEffect } from "react";
 import { GeneralProductType } from "@/types/productType";
 
 export const useCheckCurrency = () => {
-  const { presentCurrency, setCurDetails, setProducts, /*setCollection, setPresentFilterProducts,*/ setCurSymbol, setProductShipValue, defaultCurrency, setDefaultCurrency } = useNavigateContext();
+  const { presentCurrency, setCurDetails, setProducts, setCurSymbol, setProductShipValue, defaultCurrency, setDefaultCurrency } = useNavigateContext();
 
   useEffect(() => {
     if (presentCurrency === "USD") {
       setCurDetails({ preNation: "United states (USD $)", preCur: "(USD $)", curFlag: "/assets/currency-flags/nigeria-flag.png", curName: "Naira ₦" });
 
       setProducts((prev) => changeCurrencyToDollar<GeneralProductType>(prev));
-      // setCollection((prev) => changeCurrencyToDollar<GeneralProductType>(prev));
-      // setPresentFilterProducts((prev) => changeCurrencyToDollar<GeneralProductType>(prev));
 
       setProductShipValue((prev) => ({ shipFee: prev.shipFee / 1000, min: prev.min / 1000, max: prev.max / 1000, minValue: prev.minValue / 1000, maxValue: prev.maxValue / 1000 }));
 
@@ -23,8 +21,6 @@ export const useCheckCurrency = () => {
 
       if (defaultCurrency) {
         setProducts((prev) => changeCurrencyToNaira<GeneralProductType>(prev));
-        // setCollection((prev) => changeCurrencyToNaira<GeneralProductType>(prev));
-        // setPresentFilterProducts((prev) => changeCurrencyToNaira<GeneralProductType>(prev));
 
         setProductShipValue((prev) => ({ shipFee: prev.shipFee * 1000, min: prev.min * 1000, max: prev.max * 1000, minValue: prev.minValue * 1000, maxValue: prev.maxValue * 1000 }));
       }
@@ -32,5 +28,5 @@ export const useCheckCurrency = () => {
     }
 
     return () => setDefaultCurrency(false);
-  }, [presentCurrency, defaultCurrency, /* setCollection, setPresentFilterProducts, */ setCurDetails, setCurSymbol, setDefaultCurrency, setProductShipValue, setProducts]);
+  }, [presentCurrency, defaultCurrency, setCurDetails, setCurSymbol, setDefaultCurrency, setProductShipValue, setProducts]);
 };

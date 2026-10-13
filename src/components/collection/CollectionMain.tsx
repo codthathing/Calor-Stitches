@@ -2,9 +2,16 @@
 import { ProductPagination, Products, ProductShown, useProductShownEffect } from "../product/ProductDisplayComponents";
 import PageNavigationLinks from "../ui/PageNavigationLinks";
 import ProductFilterDiv from "../product/ProductFilterDiv";
-import { GeneralProductType } from "@/types/productType";
+import { useMemo } from "react";
+import { useNavigateContext } from "@/store/providers/NavigateProvider";
 
-export default function CollectionMain({ category, collections } : { category: string; collections: GeneralProductType[] }) {
+export default function CollectionMain({ category } : { category: string }) {
+  const { products } = useNavigateContext();
+
+  const collections = useMemo(() => {
+    return products.filter(({ productInfo }) => productInfo?.find(({ name }) => name === "CARTEGORIES")?.links.find(({ text }) => text === category));
+  }, [products, category]);
+
   const { mapProducts, shownProducts, setMapProducts, pageNumbers, productValue } = useProductShownEffect({ products: collections });
 
   const pageLinkDetails = [

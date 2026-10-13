@@ -1,8 +1,9 @@
 "use client";
 import { GeneralProductType, SetState } from "@/types/productType";
-import { createContext, Dispatch, ReactNode, RefObject, SetStateAction, useContext, useRef, useState } from "react";
+import { createContext, Dispatch, ReactNode, RefObject, SetStateAction, useContext, useMemo, useRef, useState } from "react";
 import { useProductShownEffect } from "@/components/product/ProductDisplayComponents";
 import { useScrollTrap } from "@/hooks/useScrollTrap";
+import { useNavigateContext } from "./NavigateProvider";
 
 interface ReviewContext {
   relatedProducts: GeneralProductType[];
@@ -35,8 +36,20 @@ interface ReviewContext {
 
 const ReviewContext = createContext<ReviewContext | null>(null);
 
-export default function ReviewProvider({ children, product, relatedProducts }: { children: ReactNode; product: GeneralProductType; relatedProducts: GeneralProductType[] }) {
+export default function ReviewProvider({ children, title }: { children: ReactNode; title: string }) {
   const [aboutNavigation, setAboutNavigation] = useState<string>("DESCRIPTION");
+  const { products } = useNavigateContext();
+
+  const {product, relatedProducts} = useMemo(() => {
+
+    const presentProduct = products.find((product) => product.productName === title) as GeneralProductType;
+    
+    const presentProductCategory = presentProduct.productInfo?.find(({ name }) => name === "CARTEGORIES")?.links.map(({ text }) => text);
+    const relatedProducts = products.filter(({ productInfo, productName }) => productName !== presentProduct.productName && productInfo?.find(({ name }) => name === "CARTEGORIES")?.links.some(({ text }) => presentProductCategory?.includes(text))) as GeneralProductType[];
+
+    return {product: presentProduct, relatedProducts};
+  }, [])
+
   const { mapProducts, shownProducts, setMapProducts, pageNumbers } = useProductShownEffect({ products: relatedProducts });
   const sectionRef = useRef<HTMLElement>(null);
   const innerScrollRef = useRef<HTMLDivElement>(null);

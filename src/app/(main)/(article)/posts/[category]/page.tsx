@@ -14,7 +14,7 @@ export default async function PostsPage({ params } : { params: Promise<{ categor
 
   const [categoryPosts] = await Promise.all([
     getBlogsPosts(category),
-    new Promise((resolve) => setTimeout(resolve, 3000))
+    // new Promise((resolve) => setTimeout(resolve, 3000))
   ]);
 
   return (

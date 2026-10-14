@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 }
 
 export default async function ProductPage() {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },

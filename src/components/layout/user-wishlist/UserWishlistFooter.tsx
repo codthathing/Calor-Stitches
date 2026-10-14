@@ -1,6 +1,6 @@
 "use client";
+import NavigationLink from "@/components/common/NavigationLink";
 import PageButtons from "@/components/common/PageButtons";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function UserWishlistFooter() {
@@ -8,13 +8,13 @@ export default function UserWishlistFooter() {
 
   return (
     <footer className="wishListContainers wishlistInnerContainers" id="wishListLinkDiv">
-      <Link href={"/wishlist"} style={{ textDecoration: "none" }}><PageButtons type={"text"} text={"open wishlist page"} /></Link>
+      <NavigationLink href={"/wishlist"}><PageButtons type={"text"} text={"open wishlist page"} /></NavigationLink>
       <PageButtons
         type={"text"}
         text={"continue shopping"}
         buttonFunction={() => {
           router.back();
-          router.refresh();
+          // router.refresh();
         }}
       />
     </footer>

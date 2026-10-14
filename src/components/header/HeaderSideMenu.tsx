@@ -6,7 +6,7 @@ import { useNavigateContext } from "@/store/providers/NavigateProvider";
 import { usePathname, useRouter } from "next/navigation";
 
 const HeaderSideMenu = () => {
-  const { toggleSideMenu } = useNavigateContext();
+  const { toggleSideMenu, setToggleSideMenu } = useNavigateContext();
   const [currentSideMenu, setCurrentSideMenu] = useState<{ id: number; menuText: string; link?: string; path: false | string; borderStyle: { borderBottom: string } }[]>([
     { id: 0, menuText: "home", link: "/", path: false, borderStyle: { borderBottom: "" } },
     { id: 1, menuText: "shop", path: "/shop", borderStyle: { borderBottom: "" } },
@@ -41,8 +41,8 @@ const HeaderSideMenu = () => {
               return (
                 <span key={`${id}`} onClick={(e) => { 
                   if (link) {
+                    setToggleSideMenu(false);
                     router.push(link);
-                    router.refresh();
                   } else {
                     e.preventDefault() ;
                   }

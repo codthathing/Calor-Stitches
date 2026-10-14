@@ -12,7 +12,6 @@ export default function PageNavigationLinks({ pageLinks }: { pageLinks: { id: nu
           <li className="productListItem" onClick={(e) => { 
             if (linkDirect) {
               router.push(linkDirect);
-              router.refresh();
             } else {
               e.preventDefault() ;
             }

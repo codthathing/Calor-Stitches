@@ -1,4 +1,5 @@
 import Link from "next/link";
+import NavigationLink from "../common/NavigationLink";
 
 export default function PostGeneralCategories({ id, showComma }: { id: string; showComma: boolean; }) {
   const postCategoriesArray = [
@@ -13,7 +14,7 @@ export default function PostGeneralCategories({ id, showComma }: { id: string; s
   return (
     <div id={id}>
       {postCategoriesArray.map(({ id, text, style }) => {
-        return <Link key={id} href={`/posts/${text}`} className="post-categories-tag-text">{text}{(showComma && style) && ","} </Link>
+        return <NavigationLink key={id} href={`/posts/${text}`} className="post-categories-tag-text">{text}{(showComma && style) && ","} </NavigationLink>
       })}
     </div>
   );

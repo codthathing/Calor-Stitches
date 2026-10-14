@@ -4,14 +4,14 @@ import WishlistHandle from "@/components/wishlist/WishlistHandle";
 import WishlistProductSection from "@/components/wishlist/WishlistProductSection";
 import { Metadata } from "next";
 
-// export const dynamic = "force-dynamic";
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Wishlist Page"
 }
 
 export default async function WishlistPage() {
-  // await new Promise((resolve) => setTimeout(resolve, 3000));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },

@@ -1,9 +1,9 @@
-import Link from "next/link";
+import NavigationLink from "@/components/common/NavigationLink";
 
 export default function CartProductName({ productName }: { productName: string }) {
   return (
-    <Link className="cartProductName" style={{ textDecoration: "none" }} href={`/review/${productName}`}>
+    <NavigationLink className="cartProductName" href={`/review/${productName}`}>
       {productName}
-    </Link>
+    </NavigationLink>
   );
 }

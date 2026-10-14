@@ -1,4 +1,4 @@
-import Link from "next/link";
+import NavigationLink from "../common/NavigationLink";
 
 interface PostDetailsLink {
   inner_text?: { id: number; text: string; style: boolean }[];
@@ -11,10 +11,10 @@ export default function PostDetailsLinks({ inner_text, linkClass }: PostDetailsL
       {inner_text && (
         <div>
           {inner_text.map(({ id, text, style }) => (
-            <Link style={{ textDecoration: "none" }} href={`/posts/${text}`} className={linkClass} key={id}>
+            <NavigationLink href={`/posts/${text}`} className={linkClass} key={id}>
               {text}
               {style && ","}{" "}
-            </Link>
+            </NavigationLink>
           ))}
         </div>
       )}

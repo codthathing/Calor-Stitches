@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Fragment } from "react";
+import NavigationLink from "../common/NavigationLink";
 
 export default function FooterLinks({ type, linkTexts }: { type: string; linkTexts: { id: number; text: string }[] }) {
   return (
@@ -8,9 +8,9 @@ export default function FooterLinks({ type, linkTexts }: { type: string; linkTex
         return (
           <Fragment key={id}>
             {type === "link" ? (
-              <Link style={{ textDecoration: "none" }} href={`/collection/${text}`} className="linkText">
+              <NavigationLink href={`/collection/${text}`} className="linkText">
                 {text}
-              </Link>
+              </NavigationLink>
             ) : (
               <p key={id} className="linkText">
                 {text}

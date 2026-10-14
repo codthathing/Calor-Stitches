@@ -14,7 +14,7 @@ export default async function BlogPage({ params }: { params: Promise<{ topic: st
   
   const [post] = await Promise.all([
     getPostDetails(decodeURIComponent(topic)),
-    // new Promise((resolve) => setTimeout(resolve, 3000))
+    new Promise((resolve) => setTimeout(resolve, 3000))
   ])
 
   return (

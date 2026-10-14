@@ -1,6 +1,6 @@
 "use client";
 import { useBlogContext } from "@/store/providers/BlogProvider";
-import Link from "next/link";
+import NavigationLink from "../common/NavigationLink";
 
 export default function PostCategoryDetails() {
   const { postDetails } = useBlogContext();
@@ -10,7 +10,7 @@ export default function PostCategoryDetails() {
         return (
           <div id="post-category-div" key={id}>
             {inner_text!.map(({ id, text: category, style }) => (
-              <Link href={`/posts/${category}`} className="post-category-text" key={id}>{category}{style && ","}</Link>
+              <NavigationLink href={`/posts/${category}`} className="post-category-text" key={id}>{category}{style && ","}</NavigationLink>
             ))}
           </div>
         )

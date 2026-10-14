@@ -4,14 +4,14 @@ import PageNavigationLinks from "@/components/ui/PageNavigationLinks";
 import DisplayProvider from "@/store/providers/DisplayProvider";
 import { Metadata } from "next";
 
-// export const dynamic = "force-dynamic";
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Display Products"
 }
 
 export default async function DisplayPage() {
-  // await new Promise((resolve) => setTimeout(resolve, 3000));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
 
   const pageLinkDetails = [
     { id: 0, linkDirect: "/", linkText: "Home", linkArrow: true },

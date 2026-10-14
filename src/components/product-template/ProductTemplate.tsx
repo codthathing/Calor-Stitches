@@ -4,7 +4,7 @@ import AddToWishList from "./AddToWishlist";
 import ProductPrice from "./ProductPrice";
 import ProductTemplateFooter from "../layout/product-template/ProductTemplateFooter";
 import ProductStockAlert from "./ProductStockAlert";
-import Link from "next/link";
+import NavigationLink from "../common/NavigationLink";
 
 export default function ProductTemplate({ productArray }: { productArray: GeneralProductType[] }) {
   return (
@@ -14,11 +14,11 @@ export default function ProductTemplate({ productArray }: { productArray: Genera
           <div className="productDiv" key={id}>
             <div className="productInnerDiv">
               <Image src={productImage} loading="lazy" width={100} height={75} style={{ objectFit: "cover", width: "100%", height: "100%", position: "absolute", zIndex: "-1" }} alt={productName.toUpperCase()} />
-              <Link href={`/review/${productName}`} prefetch={false} style={{ textDecoration: "none" }}>
+              <NavigationLink href={`/review/${productName}`}>
                 <section className="orderOptions">
                   <ProductStockAlert productAvailable={productAvailable} wishlistStock={wishlistStock} cutOff={cutOff} />
                 </section>
-              </Link>
+              </NavigationLink>
               <div className="optionBtnsDiv">
                 <div className="optionDiv optionDivWishlist">
                   <AddToWishList id={id} showText={false} showIcon={true} />

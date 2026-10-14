@@ -1,6 +1,6 @@
 import PageButtons from "@/components/common/PageButtons";
-import Link from "next/link";
 import CartTotalText from "./CartTotalText";
+import NavigationLink from "@/components/common/NavigationLink";
 
 export default function CartTotalMain() {
   return (
@@ -10,8 +10,8 @@ export default function CartTotalMain() {
         <CartTotalText />
       </div>
       <div id="cartButtonsDiv">
-        <Link href={"/cart"} prefetch={false} style={{ textDecoration: "none" }}><PageButtons type={"button"} buttonType={"black-button"} buttonClass={"navBtn cartButtons"} text={"view cart"} /></Link>
-        <Link href={"/checkout"} style={{ textDecoration: "none" }}><PageButtons type={"button"} buttonType={"white-button"} buttonClass={"navBtn cartButtons"} text={"checkout"} /></Link>
+        <NavigationLink href={"/cart"}><PageButtons type={"button"} buttonType={"black-button"} buttonClass={"navBtn cartButtons"} text={"view cart"} /></NavigationLink>
+        <NavigationLink href={"/checkout"}><PageButtons type={"button"} buttonType={"white-button"} buttonClass={"navBtn cartButtons"} text={"checkout"} /></NavigationLink>
       </div>
     </main>
   );

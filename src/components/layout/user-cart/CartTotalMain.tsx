@@ -10,7 +10,7 @@ export default function CartTotalMain() {
         <CartTotalText />
       </div>
       <div id="cartButtonsDiv">
-        <Link href={"/cart"}   style={{ textDecoration: "none" }}><PageButtons type={"button"} buttonType={"black-button"} buttonClass={"navBtn cartButtons"} text={"view cart"} /></Link>
+        <Link href={"/cart"} prefetch={false} style={{ textDecoration: "none" }}><PageButtons type={"button"} buttonType={"black-button"} buttonClass={"navBtn cartButtons"} text={"view cart"} /></Link>
         <Link href={"/checkout"} style={{ textDecoration: "none" }}><PageButtons type={"button"} buttonType={"white-button"} buttonClass={"navBtn cartButtons"} text={"checkout"} /></Link>
       </div>
     </main>
